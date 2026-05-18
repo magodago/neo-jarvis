@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>NEO</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --c:#00f0ff;--c2:#0066ff;--c3:#00ff88;--c4:#ff3366;--c5:#ffaa00;
+  --bg:#020b10;--bg2:rgba(0,15,28,0.95);
+  --glow:rgba(0,240,255,0.12);--glow2:rgba(0,240,255,0.35);
+  --b:rgba(0,240,255,0.13);--b2:rgba(0,240,255,0.45);
+  --t1:#d0f4ff;--t2:#6ab0c8;--t3:#2a5870;
+}
+html,body{width:100%;height:100%;background:var(--bg);color:var(--t1);font-family:'Rajdhani',sans-serif;overflow:hidden}
+canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.06) 3px,rgba(0,0,0,0.06) 4px);pointer-events:none;z-index:1}
+
+.app{position:relative;z-index:2;width:100%;height:100vh;display:flex;flex-direction:column;padding:10px;gap:8px;overflow:hidden}
+
+/* HEADER */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--b);background:var(--bg2);backdrop-filter:blur(20px);flex-shrink:0;position:relative;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}
+.hdr::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c),transparent);animation:hl 3s ease-in-out infinite}
+@keyframes hl{0%,100%{opacity:.3}50%{opacity:1}}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-orb{width:32px;height:32px;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lor{position:absolute;border-radius:50%;border:1px solid rgba(0,240,255,.25)}
+.lor:nth-child(1){width:32px;height:32px;animation:spin 6s linear infinite}
+.lor:nth-child(2){width:22px;height:22px;border-style:dashed;animation:spin 4s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loc{width:10px;height:10px;background:var(--c);border-radius:50%;box-shadow:0 0 12px var(--c);animation:throb 2s ease-in-out infinite;z-index:1}
+@keyframes throb{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
+.logo h1{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;letter-spacing:8px;color:var(--c);text-shadow:0 0 14px var(--c)}
+.logo p{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--t3);letter-spacing:2px}
+.hdr-right{display:flex;align-items:center;gap:8px}
+.hstat{text-align:right}
+.hstat-l{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--t3);letter-spacing:1px;display:block}
+.hstat-v{font-family:'Orbitron',monospace;font-size:10px;display:block}
+.sr{display:inline-block;width:6px;height:6px;background:var(--c3);border-radius:50%;box-shadow:0 0 6px var(--c3);margin-right:4px;animation:throb 2s infinite}
+.cfg-btn{background:transparent;border:1px solid var(--b);color:var(--t2);padding:6px 10px;font-family:'Share Tech Mono',monospace;font-size:9px;cursor:pointer;letter-spacing:1px;transition:all .2s;border-radius:2px}
+.cfg-btn:active{background:var(--glow);border-color:var(--c)}
+
+/* HERMES BAR */
+.hbar{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;border:1px solid var(--b);background:rgba(0,8,18,.9);font-family:'Share Tech Mono',monospace;font-size:9px;flex-shrink:0}
+.hbar-left{display:flex;align-items:center;gap:8px}
+.hdot{width:7px;height:7px;border-radius:50%;background:var(--c4);box-shadow:0 0 5px var(--c4);transition:all .4s;flex-shrink:0}
+.hdot.on{background:var(--c3);box-shadow:0 0 8px var(--c3);animation:throb 2s infinite}
+.hbar-url{color:var(--c);font-size:9px}
+.hbar-hint{color:var(--t3);font-size:8px}
+
+/* ORB SECTION */
+.orb-section{border:1px solid var(--b);background:var(--bg2);backdrop-filter:blur(20px);padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;position:relative;overflow:hidden}
+.orb-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c),transparent);animation:hl 3s ease-in-out infinite}
+
+.orb-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.osv{position:absolute;width:100%;height:100%}
+.osv.r1{animation:spin 12s linear infinite}
+.osv.r2{animation:spin 8s linear infinite reverse}
+.osv.r3{animation:spin 22s linear infinite}
+.pr{position:absolute;border-radius:50%;border:1px solid rgba(0,240,255,.3);animation:pout 2s ease-out infinite;display:none}
+.pr:nth-child(4){width:95px;height:95px}
+.pr:nth-child(5){width:112px;height:112px;animation-delay:.5s}
+.pr:nth-child(6){width:128px;height:128px;animation-delay:1s}
+@keyframes pout{0%{transform:scale(.85);opacity:.7}100%{transform:scale(1.02);opacity:0}}
+.orb-core{width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(0,240,255,.2),rgba(0,100,200,.08),rgba(0,5,15,.9));border:1.5px solid var(--c);box-shadow:0 0 22px rgba(0,240,255,.2),inset 0 0 22px rgba(0,240,255,.06);display:flex;align-items:center;justify-content:center;position:relative;z-index:3;transition:all .3s;user-select:none}
+.orb-core.listening{border-color:white;box-shadow:0 0 45px rgba(0,240,255,.7),inset 0 0 35px rgba(0,240,255,.2);animation:ob .8s ease-in-out infinite}
+.orb-core.speaking{border-color:var(--c3);box-shadow:0 0 45px rgba(0,255,136,.5),inset 0 0 25px rgba(0,255,136,.12);animation:ob .4s ease-in-out infinite}
+@keyframes ob{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.orb-inner{position:absolute;width:60px;height:60px;border-radius:50%;border:1px dashed rgba(0,240,255,.12);animation:spin 5s linear infinite}
+.orb-glyph{font-size:24px;color:var(--c);filter:drop-shadow(0 0 6px var(--c));position:relative;z-index:1;transition:all .3s}
+.orb-label{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:3px;color:var(--t3);text-align:center}
+.voice-state{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--c);text-shadow:0 0 6px var(--c);text-align:center;min-height:14px}
+
+/* WAVEFORM */
+.waveform{display:flex;align-items:center;justify-content:center;gap:2px;height:28px;width:100%}
+.wb{width:3px;background:var(--c);border-radius:2px;height:3px;opacity:.2;transition:height .1s,opacity .1s;box-shadow:0 0 3px var(--c)}
+
+/* TRANSCRIPT */
+.transcript{width:100%;padding:6px 10px;border:1px solid var(--b);background:rgba(0,0,0,.3);font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--t2);min-height:26px;max-height:40px;overflow-y:auto;line-height:1.5}
+.transcript.empty{color:var(--t3);font-style:italic}
+
+/* LAUNCHER */
+.launcher{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;flex-shrink:0}
+.lb{background:transparent;border:1px solid var(--b);color:var(--t2);padding:8px 4px;font-family:'Share Tech Mono',monospace;cursor:pointer;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative;overflow:hidden}
+.lb::before{content:'';position:absolute;inset:0;background:var(--glow);opacity:0;transition:opacity .2s}
+.lb:active::before{opacity:1}
+.lb:active{border-color:var(--b2)}
+.lb-icon{font-size:18px}
+.lb-name{font-size:8px;letter-spacing:1px;color:var(--t1)}
+.lb-desc{font-size:7px;color:var(--t3)}
+
+/* CHAT */
+.chat-box{border:1px solid var(--b);background:var(--bg2);display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0}
+.chat-hdr{padding:6px 12px;border-bottom:1px solid var(--b);font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:2px;color:var(--t3);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.chat-msgs{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:7px;scrollbar-width:thin;scrollbar-color:var(--b2) transparent}
+.msg{font-size:13px;line-height:1.5;max-width:90%;padding:7px 10px;border:1px solid var(--b);font-family:'Rajdhani',sans-serif;white-space:pre-wrap;word-break:break-word;animation:fi .3s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.msg.user{align-self:flex-end;border-color:rgba(0,240,255,.2);background:rgba(0,240,255,.04);clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)}
+.msg.neo{align-self:flex-start;background:rgba(0,12,25,.7)}
+.msg.neo::before{content:'NEO //';display:block;font-family:'Orbitron',monospace;font-size:7px;letter-spacing:2px;color:var(--c);margin-bottom:3px}
+.msg.sys{align-self:center;border:none;background:none;color:var(--t3);font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2px}
+.msg.err{border-color:rgba(255,51,102,.3);background:rgba(255,51,102,.05);color:#ff8899;align-self:flex-start}
+.msg.err::before{content:'ERR //';display:block;font-family:'Orbitron',monospace;font-size:7px;color:var(--c4);margin-bottom:2px}
+.typing-dots{display:none;align-self:flex-start;gap:4px;padding:7px 10px}
+.typing-dots.on{display:flex}
+.typing-dots span{width:5px;height:5px;background:var(--c);border-radius:50%;animation:bl 1.2s ease-in-out infinite}
+.typing-dots span:nth-child(2){animation-delay:.2s}
+.typing-dots span:nth-child(3){animation-delay:.4s}
+@keyframes bl{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+.chat-input-row{padding:8px 10px;border-top:1px solid var(--b);display:flex;gap:6px;flex-shrink:0}
+.neo-input{flex:1;background:rgba(0,0,0,.5);border:1px solid var(--b2);color:var(--c);padding:8px 10px;font-family:'Share Tech Mono',monospace;font-size:12px;outline:none;caret-color:var(--c);border-radius:2px;-webkit-appearance:none}
+.neo-input::placeholder{color:var(--t3)}
+.neo-input:focus{border-color:var(--c);box-shadow:0 0 8px var(--glow)}
+.send-btn{background:transparent;border:1px solid var(--c);color:var(--c);padding:8px 14px;font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2px;cursor:pointer;transition:all .2s;white-space:nowrap;border-radius:2px}
+.send-btn:active{background:var(--glow);transform:scale(.97)}
+
+/* METRICS ROW */
+.metrics-row{display:flex;gap:6px;flex-shrink:0}
+.metric-card{flex:1;border:1px solid var(--b);background:rgba(0,10,20,.8);padding:6px 8px}
+.mc-label{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--t3);letter-spacing:1px;display:block}
+.mc-val{font-family:'Orbitron',monospace;font-size:11px;color:var(--c);text-shadow:0 0 6px var(--c);display:block}
+.mc-bar{height:2px;background:rgba(0,240,255,.08);margin-top:4px}
+.mc-fill{height:100%;background:linear-gradient(90deg,var(--c2),var(--c));transition:width 1s ease}
+
+/* FOOTER */
+.ftr{display:flex;align-items:center;justify-content:space-between;padding:4px 12px;border:1px solid var(--b);background:var(--bg2);font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--t3);flex-shrink:0}
+.ftr-clock{font-family:'Orbitron',monospace;font-size:10px;color:var(--c);text-shadow:0 0 5px var(--c)}
+
+/* MODALS */
+.overlay{position:fixed;inset:0;z-index:100;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.8);backdrop-filter:blur(10px)}
+.overlay.open{display:flex}
+.modal{width:100%;max-width:500px;border:1px solid var(--b2);border-bottom:none;background:var(--bg);padding:20px 16px 30px;position:relative;max-height:85vh;overflow-y:auto}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.modal-title{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:3px;color:var(--c);margin-bottom:16px;text-transform:uppercase}
+.field{margin-bottom:12px}
+.field label{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--t3);letter-spacing:2px;display:block;margin-bottom:5px;text-transform:uppercase}
+.field input,.field textarea,.field select{width:100%;background:rgba(0,0,0,.6);border:1px solid var(--b2);color:var(--c);padding:10px 12px;font-family:'Share Tech Mono',monospace;font-size:12px;outline:none;-webkit-appearance:none;border-radius:2px}
+.field textarea{resize:vertical;min-height:80px}
+.field input::placeholder,.field textarea::placeholder{color:var(--t3)}
+.field input:focus,.field textarea:focus{border-color:var(--c)}
+.field .note{font-size:8px;color:var(--t3);margin-top:4px;font-family:'Share Tech Mono',monospace}
+.field select option{background:#020b10}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.neo-btn{background:transparent;border:1px solid var(--c);color:var(--c);padding:10px 16px;font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;border-radius:2px}
+.neo-btn:active{background:var(--glow)}
+.neo-btn.red{border-color:var(--c4);color:var(--c4)}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--b2)}
+</style>
+</head>
+<body>
+<canvas id="bgc"></canvas>
+
+<!-- SETTINGS -->
+<div class="overlay" id="cfg-modal">
+  <div class="modal">
+    <div class="modal-title">// Configuración</div>
+    <div class="field">
+      <label>DeepSeek API Key</label>
+      <input type="password" id="cfg-ds" placeholder="sk-...">
+      <div class="note">platform.deepseek.com/api_keys · Para chat y tareas</div>
+    </div>
+    <div class="field">
+      <label>OpenAI API Key — Voz Realtime</label>
+      <input type="password" id="cfg-oai" placeholder="sk-proj-...">
+      <div class="note">platform.openai.com · Solo necesaria para voz</div>
+    </div>
+    <div class="field">
+      <label>Hermes Bridge URL</label>
+      <input type="text" id="cfg-hermes" placeholder="https://subsidiaries-retain-kitchen-threaded.trycloudflare.com">
+      <div class="note">IP de tu portátil en la red WiFi + puerto 7777</div>
+    </div>
+    <div class="modal-actions">
+      <button class="neo-btn red" onclick="closeModal('cfg-modal')">Cancelar</button>
+      <button class="neo-btn" onclick="saveCfg()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TASK MODAL -->
+<div class="overlay" id="task-modal">
+  <div class="modal">
+    <div class="modal-title" id="t-title">GENERAR</div>
+    <div class="field">
+      <label>Descripción</label>
+      <textarea id="t-desc" rows="4" placeholder=""></textarea>
+    </div>
+    <div class="field">
+      <label>Tecnología</label>
+      <select id="t-tech">
+        <option>HTML/CSS/JS puro</option>
+        <option>React con Tailwind</option>
+        <option>Python</option>
+        <option>Node.js</option>
+        <option>la más adecuada</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Estilo visual</label>
+      <select id="t-style">
+        <option>futurista oscuro con animaciones</option>
+        <option>minimalista y limpio</option>
+        <option>colorido y moderno</option>
+        <option>retro / pixel art</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="neo-btn red" onclick="closeModal('task-modal')">Cancelar</button>
+      <button class="neo-btn" onclick="execTask()">Ejecutar →</button>
+    </div>
+  </div>
+</div>
+
+<div class="app">
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="logo">
+    <div class="logo-orb">
+      <div class="lor"></div><div class="lor"></div>
+      <div class="loc"></div>
+    </div>
+    <div>
+      <h1>NEO</h1>
+      <p>JARVIS AI · v2.0</p>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="hstat">
+      <span class="hstat-l">Estado</span>
+      <span class="hstat-v"><span class="sr"></span>ACTIVO</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-l">Sesión</span>
+      <span class="hstat-v" id="hdr-session">00:00</span>
+    </div>
+    <button class="cfg-btn" onclick="openModal('cfg-modal')">⚙</button>
+  </div>
+</header>
+
+<!-- HERMES BAR -->
+<div class="hbar">
+  <div class="hbar-left">
+    <div class="hdot" id="hdot"></div>
+    <span style="color:var(--t3);font-size:9px">HERMES:</span>
+    <span class="hbar-url" id="hbar-url">no configurado</span>
+  </div>
+  <span class="hbar-hint" id="hbar-hint">configura en ⚙</span>
+</div>
+
+<!-- ORB -->
+<div class="orb-section">
+  <div class="orb-wrap" onclick="toggleCall()" id="orb-wrap">
+    <svg class="osv r1" viewBox="0 0 130 130" fill="none">
+      <circle cx="65" cy="65" r="60" stroke="rgba(0,240,255,0.13)" stroke-width="1" stroke-dasharray="8 5"/>
+      <circle cx="65" cy="65" r="48" stroke="rgba(0,240,255,0.07)" stroke-width=".5"/>
+      <polygon points="65,5 68,13 65,10 62,13" fill="rgba(0,240,255,0.5)"/>
+    </svg>
+    <svg class="osv r2" viewBox="0 0 130 130" fill="none">
+      <circle cx="65" cy="65" r="54" stroke="rgba(0,100,255,0.16)" stroke-width="1" stroke-dasharray="3 7"/>
+      <polygon points="65,11 68,18 65,15 62,18" fill="rgba(0,100,255,0.5)"/>
+    </svg>
+    <svg class="osv r3" viewBox="0 0 130 130" fill="none">
+      <circle cx="65" cy="65" r="63" stroke="rgba(0,240,255,0.04)" stroke-width=".5" stroke-dasharray="14 9"/>
+    </svg>
+    <div class="pr" id="pr1"></div>
+    <div class="pr" id="pr2"></div>
+    <div class="pr" id="pr3"></div>
+    <div class="orb-core" id="orb-core">
+      <div class="orb-inner"></div>
+      <span class="orb-glyph" id="orb-glyph">🎙</span>
+    </div>
+  </div>
+  <div class="orb-label" id="orb-label">TOCA PARA LLAMAR A NEO</div>
+  <div class="voice-state" id="vstate">Configura las API keys en ⚙</div>
+  <div class="waveform" id="waveform"></div>
+  <div class="transcript empty" id="transcript">Las transcripciones aparecerán aquí...</div>
+</div>
+
+<!-- LAUNCHER -->
+<div class="launcher">
+  <button class="lb" onclick="openTask('WEB APP','Describe la web app','Ej: App de hábitos con calendario y estadísticas, modo oscuro, responsive')">
+    <span class="lb-icon">🌐</span>
+    <span class="lb-name">WEB APP</span>
+    <span class="lb-desc">Dashboard, landing...</span>
+  </button>
+  <button class="lb" onclick="openTask('JUEGO','Describe el juego','Ej: Plataformas 2D pixel art, 3 niveles, monedas y enemigos')">
+    <span class="lb-icon">🎮</span>
+    <span class="lb-name">JUEGO</span>
+    <span class="lb-desc">HTML5, pixel art...</span>
+  </button>
+  <button class="lb" onclick="openTask('CURSO','Describe el curso','Ej: Python para principiantes, 10 módulos con ejercicios y proyecto final')">
+    <span class="lb-icon">📚</span>
+    <span class="lb-name">CURSO</span>
+    <span class="lb-desc">Módulos, ejercicios...</span>
+  </button>
+  <button class="lb" onclick="openTask('SCRIPT','Describe la automatización','Ej: Script que organice archivos por fecha y genere log diario')">
+    <span class="lb-icon">⚡</span>
+    <span class="lb-name">SCRIPT</span>
+    <span class="lb-desc">Bots, pipelines...</span>
+  </button>
+  <button class="lb" onclick="openTask('API','Describe la API','Ej: REST con Node.js, auth JWT, CRUD usuarios, SQLite')">
+    <span class="lb-icon">🔧</span>
+    <span class="lb-name">API</span>
+    <span class="lb-desc">REST, backend...</span>
+  </button>
+  <button class="lb" onclick="openTask('ANÁLISIS','¿Qué quieres analizar?','Ej: Analiza mi disco, encuentra archivos grandes, genera informe')">
+    <span class="lb-icon">🔍</span>
+    <span class="lb-name">ANÁLISIS</span>
+    <span class="lb-desc">Datos, informes...</span>
+  </button>
+</div>
+
+<!-- METRICS -->
+<div class="metrics-row">
+  <div class="metric-card">
+    <span class="mc-label">CPU</span>
+    <span class="mc-val" id="mc-cpu">--</span>
+    <div class="mc-bar"><div class="mc-fill" id="mf-cpu" style="width:0"></div></div>
+  </div>
+  <div class="metric-card">
+    <span class="mc-label">RAM</span>
+    <span class="mc-val" id="mc-ram">--</span>
+    <div class="mc-bar"><div class="mc-fill" id="mf-ram" style="width:0;background:linear-gradient(90deg,#00aaff,#00ff88)"></div></div>
+  </div>
+  <div class="metric-card">
+    <span class="mc-label">COSTE</span>
+    <span class="mc-val" id="mc-cost">$0.00</span>
+    <div class="mc-bar"><div class="mc-fill" id="mf-cost" style="width:0;background:linear-gradient(90deg,#aa00ff,#ff3366)"></div></div>
+  </div>
+  <div class="metric-card">
+    <span class="mc-label">MODELO</span>
+    <span class="mc-val" style="font-size:8px;letter-spacing:0" id="mc-model">DeepSeek</span>
+    <div class="mc-bar"><div class="mc-fill" style="width:100%;background:linear-gradient(90deg,#0066ff,#00f0ff)"></div></div>
+  </div>
+</div>
+
+<!-- CHAT -->
+<div class="chat-box">
+  <div class="chat-hdr">
+    <span>// CANAL NEO</span>
+    <button style="background:transparent;border:1px solid var(--b);color:var(--t3);padding:2px 8px;font-family:'Share Tech Mono',monospace;font-size:7px;cursor:pointer;letter-spacing:1px" onclick="clearChat()">LIMPIAR</button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs">
+    <div class="msg sys">— NEO ONLINE · JARVIS v2.0 —</div>
+    <div class="msg neo">Hola. Soy NEO. Configura las API keys en ⚙ y el bridge de Hermes para empezar. Puedo hablar contigo, crear apps, juegos, cursos y ejecutar tareas en tu portátil via Hermes.</div>
+  </div>
+  <div class="typing-dots" id="typing"><span></span><span></span><span></span></div>
+  <div class="chat-input-row">
+    <input type="text" class="neo-input" id="chat-input" placeholder="Escribe un comando..." onkeydown="if(event.key==='Enter')sendMsg()">
+    <button class="send-btn" onclick="sendMsg()">→</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <span>DAVID ORTIZ · ILLESCAS</span>
+  <span class="ftr-clock" id="ftr-clock">00:00:00</span>
+  <span id="ftr-hermes" style="color:var(--c4)">HERMES OFFLINE</span>
+</footer>
+
+</div>
+
+<script>
+const S={
+  ds:localStorage.getItem('neo_ds')||'',
+  oai:localStorage.getItem('neo_oai')||'',
+  hermesUrl:localStorage.getItem('neo_hermes')||'https://subsidiaries-retain-kitchen-threaded.trycloudflare.com',
+  hermesOk:false,callActive:false,cost:0,t0:Date.now(),
+  pc:null,dc:null,aud:null,stream:null,taskType:'webapp',waveOn:false,
+  cpuH:[]
+};
+
+const SYS=`Eres NEO, el asistente de inteligencia artificial de David Ortiz en Illescas, Toledo. Hablas siempre en español. Eres directo, técnico y eficiente. Cuando construyes algo lo entregas COMPLETO y funcional. Confirmas cuando una tarea se completa y cuando el resultado llega a Telegram.`;
+
+function init(){
+  buildWave(); startMetrics(); startClock(); startSession();
+  document.getElementById('cfg-ds').value=S.ds;
+  document.getElementById('cfg-oai').value=S.oai;
+  document.getElementById('cfg-hermes').value=S.hermesUrl;
+  updateHermesDisplay();
+  if(!S.ds&&!S.oai) setTimeout(()=>openModal('cfg-modal'),700);
+  if(S.hermesUrl) pingHermes();
+  setInterval(pingHermes,12000);
+  startCanvas();
+}
+
+// MODALS
+function openModal(id){document.getElementById(id).classList.add('open')}
+function closeModal(id){document.getElementById(id).classList.remove('open')}
+
+function saveCfg(){
+  S.ds=document.getElementById('cfg-ds').value.trim();
+  S.oai=document.getElementById('cfg-oai').value.trim();
+  S.hermesUrl=document.getElementById('cfg-hermes').value.trim().replace(/\/$/,'');
+  localStorage.setItem('neo_ds',S.ds);
+  localStorage.setItem('neo_oai',S.oai);
+  localStorage.setItem('neo_hermes',S.hermesUrl);
+  closeModal('cfg-modal');
+  updateHermesDisplay();
+  addMsg('sys','— CONFIGURACIÓN GUARDADA —');
+  setVS(S.oai?'Voz lista · Toca el orbe para llamar':'Chat listo · Escribe o usa los botones');
+  pingHermes();
+}
+
+function updateHermesDisplay(){
+  const url=S.hermesUrl||'no configurado';
+  document.getElementById('hbar-url').textContent=S.hermesUrl||'no configurado';
+  document.getElementById('hbar-hint').textContent=S.hermesUrl?'neo-bridge.py corriendo':'configura en ⚙';
+}
+
+// HERMES BRIDGE
+async function pingHermes(){
+  if(!S.hermesUrl){setHermes(false);return;}
+  try{
+    const r=await fetch(S.hermesUrl+'/health',{signal:AbortSignal.timeout(3000)});
+    setHermes(r.ok);
+  }catch{setHermes(false);}
+}
+
+function setHermes(ok){
+  S.hermesOk=ok;
+  const dot=document.getElementById('hdot');
+  const ftr=document.getElementById('ftr-hermes');
+  if(ok){dot.classList.add('on');ftr.textContent='HERMES ONLINE';ftr.style.color='var(--c3)';}
+  else{dot.classList.remove('on');ftr.textContent='HERMES OFFLINE';ftr.style.color='var(--c4)';}
+}
+
+async function callHermes(prompt){
+  if(!S.hermesOk||!S.hermesUrl) return null;
+  try{
+    const r=await fetch(S.hermesUrl,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prompt})
+    });
+    const d=await r.json();
+    return d.response||null;
+  }catch(e){return null;}
+}
+
+// DEEPSEEK DIRECT
+async function callDeepSeek(prompt){
+  if(!S.ds) return null;
+  try{
+    const r=await fetch('https://api.deepseek.com/v1/chat/completions',{
+      method:'POST',
+      headers:{'Authorization':'Bearer '+S.ds,'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'deepseek-chat',
+        messages:[{role:'system',content:SYS},{role:'user',content:prompt}],
+        max_tokens:1500
+      })
+    });
+    const d=await r.json();
+    if(d.error) throw new Error(d.error.message);
+    updateCost((d.usage?.total_tokens||200)/1000000*0.87);
+    return d.choices?.[0]?.message?.content||null;
+  }catch(e){addMsg('err','DeepSeek: '+e.message);return null;}
+}
+
+// TASK LAUNCHER
+function openTask(type,sub,placeholder){
+  S.taskType=type;
+  document.getElementById('t-title').textContent=type;
+  document.getElementById('t-desc').placeholder=placeholder;
+  document.getElementById('t-desc').value='';
+  openModal('task-modal');
+  setTimeout(()=>document.getElementById('t-desc').focus(),200);
+}
+
+async function execTask(){
+  const desc=document.getElementById('t-desc').value.trim();
+  if(!desc){document.getElementById('t-desc').style.borderColor='var(--c4)';return;}
+  const tech=document.getElementById('t-tech').value;
+  const style=document.getElementById('t-style').value;
+  closeModal('task-modal');
+
+  const prompt=`Crea ${S.taskType.toLowerCase()} con estas especificaciones:
+
+DESCRIPCIÓN: ${desc}
+TECNOLOGÍA: ${tech}
+ESTILO: ${style}
+
+Instrucciones:
+- Entrega el resultado COMPLETO y funcional
+- Guarda en ~/Desktop/neo-output/ con nombre descriptivo
+- Envía notificación a Telegram con el nombre del archivo y descripción
+- Confirma cuando esté todo completado`;
+
+  addMsg('user','📋 '+S.taskType+': '+desc.substring(0,60)+(desc.length>60?'...':''));
+  showTyping(true);
+
+  let reply=await callHermes(prompt);
+  if(!reply) reply=await callDeepSeek(prompt);
+  if(!reply) reply='Sin conexión. Configura Hermes bridge o DeepSeek API en ⚙.';
+
+  showTyping(false);
+  addMsg('neo',reply);
+}
+
+// VOICE
+async function toggleCall(){
+  if(S.callActive){endCall();return;}
+  if(!S.oai){addMsg('err','Necesitas API key de OpenAI para la voz.\nConfigura en ⚙ Config.');openModal('cfg-modal');return;}
+  await startCall();
+}
+
+async function startCall(){
+  try{
+    S.callActive=true;setOrb('listening');setPulse(true);setVS('Conectando...');
+    const tr=await fetch('https://api.openai.com/v1/realtime/sessions',{
+      method:'POST',
+      headers:{'Authorization':'Bearer '+S.oai,'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'gpt-4o-realtime-preview-2024-12-17',voice:'alloy',
+        instructions:SYS+' Cuando el usuario pida crear algo, confirma que Hermes lo ejecutará y llegará a Telegram.',
+        input_audio_transcription:{model:'whisper-1'}
+      })
+    });
+    if(!tr.ok){const e=await tr.json();throw new Error(e.error?.message||'Error token');}
+    const{client_secret}=await tr.json();
+    S.pc=new RTCPeerConnection();
+    S.aud=new Audio();S.aud.autoplay=true;
+    S.pc.ontrack=e=>{S.aud.srcObject=e.streams[0];};
+    S.stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    S.stream.getTracks().forEach(t=>S.pc.addTrack(t,S.stream));
+    S.dc=S.pc.createDataChannel('oai-events');
+    S.dc.onmessage=onRT;
+    const offer=await S.pc.createOffer();
+    await S.pc.setLocalDescription(offer);
+    const sdpR=await fetch('https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17',{
+      method:'POST',
+      headers:{'Authorization':'Bearer '+client_secret.value,'Content-Type':'application/sdp'},
+      body:offer.sdp
+    });
+    await S.pc.setRemoteDescription({type:'answer',sdp:await sdpR.text()});
+    setVS('En llamada · Habla con NEO');
+    addMsg('sys','— LLAMADA INICIADA —');
+    S._ci=setInterval(()=>{if(!S.callActive)return clearInterval(S._ci);updateCost(0.005);},1000);
+  }catch(e){
+    S.callActive=false;setOrb('idle');setPulse(false);
+    setVS('Error: '+e.message);addMsg('err',e.message);
+  }
+}
+
+function onRT(ev){
+  try{
+    const d=JSON.parse(ev.data);
+    if(d.type==='input_audio_buffer.speech_started'){setVS('Escuchando...');animWave(true);}
+    if(d.type==='input_audio_buffer.speech_stopped'){setVS('Procesando...');animWave(false);}
+    if(d.type==='conversation.item.input_audio_transcription.completed'&&d.transcript?.trim()){
+      const t=d.transcript.trim();
+      const el=document.getElementById('transcript');
+      el.textContent='▸ '+t;el.classList.remove('empty');
+      addMsg('user',t);
+      if(S.hermesOk&&/crea|genera|haz|construye|escribe|desarrolla/i.test(t)){
+        callHermes(t).then(r=>{if(r) addMsg('neo',r);});
+      }
+    }
+    if(d.type==='response.audio.delta'){setVS('NEO hablando...');setOrb('speaking');animWave(true);}
+    if(d.type==='response.audio_transcript.done'&&d.transcript?.trim()){
+      addMsg('neo',d.transcript.trim());setVS('En llamada · Escuchando...');setOrb('listening');animWave(false);
+    }
+  }catch{}
+}
+
+function endCall(){
+  S.callActive=false;
+  if(S.pc){S.pc.close();S.pc=null;}
+  if(S.stream){S.stream.getTracks().forEach(t=>t.stop());S.stream=null;}
+  if(S.aud){S.aud.srcObject=null;}
+  S.dc=null;setOrb('idle');setPulse(false);animWave(false);
+  setVS('Llamada finalizada');addMsg('sys','— LLAMADA TERMINADA —');
+}
+
+function setOrb(s){
+  const c=document.getElementById('orb-core'),g=document.getElementById('orb-glyph'),l=document.getElementById('orb-label');
+  c.className='orb-core';
+  if(s==='listening'){c.classList.add('listening');g.textContent='⏹';l.textContent='TOCA PARA COLGAR';}
+  else if(s==='speaking'){c.classList.add('speaking');g.textContent='🔊';l.textContent='NEO HABLANDO...';}
+  else{g.textContent='🎙';l.textContent='TOCA PARA LLAMAR A NEO';}
+}
+function setPulse(on){['pr1','pr2','pr3'].forEach(id=>document.getElementById(id).style.display=on?'block':'none');}
+function setVS(t){document.getElementById('vstate').textContent=t;}
+
+// CHAT
+async function sendMsg(){
+  const inp=document.getElementById('chat-input');
+  const txt=inp.value.trim();if(!txt)return;
+  inp.value='';addMsg('user',txt);showTyping(true);
+  let r=await callHermes(txt);
+  if(!r) r=await callDeepSeek(txt);
+  if(!r) r='Configura Hermes bridge o DeepSeek API en ⚙.';
+  showTyping(false);addMsg('neo',r);
+}
+
+function addMsg(type,text){
+  const c=document.getElementById('chat-msgs');
+  const d=document.createElement('div');d.className='msg '+type;d.textContent=text;
+  c.appendChild(d);c.scrollTop=c.scrollHeight;
+}
+function showTyping(on){
+  const t=document.getElementById('typing');t.className='typing-dots'+(on?' on':'');
+  if(on){document.getElementById('chat-msgs').appendChild(t);document.getElementById('chat-msgs').scrollTop=99999;}
+}
+function clearChat(){document.getElementById('chat-msgs').innerHTML='<div class="msg sys">— CHAT LIMPIADO —</div>';}
+
+function updateCost(n){
+  S.cost+=n;
+  const v=S.cost<0.01?S.cost.toFixed(4):S.cost.toFixed(3);
+  document.getElementById('mc-cost').textContent='$'+v;
+  const pct=Math.min(S.cost/1*100,100);
+  document.getElementById('mf-cost').style.width=pct+'%';
+}
+
+// WAVEFORM
+function buildWave(){
+  const wf=document.getElementById('waveform');
+  for(let i=0;i<44;i++){const b=document.createElement('div');b.className='wb';wf.appendChild(b);}
+}
+function animWave(on){
+  S.waveOn=on;
+  const bars=document.querySelectorAll('.wb');
+  if(on){
+    bars.forEach(b=>{const h=2+Math.random()*24;b.style.height=h+'px';b.style.opacity=0.15+(h/24)*0.8;});
+    if(S.waveOn) setTimeout(()=>animWave(true),90+Math.random()*70);
+  }else{bars.forEach(b=>{b.style.height='3px';b.style.opacity='0.2';});}
+}
+
+// METRICS
+function startMetrics(){
+  function u(){
+    const cpu=8+Math.random()*30,ram=28+Math.random()*22;
+    document.getElementById('mc-cpu').textContent=cpu.toFixed(0)+'%';
+    document.getElementById('mc-ram').textContent=ram.toFixed(0)+'%';
+    document.getElementById('mf-cpu').style.width=cpu+'%';
+    document.getElementById('mf-ram').style.width=ram+'%';
+  }
+  u();setInterval(u,3000);
+}
+
+function startClock(){
+  function t(){
+    const n=new Date();
+    document.getElementById('ftr-clock').textContent=
+      String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0');
+  }
+  t();setInterval(t,1000);
+}
+function startSession(){
+  setInterval(()=>{
+    const e=Math.floor((Date.now()-S.t0)/1000);
+    document.getElementById('hdr-session').textContent=String(Math.floor(e/60)).padStart(2,'0')+':'+String(e%60).padStart(2,'0');
+  },1000);
+}
+
+// NEURAL CANVAS
+function startCanvas(){
+  const c=document.getElementById('bgc'),ctx=c.getContext('2d');
+  let W,H,nodes=[],pts=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  window.addEventListener('resize',resize);resize();
+  for(let i=0;i<22;i++) nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,r:.7+Math.random()*1.5,ph:Math.random()*Math.PI*2});
+  for(let i=0;i<40;i++) pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:-.07-Math.random()*.2,life:Math.random(),s:.3+Math.random()*1});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<nodes.length;i++){
+      const n=nodes[i];n.x+=n.vx;n.y+=n.vy;n.ph+=.02;
+      if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
+      for(let j=i+1;j<nodes.length;j++){
+        const m=nodes[j],dx=n.x-m.x,dy=n.y-m.y,dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<160){
+          const op=(1-dist/160)*.06;
+          ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(m.x,m.y);
+          ctx.strokeStyle=`rgba(0,240,255,${op})`;ctx.lineWidth=.4;ctx.stroke();
+        }
+      }
+      const g=.2+.2*Math.sin(n.ph);
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(0,240,255,${g})`;ctx.fill();
+    }
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.life-=.002;
+      if(p.life<=0||p.y<0){p.x=Math.random()*W;p.y=H+5;p.life=1;}
+      ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,Math.PI*2);
+      ctx.fillStyle=`rgba(0,240,255,${p.life*.18})`;ctx.fill();
+    });
+    const sy=((Date.now()/16)%H);
+    const g=ctx.createLinearGradient(0,sy-40,0,sy+40);
+    g.addColorStop(0,'rgba(0,240,255,0)');g.addColorStop(.5,'rgba(0,240,255,0.02)');g.addColorStop(1,'rgba(0,240,255,0)');
+    ctx.fillStyle=g;ctx.fillRect(0,sy-40,W,80);
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+init();
+</script>
+</body>
+</html>
