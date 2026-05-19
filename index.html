@@ -611,7 +611,21 @@ async function startCall(){
         session:{
           type:'realtime',
           instructions:SYS_JARVIS,
-          turn_detection:{type:'server_vad'}
+          turn_detection:{type:'server_vad'},
+          tools:[{
+            type:'function',
+            name:'send_to_neo',
+            description:'Envía una tarea al agente NEO para que la ejecute en el portátil de David. Úsala cuando el usuario pida crear, generar, buscar, preparar o ejecutar cualquier cosa.',
+            parameters:{
+              type:'object',
+              properties:{
+                task:{type:'string',description:'La tarea completa y detallada que debe ejecutar NEO'},
+                type:{type:'string',description:'Tipo: webapp, game, course, script, api, document, analysis, other'}
+              },
+              required:['task']
+            }
+          }],
+          tool_choice:'auto'
         }
       }));
     };
