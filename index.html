@@ -583,11 +583,16 @@ async function startCall(){
       method:'POST',
       headers:{'Authorization':'Bearer '+S.oai,'Content-Type':'application/json'},
       body:JSON.stringify({
-        model:'gpt-realtime-mini',
-        voice:'echo',
-        instructions:SYS_JARVIS,
-        input_audio_transcription:{model:'whisper-1'},
-        turn_detection:{type:'server_vad'}
+        session:{
+          type:'realtime',
+          model:'gpt-realtime-mini',
+          instructions:SYS_JARVIS,
+          audio:{
+            output:{voice:'echo'}
+          },
+          input_audio_transcription:{model:'whisper-1'},
+          turn_detection:{type:'server_vad'}
+        }
       })
     });
     if(!tr.ok){
@@ -595,8 +600,9 @@ async function startCall(){
       throw new Error(e.error?.message||'Error obteniendo token: '+tr.status);
     }
     const td=await tr.json();
-    const token=td.client_secret?.value||td.value;
-    if(!token) throw new Error('No se recibió token de sesión');
+    // GA returns: { client_secret: "ek_xxx...", session: {...} }
+    const token=td.client_secret||td.client_secret?.value||td.value;
+    if(!token) throw new Error('No se recibió token: '+JSON.stringify(td).substring(0,200));
 
     S.pc=new RTCPeerConnection();
     S.aud=new Audio();S.aud.autoplay=true;
