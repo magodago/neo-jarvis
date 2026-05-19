@@ -659,13 +659,25 @@ function onRT(ev){
       document.getElementById('transcript').textContent='▸ '+t;
       document.getElementById('transcript').classList.remove('empty');
       addMsg('user',t);
-      if(/crea|genera|haz|construye|escribe|desarrolla|hazme|necesito que/i.test(t)){
+      // Detect any task request — broad pattern
+      const taskWords=/crea|genera|haz|construye|escribe|desarrolla|hazme|necesito|prepara|busca|documento|archivo|fichero|lista|informe|reporte|web|app|juego|curso|script|api|codigo|código|guarda|exporta|produce|elabora|redacta|diseña|programa/i;
+      if(taskWords.test(t)){
         setTimeout(async()=>{
-          addMsg('jarvis','Entendido. Se lo paso a NEO ahora mismo.');
-          const r=await callNeo(t);
-          if(r){addNeoMsg(r,'neo-msg');addMsg('sys','— NEO ejecutando tarea —');}
-          else addMsg('err','NEO no responde. Verifica el bridge de Hermes.');
-        },400);
+          addMsg('sys','— JARVIS → NEO: tarea detectada —');
+          addNeoMsg('📋 Tarea recibida de JARVIS:
+'+t,'user');
+          showNeoTyping(true);
+          const r=await callNeo('JARVIS te pasa esta petición del usuario para que la ejecutes completamente: '+t+'
+
+Guarda el resultado en ~/Desktop/neo-output/ y envía notificación a Telegram cuando termines.');
+          showNeoTyping(false);
+          if(r){
+            addNeoMsg(r,'neo-msg');
+            addMsg('sys','— NEO ejecutando · resultado en Telegram —');
+          } else {
+            addMsg('err','NEO no responde. Verifica el bridge de Hermes y Cloudflare.');
+          }
+        },600);
       }
     }
     if(d.type==='response.output_audio.delta'||d.type==='response.audio.delta'){setJS('JARVIS hablando...');setOrb('speaking');animWave(true);}
@@ -673,10 +685,19 @@ function onRT(ev){
       // streaming transcript — ignore
     }
     if(d.type==='response.done'){
-      const txt=d.response?.output?.[0]?.content?.find(c=>c.type==='audio')?.transcript||
-                d.response?.output?.[0]?.content?.find(c=>c.type==='text')?.text||'';
+      const output=d.response?.output?.[0]?.content||[];
+      const txt=output.find(x=>x.type==='audio')?.transcript||output.find(x=>x.type==='text')?.text||'';
       if(txt.trim()) addMsg('jarvis',txt.trim());
       setJS('En llamada · Escuchando...');setOrb('listening');animWave(false);
+    }
+    // Fallback: also catch user transcript from item.created
+    if(d.type==='conversation.item.created'&&d.item?.role==='user'){
+      const content=d.item?.content||[];
+      const t=content.find(x=>x.type==='input_audio')?.transcript||'';
+      if(t&&t.trim()&&!document.getElementById('transcript').textContent.includes(t.trim().substring(0,20))){
+        document.getElementById('transcript').textContent='▸ '+t.trim();
+        document.getElementById('transcript').classList.remove('empty');
+      }
     }
   }catch(e){console.warn('RT event error:',e);}
 }
