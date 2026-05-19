@@ -586,22 +586,17 @@ async function startCall(){
         session:{
           type:'realtime',
           model:'gpt-realtime-mini',
-          instructions:SYS_JARVIS,
-          audio:{
-            output:{voice:'echo'}
-          },
-          turn_detection:{type:'server_vad'}
+          audio:{output:{voice:'echo'}}
         }
       })
     });
     if(!tr.ok){
       const e=await tr.json();
-      throw new Error(e.error?.message||'Error obteniendo token: '+tr.status);
+      throw new Error(e.error?.message||'Error token: '+tr.status);
     }
     const td=await tr.json();
-    // GA returns: { client_secret: "ek_xxx...", session: {...} }
-    const token=td.client_secret||td.client_secret?.value||td.value;
-    if(!token) throw new Error('No se recibió token: '+JSON.stringify(td).substring(0,200));
+    const token=td.client_secret||td.value;
+    if(!token) throw new Error('Sin token: '+JSON.stringify(td).substring(0,150));
 
     S.pc=new RTCPeerConnection();
     S.aud=new Audio();S.aud.autoplay=true;
@@ -610,6 +605,16 @@ async function startCall(){
     S.stream.getTracks().forEach(t=>S.pc.addTrack(t,S.stream));
     S.dc=S.pc.createDataChannel('oai-events');
     S.dc.onmessage=onRT;
+    S.dc.onopen=()=>{
+      S.dc.send(JSON.stringify({
+        type:'session.update',
+        session:{
+          type:'realtime',
+          instructions:SYS_JARVIS,
+          turn_detection:{type:'server_vad'}
+        }
+      }));
+    };
 
     const offer=await S.pc.createOffer();
     await S.pc.setLocalDescription(offer);
