@@ -270,10 +270,47 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     
     # Git
     os.chdir(str(REPO))
+    
+    # Rebuild sitemap
+    try:
+        sm_path = REPO / "sitemap.xml"
+        urls = []
+        for f in sorted(REPO.rglob("*.html")):
+            if 'Zone.Identifier' in str(f) or '.git' in str(f):
+                continue
+            rel = f.relative_to(REPO)
+            url = f"https://magodago.github.io/neo-jarvis/{rel}"
+            urls.append(f"""  <url>
+    <loc>{url}</loc>
+    <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>""")
+        
+        sm_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>"""
+        sm_path.write_text(sm_content, encoding="utf-8")
+        subprocess.run(["git","add",str(sm_path)], capture_output=True)
+        print("Sitemap reconstruido!")
+    except Exception as e:
+        print(f"Error en sitemap: {e}")
+    
     subprocess.run(["git","add",str(filepath)], capture_output=True)
     subprocess.run(["git","commit","-m",f"articulo diario: {topic} ({b['name']})"], capture_output=True)
     r = subprocess.run(["git","push"], capture_output=True, text=True)
     print(f"Publicado! ({r.stdout[:100] if r.stdout else 'ok'})")
+    
+    # Ping Google
+    try:
+        article_url = f"https://magodago.github.io/neo-jarvis/blog/{b['slug']}/{slug}.html"
+        sm_url = "https://magodago.github.io/neo-jarvis/sitemap.xml"
+        subprocess.run(["curl","-s","-o","/dev/null",f"https://www.google.com/ping?sitemap={sm_url}"], timeout=10)
+        subprocess.run(["curl","-s","-o","/dev/null",f"https://www.google.com/ping?sitemap={article_url}"], timeout=10)
+        print("Google notificado!")
+    except:
+        print("Ping a Google no disponible")
 
 if __name__ == "__main__":
     main()

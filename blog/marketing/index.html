@@ -42,7 +42,8 @@ footer .copy{font-size:.7rem;color:#6a6558}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand-light));z-index:9999;transition:width .1s}
 @media(max-width:768px){.hero{min-height:50vh}.hero .hero-content{padding:80px 24px 40px}.article-grid{grid-template-columns:1fr}.article-card{min-height:200px}.content{padding:32px 16px}.wrap{padding:0 16px}.cta-box{padding:28px 20px}}
-</style></head>
+</style>  <meta name="google-site-verification" content="REPLACE_WITH_YOUR_CODE" />
+</head>
 <body><div id="progress"></div>
 <nav id="nav"><div class="nav-logo">NE<span>O</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
 <section class="hero"><img class="bg-img" src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=1400&q=85" alt="Marketing" loading="lazy"><div class="bg-overlay"></div>
@@ -120,5 +121,8 @@ footer .copy{font-size:.7rem;color:#6a6558}
 let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{if(window.scrollY>s&&window.scrollY>70)n.classList.add('hidden');else n.classList.remove('hidden');s=window.scrollY})
 let o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1})
 document.querySelectorAll('.reveal').forEach(e=>o.observe(e))</script>
+<!-- GoatCounter analytics -->
+<script data-goatcounter="https://neo-jarvis.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://neo-jarvis.goatcounter.com/count?p=/test"></noscript>
 </body>
 </html>
