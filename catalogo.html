@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catalogo NEO Labs — Prompts IA y Planners Premium</title>
-<meta name="description" content="Catalogo completo de productos digitales NEO Labs. 45 packs de prompts de IA y 11 planners Excel. Diseno premium, resultados profesionales.">
+<meta name="description" content="Catalogo completo de productos digitales NEO Labs. 45 packs de prompts de IA y 11 planners Excel.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/catalogo.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,21 +32,28 @@ nav.hidden{transform:translateY(-100%)}
 section{position:relative;overflow:hidden}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
 
-.bg-section{position:relative;display:flex;align-items:center;min-height:50vh}
+.bg-section{position:relative;display:flex;align-items:center;min-height:55vh}
 .bg-section .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.bg-section .bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(5,5,8,.88) 30%,rgba(5,5,8,.55) 70%,rgba(5,5,8,.2))}
-.bg-section .bg-overlay.left{background:linear-gradient(90deg,rgba(5,5,8,.92) 40%,rgba(5,5,8,.4) 80%,transparent)}
-.bg-section .bg-overlay.right{background:linear-gradient(270deg,rgba(5,5,8,.92) 40%,rgba(5,5,8,.4) 80%,transparent)}
+.bg-section .bg-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(5,5,8,.92) 30%,rgba(5,5,8,.6) 60%,rgba(5,5,8,.3));
+}
+.bg-section .bg-overlay.left{
+  background:linear-gradient(90deg,rgba(5,5,8,.95) 35%,rgba(5,5,8,.5) 70%,rgba(5,5,8,.15));
+}
+.bg-section .bg-overlay.right{
+  background:linear-gradient(270deg,rgba(5,5,8,.95) 35%,rgba(5,5,8,.5) 70%,rgba(5,5,8,.15));
+}
 .bg-content{position:relative;z-index:2;width:100%}
-.bg-half{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:50vh;padding:60px 24px}
+.bg-half{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:55vh;padding:60px 24px}
 @media(max-width:768px){.bg-half{grid-template-columns:1fr;min-height:40vh;padding:40px 24px}.bg-half>div:empty{display:none}}
 
 .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:14px}
 .section-title .gold{color:var(--gold)}
-.section-sub{font-size:1.02rem;color:#b0aaa0;max-width:600px;line-height:1.7;margin-bottom:6px}
+.section-sub{font-size:1.02rem;color:#c0b8a8;max-width:600px;line-height:1.7;margin-bottom:6px}
 .section-label{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
 .section-label.center{text-align:center}
-.section-text{color:#d0c8bc;font-size:1rem;line-height:1.7;margin-bottom:20px}
+.section-text{color:#e0d8c8;font-size:1.02rem;line-height:1.8;margin-bottom:20px}
 
 /* === HERO === */
 #hero{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:radial-gradient(ellipse at 30% 20%,#1a1508 0%,#050508 60%)}
@@ -56,7 +63,7 @@ section{position:relative;overflow:hidden}
 .hero-badge{display:inline-block;padding:7px 18px;border:1px solid rgba(212,168,83,.25);border-radius:100px;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
 .hero-title{font-family:var(--font-display);font-size:clamp(2rem,5vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:16px}
 .hero-title .gold{color:var(--gold)}
-.hero-desc{font-size:1.02rem;color:#b0aaa0;max-width:560px;margin:0 auto;line-height:1.8}
+.hero-desc{font-size:1.02rem;color:#c0b8a8;max-width:560px;margin:0 auto;line-height:1.8}
 
 .solid{padding:56px 0}
 .solid-dark{background:var(--bg)}
@@ -66,23 +73,23 @@ section{position:relative;overflow:hidden}
 #offer-strip p{color:var(--bg);font-family:var(--font-display);font-size:.95rem;letter-spacing:.5px;font-weight:600}
 #offer-strip a{color:var(--bg);text-decoration:underline;font-weight:700}
 
-.product-list{display:flex;flex-direction:column;gap:8px;margin-top:24px}
-.product-card{display:flex;align-items:center;gap:16px;padding:16px 20px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:10px;transition:all .3s;text-decoration:none}
-.product-card:hover{background:rgba(212,168,83,.06);border-color:rgba(212,168,83,.2);transform:translateX(5px)}
-.product-card .rank{font-family:var(--font-display);font-size:.82rem;font-weight:600;color:#6a6558;width:28px;flex-shrink:0;text-align:center}
+.product-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.product-card{display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:12px;transition:all .35s;text-decoration:none}
+.product-card:hover{background:rgba(212,168,83,.06);border-color:rgba(212,168,83,.2);transform:translateX(5px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.product-card .rank{font-family:var(--font-display);font-size:.82rem;font-weight:600;color:#6a6558;width:28px;flex-shrink:0;text-align:center;margin-top:2px}
 .product-card .info{flex:1;min-width:0}
-.product-card h3{font-family:var(--font-display);font-size:.95rem;font-weight:600;color:#fff;margin-bottom:1px;letter-spacing:-.2px}
-.product-card .desc{font-size:.78rem;color:#b0aaa0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.product-card .price{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--gold-light);flex-shrink:0;white-space:nowrap}
+.product-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:6px;letter-spacing:-.2px}
+.product-card .desc{font-size:.85rem;color:#c0b8a8;line-height:1.7;margin-bottom:0}
+.product-card .price{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--gold-light);flex-shrink:0;white-space:nowrap;margin-top:2px}
 .product-card:hover .price{color:#fff}
 
 .category-header{margin-bottom:20px}
-.category-header .count{font-size:.82rem;color:#b0aaa0;margin-top:4px;letter-spacing:.3px}
+.category-header .count{font-size:.82rem;color:#c0b8a8;margin-top:4px;letter-spacing:.3px}
 
 .stats-row{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;padding:20px 0}
 .stat-item{text-align:center}
 .stat-number{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--gold-light)}
-.stat-label{font-size:.75rem;color:#b0aaa0;letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+.stat-label{font-size:.75rem;color:#c0b8a8;letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
 
 .btn{padding:12px 30px;border-radius:8px;font-family:var(--font-display);font-size:.76rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block}
 .btn-primary{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.2)}
@@ -94,7 +101,7 @@ section{position:relative;overflow:hidden}
 .cta-banner{min-height:42vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px}
 .cta-banner .cta-content{position:relative;z-index:2;max-width:620px}
 .cta-banner h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;margin-bottom:14px;line-height:1.12;color:#fff}
-.cta-banner p{font-size:1rem;color:#c0bab0;line-height:1.7;margin-bottom:24px}
+.cta-banner p{font-size:1rem;color:#d0c8b8;line-height:1.7;margin-bottom:24px}
 
 footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:44px 24px 28px;text-align:center}
 footer .logo{font-family:var(--font-display);font-size:1.3rem;letter-spacing:4px;font-weight:700;margin-bottom:14px;text-transform:uppercase;color:#fff}
@@ -110,7 +117,7 @@ footer .copy{font-size:.72rem;color:#6a6558}
 
 @media(max-width:768px){
   .solid{padding:32px 0}
-  .product-card{padding:12px 14px;gap:10px}
+  .product-card{padding:14px 16px;gap:10px}
   .cta-banner{min-height:35vh;padding:50px 24px}
   .stats-row{gap:28px}
 }
@@ -137,7 +144,7 @@ footer .copy{font-size:.72rem;color:#6a6558}
   <div class="hero-content reveal">
     <div class="hero-badge">Productos Digitales Premium</div>
     <h1 class="hero-title">Catalogo <span class="gold">completo</span></h1>
-    <p class="hero-desc">56 productos disenados para multiplicar tu productividad con IA. Packs de prompts y planners Excel listos para usar desde el primer dia.</p>
+    <p class="hero-desc">56 productos que multiplican tu productividad. Packs de prompts y planners Excel listos para usar desde el primer dia. Sin cursos, sin suscripciones.</p>
   </div>
 </section>
 
@@ -151,9 +158,9 @@ footer .copy{font-size:.72rem;color:#6a6558}
 <div class="wrap">
   <div class="stats-row">
     <div class="stat-item"><div class="stat-number">11</div><div class="stat-label">Planners Excel</div></div>
-    <div class="stat-item"><div class="stat-number">45</div><div class="stat-label">Packs de Prompts</div></div>
+    <div class="stat-item"><div class="stat-number">45</div><div class="stat-label">Packs Prompts</div></div>
     <div class="stat-item"><div class="stat-number">56</div><div class="stat-label">Productos</div></div>
-    <div class="stat-item"><div class="stat-number">9,99</div><div class="stat-label">Desde EUR</div></div>
+    <div class="stat-item"><div class="stat-number">9,99</div><div class="stat-label">Desde</div></div>
   </div>
 </div>
 </section>
@@ -165,8 +172,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
   <div class="bg-half">
     <div class="reveal">
       <div class="section-label">Planners Excel</div>
-      <h2 class="section-title" style="color:#fff">Organiza tu vida como<br><span class="gold">un profesional</span></h2>
-      <p class="section-text">11 planners en Excel (.xlsx) listos para descargar. Dashboards interactivos, formulas automaticas e instrucciones de IA incluidas. Abre, usa, transforma tu forma de trabajar.</p>
+      <h2 class="section-title" style="color:#fff">Organiza tu vida como un <span class="gold">profesional</span></h2>
+      <p class="section-text">11 planners en Excel con dashboards interactivos, formulas automaticas e instrucciones de IA. Descargas, abres y transformas tu forma de trabajar en minutos. Sin setup, sin complicaciones.</p>
     </div>
     <div></div>
   </div>
@@ -177,22 +184,80 @@ footer .copy{font-size:.72rem;color:#6a6558}
 <div class="wrap">
   <div class="category-header">
     <div class="section-label center">Planners Excel</div>
-    <div class="count" style="text-align:center;margin-top:4px">11 productos &mdash; 14,99 EUR cada uno</div>
+    <div class="count" style="text-align:center;margin-top:4px">11 productos &mdash; 14,99 EUR cada uno &mdash; Formato .xlsx listo para usar</div>
   </div>
   <div class="product-list">
-    <a href="https://payhip.com/b/fKgGj" class="product-card reveal"><div class="rank">01</div><div class="info"><h3>Budget Planner</h3><p class="desc">Deja de hacer malabares con tus finanzas. Dashboard automatico que transforma tus gastos en decisiones claras. Proyecciones, categorias y metas al instante.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/gp7rR" class="product-card reveal"><div class="rank">02</div><div class="info"><h3>Business Planner</h3><p class="desc">Tu negocio merece orden. KPIs en tiempo real, dashboards ejecutivos y proyecciones que convierten datos en estrategia. De emprendedor a CEO.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/CNevQ" class="product-card reveal"><div class="rank">03</div><div class="info"><h3>Creator Planner</h3><p class="desc">Deja de publicar al azar. Calendario editorial, metricas de crecimiento y monetizacion en un solo lugar para creadores que van en serio.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/HfYBt" class="product-card reveal"><div class="rank">04</div><div class="info"><h3>Habit Planner</h3><p class="desc">Construye la version de ti que siempre has querido. Tracker visual, rachas, recordatorios. Metodo James Clear aplicado directamente en Excel.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/06lFJ" class="product-card reveal"><div class="rank">05</div><div class="info"><h3>Student Planner</h3><p class="desc">Aprueba con menos esfuerzo. Calendario de examenes, tracker de notas y metodo Pomodoro integrado. Tu semestre organizado en 5 minutos.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/EkHdW" class="product-card reveal"><div class="rank">06</div><div class="info"><h3>Social Media Planner</h3><p class="desc">Gestiona todas tus redes en un solo archivo. Calendario, engagement, analisis. Publica con estrategia, no por inspiracion.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/v1ayB" class="product-card reveal"><div class="rank">07</div><div class="info"><h3>Travel Planner</h3><p class="desc">Viaja sin estres. Presupuesto detallado, itinerario, packing list y reservas. Todo organizado para que solo disfrutes.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/1oxR4" class="product-card reveal"><div class="rank">08</div><div class="info"><h3>Wedding Planner</h3><p class="desc">Tu boda perfecta sin volverte loca. Presupuesto, proveedores, invitados, cronograma. Un solo archivo para controlarlo todo.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/rzZnh" class="product-card reveal"><div class="rank">09</div><div class="info"><h3>PM Planner</h3><p class="desc">Proyectos que avanzan solos. Diagrama de Gantt, tareas, recursos y presupuesto. El nivel de gestion que tus proyectos merecen.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/d4MHh" class="product-card reveal"><div class="rank">10</div><div class="info"><h3>Real Estate Planner</h3><p class="desc">Vende mas propiedades con menos esfuerzo. Pipeline de clientes, visitas, cierres y comisiones. Tu negocio inmobiliario en piloto automatico.</p></div><span class="price">14,99</span></a>
-    <a href="https://payhip.com/b/Kg5sw" class="product-card reveal"><div class="rank">11</div><div class="info"><h3>Meal Planner</h3><p class="desc">Come mejor, gasta menos, planifica en segundos. Menus semanales, lista de la compra automatica y nutricion controlada. Tu cocina, optimizada.</p></div><span class="price">14,99</span></a>
+    <a href="https://payhip.com/b/fKgGj" class="product-card reveal">
+      <div class="rank">01</div>
+      <div class="info"><h3>Budget Planner</h3><p class="desc">¿Aun controlas tus finanzas con apuntes sueltos? Este dashboard lo hace por ti. Visualiza tus ingresos, descubre donde se pierde tu dinero cada mes y proyecta tu ahorro a 12 meses con graficos automaticos. En 5 minutos tendras la claridad financiera que la mayoria no consigue ni en anos. Incluye categorias personalizables, metas de ahorro y alertas de gasto.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/gp7rR" class="product-card reveal">
+      <div class="rank">02</div>
+      <div class="info"><h3>Business Planner</h3><p class="desc">Tu negocio merece orden, no archivos perdidos. KPIs en tiempo real, dashboards ejecutivos, proyecciones financieras y seguimiento de objetivos. Todo lo que necesitas para tomar decisiones de CEO sin pagar consultoria. Desde el control de gastos hasta la rentabilidad por proyecto, tu negocio bajo control.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/CNevQ" class="product-card reveal">
+      <div class="rank">03</div>
+      <div class="info"><h3>Creator Planner</h3><p class="desc">Publicar al azar no es estrategia. Calendario editorial, metricas de crecimiento, seguimiento de monetizacion y planificacion de contenido. Diseñado para creadores que quieren vivir de su talento, no solo entretener. Organiza YouTube, Instagram, TikTok y newsletter desde un solo archivo.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/HfYBt" class="product-card reveal">
+      <div class="rank">04</div>
+      <div class="info"><h3>Habit Planner</h3><p class="desc">Construye la mejor version de ti mismo con el metodo James Clear aplicado directamente en Excel. Tracker visual de rachas, recordatorios automaticos, graficos de progreso y analisis semanal. Olvida las apps de habitos que abandonas a los 3 dias. Esto es simple, visual y funciona.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/06lFJ" class="product-card reveal">
+      <div class="rank">05</div>
+      <div class="info"><h3>Student Planner</h3><p class="desc">Aprueba con menos esfuerzo y mas organizacion. Calendario de examenes automatico, tracker de notas con media ponderada, plan de estudio semanal con metodo Pomodoro integrado y gestion de tareas por asignatura. Tu semestre academico organizado en 5 minutos. Ideal para universitarios y opositores.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/EkHdW" class="product-card reveal">
+      <div class="rank">06</div>
+      <div class="info"><h3>Social Media Planner</h3><p class="desc">Gestiona todas tus redes desde un solo archivo. Calendario editorial multicanal, analisis de engagement por publicacion, seguimiento de crecimiento y plan de contenido mensual. Publica con estrategia, no por inspiracion del momento. Ideal para community managers y equipos de marketing.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/v1ayB" class="product-card reveal">
+      <div class="rank">07</div>
+      <div class="info"><h3>Travel Planner</h3><p class="desc">Viaja sin estres ni imprevistos. Presupuesto detallado por dia, itinerario automatico, packing list inteligente, seguimiento de reservas y diario de viaje. Desde la planificacion hasta el regreso, todo organizado para que solo te preocupes de disfrutar. Perfecto para viajeros meticulosos.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/1oxR4" class="product-card reveal">
+      <div class="rank">08</div>
+      <div class="info"><h3>Wedding Planner</h3><p class="desc">Tu boda perfecta sin volverte loca organizando. Presupuesto detallado por categoria, lista de proveedores con seguimiento, gestion de invitados con confirmaciones, cronograma dia a dia y checklist de tareas. Todo en un solo archivo que puedes compartir con tu pareja y proveedores.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/rzZnh" class="product-card reveal">
+      <div class="rank">09</div>
+      <div class="info"><h3>PM Planner</h3><p class="desc">Proyectos que avanzan solos mientras tu te centras en lo importante. Diagrama de Gantt automatico, seguimiento de tareas por fase, asignacion de recursos, control de presupuesto vs real e informes de progreso. Metodologia agile adaptada a Excel. El nivel de gestion que tus proyectos merecen.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/d4MHh" class="product-card reveal">
+      <div class="rank">10</div>
+      <div class="info"><h3>Real Estate Planner</h3><p class="desc">Vende mas propiedades con un sistema, no con malabares. Pipeline de clientes por fase, seguimiento de visitas, calculadora de rentabilidad, cierre de ventas y comisiones. Desde la captacion hasta la postventa, tu negocio inmobiliario en piloto automatico. Ideal para agentes y agencias.</p></div>
+      <span class="price">14,99</span>
+    </a>
+    <a href="https://payhip.com/b/Kg5sw" class="product-card reveal">
+      <div class="rank">11</div>
+      <div class="info"><h3>Meal Planner</h3><p class="desc">Olvida el "que como hoy" para siempre. Planifica menus semanales con recetas personalizadas, genera la lista de la compra automaticamente, controla tu nutricion con calculadora de macros y optimiza tu presupuesto de alimentacion. Tu cocina, optimizada. Ideal para familias y personas con objetivos de salud.</p></div>
+      <span class="price">14,99</span>
+    </a>
   </div>
 </div>
+</section>
+
+<!-- ====== BG IMAGE: DASHBOARD ====== -->
+<section class="bg-section">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=85" alt="Dashboard financiero y graficos">
+  <div class="bg-overlay"></div>
+  <div class="bg-half" style="text-align:center;grid-template-columns:1fr">
+    <div class="reveal">
+      <div class="section-label center">Dashboards que funcionan</div>
+      <h2 class="section-title" style="color:#fff;text-align:center">Cada planner incluye graficos automaticos,<br><span class="gold">formulas inteligentes y dashboards interactivos</span></h2>
+      <p class="section-text" style="max-width:620px;margin:0 auto 20px;text-align:center">No necesitas saber Excel avanzado. Abres, introduces tus datos y el planner hace el resto. Graficos, proyecciones y analisis automaticos al instante.</p>
+      <a href="#planners" class="btn btn-primary">Ver Planners</a>
+    </div>
+  </div>
 </section>
 
 <!-- ====== BG IMAGE: ROBOT ====== -->
@@ -202,8 +267,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
   <div class="bg-half" style="text-align:center;grid-template-columns:1fr">
     <div class="reveal">
       <div class="section-label center">Packs de Prompts IA</div>
-      <h2 class="section-title" style="color:#fff;text-align:center">El prompt correcto marca la<br><span class="gold">diferencia entre un resultado mediocre y uno extraordinario</span></h2>
-      <p class="section-text" style="max-width:600px;margin:0 auto 20px;text-align:center">Cada pack contiene 10 prompts refinados durante meses con ChatGPT, Claude y Gemini. No pierdas tiempo escribiendo prompts que no funcionan. Copia, pega, obten resultados de experto.</p>
+      <h2 class="section-title" style="color:#fff;text-align:center">El prompt correcto marca la diferencia<br><span class="gold">entre un resultado mediocre y uno extraordinario</span></h2>
+      <p class="section-text" style="max-width:620px;margin:0 auto 20px;text-align:center">Cada pack contiene 10 prompts refinados durante meses con ChatGPT, Claude y Gemini. No pierdas tiempo escribiendo prompts que no funcionan. Copia, pega y obten resultados de experto desde el primer intento.</p>
     </div>
   </div>
 </section>
@@ -213,24 +278,24 @@ footer .copy{font-size:.72rem;color:#6a6558}
 <div class="wrap">
   <div class="category-header">
     <div class="section-label center">Packs de Prompts IA</div>
-    <div class="count" style="text-align:center;margin-top:4px">45 productos &mdash; 9,99 EUR cada uno</div>
+    <div class="count" style="text-align:center;margin-top:4px">45 productos &mdash; 9,99 EUR cada uno &mdash; 10 prompts por pack &mdash; Compatible con ChatGPT, Claude y Gemini</div>
   </div>
   <div class="product-list">
-    <a href="https://payhip.com/b/EYojF" class="product-card reveal"><div class="rank">01</div><div class="info"><h3>Productividad</h3><p class="desc">Deja de perder horas organizandote. Prompts que priorizan, delegan y optimizan tu dia en segundos. Haz mas con menos esfuerzo.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/xO5GD" class="product-card reveal"><div class="rank">02</div><div class="info"><h3>Analisis de Datos</h3><p class="desc">Convierte datos en decisiones con un solo prompt. Limpieza, visualizacion, modelado. Tu analista de datos personal 24/7.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/CsJMX" class="product-card reveal"><div class="rank">03</div><div class="info"><h3>Atencion al Cliente</h3><p class="desc">Clientes satisfechos sin estresarte. Respuestas automaticas, reclamaciones resueltas, comunicacion empatica en segundos.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/1H4Ey" class="product-card reveal"><div class="rank">04</div><div class="info"><h3>Coaching</h3><p class="desc">Sesiones que transforman. Preguntas poderosas, planes de desarrollo y evaluaciones. Tu asistente de coaching con nivel de master.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/eDw5j" class="product-card reveal"><div class="rank">05</div><div class="info"><h3>Cocina</h3><p class="desc">Olvida el "que como hoy". Recetas personalizadas, sustituciones inteligentes y menus semanales. Tu chef IA en el bolsillo.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/ryRVC" class="product-card reveal"><div class="rank">06</div><div class="info"><h3>Copywriting</h3><p class="desc">Palabras que venden. Headlines que atrapan, emails que convierten, storytelling que enamora. El copywriter que siempre quisiste tener.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/W4PxJ" class="product-card reveal"><div class="rank">07</div><div class="info"><h3>Creatividad</h3><p class="desc">El bloqueo creativo se acaba aqui. Brainstorming estructurado, SCAMPER, pensamiento lateral. Ideas brillantes bajo demanda.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/pTyEx" class="product-card reveal"><div class="rank">08</div><div class="info"><h3>Desarrollo</h3><p class="desc">Tu proximo ascenso empieza con un prompt. Plan de carrera, habilidades clave, networking. Crece profesionalmente cada dia.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/bXmCH" class="product-card reveal"><div class="rank">09</div><div class="info"><h3>Desarrollo Personal</h3><p class="desc">Conocete, crece, transformate. Inteligencia emocional, habitos, proposito. La mejor version de ti esta a un prompt de distancia.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/anH2K" class="product-card reveal"><div class="rank">10</div><div class="info"><h3>Diseno</h3><p class="desc">Crea disenos que impactan. Teoria del color, tipografia, UX/UI. Tu mentor de diseno con ojo de profesional.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/lfz13" class="product-card reveal"><div class="rank">11</div><div class="info"><h3>Ecommerce</h3><p class="desc">Vende mas en tu tienda online. Descripciones que convierten, precios que optimizan, upselling automatico. Tu experto en ecommerce.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/M3eqn" class="product-card reveal"><div class="rank">12</div><div class="info"><h3>Educacion</h3><p class="desc">Ensenar es multiplicar. Curriculos, evaluaciones, gamificacion. Prompts que hacen de ti el educador que tus alumnos merecen.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/pbMiJ" class="product-card reveal"><div class="rank">13</div><div class="info"><h3>Email Marketing</h3><p class="desc">Emails que abren, leen y convierten. Secuencias, asuntos irresistibles, automatizaciones. Tu estrategia de email en automatico.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/vskK5" class="product-card reveal"><div class="rank">14</div><div class="info"><h3>Escritura</h3><p class="desc">Escribe como los mejores. Narrativa, dialogos, estilo. Tu corrector, editor y mentor literario en un pack de prompts.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/uP62G" class="product-card reveal"><div class="rank">15</div><div class="info"><h3>Finanzas</h3><p class="desc">Controla tu dinero, no al reves. Presupuestos, inversiones, fiscalidad. Tu asesor financiero personal sin horarios ni costes ocultos.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/EYojF" class="product-card reveal"><div class="rank">01</div><div class="info"><h3>Productividad</h3><p class="desc">Deja de perder 2 horas cada mañana organizando tu dia. Estos prompts priorizan, delegan y optimizan tu flujo de trabajo en segundos. Desde la gestion del correo electronico hasta la toma de decisiones complejas, pasando por la planificacion semanal y la revision de objetivos. Tu asistente de productividad personal trabajando 24/7 para que tu hagas solo lo que importa.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/xO5GD" class="product-card reveal"><div class="rank">02</div><div class="info"><h3>Analisis de Datos</h3><p class="desc">Convierte montones de datos en decisiones claras con un solo prompt. Limpieza automatica de datasets, analisis exploratorio con insights clave, visualizaciones personalizadas, modelado estadistico y reporting ejecutivo. No necesitas ser data scientist para sonar como uno. Tu analista de datos personal, sin sueldo ni horario.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/CsJMX" class="product-card reveal"><div class="rank">03</div><div class="info"><h3>Atencion al Cliente</h3><p class="desc">Clientes satisfechos sin agotarte emocionalmente. Respuestas automaticas con empatia real, gestion de reclamaciones en segundos, escalamiento inteligente de problemas complejos y analisis de satisfaccion. Cada interaccion con tu cliente parece hecha por tu mejor empleado, pero es tu IA trabajando.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/1H4Ey" class="product-card reveal"><div class="rank">04</div><div class="info"><h3>Coaching</h3><p class="desc">Sesiones de coaching con nivel de master en cualquier momento. Preguntas poderosas que desbloquean creencias limitantes, planes de desarrollo personalizados, evaluaciones de progreso y tecnicas de PNL aplicadas. Tu coachee avanzara entre sesion y sesion gracias a prompts que facilitan la reflexion y la accion.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/eDw5j" class="product-card reveal"><div class="rank">05</div><div class="info"><h3>Cocina</h3><p class="desc">Olvida el "que como hoy" para siempre. Recetas personalizadas segun tus ingredientes disponibles, sustituciones inteligentes para alergias y dietas, planificacion semanal de menus con lista de la compra automatica y calculo nutricional detallado. Tu chef IA conoce tu nevera mejor que tu y cocina para tus objetivos.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/ryRVC" class="product-card reveal"><div class="rank">06</div><div class="info"><h3>Copywriting</h3><p class="desc">Palabras que venden, que enganchan, que convierten. Headlines que detienen el scroll, storytelling que conecta emocionalmente, emails que abren y compran, landing pages que convierten visitantes en clientes. El copywriter que siempre quisiste tener, pero sin pagar 200€ la hora. Escribe como los mejores.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/W4PxJ" class="product-card reveal"><div class="rank">07</div><div class="info"><h3>Creatividad</h3><p class="desc">El bloqueo creativo se termina aqui. Brainstorming estructurado que multiplica tus ideas, tecnicas SCAMPER para innovar sobre lo existente, pensamiento lateral para problemas complejos y generacion de conceptos originales bajo demanda. Cuando necesites ideas brillantes, abre este pack. La creatividad no es un don, es un proceso.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/pTyEx" class="product-card reveal"><div class="rank">08</div><div class="info"><h3>Desarrollo</h3><p class="desc">Tu proximo ascenso o proyecto profesional empieza hoy. Plan de carrera personalizado con hitos claros, identificacion de habilidades clave a desarrollar, productividad personal optimizada, networking estrategico y crecimiento profesional acelerado. No dejes tu carrera en manos de la suerte. Disenala con prompts de experto.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/bXmCH" class="product-card reveal"><div class="rank">09</div><div class="info"><h3>Desarrollo Personal</h3><p class="desc">Conocerse a uno mismo es el primer paso para crecer. Autoconocimiento profundo con preguntas que revelan patrones, inteligencia emocional aplicada, construccion de habitos que duran, definicion de proposito de vida y bienestar integral. No es autoayuda generica. Es un sistema de crecimiento personal potenciado por IA.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/anH2K" class="product-card reveal"><div class="rank">10</div><div class="info"><h3>Diseno</h3><p class="desc">Crea disenos que impactan y comunican. Principios de diseno aplicados, teoria del color para composiciones armoniosas, tipografia que refuerza el mensaje, UX/UI que convierte y diseno de marca coherente. Tu mentor de diseno con ojo critico te guia en cada decision creativa. Ideal para no diseñadores que necesitan disenar bien.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/lfz13" class="product-card reveal"><div class="rank">11</div><div class="info"><h3>Ecommerce</h3><p class="desc">Haz que tu tienda online venda mientras tu duermes. Descripciones de producto que convierten miradas en compras, estrategias de pricing psicologico, secuencias de upselling y cross-selling, analisis de ventas con recomendaciones y optimizacion de la tasa de conversion. Tu equipo de ecommerce en 10 prompts.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/M3eqn" class="product-card reveal"><div class="rank">12</div><div class="info"><h3>Educacion</h3><p class="desc">Ensenar es multiplicar conocimiento. Diseno curricular por competencias, sistemas de evaluacion autentica, gamificacion que engancha, atencion a la diversidad real y metodologias activas que funcionan. Ya seas docente, formador corporativo o creador de cursos, estos prompts elevan tu enseñanza al siguiente nivel.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/pbMiJ" class="product-card reveal"><div class="rank">13</div><div class="info"><h3>Email Marketing</h3><p class="desc">Emails que abren, leen y convierten. Secuencias de conversion que nutren leads hasta la compra, asuntos con tasa de apertura del 40%+, automatizaciones que segmentan inteligentemente, analitica de campanas con mejoras concretas. Tu estrategia de email marketing funcionando 24/7 sin que tengas que escribir cada linea.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/vskK5" class="product-card reveal"><div class="rank">14</div><div class="info"><h3>Escritura</h3><p class="desc">Escribe como los mejores, sea cual sea tu genero. Narrativa que atrapa desde la primera linea, dialogos con voz propia, descripciones que transportan, estructura que mantiene el interes y correccion de estilo que pule cada texto. Tu corrector, editor y mentor literario trabajando juntos en cada palabra.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/uP62G" class="product-card reveal"><div class="rank">15</div><div class="info"><h3>Finanzas</h3><p class="desc">Controla tu dinero, no al reves. Analisis financiero completo de tu situacion actual, presupuestos inteligentes que se adaptan a ti, estrategias de inversion segun tu perfil, optimizacion fiscal y planificacion financiera a largo plazo. Tu asesor financiero personal sin costes ocultos ni comisiones. Tus finanzas, claras y bajo control.</p></div><span class="price">9,99</span></a>
   </div>
 </div>
 </section>
@@ -242,7 +307,7 @@ footer .copy{font-size:.72rem;color:#6a6558}
   <div class="bg-content wrap" style="display:flex;align-items:center;min-height:30vh;justify-content:center;text-align:center">
     <div class="reveal">
       <p style="color:var(--gold-light);font-family:var(--font-display);font-size:1rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px">450+ prompts listos para usar</p>
-      <p style="color:#d0c8bc;font-size:.9rem">Cada pack contiene 10 prompts que funcionan desde el primer intento</p>
+      <p style="color:#e0d8c8;font-size:.9rem">Cada pack contiene 10 prompts que funcionan desde el primer intento con ChatGPT, Claude y Gemini</p>
     </div>
   </div>
 </section>
@@ -251,21 +316,21 @@ footer .copy{font-size:.72rem;color:#6a6558}
 <section class="solid solid-dark">
 <div class="wrap">
   <div class="product-list">
-    <a href="https://payhip.com/b/3X8aw" class="product-card reveal"><div class="rank">16</div><div class="info"><h3>Fitness</h3><p class="desc">Transforma tu cuerpo con ciencia. Rutinas, nutricion, progreso. Tu entrenador personal IA que nunca falla una sesion.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/xGPrH" class="product-card reveal"><div class="rank">17</div><div class="info"><h3>Freelance</h3><p class="desc">Vive de tu talento sin caos. Clientes, presupuestos, facturas. La gestion que todo freelance necesita para escalar.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/ActqJ" class="product-card reveal"><div class="rank">18</div><div class="info"><h3>Gestion de Proyectos</h3><p class="desc">Proyectos que llegan a tiempo. Agile, planificacion, riesgos. Tu PM certificado trabajando para ti 24 horas al dia.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/lIKX7" class="product-card reveal"><div class="rank">19</div><div class="info"><h3>Idiomas</h3><p class="desc">Habla sin miedo. Practica conversacional, gramatica, examenes. Tu profesor particular disponible cuando tu quieras.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/yL4fV" class="product-card reveal"><div class="rank">20</div><div class="info"><h3>Inmobiliaria</h3><p class="desc">Vende mas, cierra antes. Valoraciones, clientes, negociaciones. Tu socio inmobiliario con anos de experiencia en cada prompt.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/Bmg0o" class="product-card reveal"><div class="rank">21</div><div class="info"><h3>Instagram</h3><p class="desc">Crece en Instagram con estrategia. Contenido, reels, historias. El community manager que trabaja mientras tu descansas.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/JYn0S" class="product-card reveal"><div class="rank">22</div><div class="info"><h3>Liderazgo</h3><p class="desc">Lidera como los mejores. Comunicacion, equipos, decisiones. El mentor de liderazgo que todo directivo necesita.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/hwz2E" class="product-card reveal"><div class="rank">23</div><div class="info"><h3>LinkedIn</h3><p class="desc">Convierte LinkedIn en tu mejor canal de ventas. Perfil, contenido, prospeccion. Tu estratega de marca personal.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/IMTjN" class="product-card reveal"><div class="rank">24</div><div class="info"><h3>Marca Personal</h3><p class="desc">Construye una marca que todos recuerden. Posicionamiento, contenido, monetizacion. Tu consultor de branding personal.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/Q5RYA" class="product-card reveal"><div class="rank">25</div><div class="info"><h3>Marketing</h3><p class="desc">Marketing que vende, no que molesta. SEO, SEM, redes, email. Tu departamento de marketing en 10 prompts.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/g0rdM" class="product-card reveal"><div class="rank">26</div><div class="info"><h3>Musica</h3><p class="desc">Crea musica con IA. Composicion, armonia, produccion. Tu productor musical con conocimiento de conservatorio.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/oxY3G" class="product-card reveal"><div class="rank">27</div><div class="info"><h3>Negocios</h3><p class="desc">Construye el negocio de tus suenos. Plan, mercado, crecimiento. Tu asesor empresarial con MBA incluido.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/Bo2E8" class="product-card reveal"><div class="rank">28</div><div class="info"><h3>Oratoria</h3><p class="desc">Habla en publico con confianza. Discursos, escenario, voz. El coach de oratoria que transforma tu miedo en carisma.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/XTEG5" class="product-card reveal"><div class="rank">29</div><div class="info"><h3>Programacion</h3><p class="desc">Codifica mejor, mas rapido, sin errores. Debugging, testing, refactoring. Tu senior developer de respaldo.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/vpErU" class="product-card reveal"><div class="rank">30</div><div class="info"><h3>Prompt Engineering</h3><p class="desc">Domina el arte de hablar con IA. Diseno, optimizacion, cadenas de prompts. El curso que no existe, en un pack.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/3X8aw" class="product-card reveal"><div class="rank">16</div><div class="info"><h3>Fitness</h3><p class="desc">Transforma tu cuerpo con ciencia, no con modas. Rutinas de entrenamiento personalizadas segun tu nivel y objetivo, planificacion nutricional con macros calculados, seguimiento de progreso con ajustes automaticos, periodizacion inteligente y optimizacion del rendimiento. Tu entrenador personal IA que nunca falla una sesion y se adapta a ti.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/xGPrH" class="product-card reveal"><div class="rank">17</div><div class="info"><h3>Freelance</h3><p class="desc">Vive de tu talento sin el caos de gestionarlo todo. Sistema de captacion y gestion de clientes, presupuestos profesionales que cobran lo que vales, contratos y facturacion automatica, marketing personal que atrae proyectos y productividad para multiplicar tu facturacion sin multiplicar tus horas. De freelance a CEO de tu propia marca.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/ActqJ" class="product-card reveal"><div class="rank">18</div><div class="info"><h3>Gestion de Proyectos</h3><p class="desc">Lidera proyectos que llegan a tiempo y dentro de presupuesto. Metodologias agiles adaptadas a tu equipo, planificacion con hitos claros, seguimiento de riesgos proactivo, comunicacion efectiva con stakeholders y lecciones aprendidas que mejoran tu siguiente proyecto. Tu PM certificado trabajando contigo en cada fase del proyecto.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/lIKX7" class="product-card reveal"><div class="rank">19</div><div class="info"><h3>Idiomas</h3><p class="desc">Habla sin miedo ni bloqueos. Practica conversacional con correccion en tiempo real, ejercicios de gramatica contextualizados, expansion de vocabulario con ejemplos reales y preparacion especifica para examenes oficiales. Tu profesor particular disponible 24/7, con la paciencia infinita de la IA y la precision de un linguista.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/yL4fV" class="product-card reveal"><div class="rank">20</div><div class="info"><h3>Inmobiliaria</h3><p class="desc">Vende mas propiedades y cierra antes cada operacion. Sistema de valoracion precisa de propiedades, captacion de clientes cualificados, negociacion con tecnicas probadas, cierre de ventas con objeciones resueltas y marketing inmobiliario que atrae compradores. Tu socio inmobiliario con 20 anos de experiencia en cada prompt.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/Bmg0o" class="product-card reveal"><div class="rank">21</div><div class="info"><h3>Instagram</h3><p class="desc">Crece en Instagram con estrategia, no con suerte. Plan de contenido que engancha, copy para posts que detienen el scroll, ideas para reels virales y storytelling en historias que construye comunidad. Analitica para saber que funciona y por que. Tu community manager IA trabajando mientras tu vives tu vida.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/JYn0S" class="product-card reveal"><div class="rank">22</div><div class="info"><h3>Liderazgo</h3><p class="desc">Lidera como los mejores sin imitar a nadie. Estilos de liderazgo adaptados a cada situacion, comunicacion que inspira accion, gestion de equipos de alto rendimiento, toma de decisiones bajo incertidumbre y desarrollo de talento directivo. El mentor de liderazgo que todo ejecutivo necesita, disponible cuando lo necesites.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/hwz2E" class="product-card reveal"><div class="rank">23</div><div class="info"><h3>LinkedIn</h3><p class="desc">Convierte LinkedIn en tu mejor canal de ventas y marca personal. Perfil optimizado que atrae oportunidades, contenido de valor que te posiciona como referente, networking estrategico que abre puertas y prospeccion que convierte conexiones en clientes. Tu estrategia de LinkedIn funcionando mientras tu te centras en cerrar.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/IMTjN" class="product-card reveal"><div class="rank">24</div><div class="info"><h3>Marca Personal</h3><p class="desc">Construye una marca que todos recuerden cuando te necesiten. Definicion de tu propuesta de valor unica, posicionamiento estrategico en tu sector, contenido que construye autoridad, crecimiento de audiencia cualificada y monetizacion de tu conocimiento. No eres un commodity. Eres una marca. Estos prompts te ayudan a construirla.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/Q5RYA" class="product-card reveal"><div class="rank">25</div><div class="info"><h3>Marketing</h3><p class="desc">Marketing que vende, no que molesta. Estrategia SEO que te lleva a la primera pagina de Google, SEM con CPC optimizado, redes sociales que generan conversacion y ventas, email marketing con secuencias que convierten y analitica para medir y mejorar. Tu departamento de marketing completo en 10 prompts potentes.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/g0rdM" class="product-card reveal"><div class="rank">26</div><div class="info"><h3>Musica</h3><p class="desc">Crea musica que emocione con la ayuda de la IA. Composicion y armonia con teoria musical aplicada, produccion y arreglos que suenan profesionales, letras con significado y estructura, mezcla y masterizacion con tecnicas de estudio. Tu productor musical con conocimientos de conservatorio y estudio profesional en cada prompt.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/oxY3G" class="product-card reveal"><div class="rank">27</div><div class="info"><h3>Negocios</h3><p class="desc">Construye el negocio de tus suenos con una hoja de ruta clara. Plan de negocio detallado, analisis de mercado con datos reales, modelo de ingresos sostenible, operaciones eficientes, estrategia de crecimiento y preparacion para financiacion. Tu asesor empresarial con MBA y experiencia real en startups trabajando para ti.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/Bo2E8" class="product-card reveal"><div class="rank">28</div><div class="info"><h3>Oratoria</h3><p class="desc">Habla en publico con la confianza de los grandes comunicadores. Preparacion de discursos memorables, manejo del escenario y presencia, control vocal que transmite autoridad, lenguaje corporal que refuerza tu mensaje y tecnicas para gestionar los nervios. El coach de oratoria que transforma tu miedo escenico en carisma magnetico.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/XTEG5" class="product-card reveal"><div class="rank">29</div><div class="info"><h3>Programacion</h3><p class="desc">Codifica mejor, mas rapido y con menos errores. Debugging asistido que encuentra bugs en segundos, code review con ojo critico, testing automatico que cubre casos borde, refactoring que limpia tu codigo y documentacion que otros desarrolladores agradeceran. Tu senior developer de respaldo, siempre disponible para consultar.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/vpErU" class="product-card reveal"><div class="rank">30</div><div class="info"><h3>Prompt Engineering</h3><p class="desc">Domina el arte de hablar con IA y obten resultados que otros no consiguen. Diseno de prompts optimizados para cada tarea, tecnicas de encadenamiento para tareas complejas, few-shot learning para consistencia, evaluacion sistematica de resultados y estrategias avanzadas para maximizar el rendimiento de cualquier LLM. El curso que no existe.</p></div><span class="price">9,99</span></a>
   </div>
 </div>
 </section>
@@ -276,8 +341,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
   <div class="bg-overlay"></div>
   <div class="bg-content wrap" style="display:flex;align-items:center;min-height:30vh;justify-content:center;text-align:center">
     <div class="reveal">
-      <p style="color:var(--gold-light);font-family:var(--font-display);font-size:1rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px">Para cualquier profesion</p>
-      <p style="color:#d0c8bc;font-size:.9rem">Desde programacion hasta cocina, pasando por finanzas y marketing</p>
+      <p style="color:var(--gold-light);font-family:var(--font-display);font-size:1rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px">Para cualquier profesion y sector</p>
+      <p style="color:#e0d8c8;font-size:.9rem">Programacion, marketing, finanzas, recursos humanos, creatividad... hay un pack para cada necesidad</p>
     </div>
   </div>
 </section>
@@ -286,21 +351,21 @@ footer .copy{font-size:.72rem;color:#6a6558}
 <section class="solid solid-darker" style="padding-bottom:40px">
 <div class="wrap">
   <div class="product-list">
-    <a href="https://payhip.com/b/nvD5I" class="product-card reveal"><div class="rank">31</div><div class="info"><h3>Python</h3><p class="desc">Automatiza tu trabajo con Python. Scripting, APIs, web scraping. Tu desarrollador Python en tu bolsillo.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/KragB" class="product-card reveal"><div class="rank">32</div><div class="info"><h3>RRHH</h3><p class="desc">Contrata mejor, reten mas talento. Seleccion, evaluacion, clima laboral. Tu departamento de RRHH aumentado con IA.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/Fvg2O" class="product-card reveal"><div class="rank">33</div><div class="info"><h3>Recursos Humanos</h3><p class="desc">Gestiona personas con excelencia. Nominas, comunicacion, desarrollo organizacional. El socio de RRHH que siempre quisiste.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/fEkO7" class="product-card reveal"><div class="rank">34</div><div class="info"><h3>Redes Sociales</h3><p class="desc">Domina todas las redes a la vez. Estrategia, contenido, analitica. Tu social media manager incansable.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/o1fim" class="product-card reveal"><div class="rank">35</div><div class="info"><h3>Salud</h3><p class="desc">Tu salud, optimizada. Nutricion, ejercicio, sueno, estres. El companion de bienestar que te conoce y te cuida.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/LymFl" class="product-card reveal"><div class="rank">36</div><div class="info"><h3>SEO Avanzado</h3><p class="desc">Sal el primero en Google. Keywords, link building, SEO tecnico. Tu experto SEO trabajando mientras tu duermes.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/g2QWN" class="product-card reveal"><div class="rank">37</div><div class="info"><h3>Sostenibilidad</h3><p class="desc">Impulsa el cambio real. ESG, huella de carbono, economia circular. Tu consultor de sostenibilidad con datos y accion.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/LB2DM" class="product-card reveal"><div class="rank">38</div><div class="info"><h3>Startups</h3><p class="desc">De idea a unicornio. Lean, MVP, fundraising, growth. Tu co-founder digital con experiencia en startups.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/GebSV" class="product-card reveal"><div class="rank">39</div><div class="info"><h3>TikTok</h3><p class="desc">Hazte viral en TikTok. Tendencias, edicion, growth. El estratega de TikTok que entiende el algoritmo.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/Yr4bh" class="product-card reveal"><div class="rank">40</div><div class="info"><h3>Trading</h3><p class="desc">Opera con inteligencia. Analisis tecnico, riesgo, psicologia. Tu analista de mercados 24/7 sin dormir nunca.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/clxRC" class="product-card reveal"><div class="rank">41</div><div class="info"><h3>Transformacion Digital</h3><p class="desc">Lidera el cambio digital. Estrategia, innovacion, agilidad. El consultor que transforma empresas desde dentro.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/KqZnu" class="product-card reveal"><div class="rank">42</div><div class="info"><h3>UX Writing</h3><p class="desc">Cada palabra cuenta. Microcopy, tono, navegacion. El UX writer que hace que tus productos hablen bien.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/aJfv6" class="product-card reveal"><div class="rank">43</div><div class="info"><h3>Ventas</h3><p class="desc">Cierra mas ventas, en menos tiempo. Prospeccion, objeciones, cierre. Tu maquina de ventas potenciada con IA.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/APaSX" class="product-card reveal"><div class="rank">44</div><div class="info"><h3>Ventas B2B</h3><p class="desc">Vende a empresas como un pro. Consultiva, enterprise, cuentas clave. Tu director comercial con network global.</p></div><span class="price">9,99</span></a>
-    <a href="https://payhip.com/b/N7kQr" class="product-card reveal"><div class="rank">45</div><div class="info"><h3>Viajes</h3><p class="desc">Viaja como un local, siempre. Itinerarios, presupuestos, recomendaciones. Tu agente de viajes personal que te conoce.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/nvD5I" class="product-card reveal"><div class="rank">31</div><div class="info"><h3>Python</h3><p class="desc">Automatiza tu trabajo con Python sin ser experto en programacion. Scripting para tareas repetitivas, integracion con APIs de servicios web, web scraping para recopilar datos, testing que garantiza que todo funciona y mejores practicas para codigo limpio. Tu desarrollador Python en el bolsillo, listo para escribir el codigo que necesitas.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/KragB" class="product-card reveal"><div class="rank">32</div><div class="info"><h3>RRHH</h3><p class="desc">Contrata mejor, reten mas talento y construye equipos que funcionan. Procesos de seleccion que identifican al candidato ideal, onboarding que triplica la retencion, evaluaciones de desempeno objetivas, planes de formacion personalizados y analisis de clima laboral con acciones concretas. Tu departamento de RRHH aumentado con IA.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/Fvg2O" class="product-card reveal"><div class="rank">33</div><div class="info"><h3>Recursos Humanos</h3><p class="desc">Gestiona el talento de tu organizacion con excelencia estrategica. Administracion de personal eficiente, gestion de nominas sin errores, comunicacion interna que conecta equipos, planes de igualdad y diversidad reales y desarrollo organizacional alineado con la estrategia. El socio estrategico de RRHH que toda empresa necesita.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/fEkO7" class="product-card reveal"><div class="rank">34</div><div class="info"><h3>Redes Sociales</h3><p class="desc">Domina todas las plataformas con una estrategia unificada. Contenido adaptado a cada red social sin perder coherencia de marca, calendario editorial que planifica el mes, analitica que muestra que funciona y por que, y community management que construye comunidad. Tu social media manager con experiencia multicanal trabajando sin descanso.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/o1fim" class="product-card reveal"><div class="rank">35</div><div class="info"><h3>Salud</h3><p class="desc">Tu salud, optimizada con ciencia y tecnologia. Bienestar integral fisico y mental, planes de nutricion personalizados, rutinas de ejercicio efectivas, optimizacion del sueno profundo, gestion del estres con tecnicas probadas y construccion de habitos saludables. El companion de bienestar que te conoce, te entiende y te cuida cada dia.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/LymFl" class="product-card reveal"><div class="rank">36</div><div class="info"><h3>SEO Avanzado</h3><p class="desc">Sal el primero en Google y mantente. Investigacion de keywords con intencion de busqueda real, link building estrategico que aumenta tu autoridad, SEO tecnico que los buscadores premian, contenido optimizado que responde a las preguntas de tu audiencia y analitica para medir y mejorar. Tu experto SEO trabajando 24/7.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/g2QWN" class="product-card reveal"><div class="rank">37</div><div class="info"><h3>Sostenibilidad</h3><p class="desc">Impulsa el cambio real en tu organizacion. Estrategia ESG completa, calculo y reduccion de huella de carbono, principios de economia circular aplicados, reportes de sostenibilidad con estandar GRI y compliance regulatorio actualizado. El conocimiento que necesitas para liderar la transformacion sostenible de tu empresa o proyecto.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/LB2DM" class="product-card reveal"><div class="rank">38</div><div class="info"><h3>Startups</h3><p class="desc">De la idea al exito con una metodologia que funciona. Validacion de tu idea de negocio antes de invertir, construccion de MVP minimo viable, product market fit que asegura traccion, fundraising con pitch deck irresistible y growth metrics que guian cada decision. Tu co-founder digital con experiencia en startups de exito.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/GebSV" class="product-card reveal"><div class="rank">39</div><div class="info"><h3>TikTok</h3><p class="desc">Hazte viral en TikTok con estrategia, no por casualidad. Plan de contenido que engancha al algoritmo, produccion de videos que retienen la atencion, estrategias de growth hacking para multiplicar seguidores, analitica que revela que funciona y monetizacion de tu audiencia. Tu estratega de TikTok que entiende el algoritmo mejor que nadie.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/Yr4bh" class="product-card reveal"><div class="rank">40</div><div class="info"><h3>Trading</h3><p class="desc">Opera en los mercados con inteligencia y disciplina. Analisis tecnico con patrones y configuraciones, analisis fundamental de activos, gestion de riesgo que protege tu capital, psicologia del trading para decisiones racionales y automatizacion de estrategias. Tu analista de mercados trabajando 24/7 mientras tu descansas.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/clxRC" class="product-card reveal"><div class="rank">41</div><div class="info"><h3>Transformacion Digital</h3><p class="desc">Lidera el cambio digital en tu organizacion sin fracasar en el intento. Estrategia digital alineada al negocio, gestion del cambio organizacional, innovacion con metodologias probadas, agilidad a escala y ciberseguridad como habilitador. El consultor que transforma empresas desde dentro, sin los honorarios de las grandes consultoras.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/KqZnu" class="product-card reveal"><div class="rank">42</div><div class="info"><h3>UX Writing</h3><p class="desc">Cada palabra en tu producto o servicio cuenta y debe convertir. Microcopy que guia, tranquiliza y convierte, tono de voz coherente con tu marca, textos de navegacion que no confunden, formularios que se completan sin friccion, mensajes de error que ayudan y onboarding que retiene usuarios. El UX writer que tus usuarios merecen.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/aJfv6" class="product-card reveal"><div class="rank">43</div><div class="info"><h3>Ventas</h3><p class="desc">Cierra mas ventas en menos tiempo sin ser agresivo. Prospeccion inteligente que encuentra clientes ideales, cualificacion de leads que ahorra tiempo, presentaciones que venden valor, manejo de objeciones con soltura, cierre con tecnicas probadas y gestion de tu pipeline de ventas. Tu maquina de ventas potenciada con inteligencia artificial.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/APaSX" class="product-card reveal"><div class="rank">44</div><div class="info"><h3>Ventas B2B</h3><p class="desc">Vende a empresas con el nivel de los mejores. Venta consultiva que aporta valor real, account based marketing para cuentas estrategicas, negociacion de contratos complejos, relacion a largo plazo con clientes enterprise y expansion de cuentas existentes. Tu director comercial con experiencia en grandes cuentas, disponible 24/7.</p></div><span class="price">9,99</span></a>
+    <a href="https://payhip.com/b/N7kQr" class="product-card reveal"><div class="rank">45</div><div class="info"><h3>Viajes</h3><p class="desc">Viaja como un local, siempre bien organizado y sin imprevistos. Planificacion de itinerarios optimizados por tiempo y presupuesto, recomendaciones personalizadas segun tus intereses, reservas y booking gestionados, experiencias locales autenticas y diario de viaje para recordar cada momento. Tu agente de viajes personal que te conoce mejor que nadie.</p></div><span class="price">9,99</span></a>
   </div>
 </div>
 </section>
@@ -313,7 +378,7 @@ footer .copy{font-size:.72rem;color:#6a6558}
     <h2>Empieza a transformar tu<br><span style="color:var(--gold)">productividad hoy</span></h2>
     <p>Elige tu pack, descargalo y empieza a ver resultados inmediatos. Sin cursos, sin suscripciones, sin complicaciones.</p>
     <div class="btn-group">
-      <a href="https://payhip.com/formulasia76" target="_blank" class="btn btn-primary">Ir a la Tienda</a>
+      <a href="neo-labs.html" class="btn btn-primary">Volver al Inicio</a>
     </div>
   </div>
 </section>
@@ -325,7 +390,6 @@ footer .copy{font-size:.72rem;color:#6a6558}
     <a href="neo-labs.html">Inicio</a>
     <a href="blog/">Blog</a>
     <a href="https://payhip.com/b/98ens" target="_blank">Guia Gratuita</a>
-    <a href="https://payhip.com/formulasia76" target="_blank">Tienda</a>
   </div>
   <p class="copy">&copy; 2026 NEO Labs. Productividad aumentada con inteligencia artificial.</p>
 </footer>
