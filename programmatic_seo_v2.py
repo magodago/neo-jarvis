@@ -203,6 +203,11 @@ a{{color:var(--brand);text-decoration:none}}a:hover{{filter:brightness(1.2)}}
 .article-header{{margin-bottom:28px}}
 .article-header .cat-tag{{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}}
 .article-header h1{{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}}
+.nav-logo{{font-family:var(--font-display);font-size:1.15rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff;white-space:nowrap}}
+.nav-logo span{{color:var(--brand)}}
+.nav-links{{display:flex;gap:16px;list-style:none;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;flex-wrap:nowrap;white-space:nowrap;align-items:center;margin-left:auto}}
+.nav-links a{{color:var(--text-muted);text-decoration:none;transition:color .2s}}
+.nav-links a:hover{{color:var(--brand)}}
 .article-header .meta{{display:flex;gap:20px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}}
 .article-body h2{{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:#fff;margin:30px 0 10px;letter-spacing:-.3px}}
 .article-body p{{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px}}
@@ -245,7 +250,7 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 </head>
 <body>
 <div id="progress"></div>
-<nav id="nav">
+<nav id="nav" style="position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,.1);transition:transform .35s">
 <div class="nav-logo">NE<span>O</span></div>
 <ul class="nav-links">
 <li><a href="../../neo-labs.html">Inicio</a></li>
