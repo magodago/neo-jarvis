@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>NEO Labs — Productos Digitales Premium</title>
+<meta name="description" content="NEO Labs crea productos digitales premium: prompts de IA y planners Excel que transforman tu productividad. Diseñados para mentes ambiciosas.">
+<meta name="keywords" content="prompts IA, productividad, planners excel, neolabs, premium, digital products">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/neo-labs.html">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Lenis -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050510;
+  --bg2:#0a0a14;
+  --bg3:#0f0f1e;
+  --gold:#d4af37;
+  --gold-light:#f0d68a;
+  --gold-dark:#a6862a;
+  --text:#e8e0d0;
+  --text-dim:#8a7a60;
+  --text-muted:#4a3a20;
+  --glass:rgba(10,10,20,0.85);
+  --glow:0 0 30px rgba(212,175,55,0.15);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter','-apple-system',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* === Lenis scroll container === */
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-scrolling iframe{pointer-events:none}
+
+/* === NAV === */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:var(--glass);
+  backdrop-filter:saturate(180%) blur(24px);
+  -webkit-backdrop-filter:saturate(180%) blur(24px);
+  border-bottom:1px solid rgba(212,175,55,0.08);
+  height:60px;
+  display:flex;align-items:center;
+  padding:0 24px;
+  transition:transform 0.3s ease;
+}
+nav.hidden{transform:translateY(-100%)}
+.nav-logo{font-family:'Orbitron',monospace;font-size:14px;font-weight:600;color:var(--gold);letter-spacing:3px;text-decoration:none}
+.nav-links{display:flex;gap:32px;margin-left:auto;align-items:center}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.5px;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--gold);color:var(--bg);padding:8px 20px;border-radius:4px;
+  font-weight:600;font-size:13px;text-decoration:none;letter-spacing:0.5px;
+  transition:all 0.3s;
+}
+.nav-cta:hover{background:var(--gold-light);color:var(--bg);transform:translateY(-1px);box-shadow:var(--glow)}
+.nav-mobile{display:none;background:none;border:none;color:var(--gold);font-size:24px;cursor:pointer;margin-left:auto}
+
+/* === HERO === */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.06) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-glow{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 70%);
+  top:20%;left:50%;transform:translateX(-50%);
+  animation:pulse 4s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes pulse{0%,100%{opacity:0.5;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.2)}}
+.hero-tag{
+  font-family:'Orbitron',monospace;font-size:11px;letter-spacing:4px;color:var(--gold);
+  margin-bottom:24px;opacity:0;transform:translateY(20px);
+}
+.hero h1{
+  font-family:'Orbitron',monospace;font-size:clamp(36px,6vw,72px);font-weight:600;
+  line-height:1.05;letter-spacing:-1px;
+  color:var(--text);margin-bottom:16px;
+  opacity:0;transform:translateY(30px);
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{
+  font-family:'Inter',sans-serif;font-size:clamp(16px,2vw,21px);font-weight:300;
+  color:var(--text-dim);line-height:1.6;max-width:600px;margin-bottom:40px;
+  opacity:0;transform:translateY(20px);
+}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(20px)}
+.btn-primary{
+  background:var(--gold);color:var(--bg);padding:14px 32px;border-radius:6px;
+  font-weight:600;font-size:15px;text-decoration:none;letter-spacing:0.3px;
+  transition:all 0.3s;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:var(--glow)}
+.btn-secondary{
+  background:transparent;color:var(--text);padding:14px 32px;border-radius:6px;
+  font-weight:500;font-size:15px;text-decoration:none;
+  border:1px solid rgba(255,255,255,0.15);transition:all 0.3s;
+}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.5;
+  animation:float 3s ease-in-out infinite;
+}
+.hero-scroll span{font-size:10px;letter-spacing:2px;color:var(--text-dim)}
+.hero-scroll .line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent)}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+
+/* === SECTIONS === */
+.section{
+  padding:100px 24px;position:relative;
+}
+.section-dark{background:var(--bg)}
+.section-dark2{background:var(--bg2)}
+.section-dark3{background:var(--bg3)}
+.section-inner{max-width:1100px;margin:0 auto}
+
+.section-tag{
+  font-family:'Orbitron',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);
+  margin-bottom:12px;text-transform:uppercase;
+}
+.section h2{
+  font-family:'Orbitron',monospace;font-size:clamp(28px,4vw,44px);font-weight:600;
+  line-height:1.15;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;
+}
+.section p.subtitle{font-size:17px;font-weight:300;color:var(--text-dim);max-width:560px;line-height:1.6;margin-bottom:50px}
+
+/* === PRODUCT CARDS === */
+.product-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;
+}
+.product-card{
+  background:var(--bg3);border:1px solid rgba(255,255,255,0.04);border-radius:12px;
+  padding:28px;transition:all 0.4s;position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.product-card:hover{
+  border-color:rgba(212,175,55,0.2);transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.3),0 0 30px rgba(212,175,55,0.05);
+}
+.product-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity 0.4s;
+}
+.product-card:hover::before{opacity:0.3}
+.product-card .icon{font-size:28px;margin-bottom:16px;display:block}
+.product-card h3{font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px;letter-spacing:0.2px}
+.product-card .desc{font-size:13px;color:var(--text-dim);line-height:1.5;margin-bottom:16px}
+.product-card .meta{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,255,255,0.04)}
+.product-card .price{font-family:'Orbitron',monospace;font-size:14px;color:var(--gold);font-weight:600}
+.product-card .badge{font-size:10px;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase}
+.product-card .link{color:var(--gold);font-size:12px;text-decoration:none;font-weight:500}
+
+/* === FREE BANNER === */
+.free-banner{
+  background:linear-gradient(135deg, rgba(212,175,55,0.06), rgba(10,10,20,0.9));
+  border:1px solid rgba(212,175,55,0.15);border-radius:16px;
+  padding:60px 40px;text-align:center;margin:60px 0;
+}
+.free-banner h2{font-family:'Orbitron',monospace;font-size:clamp(24px,3vw,36px);color:var(--gold);margin-bottom:12px}
+.free-banner p{color:var(--text-dim);max-width:500px;margin:0 auto 24px;font-size:15px;line-height:1.6}
+.free-banner .btn-primary{padding:16px 40px;font-size:14px;letter-spacing:1px}
+
+/* === FEATURES === */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.feature-card{text-align:center;padding:32px 20px}
+.feature-card .num{
+  font-family:'Orbitron',monospace;font-size:36px;color:var(--gold);font-weight:600;
+  margin-bottom:8px;opacity:0.6;
+}
+.feature-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--text)}
+.feature-card p{font-size:13px;color:var(--text-dim);line-height:1.6}
+
+/* === PLANNERS SECTION === */
+.planner-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.planner-chip{
+  background:var(--bg3);border:1px solid rgba(255,255,255,0.04);border-radius:8px;
+  padding:16px 20px;display:flex;justify-content:space-between;align-items:center;
+  transition:all 0.3s;text-decoration:none;
+}
+.planner-chip:hover{border-color:rgba(212,175,55,0.15);transform:translateY(-2px)}
+.planner-chip .name{font-size:14px;font-weight:500;color:var(--text)}
+.planner-chip .price{font-family:'Orbitron',monospace;font-size:13px;color:var(--gold)}
+
+/* === FOOTER === */
+footer{
+  padding:60px 24px 30px;border-top:1px solid rgba(255,255,255,0.04);
+  text-align:center;
+}
+footer .logo{font-family:'Orbitron',monospace;font-size:13px;color:var(--gold);letter-spacing:3px;margin-bottom:20px}
+footer .links{display:flex;justify-content:center;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+footer .links a{color:var(--text-dim);text-decoration:none;font-size:13px;transition:color 0.3s}
+footer .links a:hover{color:var(--gold)}
+footer .copy{font-size:11px;color:var(--text-muted)}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-mobile{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--glass);backdrop-filter:blur(24px);padding:20px 24px;border-bottom:1px solid rgba(212,175,55,0.08);gap:20px;align-items:flex-start}
+  .product-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr}
+  .planner-row{grid-template-columns:1fr}
+  .section{padding:60px 16px}
+  .free-banner{padding:40px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">NEO</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#productos">Productos</a>
+    <a href="#planners">Planners</a>
+    <a href="#completo">Pack Premium</a>
+    <a href="#gratis" class="nav-cta">Guía Gratis</a>
+  </div>
+  <button class="nav-mobile" id="navToggle" aria-label="Menú">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-tag" id="heroTag">NEO LABS · EST. 2026</div>
+  <h1 id="heroTitle">Tecnología que<br><em>transforma</em> tu vida</h1>
+  <p id="heroDesc">Productos digitales premium diseñados para mentes ambiciosas. Prompts de IA y planners Excel que multiplican tu potencial.</p>
+  <div class="hero-ctas" id="heroCtas">
+    <a href="#gratis" class="btn-primary">DESCARGAR GUÍA GRATIS</a>
+    <a href="#productos" class="btn-secondary">VER PRODUCTOS</a>
+  </div>
+  <div class="hero-scroll"><span>DESCUBRE</span><div class="line"></div></div>
+</section>
+
+<!-- FREE BANNER HERO -->
+<section class="section section-dark" id="gratis">
+  <div class="section-inner">
+    <div class="free-banner">
+      <div class="section-tag">🎁 GRATIS</div>
+      <h2>5 Prompts de IA para Multiplicar tu Productividad</h2>
+      <p>Organiza tu día, escribe emails profesionales, resume documentos y resuelve problemas con IA. Guía descargable con prompts listos para copiar y pegar.</p>
+      <a href="https://payhip.com/b/98ens" target="_blank" class="btn-primary">DESCARGAR GRATIS →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section section-dark2" id="productos">
+  <div class="section-inner">
+    <div class="section-tag" data-reveal>✦ CATÁLOGO</div>
+    <h2 data-reveal>Packs de Prompts<br>Premium IA</h2>
+    <p class="subtitle" data-reveal>60 prompts por pack, organizados en 6 categorías. PDF descargable, listo para usar en ChatGPT, Claude o Gemini.</p>
+    <div class="product-grid" data-reveal>
+      <a href="https://payhip.com/b/76ECk" target="_blank" class="product-card">
+        <span class="icon">⚡</span><h3>Productividad</h3>
+        <p class="desc">Organización diaria, comunicación, análisis, enfoque, resolución de problemas y creatividad.</p>
+        <div class="meta"><span class="price">9.99€</span><span class="badge">🔥 Más vendido</span></div>
+      </a>
+      <a href="https://payhip.com/b/uP62G" target="_blank" class="product-card">
+        <span class="icon">💰</span><h3>Finanzas</h3>
+        <p class="desc">Análisis financiero, presupuestos, inversiones, reporting, ahorro y planificación fiscal.</p>
+        <div class="meta"><span class="price">9.99€</span></div>
+      </a>
+      <a href="https://payhip.com/b/ryRVC" target="_blank" class="product-card">
+        <span class="icon">✍️</span><h3>Copywriting</h3>
+        <p class="desc">Persuasión, storytelling, conversión, newsletters, landing pages y branding.</p>
+        <div class="meta"><span class="price">9.99€</span></div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="https://magodago.github.io/neo-jarvis/catalogo.html" class="btn-secondary">VER TODOS (45 PACKS)</a>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNERS -->
+<section class="section section-dark3" id="planners">
+  <div class="section-inner">
+    <div class="section-tag" data-reveal>📋 EXCEL PREMIUM</div>
+    <h2 data-reveal>Planners Inteligentes</h2>
+    <p class="subtitle" data-reveal>Dashboards interactivos, categorías personalizables y trackers automáticos. Todo en Excel profesional.</p>
+    <div class="planner-row" data-reveal>
+      <a href="https://payhip.com/b/fKgGj" target="_blank" class="planner-chip"><span class="name">Budget Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/gp7rR" target="_blank" class="planner-chip"><span class="name">Business Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/CNevQ" target="_blank" class="planner-chip"><span class="name">Creator Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/HfYBt" target="_blank" class="planner-chip"><span class="name">Habit Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/06lFJ" target="_blank" class="planner-chip"><span class="name">Student Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/EkHdW" target="_blank" class="planner-chip"><span class="name">Social Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/v1ayB" target="_blank" class="planner-chip"><span class="name">Travel Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/1oxR4" target="_blank" class="planner-chip"><span class="name">Wedding Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/rzZnh" target="_blank" class="planner-chip"><span class="name">PM Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/d4MHh" target="_blank" class="planner-chip"><span class="name">Real Estate Planner</span><span class="price">14.99€</span></a>
+      <a href="https://payhip.com/b/Kg5sw" target="_blank" class="planner-chip"><span class="name">Meal Planner</span><span class="price">14.99€</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section section-dark2" id="completo">
+  <div class="section-inner">
+    <div class="section-tag" data-reveal>✦ POR QUÉ NEO</div>
+    <h2 data-reveal>Hecho para quienes<br>exigen lo mejor</h2>
+    <p class="subtitle" data-reveal>Cada producto NEO Labs está diseñado con el mismo nivel de detalle que esperarías de una empresa tecnológica premium.</p>
+    <div class="features-grid" data-reveal>
+      <div class="feature-card">
+        <div class="num">60</div>
+        <h3>Prompts por Pack</h3>
+        <p>Cada pack contiene 60 prompts organizados en 6 categorías. Suficiente para cubrir cualquier escenario.</p>
+      </div>
+      <div class="feature-card">
+        <div class="num">6</div>
+        <h3>Categorías Especializadas</h3>
+        <p>Cada categoría cubre un área específica con prompts diseñados por expertos, no genéricos.</p>
+      </div>
+      <div class="feature-card">
+        <div class="num">100%</div>
+        <h3>Listo para Usar</h3>
+        <p>PDF descargable, prompts listos para copiar y pegar. Sin setup, sin configuración, sin pérdida de tiempo.</p>
+      </div>
+      <div class="feature-card">
+        <div class="num">11</div>
+        <h3>Planners Excel</h3>
+        <p>Dashboards interactivos con gráficos automáticos. Controla tu vida y negocio como un profesional.</p>
+      </div>
+      <div class="feature-card">
+        <div class="num">45</div>
+        <h3>Temas Diferentes</h3>
+        <p>Desde finanzas hasta fitness, pasando por marketing, programación y desarrollo personal.</p>
+      </div>
+      <div class="feature-card">
+        <div class="num">✓</div>
+        <h3>Calidad Premium</h3>
+        <p>Diseño cuidado, contenido validado, formato profesional. El nivel de detalle que mereces.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section section-dark">
+  <div class="section-inner" style="text-align:center">
+    <div class="section-tag" data-reveal>✦ EMPIEZA AHORA</div>
+    <h2 data-reveal style="max-width:700px;margin:0 auto 20px">Tu próximo nivel de productividad<br>está a un clic de distancia</h2>
+    <p data-reveal class="subtitle" style="margin:0 auto 40px">Descarga gratis los 5 prompts premium y descubre por qué NEO Labs es la elección de quienes no se conforman con lo básico.</p>
+    <div data-reveal>
+      <a href="https://payhip.com/b/98ens" target="_blank" class="btn-primary" style="padding:18px 48px;font-size:15px">DESCARGAR GUÍA GRATIS →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">NEO LABS</div>
+  <div class="links">
+    <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catálogo</a>
+    <a href="https://payhip.com/b/98ens">Guía Gratis</a>
+    <a href="https://payhip.com/formulasia76">Tienda</a>
+    <a href="https://magodago.github.io/neo-jarvis/">JARVIS</a>
+  </div>
+  <div class="copy">NEO Labs © 2026 — Tecnología que transforma tu vida.</div>
+</footer>
+
+<script>
+// === LENIS ===
+const lenis = new Lenis({duration:1.2,easing:(t)=>Math.min(1,1.001-Math.pow(2,-10*t)),orientation:'vertical',smoothWheel:true})
+lenis.on('scroll',ScrollTrigger.update)
+gsap.ticker.add((time)=>{lenis.raf(time*1000)})
+gsap.ticker.lagSmoothing(0)
+
+// === NAV HIDE ON SCROLL DOWN ===
+let lastScroll=0;
+lenis.on('scroll',(e)=>{
+  const nav=document.getElementById('nav')
+  if(e.velocity>0&&e.scroll>80)nav.classList.add('hidden')
+  else nav.classList.remove('hidden')
+})
+
+// === MOBILE NAV ===
+document.getElementById('navToggle').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open')
+})
+
+// === HERO ANIMATION ===
+gsap.to('#heroTag',{opacity:1,y:0,duration:0.8,ease:'power3.out',delay:0.3})
+gsap.to('#heroTitle',{opacity:1,y:0,duration:1,ease:'power3.out',delay:0.6})
+gsap.to('#heroDesc',{opacity:1,y:0,duration:0.8,ease:'power3.out',delay:0.9})
+gsap.to('#heroCtas',{opacity:1,y:0,duration:0.8,ease:'power3.out',delay:1.2})
+
+// === SCROLL REVEALS ===
+gsap.registerPlugin(ScrollTrigger)
+document.querySelectorAll('[data-reveal]').forEach((el)=>{
+  gsap.from(el,{
+    opacity:0,y:40,duration:0.8,ease:'power2.out',
+    scrollTrigger:{trigger:el,start:'top 85%',toggleActions:'play none none none'}
+  })
+})
+
+// === PRODUCT CARDS STAGGER ===
+gsap.from('.product-card',{
+  opacity:0,y:30,duration:0.6,ease:'power2.out',stagger:0.1,
+  scrollTrigger:{trigger:'.product-grid',start:'top 80%'}
+})
+
+// === PLANNER CHIPS STAGGER ===
+gsap.from('.planner-chip',{
+  opacity:0,x:-20,duration:0.4,ease:'power2.out',stagger:0.03,
+  scrollTrigger:{trigger:'.planner-row',start:'top 85%'}
+})
+
+// === FEATURE CARDS STAGGER ===
+gsap.from('.feature-card',{
+  opacity:0,y:30,duration:0.6,ease:'power2.out',stagger:0.08,
+  scrollTrigger:{trigger:'.features-grid',start:'top 80%'}
+})
+
+// === PRODUCT CARD TILT ===
+document.querySelectorAll('.product-card').forEach(card=>{
+  card.addEventListener('mousemove',(e)=>{
+    const rect=card.getBoundingClientRect()
+    const x=e.clientX-rect.left,y=e.clientY-rect.top
+    const cx=rect.width/2,cy=rect.height/2
+    card.style.transform=`perspective(800px) rotateY(${(x-cx)/20}deg) rotateX(${-(y-cy)/20}deg) translateY(-4px)`
+  })
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform=''
+  })
+})
+</script>
+</body>
+</html>
