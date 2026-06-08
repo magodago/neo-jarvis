@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog de Productividad con IA — NEO Labs</title>
-<meta name="description" content="Noticias, guias y recursos sobre productividad con inteligencia artificial. Prompts, tecnicas y herramientas para multiplicar tu rendimiento profesional.">
+<meta name="description" content="Noticias, guias y recursos sobre productividad con inteligencia artificial. Contenido actualizado para profesionales que quieren multiplicar su rendimiento.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/productividad/">
 <meta property="og:title" content="Blog de Productividad con IA — NEO Labs">
 <meta property="og:description" content="Noticias y guias de productividad con inteligencia artificial.">
@@ -34,50 +34,83 @@ nav.hidden{transform:translateY(-100%)}
 .nav-links a:hover{color:var(--brand)}
 @media(max-width:768px){.nav-links{display:none};nav{padding:14px 20px}}
 
-.hero{min-height:55vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:radial-gradient(ellipse at 30% 20%,#1a1508 0%,#050508 60%)}
-.hero .grid{position:absolute;inset:0;z-index:0;opacity:.05;background-image:linear-gradient(rgba(212,168,83,.25) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,83,.25) 1px,transparent 1px);background-size:50px 50px}
-.hero .glow{position:absolute;top:-30%;left:-20%;width:80%;height:80%;background:radial-gradient(circle,rgba(212,168,83,.06) 0%,transparent 60%);z-index:0}
-.hero-content{position:relative;z-index:2;max-width:700px;padding:90px 24px 40px}
-.hero-badge{display:inline-block;padding:7px 18px;border:1px solid rgba(212,168,83,.25);border-radius:100px;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--brand);margin-bottom:24px}
-.hero-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3.6rem);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:12px}
-.hero-title .brand{color:var(--brand)}
-.hero-desc{font-size:.95rem;color:#e8e0d0;max-width:500px;margin:0 auto;line-height:1.8;text-shadow:0 1px 6px rgba(0,0,0,.3)}
+/* === HERO WITH BG IMAGE === */
+.hero{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
+.hero .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero .bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(5,5,8,.88) 20%,rgba(5,5,8,.5) 60%,rgba(5,5,8,.15))}
+.hero .hero-content{position:relative;z-index:2;max-width:700px;padding:100px 24px 60px}
+.hero .hero-badge{display:inline-block;padding:7px 18px;border:1px solid rgba(212,168,83,.3);border-radius:100px;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--brand);margin-bottom:24px;backdrop-filter:blur(4px);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.hero .hero-title{font-family:var(--font-display);font-size:clamp(1.8rem,4.5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:12px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+.hero .hero-title .brand{color:var(--brand)}
+.hero .hero-desc{font-size:.95rem;color:#f0e8d8;max-width:500px;margin:0 auto;line-height:1.8;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 
-#strip{background:linear-gradient(135deg,var(--brand-dark),var(--brand),var(--brand-light));padding:16px 24px;text-align:center}
-#strip p{color:var(--bg);font-family:var(--font-display);font-size:.85rem;letter-spacing:.3px;font-weight:600}
-#strip a{color:var(--bg);text-decoration:underline;font-weight:700}
+.strip{background:linear-gradient(135deg,var(--brand-dark),var(--brand),var(--brand-light));padding:16px 24px;text-align:center}
+.strip p{color:var(--bg);font-family:var(--font-display);font-size:.85rem;letter-spacing:.3px;font-weight:600}
+.strip a{color:var(--bg);text-decoration:underline;font-weight:700}
 
+/* === CONTENT === */
 .content{padding:48px 24px;background:var(--bg2)}
+.wrap{max-width:1100px;margin:0 auto}
 
-.wrap{max-width:900px;margin:0 auto}
-
-/* === SECTION HEADLINE === */
-.section-head{text-align:center;margin-bottom:32px}
+.section-head{text-align:center;margin-bottom:36px}
 .section-head .label{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
 .section-head h2{font-family:var(--font-display);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:#fff;letter-spacing:-.5px}
 
-/* === ARTICLES === */
-.article-list{display:flex;flex-direction:column;gap:16px}
-.article-card{display:grid;grid-template-columns:80px 1fr;gap:20px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;transition:all .4s;text-decoration:none}
-.article-card:hover{background:rgba(212,168,83,.04);border-color:rgba(212,168,83,.18);transform:translateX(4px)}
-.article-card .num{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:rgba(212,168,83,.15);line-height:1;width:80px;display:flex;align-items:flex-start;justify-content:center;padding-top:2px}
-.article-card .info{flex:1}
-.article-card .tag{display:inline-block;padding:2px 8px;border-radius:100px;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.12);color:var(--brand);margin-bottom:6px}
-.article-card h3{font-family:var(--font-display);font-size:1rem;font-weight:600;color:#fff;margin-bottom:4px;letter-spacing:-.2px}
-.article-card p{font-size:.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:6px}
-.article-card .meta{font-size:.7rem;color:#5a5548}
-.article-card .arrow{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--brand);font-weight:600;display:inline-block;opacity:0;transform:translateX(-4px);transition:all .3s}
-.article-card:hover .arrow{opacity:1;transform:translateX(0)}
+/* === NEWS TICKER === */
+.ticker{background:var(--bg3);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ticker .t-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;white-space:nowrap;flex-shrink:0}
+.ticker .t-text{font-size:.82rem;color:var(--text-muted);line-height:1.5;flex:1}
+
+/* === FEATURED GRID === */
+.featured-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:40px}
+@media(max-width:768px){.featured-grid{grid-template-columns:1fr}}
+
+.featured-main{position:relative;border-radius:16px;overflow:hidden;min-height:340px;text-decoration:none;display:flex;align-items:flex-end}
+.featured-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s}
+.featured-main:hover img{transform:scale(1.05)}
+.featured-main .overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(5,5,8,.92) 20%,rgba(5,5,8,.3) 60%,rgba(5,5,8,.1))}
+.featured-main .f-content{position:relative;z-index:2;padding:32px 28px}
+.featured-main .f-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.58rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.2);color:var(--brand-light);margin-bottom:8px;backdrop-filter:blur(4px)}
+.featured-main h3{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.2px;line-height:1.25}
+.featured-main p{font-size:.82rem;color:#d0c8bc;line-height:1.5;margin-bottom:8px}
+.featured-main .f-meta{font-size:.7rem;color:#8a8070}
+.featured-main .f-arrow{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;display:inline-block;margin-top:8px}
+
+.featured-sidebar{display:flex;flex-direction:column;gap:16px}
+.featured-sidebar .f-card{position:relative;border-radius:14px;overflow:hidden;min-height:160px;text-decoration:none;display:flex;align-items:flex-end;flex:1}
+.featured-sidebar .f-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .5s}
+.featured-sidebar .f-card:hover img{transform:scale(1.05)}
+.featured-sidebar .f-card .overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(5,5,8,.9) 10%,rgba(5,5,8,.2) 60%)}
+.featured-sidebar .f-card .f-content{position:relative;z-index:2;padding:20px}
+.featured-sidebar .f-card h3{font-family:var(--font-display);font-size:.9rem;font-weight:600;color:#fff;letter-spacing:-.1px;line-height:1.2}
+.featured-sidebar .f-card .f-meta{font-size:.65rem;color:#8a8070;margin-top:4px}
+
+/* === ARTICLE GRID === */
+.article-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:40px}
+.article-card{position:relative;border-radius:14px;overflow:hidden;min-height:240px;text-decoration:none;display:flex;align-items:flex-end}
+.article-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .5s}
+.article-card:hover img{transform:scale(1.05)}
+.article-card .overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(5,5,8,.92) 15%,rgba(5,5,8,.25) 55%,rgba(5,5,8,.05))}
+.article-card .a-content{position:relative;z-index:2;padding:24px 20px;width:100%}
+.article-card .a-tag{display:inline-block;padding:2px 8px;border-radius:100px;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.2);color:var(--brand-light);margin-bottom:6px}
+.article-card h3{font-family:var(--font-display);font-size:.95rem;font-weight:600;color:#fff;margin-bottom:4px;letter-spacing:-.1px;line-height:1.2}
+.article-card p{font-size:.78rem;color:#c0b8a8;line-height:1.5;margin-bottom:4px}
+.article-card .a-meta{font-size:.65rem;color:#8a8070}
+
+/* === SECTIONS WITH BG === */
+.section-bg{position:relative;padding:56px 24px;margin:32px 0}
+.section-bg .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.section-bg .overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,5,8,.92) 30%,rgba(5,5,8,.55) 70%,rgba(5,5,8,.2))}
+.section-bg .sb-content{position:relative;z-index:2;max-width:600px}
+.section-bg .sb-label{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+.section-bg h2{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-.5px}
+.section-bg h2 .brand{color:var(--brand)}
+.section-bg p{font-size:.9rem;color:#d0c8bc;line-height:1.7;margin-bottom:20px;max-width:480px}
 
 /* === CTA === */
 .cta{background:linear-gradient(135deg,rgba(212,168,83,.05),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.18);border-radius:16px;padding:36px 28px;text-align:center;margin:32px 0}
 .cta h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--brand);margin-bottom:6px}
 .cta p{color:var(--text-muted);font-size:.85rem;margin-bottom:18px;max-width:440px;margin-left:auto;margin-right:auto}
-
-/* === NEWS TICKER === */
-.news-ticker{background:var(--bg3);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.news-ticker .ticker-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;white-space:nowrap;flex-shrink:0}
-.news-ticker .ticker-text{font-size:.82rem;color:var(--text-muted);line-height:1.5;flex:1}
 
 .btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block}
 .btn-primary{background:linear-gradient(135deg,var(--brand-dark),var(--brand),var(--brand-light));color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
@@ -99,8 +132,8 @@ footer .copy{font-size:.7rem;color:#6a6558}
 .s-hidden{display:none}
 
 @media(max-width:768px){
-  .article-card{grid-template-columns:1fr;gap:8px}
-  .article-card .num{display:none}
+  .hero{min-height:50vh}
+  .section-bg{padding:36px 20px}
 }
 </style>
 <script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Blog","name":"Blog de Productividad con IA","description":"Noticias y guias de productividad con inteligencia artificial.","url":"https://magodago.github.io/neo-jarvis/blog/productividad/","publisher":{"@type":"Organization","name":"NEO Labs"}}</script>
@@ -120,100 +153,211 @@ footer .copy{font-size:.7rem;color:#6a6558}
 
 <!-- ====== HERO ====== -->
 <section class="hero">
-  <div class="grid"></div>
-  <div class="glow"></div>
+  <img class="bg-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85" alt="Oficina moderna productividad">
+  <div class="bg-overlay"></div>
   <div class="hero-content reveal">
     <div class="hero-badge">Productividad con IA</div>
     <h1 class="hero-title">Blog de <span class="brand">Productividad</span></h1>
-    <p class="hero-desc">Noticias, guias y recursos para profesionales que quieren multiplicar su rendimiento con inteligencia artificial. Prompts, tecnicas y herramientas.</p>
+    <p class="hero-desc">Noticias, guias practicas y recursos para profesionales que quieren multiplicar su rendimiento con inteligencia artificial.</p>
   </div>
 </section>
 
 <!-- ====== STRIP ====== -->
-<section id="strip">
-  <p><strong>Gratis:</strong> <a href="https://payhip.com/b/98ens" target="_blank">5 Prompts de IA para Multiplicar tu Productividad</a> &mdash; Descargar</p>
+<section class="strip">
+  <p><strong>Gratis:</strong> <a href="https://payhip.com/b/98ens" target="_blank">5 Prompts de IA para Multiplicar tu Productividad</a> &mdash; Descargar ahora</p>
 </section>
 
 <!-- ====== CONTENT ====== -->
 <section class="content">
 <div class="wrap">
 
-  <!-- NEWS TICKER -->
-  <div class="news-ticker reveal">
-    <span class="ticker-label">&bull; Novedades</span>
-    <span class="ticker-text">Recien publicado: <a href="../prompts-ia-productividad-2026.html" style="color:var(--brand)">Guia completa de prompts de IA para productividad en 2026</a> &mdash; Los 10 prompts mas efectivos para tu dia a dia.</span>
+  <!-- TICKER -->
+  <div class="ticker reveal">
+    <span class="t-label">&bull; Ultima hora</span>
+    <span class="t-text">ChatGPT lanza nuevo modo de productividad con integracion directa en calendarios. <a href="../prompts-ia-productividad-2026.html" style="color:var(--brand)">Lee el analisis completo</a></span>
   </div>
 
   <div class="section-head">
-    <div class="label">Contenido Destacado</div>
-    <h2>Multiplica tu rendimiento <span style="color:var(--brand)">con IA</span></h2>
+    <div class="label">Lo ultimo en productividad</div>
+    <h2>Contenido <span style="color:var(--brand)">destacado</span></h2>
   </div>
 
-  <div class="article-list">
-
-    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
-      <div class="num">01</div>
-      <div class="info">
-        <span class="tag">Guia Completa</span>
+  <!-- FEATURED MAIN + SIDEBAR -->
+  <div class="featured-grid reveal">
+    <a href="../prompts-ia-productividad-2026.html" class="featured-main">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=85" alt="Codigo y pantalla">
+      <div class="overlay"></div>
+      <div class="f-content">
+        <span class="f-tag">Guia Completa</span>
         <h3>10 Mejores Prompts de IA para Productividad en 2026</h3>
-        <p>Organiza tu dia, escribe emails profesionales, resume documentos y resuelve problemas. Los 10 prompts mas efectivos probados con ChatGPT, Claude y Gemini.</p>
-        <div class="meta">10 min de lectura</div>
-        <span class="arrow">Leer</span>
+        <p>Organiza tu dia, escribe emails profesionales, resume documentos y resuelve problemas. Los prompts mas efectivos probados con ChatGPT, Claude y Gemini.</p>
+        <div class="f-meta">8 Junio 2026 &middot; 10 min de lectura</div>
+        <span class="f-arrow">Leer articulo</span>
       </div>
     </a>
 
-    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
-      <div class="num">02</div>
-      <div class="info">
-        <span class="tag">Guia Practica</span>
-        <h3>Como Automatizar tu Flujo de Trabajo con Prompts de IA</h3>
-        <p>Aprende a delegar tareas repetitivas a la IA con prompts especificos. Gestion del correo, planificacion semanal y toma de decisiones en automatico.</p>
-        <div class="meta">Proximamente</div>
-        <span class="arrow">Leer</span>
-      </div>
-    </a>
-
-    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
-      <div class="num">03</div>
-      <div class="info">
-        <span class="tag">Tutorial</span>
-        <h3>5 Prompts para Reducir tu Carga de Trabajo un 50%</h3>
-        <p>Los prompts que uso a diario para delegar tareas administrativas, organizar reuniones y priorizar proyectos sin estres.</p>
-        <div class="meta">Proximamente</div>
-        <span class="arrow">Leer</span>
-      </div>
-    </a>
-
-    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
-      <div class="num">04</div>
-      <div class="info">
-        <span class="tag">Comparativa</span>
-        <h3>ChatGPT vs Claude vs Gemini para Productividad: Cual Elegir</h3>
-        <p>Comparativa detallada de los 3 principales modelos de IA para tareas de productividad. Ventajas, desventajas y recomendaciones segun tu perfil.</p>
-        <div class="meta">Proximamente</div>
-        <span class="arrow">Leer</span>
-      </div>
-    </a>
-
-    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
-      <div class="num">05</div>
-      <div class="info">
-        <span class="tag">Noticia</span>
-        <h3>Nuevas Actualizaciones de ChatGPT que Cambian la Productividad</h3>
-        <p>Las ultimas funciones de OpenAI que afectan directamente a como trabajamos. Analisis de impacto y casos de uso reales.</p>
-        <div class="meta">Proximamente</div>
-        <span class="arrow">Leer</span>
-      </div>
-    </a>
-
+    <div class="featured-sidebar">
+      <a href="../prompts-ia-productividad-2026.html" class="f-card">
+        <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=400&q=85" alt="Calendario y agenda">
+        <div class="overlay"></div>
+        <div class="f-content">
+          <h3>Nueva funcion de ChatGPT: programacion automatica de tareas</h3>
+          <div class="f-meta">3 Jun 2026 &middot; 5 min</div>
+        </div>
+      </a>
+      <a href="../prompts-ia-productividad-2026.html" class="f-card">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=85" alt="Analisis de datos">
+        <div class="overlay"></div>
+        <div class="f-content">
+          <h3>Claude 4 vs Gemini 2.5: cual es mejor para tu flujo de trabajo</h3>
+          <div class="f-meta">1 Jun 2026 &middot; 8 min</div>
+        </div>
+      </a>
+    </div>
   </div>
 
-  <!-- CTA PACK -->
+  <div class="section-head" style="text-align:left">
+    <div class="label">Todas las publicaciones</div>
+    <h2>Articulos <span style="color:var(--brand)">recientes</span></h2>
+  </div>
+
+  <!-- GRID -->
+  <div class="article-grid">
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=85" alt="Escritorio de trabajo">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Guia</span>
+        <h3>Como crear tu sistema de productividad diario con IA en 5 pasos</h3>
+        <p>Un marco sencillo pero poderoso para integrar la IA en tu rutina sin abrumarte.</p>
+        <div class="a-meta">8 Jun 2026 &middot; 7 min</div>
+      </div>
+    </a>
+
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&q=85" alt="Gestion de proyectos">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Tutorial</span>
+        <h3>Automatiza tu bandeja de entrada con un prompt de 3 lineas</h3>
+        <p>Deja de perder 2 horas al dia con el correo. Este prompt lo gestiona por ti.</p>
+        <div class="a-meta">6 Jun 2026 &middot; 5 min</div>
+      </div>
+    </a>
+
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=85" alt="Documentos">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Noticia</span>
+        <h3>OpenAI anuncia GPT-5 con capacidad de ejecutar codigo automaticamente</h3>
+        <p>El nuevo modelo promete revolucionar la automatizacion de tareas complejas.</p>
+        <div class="a-meta">5 Jun 2026 &middot; 4 min</div>
+      </div>
+    </a>
+
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=85" alt="Brainstorming">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Guia</span>
+        <h3>5 Prompts para reducir tu carga de trabajo un 50% esta semana</h3>
+        <p>Los prompts que uso a diario para delegar tareas administrativas y ganar horas de enfoque.</p>
+        <div class="a-meta">4 Jun 2026 &middot; 6 min</div>
+      </div>
+    </a>
+
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=85" alt="Reunion">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Comparativa</span>
+        <h3>ChatGPT vs Claude vs Gemini para tareas de productividad</h3>
+        <p>Comparamos los 3 modelos en 10 tareas reales. Resultados sorprendentes.</p>
+        <div class="a-meta">2 Jun 2026 &middot; 9 min</div>
+      </div>
+    </a>
+
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=85" alt="Espacio de trabajo">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Noticia</span>
+        <h3>Claude ahora puede leer tus archivos de Excel y darte insights</h3>
+        <p>La nueva actualizacion de Anthropic cambia las reglas del juego para el analisis de datos.</p>
+        <div class="a-meta">1 Jun 2026 &middot; 3 min</div>
+      </div>
+    </a>
+  </div>
+
+</div>
+</section>
+
+<!-- ====== BG SECTION: IA + WORK ====== -->
+<section class="section-bg">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1400&q=85" alt="Robot y tecnologia">
+  <div class="overlay"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sb-content reveal">
+      <div class="sb-label">Prompts Premium</div>
+      <h2>Pack de Productividad: 10 prompts que <span class="brand">cambiaran tu forma de trabajar</span></h2>
+      <p>Refinados durante meses con ChatGPT, Claude y Gemini. Listos para copiar y pegar. Resultados inmediatos desde el primer uso.</p>
+      <a href="https://payhip.com/b/EYojF" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a>
+      <a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px">Ver Catalogo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MORE CONTENT ====== -->
+<section class="content" style="padding-top:0">
+<div class="wrap">
+
+  <div class="section-head" style="text-align:left">
+    <div class="label">Sigue aprendiendo</div>
+    <h2>Mas contenido <span style="color:var(--brand)">util</span></h2>
+  </div>
+
+  <div class="article-grid">
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=85" alt="Dashboard">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Tutorial</span>
+        <h3>Los 7 atajos de IA que todo profesional deberia conocer</h3>
+        <p>Pequeños prompts con gran impacto en tu productividad diaria.</p>
+        <div class="a-meta">30 May 2026 &middot; 4 min</div>
+      </div>
+    </a>
+
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=85" alt="Equipo trabajando">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Guia</span>
+        <h3>Como implementar IA en tu equipo sin que nadie se resista</h3>
+        <p>Estrategia paso a paso para adoptar herramientas de IA en tu organizacion.</p>
+        <div class="a-meta">28 May 2026 &middot; 8 min</div>
+      </div>
+    </a>
+
+    <a href="../prompts-ia-productividad-2026.html" class="article-card reveal">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=85" alt="Oficina">
+      <div class="overlay"></div>
+      <div class="a-content">
+        <span class="a-tag">Noticia</span>
+        <h3>Google lanza nuevas funciones de IA para Google Workspace</h3>
+        <p>Gemini se integra directamente en Gmail, Docs y Sheets con capacidades mejoradas.</p>
+        <div class="a-meta">26 May 2026 &middot; 3 min</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- CTA -->
   <div class="cta reveal">
-    <h3>Pack de Prompts de Productividad</h3>
-    <p>10 prompts premium para automatizar tu flujo de trabajo. Gestion de tareas, priorizacion, delegacion y revision. Listos para copiar y pegar.</p>
+    <h3>Pack Completo de Productividad</h3>
+    <p>10 prompts premium para automatizar tu flujo de trabajo diario. Gestion de tareas, priorizacion, delegacion y revision. Compatible con ChatGPT, Claude y Gemini.</p>
     <a href="https://payhip.com/b/EYojF" target="_blank" class="btn btn-primary">Comprar 9.99</a>
-    <a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px">Ver Catalogo</a>
+    <a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px">Ver mas productos</a>
   </div>
 
 </div>
