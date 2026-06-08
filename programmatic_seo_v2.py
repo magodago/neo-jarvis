@@ -165,6 +165,15 @@ def build_html(data, niche):
     slug = slugify(data["kw"])
     today = datetime.now().strftime("%Y-%m-%d")
     
+    HEROES = [
+        "photo-1555066931-4365d14bab8c","photo-1512314889357-e157c22f938d","photo-1454165804606-c3d57bc86b40",
+        "photo-1434030216411-0b793f4b4173","photo-1555421689-d68471e189f2","photo-1450101499163-c8848c66ca85",
+        "photo-1552664730-d307ca884978","photo-1551288049-bebda4e38f71","photo-1522071820081-009f0129c71c",
+        "photo-1555949963-aa79dcee981c","photo-1552581234-26160f608093","photo-1460925895917-afdab827c52f",
+        "photo-1485827404703-89b55fcc595e","photo-1633356122102-3fe601e05bd2","photo-1497366216548-37526070297c",
+        "photo-1554224155-8d04cb21cd6c","photo-1557838923-2985c318be48","photo-1461749280684-dccba630e2f6",
+    ]
+    
     s1, s2, s3 = data["sections"][:3]
     
     B = niche['brand']
@@ -178,6 +187,8 @@ def build_html(data, niche):
     READTIME = random.randint(4,8)
     
     NN = niche['name']
+    HERO = niche.get('hero', 'photo-1497366216548-37526070297c')
+    HERO2 = random.choice(HEROES)
     
     nl_onsubmit = "fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{'method':'POST','headers':{'Content-Type':'application/json'},'body':JSON.stringify({'email':document.querySelector('.nl-input').value})}).catch(function(){})"
     
@@ -244,6 +255,12 @@ footer .links{{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margi
 footer .links a{{color:var(--text-muted);font-size:.78rem}}
 footer .copy{{font-size:.68rem;color:#6a6558}}
 #progress{{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--brand-dark),var(--brand));z-index:9999;transition:width .1s}}
+.bg-section{{position:relative;display:flex;align-items:center;min-height:40vh;overflow:hidden;margin-bottom:40px}}
+.bg-section .bg-img{{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}}
+.bg-section .bg-overlay{{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(5,5,8,.88) 30%,rgba(5,5,8,.55) 70%,rgba(5,5,8,.2))}}
+.bg-section .hero-content{{position:relative;z-index:2;padding:60px 32px;max-width:800px;margin:0 auto;text-align:center}}
+.bg-section .hero-content h1{{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-1px;line-height:1.1;color:#fff;margin-bottom:12px}}
+.bg-section .hero-content p{{font-size:1rem;color:#d0c8bc;line-height:1.6;max-width:600px;margin:0 auto}}
 </style>
 <script type="application/ld+json" class="s-hidden">{{"@context":"https://schema.org","@type":"Article","headline":"{TITLE}","description":"{DESC}","datePublished":"{today}","author":{{"@type":"Person","name":"NEO Labs"}},"publisher":{{"@type":"Organization","name":"NEO Labs"}},"mainEntityOfPage":{{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/{NS}/{slug}.html"}}}}</script>
 <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -258,6 +275,14 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 <li><a href="../index.html">Blog</a></li>
 </ul>
 </nav>
+<section class="bg-section">
+<img class="bg-img" src="https://images.unsplash.com/{HERO}?w=1400&q=85" alt="{NN} con IA" loading="eager">
+<div class="bg-overlay"></div>
+<div class="hero-content">
+<h1>{NN} con IA</h1>
+<p>{TDESC[:120]}</p>
+</div>
+</section>
 <div class="wrap">
 <div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="index.html">Blog {NN}</a> <span>/</span> <span>{TARGET}</span></div>
 <div class="article-header">
