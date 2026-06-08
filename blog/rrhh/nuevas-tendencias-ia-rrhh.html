@@ -75,6 +75,15 @@ footer .links a{font-size:.75rem;color:#6a6558}
 footer .copy{font-size:.7rem;color:#4a4538;margin-top:4px}
 
 .newsletter-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}.nl-icon{font-size:1.8rem;color:var(--brand,'#d4a853');margin-bottom:4px}.nl-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}.nl-desc{font-size:.8rem;color:var(--text-muted,'#a09888');margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-family:var(--font-body,'Sora',sans-serif);font-size:.82rem;outline:none;transition:border-color .3s}.nl-input:focus{border-color:var(--brand,'#d4a853')}.nl-input::placeholder{color:#6a6558}.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand,'#d4a853');color:#050508;font-family:var(--font-display,'Syne',sans-serif);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
+
+.lead-box{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.25);border-radius:16px;padding:28px 24px;text-align:center;margin:28px 0;position:relative;overflow:hidden}
+.lead-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--brand,#d4a853),transparent)}
+.lead-box .lead-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;background:rgba(212,168,83,.2);color:var(--brand,#d4a853);margin-bottom:6px}
+.lead-box .lead-title{font-family:var(--font-display,'Syne',sans-serif);font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:4px}
+.lead-box .lead-title span{color:var(--brand,#d4a853)}
+.lead-box .lead-desc{font-size:.8rem;color:var(--text-muted,#a09888);margin-bottom:14px;max-width:420px;margin-left:auto;margin-right:auto}
+.lead-box .lead-btn{display:inline-block;padding:12px 28px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--brand-dark,#b8922f),var(--brand,#d4a853));color:#fff;font-family:var(--font-display,'Syne',sans-serif);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 4px 25px rgba(212,168,83,.2)}
+.lead-box .lead-btn:hover{transform:translateY(-2px);box-shadow:0 6px 35px rgba(212,168,83,.35)}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "1. Adquisición de Talento Hiper-Personalizada", "acceptedAnswer": {"@type": "Answer", "text": "Lee nuestro artículo completo sobre 1. adquisición de talento hiper-personalizada para obtener una respuesta detallada y prompts prácticos."}}, {"@type": "Question", "name": "2. Experiencia del Empleado (EX) mediante Asistentes Virtuales", "acceptedAnswer": {"@type": "Answer", "text": "Lee nuestro artículo completo sobre 2. experiencia del empleado (ex) mediante asistentes virtuales para obtener una respuesta detallada y prompts prácticos."}}, {"@type": "Question", "name": "3. Analítica Predictiva para la Retención y Desarrollo", "acceptedAnswer": {"@type": "Answer", "text": "Lee nuestro artículo completo sobre 3. analítica predictiva para la retención y desarrollo para obtener una respuesta detallada y prompts prácticos."}}]}</script>
 </head>
@@ -118,6 +127,14 @@ footer .copy{font-size:.7rem;color:#4a4538;margin-top:4px}
   <button type="submit" class="nl-btn">Suscribirme</button>
  </form>
 </div></div>
+
+<div class="lead-box">
+<div class="lead-tag">Gratis</div>
+<div class="lead-title">Descarga <span>5 Prompts de IA</span> para Multiplicar tu Productividad</div>
+<div class="lead-desc">Guia gratuita con prompts listos para usar en ChatGPT, Claude y Gemini. Resultados inmediatos.</div>
+<a href="https://payhip.com/b/98ens" target="_blank" class="lead-btn">Descargar Guia Gratuita &rarr;</a>
+</div>
+
 <footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
 <script>
 let p=document.getElementById('progress');
