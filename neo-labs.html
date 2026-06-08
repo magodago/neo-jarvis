@@ -4,487 +4,276 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>NEO Labs &mdash; Productos Digitales Premium</title>
-<meta name="description" content="NEO Labs crea productos digitales premium. Prompts de IA y planners Excel dise&ntilde;ados para profesionales que exigen lo mejor.">
+<meta name="description" content="NEO Labs. Prompts de IA y planners Excel para profesionales que exigen lo mejor.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/neo-labs.html">
-
-<!-- Syne (display) + Sora (body) + Orbitron (accents) -->
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@200;300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- GSAP + ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<!-- Lenis -->
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-
 <style>
-/* ===== RESET ===== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-/* ===== CUSTOM PROPERTIES ===== */
 :root{
-  --bg:#050508;
-  --bg2:#080810;
-  --bg3:#0c0c18;
-  --bg4:#111122;
-  --gold:#d4af37;
-  --gold-light:#f0d68a;
-  --gold-dark:#a6862a;
-  --gold-subtle:rgba(212,175,55,0.08);
-  --gold-glow:rgba(212,175,55,0.12);
-  --text:#ece8e0;
-  --text-dim:#8a7a60;
-  --text-muted:#4a3a20;
-  --glass:rgba(5,5,8,0.75);
-  --nav-height:56px;
-  --sm:640px;--md:1024px;--lg:1280px;
+  --bg:#050508;--bg2:#080810;--bg3:#0c0c18;--bg4:#111122;
+  --gold:#d4af37;--gold-light:#f0d68a;--gold-glow:rgba(212,175,55,0.15);
+  --text:#ece8e0;--text-dim:#8a7a60;--text-muted:#4a3a20;
+  --glass:rgba(5,5,8,0.75);--nav-height:56px;
 }
-
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{
-  background:var(--bg);color:var(--text);
-  font-family:'Sora',system-ui,-apple-system,sans-serif;
-  font-weight:300;overflow-x:hidden;line-height:1.65;
-}
-
-/* ===== LENIS ===== */
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto}
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  height:var(--nav-height);
+  position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);
   background:var(--glass);backdrop-filter:saturate(180%) blur(24px);
   -webkit-backdrop-filter:saturate(180%) blur(24px);
   border-bottom:1px solid rgba(255,255,255,0.03);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5vw;transition:transform 0.6s cubic-bezier(0.32,0,0.15,1);
+  padding:0 5vw;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 nav.hidden{transform:translateY(-100%)}
-
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo svg{width:28px;height:28px}
-.nav-logo span{
-  font-family:'Orbitron',monospace;font-size:13px;font-weight:600;
-  color:var(--gold);letter-spacing:4px;
-}
-
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo svg{width:26px;height:26px}
+.nav-logo span{font-family:'Orbitron',monospace;font-size:12px;font-weight:600;color:var(--gold);letter-spacing:4px}
 .nav-links{display:flex;align-items:center;gap:0}
-.nav-links a{
-  color:rgba(255,255,255,0.45);text-decoration:none;
-  font-family:'Sora',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.8px;
-  padding:0 24px;height:var(--nav-height);display:flex;align-items:center;
-  transition:color 0.4s;position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;left:24px;right:24px;bottom:0;height:1px;
-  background:var(--gold);transform:scaleX(0);transition:transform 0.4s;
-}
+.nav-links a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:10px;font-weight:400;letter-spacing:0.8px;padding:0 20px;height:var(--nav-height);display:flex;align-items:center;transition:color 0.3s}
 .nav-links a:hover{color:var(--text)}
-.nav-links a:hover::after{transform:scaleX(1)}
-.nav-cta{
-  background:var(--gold);color:var(--bg);padding:7px 18px;border-radius:3px;
-  font-family:'Sora',sans-serif;font-size:10px;font-weight:600;
-  letter-spacing:1.5px;text-decoration:none;text-transform:uppercase;
-  margin-left:20px;transition:all 0.4s;
-}
-.nav-cta:hover{background:var(--gold-light);box-shadow:0 0 30px var(--gold-glow);transform:translateY(-1px)}
-.nav-toggle{display:none;background:none;border:none;color:var(--gold);font-size:20px;cursor:pointer}
+.nav-cta{background:var(--gold);color:var(--bg);padding:6px 16px;border-radius:3px;font-size:9px;font-weight:600;letter-spacing:1.5px;text-decoration:none;text-transform:uppercase;margin-left:16px;transition:all 0.3s}
+.nav-cta:hover{background:var(--gold-light);box-shadow:0 0 30px var(--gold-glow)}
+.nav-toggle{display:none;background:none;border:none;color:var(--gold);font-size:18px;cursor:pointer}
 
-/* ===== HERO ===== */
+/* HERO - compact */
 .hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:calc(var(--nav-height) + 40px) 24px 60px;
-  position:relative;overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background:radial-gradient(ellipse at 50% 25%, rgba(212,175,55,0.04) 0%, transparent 60%);
+  min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:calc(var(--nav-height) + 20px) 24px 40px;position:relative;overflow:hidden;
 }
 .hero-image{
   position:absolute;inset:0;z-index:0;
   background-image:url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=1600&q=85');
-  background-size:cover;background-position:50% 50%;
-  opacity:0.06;will-change:transform;
+  background-size:cover;background-position:50% 50%;opacity:0.08;will-change:transform;
 }
-.hero-content{position:relative;z-index:2;max-width:800px}
-.hero-eyebrow{
-  font-family:'Orbitron',monospace;font-size:9px;letter-spacing:6px;
-  color:var(--gold);margin-bottom:24px;opacity:0;
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:radial-gradient(ellipse at 50% 30%,rgba(212,175,55,0.04) 0%,transparent 60%);
 }
-.hero h1{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(34px,5.5vw,72px);font-weight:800;
-  line-height:1.02;letter-spacing:-2px;
-  color:var(--text);margin-bottom:16px;opacity:0;
-}
+.hero-content{position:relative;z-index:2;max-width:720px}
+.hero-eyebrow{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:6px;color:var(--gold);margin-bottom:20px;opacity:0}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:800;line-height:1.02;letter-spacing:-2px;color:var(--text);margin-bottom:14px;opacity:0}
 .hero h1 .gold{color:var(--gold)}
-.hero h1 .outline{
-  -webkit-text-stroke:1px var(--gold);color:transparent;
-}
-.hero p{
-  font-family:'Sora',sans-serif;
-  font-size:clamp(15px,1.4vw,18px);font-weight:200;
-  color:var(--text-dim);line-height:1.7;max-width:540px;margin:0 auto 40px;opacity:0;
-}
-.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;opacity:0}
-.hero-ctas a{
-  padding:14px 32px;border-radius:4px;font-family:'Sora',sans-serif;
-  font-size:11px;font-weight:600;text-decoration:none;letter-spacing:2px;
-  text-transform:uppercase;transition:all 0.5s cubic-bezier(0.32,0,0.15,1);
-}
-.btn-primary{
-  background:var(--gold);color:var(--bg);
-}
+.hero h1 .outline{-webkit-text-stroke:1px var(--gold);color:transparent}
+.hero p{font-size:clamp(14px,1.3vw,17px);font-weight:200;color:var(--text-dim);max-width:520px;margin:0 auto 36px;opacity:0;line-height:1.7}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0}
+.hero-ctas a{padding:13px 30px;border-radius:4px;font-size:10px;font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all 0.4s}
+.btn-primary{background:var(--gold);color:var(--bg)}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow)}
-.btn-outline{
-  background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.15);
-}
+.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.15)}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.3;animation:heroFloat 2.5s ease-in-out infinite}
+.hero-scroll span{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:4px;color:var(--text-dim)}
+.hero-scroll .line{width:1px;height:28px;background:linear-gradient(to bottom,var(--gold),transparent)}
+@keyframes heroFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
 
-.hero-scroll{
-  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  opacity:0.3;animation:heroFloat 3s ease-in-out infinite;
-}
-.hero-scroll span{
-  font-family:'Orbitron',monospace;font-size:7px;letter-spacing:4px;
-  color:var(--text-dim);text-transform:uppercase;
-}
-.hero-scroll .line{width:1px;height:32px;background:linear-gradient(to bottom,var(--gold),transparent)}
-@keyframes heroFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
-
-/* ===== SECTIONS ===== */
-.section{position:relative;overflow:hidden}
-.section-inner{max-width:1100px;margin:0 auto;padding:100px 24px}
+/* SECTION */
+.section{position:relative;padding:80px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
 .section-dark{background:var(--bg)}
 .section-dark2{background:var(--bg2)}
 .section-dark3{background:var(--bg3)}
-.section-dark4{background:var(--bg4)}
+.section-eyebrow{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:5px;color:var(--gold);margin-bottom:12px}
+.section h2{font-family:'Syne',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:700;line-height:1.06;letter-spacing:-0.8px;margin-bottom:14px}
+.section .sub{font-size:14px;font-weight:200;color:var(--text-dim);max-width:440px;line-height:1.6;margin-bottom:36px}
 
-.section-eyebrow{
-  font-family:'Orbitron',monospace;font-size:9px;letter-spacing:5px;
-  color:var(--gold);margin-bottom:16px;
+/* IMAGE SPLIT - compact, no dead space */
+.image-split{
+  display:flex;min-height:70vh;position:relative;
 }
-.section h2{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(28px,3.5vw,44px);font-weight:700;
-  line-height:1.08;letter-spacing:-1px;margin-bottom:16px;
+.image-split .side{
+  flex:1;position:relative;overflow:hidden;
 }
-.section .subtitle{
-  font-family:'Sora',sans-serif;font-size:15px;font-weight:200;
-  color:var(--text-dim);max-width:480px;line-height:1.7;margin-bottom:48px;
-}
-
-/* ===== IMAGE REVEAL MODULE ===== */
-.image-module{
-  min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
-}
-.image-module .media{
-  position:absolute;inset:0;z-index:0;overflow:hidden;
-}
-.image-module .media img{
+.image-split .side img{
   width:100%;height:100%;object-fit:cover;will-change:transform;
 }
-.image-module .media .overlay{
+.image-split .side .shade{
   position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(5,5,8,0.7) 0%,rgba(5,5,8,0.3) 50%,rgba(5,5,8,0.6) 100%);
+  background:linear-gradient(135deg,rgba(5,5,8,0.85) 0%,rgba(5,5,8,0.35) 60%,rgba(5,5,8,0.7) 100%);
 }
-.image-module .content{
-  position:relative;z-index:2;padding:80px 5vw;max-width:600px;
+.image-split .text{
+  position:absolute;z-index:2;max-width:420px;
 }
-.image-module .content h3{
+.image-split.left .text{left:6%;bottom:12%;}
+.image-split.right .text{right:6%;bottom:12%;text-align:right;}
+.image-split .text h3{
   font-family:'Syne',sans-serif;
-  font-size:clamp(26px,3vw,40px);font-weight:700;line-height:1.1;letter-spacing:-0.5px;
-  margin-bottom:16px;
+  font-size:clamp(22px,2.8vw,34px);font-weight:700;line-height:1.08;letter-spacing:-0.5px;
+  margin-bottom:10px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,0.5);
 }
-.image-module .content p{
-  font-family:'Sora',sans-serif;font-size:14px;font-weight:200;
-  color:var(--text-dim);line-height:1.7;margin-bottom:28px;
+.image-split .text p{
+  font-size:13px;font-weight:200;line-height:1.6;margin-bottom:20px;
+  color:rgba(255,255,255,0.7);text-shadow:0 1px 12px rgba(0,0,0,0.4);
 }
-.image-module .content a{
-  display:inline-block;padding:10px 22px;border-radius:3px;
-  font-family:'Sora',sans-serif;font-size:10px;font-weight:600;
-  letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;
-  transition:all 0.4s;
+.image-split .text a{
+  display:inline-block;padding:9px 20px;border-radius:3px;font-size:9px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;
 }
-.image-module .content a.link-light{
-  color:var(--text);border:1px solid rgba(255,255,255,0.2);
-  margin-right:10px;
-}
-.image-module .content a.link-light:hover{border-color:var(--gold);color:var(--gold)}
-.image-module .content a.link-gold{background:var(--gold);color:var(--bg)}
-.image-module .content a.link-gold:hover{background:var(--gold-light);box-shadow:0 0 30px var(--gold-glow)}
-.image-module.right .content{margin-left:auto;text-align:right}
-.image-module.right .content p{margin-left:auto}
+.image-split .text a.gold-link{background:var(--gold);color:var(--bg)}
+.image-split .text a.gold-link:hover{background:var(--gold-light);box-shadow:0 0 30px var(--gold-glow)}
+.image-split .text a.outline-link{color:#fff;border:1px solid rgba(255,255,255,0.2);margin-right:8px}
+.image-split .text a.outline-link:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ===== GRID PRODUCTS ===== */
-.product-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;
-}
-.product-item{
-  background:var(--bg4);border:1px solid rgba(255,255,255,0.03);border-radius:8px;
-  padding:36px 28px;text-decoration:none;
-  transition:all 0.5s cubic-bezier(0.32,0,0.15,1);
-  position:relative;overflow:hidden;display:block;
-}
-.product-item::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:0;transition:opacity 0.5s;
-}
-.product-item:hover{transform:translateY(-8px);border-color:rgba(212,175,55,0.15);box-shadow:0 30px 80px rgba(0,0,0,0.3)}
-.product-item:hover::before{opacity:0.35}
-.product-item .label{
-  font-family:'Orbitron',monospace;font-size:8px;letter-spacing:2px;
-  color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;
-}
-.product-item h3{
-  font-family:'Syne',sans-serif;font-size:18px;font-weight:600;margin-bottom:8px;
-}
-.product-item p{
-  font-family:'Sora',sans-serif;font-size:12px;font-weight:200;
-  color:var(--text-dim);line-height:1.6;margin-bottom:20px;
-}
-.product-item .foot{
-  display:flex;justify-content:space-between;align-items:center;
-  padding-top:16px;border-top:1px solid rgba(255,255,255,0.04);
-}
-.product-item .price{
-  font-family:'Syne',sans-serif;font-size:18px;font-weight:700;
-  color:var(--gold);
-}
-.product-item .arrow{
-  font-family:'Sora',sans-serif;font-size:11px;color:var(--text-dim);
-  letter-spacing:1px;text-transform:uppercase;
-}
-.product-item:hover .arrow{color:var(--gold)}
+/* COMPACT FREE BANNER */
+.free-strip{background:var(--bg2);border-top:1px solid rgba(212,175,55,0.06);border-bottom:1px solid rgba(212,175,55,0.06);padding:48px 24px;text-align:center}
+.free-strip h3{font-family:'Syne',sans-serif;font-size:clamp(20px,2.2vw,28px);font-weight:700;color:var(--gold);margin-bottom:8px;letter-spacing:-0.3px}
+.free-strip p{color:var(--text-dim);font-size:13px;font-weight:200;max-width:460px;margin:0 auto 20px;line-height:1.6}
+.free-strip a{display:inline-block;background:var(--gold);color:var(--bg);padding:12px 32px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.3s}
+.free-strip a:hover{background:var(--gold-light);box-shadow:0 0 30px var(--gold-glow)}
 
-/* ===== STATS STRIP ===== */
-.stats-strip{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;
-}
-.stat-cell{
-  background:var(--bg4);padding:40px 20px;text-align:center;
-}
-.stat-cell .num{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(32px,3.5vw,48px);font-weight:800;
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1;
-}
-.stat-cell .lbl{
-  font-family:'Sora',sans-serif;font-size:11px;font-weight:200;
-  color:var(--text-dim);margin-top:8px;letter-spacing:0.5px;
-}
+/* PRODUCT CARDS */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.prod-item{background:var(--bg4);border:1px solid rgba(255,255,255,0.03);border-radius:8px;padding:28px 24px;text-decoration:none;transition:all 0.4s;position:relative;overflow:hidden;display:block}
+.prod-item::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s}
+.prod-item:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.prod-item:hover::before{opacity:0.3}
+.prod-item h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:600;margin-bottom:6px}
+.prod-item p{font-size:11px;font-weight:200;color:var(--text-dim);line-height:1.5;margin-bottom:16px}
+.prod-item .foot{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid rgba(255,255,255,0.04)}
+.prod-item .price{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--gold)}
+.prod-item .cta{font-size:10px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;font-weight:400}
+.prod-item:hover .cta{color:var(--gold)}
 
-/* ===== FREE BANNER ===== */
-.free-banner{
-  background:linear-gradient(135deg,rgba(212,175,55,0.03),transparent);
-  border:1px solid rgba(212,175,55,0.1);border-radius:12px;
-  padding:60px 48px;text-align:center;
-}
-.free-banner h3{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(22px,2.5vw,32px);font-weight:700;color:var(--gold);
-  margin-bottom:12px;letter-spacing:-0.5px;
-}
-.free-banner p{
-  color:var(--text-dim);max-width:480px;margin:0 auto 28px;font-size:14px;
-  font-weight:200;line-height:1.7;
-}
-.free-banner .btn-primary{padding:16px 40px;font-size:11px;letter-spacing:2px;display:inline-block}
+/* STATS BAND */
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.03);border-radius:6px;overflow:hidden}
+.stats-cell{background:var(--bg4);padding:32px 16px;text-align:center}
+.stats-cell .num{font-family:'Syne',sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stats-cell .lbl{font-size:10px;font-weight:200;color:var(--text-dim);margin-top:6px;letter-spacing:0.5px}
 
-/* ===== PLANNER STRIP ===== */
-.planner-strip{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;
-}
-.planner-unit{
-  background:var(--bg4);border:1px solid rgba(255,255,255,0.03);border-radius:6px;
-  padding:14px 16px;display:flex;justify-content:space-between;align-items:center;
-  text-decoration:none;transition:all 0.3s;
-}
-.planner-unit:hover{border-color:rgba(212,175,55,0.12);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
-.planner-unit .nm{font-size:12px;font-weight:400;color:var(--text)}
-.planner-unit .pr{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--gold)}
+/* PLANNERS */
+.planner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.planner-unit{background:var(--bg4);border:1px solid rgba(255,255,255,0.03);border-radius:6px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;transition:all 0.25s}
+.planner-unit:hover{border-color:rgba(212,175,55,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+.planner-unit .nm{font-size:11px;font-weight:400;color:var(--text)}
+.planner-unit .pr{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--gold)}
 
-/* ===== FOOTER ===== */
-footer{background:var(--bg);border-top:1px solid rgba(255,255,255,0.03);padding:60px 5vw 24px}
-.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
-footer h4{
-  font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;
-  color:var(--text-muted);margin-bottom:16px;
-}
-footer a{
-  display:block;color:rgba(255,255,255,0.25);text-decoration:none;
-  font-size:12px;font-weight:200;padding:3px 0;transition:color 0.3s;
-}
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid rgba(255,255,255,0.03);padding:48px 5vw 20px}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+footer h4{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:2px;color:var(--text-muted);margin-bottom:12px}
+footer a{display:block;color:rgba(255,255,255,0.2);text-decoration:none;font-size:11px;font-weight:200;padding:2px 0;transition:color 0.3s}
 footer a:hover{color:var(--gold)}
-footer .copy{text-align:center;font-size:9px;color:rgba(255,255,255,0.1);margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.03)}
-footer .brand-desc{font-size:11px;color:rgba(255,255,255,0.2);font-weight:200;line-height:1.6}
+footer .copy{text-align:center;font-size:9px;color:rgba(255,255,255,0.08);margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.03)}
 
-/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-  .nav-links a{padding:0 14px;font-size:10px}
   .nav-links{display:none;position:absolute;top:var(--nav-height);left:0;right:0;background:var(--glass);backdrop-filter:blur(24px);flex-direction:column;padding:12px 0}
   .nav-links.open{display:flex}
   .nav-links a{padding:14px 24px;height:auto}
   .nav-cta{margin:14px 24px;display:inline-block;width:auto}
   .nav-toggle{display:block}
-  .image-module .content{padding:60px 24px}
-  .image-module.right .content{text-align:left}
-  .stats-strip{grid-template-columns:repeat(2,1fr)}
-  .stat-cell{padding:24px 16px}
-  .product-grid{grid-template-columns:1fr}
-  .planner-strip{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
-  .section-inner{padding:60px 20px}
-  .free-banner{padding:40px 24px}
+  .image-split{flex-direction:column;min-height:60vh}
+  .image-split .side{min-height:50vh}
+  .image-split .text{bottom:8%}
+  .image-split.left .text{left:5%}
+  .image-split.right .text{right:5%;text-align:left}
+  .stats-band{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .section{padding:48px 16px}
+  .prod-grid{grid-template-columns:1fr}
+  .planner-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-
-<!-- ===== NAV ===== -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 28 28" fill="none">
-      <path d="M14 2L26 14L14 26L2 14L14 2Z" stroke="#d4af37" stroke-width="1.5"/>
-      <text x="14" y="18" text-anchor="middle" fill="#d4af37" font-family="Syne,sans-serif" font-size="14" font-weight="700">N</text>
-    </svg>
+    <svg viewBox="0 0 26 26" fill="none"><path d="M13 2L24 13L13 24L2 13L13 2Z" stroke="#d4af37" stroke-width="1.5"/><text x="13" y="17" text-anchor="middle" fill="#d4af37" font-family="Syne" font-size="13" font-weight="700">N</text></svg>
     <span>NEO LABS</span>
   </a>
   <div class="nav-links" id="navLinks">
     <a href="#productos">Productos</a>
     <a href="#planners">Planners</a>
     <a href="#datos">Datos</a>
-    <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catalogo</a>
+    <a href="catalogo.html">Catalogo</a>
     <a href="https://payhip.com/b/98ens" class="nav-cta">Gratis</a>
   </div>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">+</button>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-image" id="heroImage"></div>
+  <div class="hero-image" id="heroImg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow" id="heroEyebrow">NEO LABS</div>
-    <h1 id="heroTitle">
-      Tecnologia que<br>
-      <span class="gold">transforma</span> tu<br>
-      potencial en <span class="outline">resultados</span>
-    </h1>
-    <p id="heroDesc">Productos digitales para profesionales que exigen lo mejor. Prompts de IA y planners Excel disenados con el maximo nivel de detalle.</p>
-    <div class="hero-ctas" id="heroCtas">
+    <div class="hero-eyebrow" id="hEye">NEO LABS</div>
+    <h1 id="hTitle">Tecnologia que<br><span class="gold">transforma</span> tu potencial<br>en <span class="outline">resultados</span></h1>
+    <p id="hDesc">Prompts de IA y planners Excel para profesionales que exigen lo mejor. Disenados al milimetro para maximizar tu rendimiento.</p>
+    <div class="hero-ctas" id="hCtas">
       <a href="https://payhip.com/b/98ens" class="btn-primary">Guia gratuita</a>
-      <a href="#productos" class="btn-outline">Ver productos</a>
+      <a href="#productos" class="btn-outline">Productos</a>
     </div>
   </div>
-  <div class="hero-scroll"><span>Deslizar</span><div class="line"></div></div>
+  <div class="hero-scroll"><span>Scroll</span><div class="line"></div></div>
 </section>
 
-<!-- ===== FREE BANNER ===== -->
-<section class="section section-dark2">
-  <div class="section-inner" style="max-width:800px;text-align:center">
-    <div class="free-banner">
-      <div class="section-eyebrow">Descarga gratuita</div>
-      <h3>5 Prompts de IA para Multiplicar tu Productividad</h3>
-      <p>Organiza tu dia, escribe emails profesionales, resume documentos y resuelve problemas. Guia descargable con prompts listos para copiar y pegar en ChatGPT, Claude o Gemini.</p>
-      <a href="https://payhip.com/b/98ens" target="_blank" class="btn-primary">Descargar gratis</a>
+<!-- FREE STRIP -->
+<div class="free-strip">
+  <h3>5 Prompts de IA para Multiplicar tu Productividad</h3>
+  <p>Guia gratuita descargable. Prompts listos para copiar y pegar en ChatGPT, Claude o Gemini. Resultados inmediatos.</p>
+  <a href="https://payhip.com/b/98ens" target="_blank">Descargar gratis</a>
+</div>
+
+<!-- IMAGE SPLIT: Prompts -->
+<div class="image-split left" id="productos">
+  <div class="side">
+    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&q=85" alt="" id="imgProd">
+    <div class="shade"></div>
+    <div class="text">
+      <div class="section-eyebrow">Prompts de IA</div>
+      <h3>60 prompts premium<br>organizados en 6 categorias</h3>
+      <p>Copiando, pegas y obtienes resultados profesionales al instante. Cada pack cubre un area completa de tu vida profesional.</p>
+      <a href="https://payhip.com/b/76ECk" class="gold-link">Pack mas vendido</a>
+      <a href="catalogo.html" class="outline-link">Catalogo</a>
     </div>
-  </div>
-</section>
-
-<!-- ===== IMAGE MODULE: PROMPTS ===== -->
-<div class="image-module" id="productos">
-  <div class="media">
-    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1600&q=85" alt="" id="imgPrompts">
-    <div class="overlay"></div>
-  </div>
-  <div class="content">
-    <div class="section-eyebrow">Prompts de IA</div>
-    <h3>60 prompts premium<br>organizados por categoria</h3>
-    <p>Cada pack contiene 60 prompts disenados por expertos, divididos en 6 categorias listas para usar. Copia, pega y obtien resultados profesionales al instante en ChatGPT, Claude o Gemini.</p>
-    <a href="https://payhip.com/b/76ECk" class="link-gold">Pack mas vendido</a>
-    <a href="https://magodago.github.io/neo-jarvis/catalogo.html" class="link-light">Ver todos los packs</a>
   </div>
 </div>
 
-<!-- ===== PRODUCT GRID ===== -->
+<!-- PRODUCTS -->
 <section class="section section-dark3">
   <div class="section-inner">
     <div class="section-eyebrow">Coleccion</div>
     <h2>Seleccion destacada</h2>
-    <p class="subtitle">45 packs de prompts de IA. Cada uno con 60 prompts en 6 categorias. Disenados para cubrir cada aspecto de tu vida profesional.</p>
-    <div class="product-grid">
-      <a href="https://payhip.com/b/76ECk" class="product-item" target="_blank">
-        <div class="label">Mas vendido</div>
-        <h3>Productividad</h3>
-        <p>60 prompts para organizar tu dia, comunicarte con impacto, analizar informacion, mantener el enfoque, resolver problemas y potenciar tu creatividad.</p>
-        <div class="foot"><span class="price">9,99 EUR</span><span class="arrow">Comprar</span></div>
-      </a>
-      <a href="https://payhip.com/b/uP62G" class="product-item" target="_blank">
-        <div class="label">Finanzas</div>
-        <h3>Finanzas Personales</h3>
-        <p>Presupuestos inteligentes, analisis de inversiones, planificacion fiscal, optimizacion de ahorro y reporting financiero automatizado con IA.</p>
-        <div class="foot"><span class="price">9,99 EUR</span><span class="arrow">Comprar</span></div>
-      </a>
-      <a href="https://payhip.com/b/Q5RYA" class="product-item" target="_blank">
-        <div class="label">Marketing</div>
-        <h3>Marketing Digital</h3>
-        <p>SEO tactico, redes sociales, email marketing persuasivo, copywriting de conversion, analitica de datos y estrategias creativas de branding.</p>
-        <div class="foot"><span class="price">9,99 EUR</span><span class="arrow">Comprar</span></div>
-      </a>
-      <a href="https://payhip.com/b/XTEG5" class="product-item" target="_blank">
-        <div class="label">Programacion</div>
-        <h3>Programacion</h3>
-        <p>Debugging asistido, code review automatico, generacion de tests, refactoring de codigo legacy, arquitectura de software y documentacion tecnica.</p>
-        <div class="foot"><span class="price">9,99 EUR</span><span class="arrow">Comprar</span></div>
-      </a>
-      <a href="https://payhip.com/b/KragB" class="product-item" target="_blank">
-        <div class="label">Recursos Humanos</div>
-        <h3>RRHH</h3>
-        <p>Seleccion de talento, entrevistas estructuradas, onboarding digital, evaluacion de desempeno, comunicacion interna y planes de retencion.</p>
-        <div class="foot"><span class="price">9,99 EUR</span><span class="arrow">Comprar</span></div>
-      </a>
-      <a href="https://payhip.com/b/M3eqn" class="product-item" target="_blank">
-        <div class="label">Educacion</div>
-        <h3>Educacion</h3>
-        <p>Resumenes academicos, preparacion de examenes, fichas de estudio, redaccion de ensayos, tecnicas de memorizacion y organizacion del estudio.</p>
-        <div class="foot"><span class="price">9,99 EUR</span><span class="arrow">Comprar</span></div>
-      </a>
+    <p class="sub">45 packs de prompts. 60 prompts cada uno. Para cada area profesional existe un pack NEO.</p>
+    <div class="prod-grid">
+      <a href="https://payhip.com/b/76ECk" class="prod-item"><h3>Productividad</h3><p>Organizacion, comunicacion, analisis, enfoque, resolucion de problemas y creatividad. 60 prompts.</p><div class="foot"><span class="price">9,99 EUR</span><span class="cta">Comprar</span></div></a>
+      <a href="https://payhip.com/b/uP62G" class="prod-item"><h3>Finanzas</h3><p>Presupuestos inteligentes, inversion, fiscalidad, ahorro y reporting financiero automatizado.</p><div class="foot"><span class="price">9,99 EUR</span><span class="cta">Comprar</span></div></a>
+      <a href="https://payhip.com/b/Q5RYA" class="prod-item"><h3>Marketing</h3><p>SEO, redes sociales, email marketing, copywriting de conversion, analitica y branding.</p><div class="foot"><span class="price">9,99 EUR</span><span class="cta">Comprar</span></div></a>
+      <a href="https://payhip.com/b/XTEG5" class="prod-item"><h3>Programacion</h3><p>Debugging, code review, tests, refactoring, arquitectura y documentacion tecnica.</p><div class="foot"><span class="price">9,99 EUR</span><span class="cta">Comprar</span></div></a>
+      <a href="https://payhip.com/b/KragB" class="prod-item"><h3>RRHH</h3><p>Seleccion de talento, entrevistas, onboarding, evaluacion de desempeno y retencion.</p><div class="foot"><span class="price">9,99 EUR</span><span class="cta">Comprar</span></div></a>
+      <a href="https://payhip.com/b/M3eqn" class="prod-item"><h3>Educacion</h3><p>Resumenes, examenes, fichas de estudio, ensayos, memorizacion y organizacion.</p><div class="foot"><span class="price">9,99 EUR</span><span class="cta">Comprar</span></div></a>
     </div>
-    <div style="text-align:center;margin-top:28px">
-      <a href="https://magodago.github.io/neo-jarvis/catalogo.html" class="btn-outline" style="display:inline-block;padding:12px 28px;border-radius:4px;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.15);color:var(--text-dim);transition:all 0.3s">Catalogo completo &mdash; 45 packs</a>
-    </div>
+    <div style="text-align:center;margin-top:24px"><a href="catalogo.html" class="btn-outline" style="display:inline-block;padding:10px 24px;border-radius:4px;font-size:9px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:var(--text-dim);transition:all 0.3s;font-weight:400">Catalogo completo &mdash; 45 packs</a></div>
   </div>
 </section>
 
-<!-- ===== IMAGE MODULE: PLANNERS ===== -->
-<div class="image-module right" id="planners">
-  <div class="media">
-    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1600&q=85" alt="" id="imgPlanners">
-    <div class="overlay"></div>
-  </div>
-  <div class="content">
-    <div class="section-eyebrow">Planners Excel</div>
-    <h3>Dashboards inteligentes<br>para tu negocio y tu vida</h3>
-    <p>11 planners Excel con graficos automaticos, categorias personalizables y trackers inteligentes. Controla tus finanzas, proyectos, habitos y mas con solo abrir el archivo.</p>
-    <a href="#planners-grid" class="link-gold">Ver todos los planners</a>
+<!-- IMAGE SPLIT: Planners -->
+<div class="image-split right">
+  <div class="side">
+    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&q=85" alt="" id="imgPlan">
+    <div class="shade"></div>
+    <div class="text">
+      <div class="section-eyebrow">Planners Excel</div>
+      <h3>Dashboards inteligentes<br>para tu negocio y tu vida</h3>
+      <p>11 planners con graficos automaticos, categorias personalizables y trackers inteligentes. Abre y empieza a organizar tu mundo.</p>
+      <a href="#planners" class="gold-link">Ver todos</a>
+    </div>
   </div>
 </div>
 
-<!-- ===== PLANNERS GRID ===== -->
-<section class="section section-dark" id="planners-grid">
+<!-- PLANNERS -->
+<section class="section section-dark" id="planners">
   <div class="section-inner">
-    <div class="section-eyebrow">Coleccion completa</div>
-    <h2>Planifica como un profesional</h2>
-    <p class="subtitle">Cada planner incluye dashboard interactivo, formulas automaticas y diseno profesional listo para usar.</p>
-    <div class="planner-strip">
+    <div class="section-eyebrow">Planners</div>
+    <h2>11 formas de organizar tu mundo</h2>
+    <p class="sub">Cada planner incluye dashboard interactivo, formulas inteligentes y diseno profesional. Todo en Excel, listo para usar.</p>
+    <div class="planner-grid">
       <a href="https://payhip.com/b/fKgGj" class="planner-unit"><span class="nm">Budget Planner</span><span class="pr">14,99</span></a>
       <a href="https://payhip.com/b/gp7rR" class="planner-unit"><span class="nm">Business Planner</span><span class="pr">14,99</span></a>
       <a href="https://payhip.com/b/CNevQ" class="planner-unit"><span class="nm">Creator Planner</span><span class="pr">14,99</span></a>
@@ -500,149 +289,83 @@ footer .brand-desc{font-size:11px;color:rgba(255,255,255,0.2);font-weight:200;li
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
+<!-- STATS -->
 <section class="section section-dark4" id="datos">
-  <div class="section-inner" style="max-width:900px">
+  <div class="section-inner" style="max-width:800px">
     <div class="section-eyebrow" style="text-align:center">En cifras</div>
-    <h2 style="text-align:center;margin-bottom:48px">Construido para quienes<br>exigen lo mejor</h2>
-    <div class="stats-strip">
-      <div class="stat-cell"><div class="num" data-count="45">0</div><div class="lbl">Packs de Prompts</div></div>
-      <div class="stat-cell"><div class="num" data-count="11">0</div><div class="lbl">Planners Excel</div></div>
-      <div class="stat-cell"><div class="num" data-count="60">0</div><div class="lbl">Prompts por Pack</div></div>
-      <div class="stat-cell"><div class="num" data-count="6">0</div><div class="lbl">Categorias</div></div>
+    <h2 style="text-align:center;margin-bottom:36px">Construido para quienes<br>exigen lo mejor</h2>
+    <div class="stats-band">
+      <div class="stats-cell"><div class="num" data-count="45">0</div><div class="lbl">Packs de Prompts</div></div>
+      <div class="stats-cell"><div class="num" data-count="11">0</div><div class="lbl">Planners Excel</div></div>
+      <div class="stats-cell"><div class="num" data-count="60">0</div><div class="lbl">Prompts por Pack</div></div>
+      <div class="stats-cell"><div class="num" data-count="6">0</div><div class="lbl">Categorias</div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== IMAGE MODULE: FINAL CTA ===== -->
-<div class="image-module">
-  <div class="media">
-    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=1600&q=85" alt="" id="imgFinal">
-    <div class="overlay"></div>
-  </div>
-  <div class="content">
-    <div class="section-eyebrow">Comienza ahora</div>
-    <h3>Tu proximo nivel de productividad<br>esta a un clic de distancia</h3>
-    <p>Descarga gratis los 5 prompts premium y descubre por que NEO Labs es la eleccion de profesionales que no se conforman con lo basico.</p>
-    <a href="https://payhip.com/b/98ens" class="link-gold">Descargar guia gratuita</a>
+<!-- IMAGE SPLIT: Final CTA -->
+<div class="image-split right">
+  <div class="side">
+    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&q=85" alt="" id="imgFinal">
+    <div class="shade"></div>
+    <div class="text">
+      <div class="section-eyebrow">Comienza ahora</div>
+      <h3>Tu proximo nivel de productividad<br>esta a un clic de distancia</h3>
+      <p>Descarga los 5 prompts premium gratis y descubre por que NEO Labs es la eleccion de profesionales ambiciosos.</p>
+      <a href="https://payhip.com/b/98ens" class="gold-link">Descargar guia gratuita</a>
+    </div>
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div>
-      <h4>NEO Labs</h4>
-      <p class="brand-desc">Tecnologia que transforma tu vida. Productos digitales premium disenados para mentes ambiciosas que exigen el maximo nivel de calidad.</p>
-    </div>
-    <div>
-      <h4>Productos</h4>
-      <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catalogo completo</a>
-      <a href="https://payhip.com/b/76ECk">Pack Productividad</a>
-      <a href="https://payhip.com/b/uP62G">Pack Finanzas</a>
-      <a href="https://payhip.com/b/fKgGj">Budget Planner</a>
-    </div>
-    <div>
-      <h4>Recursos</h4>
-      <a href="https://payhip.com/b/98ens">Guia gratuita</a>
-      <a href="https://magodago.github.io/neo-jarvis/blog/">Blog</a>
-    </div>
-    <div>
-      <h4>Enlaces</h4>
-      <a href="https://payhip.com/formulasia76">Tienda Payhip</a>
-      <a href="https://magodago.github.io/neo-jarvis/">JARVIS</a>
-    </div>
+    <div><h4>NEO Labs</h4><p style="font-size:10px;color:rgba(255,255,255,0.15);font-weight:200;line-height:1.6">Tecnologia que transforma tu vida. Productos digitales premium para profesionales que exigen el maximo nivel.</p></div>
+    <div><h4>Productos</h4><a href="catalogo.html">Catalogo</a><a href="https://payhip.com/b/76ECk">Pack Productividad</a><a href="https://payhip.com/b/fKgGj">Budget Planner</a></div>
+    <div><h4>Recursos</h4><a href="https://payhip.com/b/98ens">Guia gratuita</a><a href="blog/">Blog</a></div>
+    <div><h4>Enlaces</h4><a href="https://payhip.com/formulasia76">Tienda Payhip</a></div>
   </div>
   <div class="copy">NEO Labs &copy; 2026 &mdash; Tecnologia que transforma tu vida.</div>
 </footer>
 
 <script>
-// ===== LENIS =====
-const lenis = new Lenis({duration:1.2,easing:(t)=>Math.min(1,1.001-Math.pow(2,-10*t)),orientation:'vertical',smoothWheel:true})
+const lenis=new Lenis({duration:1.1,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true})
 lenis.on('scroll',ScrollTrigger.update)
-gsap.ticker.add((time)=>lenis.raf(time*1000))
+gsap.ticker.add(t=>lenis.raf(t*1000))
 gsap.ticker.lagSmoothing(0)
-
-// ===== NAV HIDE =====
-let last=0
-lenis.on('scroll',(e)=>{const n=document.getElementById('nav');e.velocity>0&&e.scroll>80?n.classList.add('hidden'):n.classList.remove('hidden')})
-
-// ===== MOBILE NAV =====
-document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'))
-
-// ===== GSAP SETUP =====
 gsap.registerPlugin(ScrollTrigger)
 
-// ===== HERO ANIMATION =====
-gsap.to('#heroEyebrow',{opacity:1,y:0,duration:0.8,ease:'power3.out',delay:0.2})
-gsap.to('#heroTitle',{opacity:1,y:0,duration:1.0,ease:'power3.out',delay:0.5})
-gsap.to('#heroDesc',{opacity:1,y:0,duration:0.8,ease:'power3.out',delay:0.8})
-gsap.to('#heroCtas',{opacity:1,y:0,duration:0.8,ease:'power3.out',delay:1.1})
+let ls=0
+lenis.on('scroll',e=>{const n=document.getElementById('nav');e.velocity>0&&e.scroll>60?n.classList.add('hidden'):n.classList.remove('hidden')})
+document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'))
 
-// ===== HERO IMAGE PARALLAX =====
-gsap.to('#heroImage',{
-  y:'20%',scale:1.08,ease:'none',
-  scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.2}
+// Hero
+gsap.to('#hEye',{opacity:1,y:0,duration:0.7,ease:'power3.out',delay:0.15})
+gsap.to('#hTitle',{opacity:1,y:0,duration:0.9,ease:'power3.out',delay:0.4})
+gsap.to('#hDesc',{opacity:1,y:0,duration:0.7,ease:'power3.out',delay:0.7})
+gsap.to('#hCtas',{opacity:1,y:0,duration:0.7,ease:'power3.out',delay:0.95})
+
+// Hero parallax
+gsap.to('#heroImg',{y:'18%',scale:1.06,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}})
+
+// Image splits cinematic
+document.querySelectorAll('.image-split').forEach((mod,i)=>{
+  const img=mod.querySelector('img')
+  if(img)gsap.fromTo(img,{scale:1},{scale:1.1,ease:'none',scrollTrigger:{trigger:mod,start:'top bottom',end:'bottom top',scrub:1.2}})
+  const txt=mod.querySelector('.text')
+  if(txt)gsap.from(txt,{opacity:0,y:40,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:mod,start:'top 75%',toggleActions:'play none none none'}})
 })
 
-// ===== IMAGE MODULES CINEMATIC EFFECTS =====
-document.querySelectorAll('.image-module').forEach((mod,i)=>{
-  const img = mod.querySelector('.media img')
-  const content = mod.querySelector('.content')
-  
-  // Ken Burns slow zoom on scroll
-  if(img){
-    gsap.fromTo(img,{scale:1},{scale:1.12,ease:'none',
-      scrollTrigger:{trigger:mod,start:'top bottom',end:'bottom top',scrub:1.5}
-    })
-  }
-  
-  // Content slide-up reveal
-  if(content){
-    gsap.from(content,{
-      opacity:0,y:60,duration:1.2,ease:'power3.out',
-      scrollTrigger:{trigger:mod,start:'top 75%',end:'top 35%',toggleActions:'play none none none'}
-    })
-  }
-})
+// Products stagger
+gsap.from('.prod-item',{opacity:0,y:30,duration:0.5,ease:'power2.out',stagger:0.06,scrollTrigger:{trigger:'.prod-grid',start:'top 80%'}})
+gsap.from('.planner-unit',{opacity:0,x:-15,duration:0.3,ease:'power2.out',stagger:0.015,scrollTrigger:{trigger:'.planner-grid',start:'top 85%'}})
 
-// ===== PRODUCT CARDS STAGGER =====
-gsap.from('.product-item',{
-  opacity:0,y:40,duration:0.7,ease:'power3.out',stagger:0.08,
-  scrollTrigger:{trigger:'.product-grid',start:'top 80%'}
-})
-
-// ===== PLANNER UNITS STAGGER =====
-gsap.from('.planner-unit',{
-  opacity:0,x:-20,duration:0.4,ease:'power2.out',stagger:0.02,
-  scrollTrigger:{trigger:'.planner-strip',start:'top 85%'}
-})
-
-// ===== STATS COUNTER =====
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const el=e.target
-      const t=parseInt(el.dataset.count)
-      if(!t)return
-      gsap.to(el,{innerText:t,duration:1.8,ease:'power2.out',snap:{innerText:1},
-        onUpdate:()=>{el.innerText=Math.round(parseInt(el.innerText)||0)}
-      })
-      obs.unobserve(el)
-    }
-  })
-},{threshold:0.5})
+// Counters
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,t=parseInt(el.dataset.count);if(!t)return;gsap.to(el,{innerText:t,duration:1.5,ease:'power2.out',snap:{innerText:1},onUpdate:()=>{el.innerText=Math.round(parseInt(el.innerText)||0)}});obs.unobserve(el)}})},{threshold:0.5})
 document.querySelectorAll('[data-count]').forEach(el=>obs.observe(el))
 
-// ===== PRODUCT CARD TILT =====
-document.querySelectorAll('.product-item').forEach(c=>{
-  c.addEventListener('mousemove',e=>{
-    const r=c.getBoundingClientRect()
-    const x=e.clientX-r.left,y=e.clientY-r.top
-    c.style.transform=`perspective(800px) rotateY(${(x-r.width/2)/25}deg) rotateX(${-(y-r.height/2)/25}deg) translateY(-8px)`
-  })
-  c.addEventListener('mouseleave',()=>{c.style.transform=''})
-})
+// Card tilt
+document.querySelectorAll('.prod-item').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.transform=`perspective(800px) rotateY(${(e.clientX-r.left-r.width/2)/25}deg) rotateX(${-(e.clientY-r.top-r.height/2)/25}deg) translateY(-6px)`});c.addEventListener('mouseleave',()=>{c.style.transform=''})})
 </script>
 </body>
 </html>
