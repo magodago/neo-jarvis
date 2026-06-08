@@ -75,7 +75,7 @@ NICHES = [
             "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=85",
             "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=85",
             "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=85",
-            "https://images.unsplash.com/photo-1515879218367-8466d910aujsh?w=600&q=85",
+            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=85",
             "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=600&q=85",
             "https://images.unsplash.com/photo-1537432376046-6d1b1e6e9d0c?w=600&q=85",
         ],
