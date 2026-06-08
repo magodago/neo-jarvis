@@ -2,7 +2,7 @@
 """Daily article generator v2 — SEO-optimized, varied, high-quality content.
 Generates one article per day rotating through niches.
 """
-import os, subprocess, random, re
+import os, subprocess, random, re, sys
 from datetime import datetime
 from pathlib import Path
 
@@ -311,6 +311,20 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
         print("Google notificado!")
     except:
         print("Ping a Google no disponible")
+    
+    # Generate podcast for the new article
+    try:
+        podcast_script = REPO / "podcast_gen.py"
+        if podcast_script.exists():
+            r = subprocess.run(
+                [sys.executable, str(podcast_script), "--article", f"{b['slug']}/{slug}.html"],
+                capture_output=True, text=True, timeout=300
+            )
+            print(f"Podcast: {r.stdout.strip()[-100:] if r.stdout else 'ok'}")
+            # Git add podcast files
+            subprocess.run(["git","add","podcasts/"], capture_output=True)
+    except Exception as e:
+        print(f"Podcast error: {e}")
 
 if __name__ == "__main__":
     main()

@@ -46,6 +46,8 @@ footer .copy{font-size:.68rem;color:#6a6558}
 .s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
 
 .podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
+
+.newsletter-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}.nl-icon{font-size:1.8rem;color:var(--brand,'#d4a853');margin-bottom:4px}.nl-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}.nl-desc{font-size:.8rem;color:var(--text-muted,'#a09888');margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-family:var(--font-body,'Sora',sans-serif);font-size:.82rem;outline:none;transition:border-color .3s}.nl-input:focus{border-color:var(--brand,'#d4a853')}.nl-input::placeholder{color:#6a6558}.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand,'#d4a853');color:#050508;font-family:var(--font-display,'Syne',sans-serif);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
 </style>
 <script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Comparativa 2026: mejores herramientas para revisar seguridad","description":"Comparamos las principales herramientas de IA para ayudarte a elegir la mejor opcion.","datePublished":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/programacion/revisar-seguridad-comparativa.html"}}</script>
 </head>
@@ -86,7 +88,20 @@ footer .copy{font-size:.68rem;color:#6a6558}
 <a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Programacion</h4><p>Todos los articulos del blog.</p></a>
 <a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catalogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
 </div></div>
-</div>
+
+<div class="newsletter-box">
+ <div class="nl-icon">✧</div>
+ <div class="nl-title">Recibe los mejores prompts de IA gratis</div>
+ <div class="nl-desc">Cada semana, 3 prompts exclusivos + tendencias de IA directo a tu bandeja de entrada. Sin spam, solo valor.</div>
+ <form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs">
+  <input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="text" name="_honey" style="display:none">
+  <input type="email" name="email" placeholder="tu@email.com" required class="nl-input">
+  <button type="submit" class="nl-btn">Suscribirme</button>
+ </form>
+</div></div>
 <footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/b/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
 <script>
 let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
