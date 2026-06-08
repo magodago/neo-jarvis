@@ -1,0 +1,21 @@
+ANA: Carlos, estamos hablando de SEO con IA, y la verdad es que por mucho que se hable del tema, suena súper técnico y un poco abrumador para cualquiera que no sea experto. ¿Realmente las herramientas de inteligencia artificial han cambiado tanto el juego en marketing?
+
+CARLOS: Han cambiado radicalmente la mecánica, Ana. El SEO nunca ha muerto; simplemente ha pasado a ser más estratégico y menos dependiente de adivinar lo que Google quiere. La IA no reemplaza al estratega, sino que multiplica su capacidad para procesar datos masivos muy rápido.
+
+ANA: ¿Y por dónde empezamos? Siempre me da miedo la parte de las palabras clave. Necesito saber si es útil simplemente echarle una pregunta a ChatGPT o si hay un enfoque más avanzado.
+
+CARLOS: No basta con preguntar superficialmente. Debes darle a la IA el rol de un experto muy específico para que sus resultados sean accionables. Por ejemplo, pídele no solo keywords, sino también cómo se distribuyen esas búsquedas en el *customer journey*, desde lo más general hasta la compra final.
+
+ANA: Eso tiene mucho sentido. Es decir, hay que ir más allá del volumen y pensar en la intención de búsqueda. Pero si ya tengo mis palabras clave, ¿cómo uso a la IA para optimizar una página específica? Me suena muy complicado el formato On-Page.
+
+CARLOS: Aquí es donde entra la magia de los prompts estructurados. En lugar de pedirle que "me haga un texto", pídele que actúe como tu editor SEO y que te devuelva elementos específicos: un título corto y potente para redes, una meta descripción optimizada, e incluso sugerencias de enlaces internos.
+
+ANA: Entiendo. Estamos usando a la IA no solo para crear contenido nuevo, sino también para mejorar el esqueleto del contenido ya existente. ¿Y qué pasa con la planificación? ¿La IA puede organizar un plan completo de contenidos para varios meses?
+
+CARLOS: Absolutamente. La mejor aplicación es pensar en estrategia. Pídele que te genere un calendario temático completo para tres o cuatro meses, asegurándose de que haya una progresión lógica entre los artículos. Esto garantiza que tu audiencia se quede navegando por tu web y vea el ciclo de contenidos cerrado.
+
+ANA: Me queda claro que la clave no es solo usar IA, sino saber *cómo* hacer preguntas muy detalladas. ¿Cuál sería ese consejo práctico fundamental para alguien que está empezando con esto?
+
+CARLOS: Mi mejor consejo es empezar siempre definiendo un usuario ideal o *buyer persona*. Antes de pedirle a la IA cualquier keyword o artículo, dile: "Mi lector objetivo es X, tiene Y problema y necesita Z solución". Eso va a enfocar toda la estrategia en el dolor real del cliente.
+
+ANA: Perfecto. Entonces, para resumir lo que aprendimos hoy, la clave es pasar de una consulta abierta a un prompt súper específico, siempre teniendo en cuenta al usuario ideal desde el principio para construir no solo palabras clave, sino todo un calendario estratégico y bien optimizado.

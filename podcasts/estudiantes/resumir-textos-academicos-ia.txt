@@ -1,0 +1,19 @@
+ANA: Hoy vamos a hablar de algo que nos quita muchísimo tiempo a los estudiantes: resumir textos académicos larguísimos. Siempre parece un reto extraer lo esencial sin perder profundidad, ¿verdad?
+
+CARLOS: Totalmente. Y por eso es tan útil la inteligencia artificial hoy en día. Ya no se trata solo de pedir "un resumen", sino de usarla para obtener una comprensión profunda y estructurada del material.
+
+ANA: Pero si simplemente le pides a la IA que resuma, ¿no te va a dar algo superficial o muy genérico? No quiero que suene como un artículo robado.
+
+CARLOS: Ahí está el secreto: la calidad de la pregunta, el *prompt*. Tienes que ser específico, Ana. Por ejemplo, en lugar de solo resumir, pídele que actúe como tu tutor y te dé ideas principales, conceptos clave e incluso preguntas para autoevaluarte. Eso ya lo transforma en una herramienta de estudio activa.
+
+ANA: Me interesa mucho la idea de hacerla más interactiva. ¿Y si necesito usar ese texto no solo para estudiar, sino para citar algo en un trabajo formal?
+
+CARLOS: Ahí entra otro truco avanzado que debes conocer. Puedes pedirle a la IA que actúe como tu asistente de investigación. Le pegas el texto y pides extraer citas textuales importantes con números de página o incluso que te genere referencias completas en formato APA, ahorrándote horas de formateo manual.
+
+ANA: Esto suena increíblemente útil para evitar errores al citar. Entonces, ¿cuál sería el consejo número uno si un estudiante solo pudiera recordar una cosa sobre usar IA?
+
+CARLOS: El consejo es este: usa la IA como un *asistente*, nunca como tu único cerebro. Siempre tienes que contrastar lo que te da con las fuentes originales y revisar los detalles técnicos, especialmente datos o nombres propios. La IA asiste; tú validas.
+
+ANA: Entendido. Entonces, para resumir textos académicos no se trata de pasar el texto a la máquina esperando magia, sino de guiarla con *prompts* muy estructurados, usarla para generar diferentes tipos de material (citas, preguntas) y, sobre todo, mantener siempre un ojo crítico para validar los resultados. Carlos, muchísimas gracias por esta guía tan práctica.
+
+CARLOS: Un placer Ana. Recuerda que la tecnología es una herramienta poderosa, pero el conocimiento sigue siendo tuyo.

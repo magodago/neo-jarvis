@@ -71,6 +71,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
 .schema-hidden{display:none}
 @media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"15 Prompts de IA para Marketing Digital en 2026","description":"Domina el marketing digital con 15 prompts de IA para SEO, redes sociales, email marketing y copywriting.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-marketing-digital.html"}}</script>
   <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -92,53 +94,77 @@ footer .copy{font-size:.72rem;color:#6a6558}
     <h1>15 Prompts de IA para Marketing Digital en 2026</h1>
     <div class="meta"><span>8 Junio 2026</span><span>10 min de lectura</span></div>
   </div>
-  <div class="article-body">
+  <div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/blog/prompts-ia-marketing-digital.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#1-estrategia-seo-completa">1. Estrategia SEO Completa</a>
+<a href="#2-campana-sem-optimizada">2. Campana SEM Optimizada</a>
+<a href="#3-contenido-para-redes-sociales">3. Contenido para Redes Sociales</a>
+<a href="#4-email-marketing-de-conversion">4. Email Marketing de Conversion</a>
+<a href="#5-copywriting-persuasivo">5. Copywriting Persuasivo</a>
+<a href="#6-content-marketing-estrategico">6. Content Marketing Estrategico</a>
+<a href="#7-analitica-y-reportes">7. Analitica y Reportes</a>
+<a href="#8-campanas-de-anuncios">8. Campanas de Anuncios</a>
+<a href="#9-branding-y-posicionamiento">9. Branding y Posicionamiento</a>
+<a href="#10-inbound-marketing">10. Inbound Marketing</a>
+<a href="#11-outbound-estrategico">11. Outbound Estrategico</a>
+<a href="#12-automatizacion-de-marketing">12. Automatizacion de Marketing</a>
+<a href="#13-segmentacion-avanzada">13. Segmentacion Avanzada</a>
+<a href="#14-optimizacion-de-conversion-cro">14. Optimizacion de Conversion (CRO)</a>
+<a href="#15-estrategia-de-retencion">15. Estrategia de Retencion</a></div>
     <p>El marketing digital ha cambiado para siempre. La IA no va a reemplazar a los marketeros, pero los marketeros que usen IA van a reemplazar a los que no.</p>
     <p>Estos <strong>15 prompts de IA para marketing digital</strong> cubren todas las areas: SEO, SEM, redes sociales, email marketing, copywriting y analitica.</p>
     <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
-    <h2>1. Estrategia SEO Completa</h2>
+    <h2 id="1-estrategia-seo-completa">1. Estrategia SEO Completa</h2>
     <p>Construye una estrategia SEO solida con palabras clave, analisis de competencia y plan de contenido.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un consultor SEO senior.</strong> Para mi sitio web sobre [tema] en [sector]: 1) Dame 10 keywords de alto potencial con intencion de busqueda, 2) Analiza la competencia para cada keyword, 3) Sugiere tipos de contenido para cada una, 4) Crea un plan de contenido para 3 meses priorizando las de facil posicionamiento.</div></div>
-    <h2>2. Campana SEM Optimizada</h2>
+    <h2 id="2-campana-sem-optimizada">2. Campana SEM Optimizada</h2>
     <p>Crea campanas de Google Ads que maximicen tu ROI desde el primer dia.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un experto en Google Ads.</strong> Para mi negocio de [sector] con presupuesto de [cantidad]: 1) Estructura de campana recomendada, 2) 10 keywords con match type, 3) 3 anuncios de texto con diferentes enfoques, 4) Estrategia de puja inicial, 5) Metricas clave para monitorizar en la primera semana.</div></div>
-    <h2>3. Contenido para Redes Sociales</h2>
+    <h2 id="3-contenido-para-redes-sociales">3. Contenido para Redes Sociales</h2>
     <p>Genera un mes de contenido para redes sociales en minutos, adaptado a cada plataforma.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un social media strategist.</strong> Para mi marca de [sector] en [plataformas]. Genera: 1) Calendario editorial para 30 dias con themes semanales, 2) 5 ideas de posts para cada plataforma, 3) Hashtags optimizados por plataforma, 4) Copy para cada post con llamado a la accion, 5) Ideas de contenido visual para cada publicacion.</div></div>
-    <h2>4. Email Marketing de Conversion</h2>
+    <h2 id="4-email-marketing-de-conversion">4. Email Marketing de Conversion</h2>
     <p>Escribe secuencias de emails que convierten leads en clientes con storytelling persuasivo.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un copywriter de email marketing.</strong> Crea una secuencia de 5 emails para [producto/servicio] dirigido a [audiencia]. Cada email debe tener: asunto (con tasa de apertura del 40%+), cuerpo persuasivo con storytelling, objeciones resueltas, CTA claro. Incluye tambien una variante de asunto A/B para cada email.</div></div>
-    <h2>5. Copywriting Persuasivo</h2>
+    <h2 id="5-copywriting-persuasivo">5. Copywriting Persuasivo</h2>
     <p>Escribe textos que venden, que enganchan y que convierten visitantes en clientes.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un copywriter de alto impacto.</strong> Necesito copy para [formato: landing/email/anuncio]. Producto: [nombre]. Beneficio principal: [beneficio]. Audiencia: [perfil]. Aplica formula AIDA, incluye: 1) Headline que detiene, 2) Subheadline que engancha, 3) Body que persuade, 4) CTA que convierte. Dame 3 versiones: emocional, logica y urgente.</div></div>
-    <h2>6. Content Marketing Estrategico</h2>
+    <h2 id="6-content-marketing-estrategico">6. Content Marketing Estrategico</h2>
     <p>Planifica un calendario de contenidos que atraiga, eduque y convierta a tu audiencia.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un content strategist.</strong> Para mi marca en [sector]: 1) Define 5 pilares de contenido alineados con el customer journey, 2) Para cada pilar, 3 ideas de formato (blog/video/infografia), 3) Distribucion semanal optima por canal, 4) Metricas para medir exito de cada pieza, 5) Temas estacionales a aprovechar en los proximos 3 meses.</div></div>
-    <h2>7. Analitica y Reportes</h2>
+    <h2 id="7-analitica-y-reportes">7. Analitica y Reportes</h2>
     <p>Transforma datos en decisiones con reportes claros que cualquier stakeholder entienda.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un analista de marketing.</strong> Con estos datos: [metricas del mes]. Genera: 1) Resumen ejecutivo de 3 lineas, 2) 5 insights accionables, 3) Comparativa mes anterior, 4) Top 3 canales por ROI, 5) 3 recomendaciones concretas para el proximo mes con KPI objetivo.</div></div>
-    <h2>8. Campanas de Anuncios</h2>
+    <h2 id="8-campanas-de-anuncios">8. Campanas de Anuncios</h2>
     <p>Crea anuncios para redes sociales que generen clicks y conversiones reales.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un media buyer.</strong> Crea 5 variantes de anuncio para [plataforma: Meta/LinkedIn/TikTok] promocionando [producto]. Presupuesto: [cantidad]. Audiencia: [target]. Cada variante debe tener: copy principal, headline, CTA y sugerencia de creativo visual. Incluye tambien estrategia de segmentacion y puja recomendada.</div></div>
-    <h2>9. Branding y Posicionamiento</h2>
+    <h2 id="9-branding-y-posicionamiento">9. Branding y Posicionamiento</h2>
     <p>Define o refina tu marca con un posicionamiento claro y diferencial.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un brand strategist.</strong> Ayudame a definir el posicionamiento de mi marca [nombre] en [sector]. Desarrolla: 1) Propuesta de valor unica, 2) Personalidad de marca en 5 adjetivos, 3) Tono de voz con ejemplos, 4) Comparativa frente a 3 competidores directos, 5) Tagline y brand story de 50 palabras.</div></div>
-    <h2>10. Inbound Marketing</h2>
+    <h2 id="10-inbound-marketing">10. Inbound Marketing</h2>
     <p>Atrae clientes con contenido valioso en cada etapa del funnel de ventas.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un inbound marketing specialist.</strong> Para mi negocio de [sector]: 1) Define el buyer persona principal, 2) Mapea el customer journey con contenidos para cada etapa (TOFU/MOFU/BOFU), 3) Crea 3 lead magnets efectivos, 4) Disena el flujo de nutricion de leads con emails automaticos, 5) Sugiere metricas para medir la conversion en cada etapa.</div></div>
-    <h2>11. Outbound Estrategico</h2>
+    <h2 id="11-outbound-estrategico">11. Outbound Estrategico</h2>
     <p>Llega a clientes potenciales con mensajes personalizados que abren conversaciones.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un especialista en outbound.</strong> Quiero contactar a [perfil de cliente ideal] en [sector]. Generame: 1) 3 asuntos de email frio con alta apertura, 2) Cuerpo del email con personalizacion, 3) 3 objeciones tipicas y respuestas preparadas, 4) Estrategia de seguimiento con 3 toques, 5) Script de llamada de seguimiento de 2 minutos.</div></div>
-    <h2>12. Automatizacion de Marketing</h2>
+    <h2 id="12-automatizacion-de-marketing">12. Automatizacion de Marketing</h2>
     <p>Disena flujos de automatizacion que nutren leads sin intervencion manual.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un marketing automation specialist.</strong> Disena un flujo de automatizacion para [objetivo]. Incluye: 1) Trigger de entrada, 2) Segmentacion y condiciones, 3) Secuencia de acciones con temporizacion, 4) Contenido para cada paso, 5) Logica de ramificacion segun comportamiento, 6) Metricas para evaluar el rendimiento del flujo.</div></div>
-    <h2>13. Segmentacion Avanzada</h2>
+    <h2 id="13-segmentacion-avanzada">13. Segmentacion Avanzada</h2>
     <p>Divide tu audiencia en segmentos accionables para mensajes hiperpersonalizados.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un data analyst de marketing.</strong> Con estos datos de clientes: [describe base]. Ayudame a: 1) Identificar 5 segmentos de audiencia basados en comportamiento, 2) Describir cada segmento con caracteristicas clave, 3) Recomendar el mejor canal y mensaje para cada uno, 4) Estimar tamano y valor potencial de cada segmento, 5) Priorizar los segmentos por ROI potencial.</div></div>
-    <h2>14. Optimizacion de Conversion (CRO)</h2>
+    <h2 id="14-optimizacion-de-conversion-cro">14. Optimizacion de Conversion (CRO)</h2>
     <p>Convierte mas visitantes en clientes con tests y mejoras basadas en datos.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un CRO specialist.</strong> Mi pagina con mayor trafico es [URL]. Tasa de conversion actual: [X]%. Analiza: 1) 5 problemas potenciales de conversion, 2) 3 hipotesis de mejora con prioridad, 3) Diseno de test A/B para cada hipotesis, 4) Tiempo estimado para resultados significativos, 5) KPI a medir en cada variante.</div></div>
-    <h2>15. Estrategia de Retencion</h2>
+    <h2 id="15-estrategia-de-retencion">15. Estrategia de Retencion</h2>
     <p>Mantiene a tus clientes contentos y activos con estrategias de retencion probadas.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un customer success strategist.</strong> Para mi negocio con tasa de retencion del [X]%: 1) Identifica las 3 causas principales de churn, 2) Disena un programa de retencion con 5 acciones concretas, 3) Crea un calendario de touchpoints con clientes activos, 4) Propuesta de programa de referidos, 5) Metricas para medir mejora en retention.</div></div>
     <div class="cta-box"><h3>Pack Completo de Marketing</h3><p>10 prompts premium adicionales para SEO, SEM, redes sociales y copywriting.</p><a href="https://payhip.com/b/Q5RYA" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>

@@ -1,0 +1,21 @@
+ANA: ¡Bienvenidos de nuevo a "Código Claro"! Hoy vamos a hablar de un tema que seguro les roba el sueño a muchos desarrolladores: las pruebas unitarias. Y no solo eso, sino cómo la IA está cambiando completamente ese proceso.
+
+CARLOS: Exacto, Ana. El testing siempre ha sido visto como la parte tediosa y más larga del desarrollo. Pero lo bueno es que hoy ya no tienes que verlo así; puedes delegar gran parte de esa carga a herramientas inteligentes.
+
+ANA: A mí me suena que el reto nunca fue solo escribir tests, sino saber *qué* casos extremos poner. ¿Cómo le hacemos para que la IA vaya más allá y piense como un tester crítico?
+
+CARLOS: Ah, ahí está la clave del "arquitecto de prompts". No basta con decirle a la IA que genere pruebas; tienes que obligarla a adoptar el rol de un experto en fallos. Por ejemplo, pídela que te dé una lista detallada de los *edge cases* posibles.
+
+ANA: Pero si solo le digo 'genera tests', va por lo obvio. ¿Qué tipo de prompt avanzado nos da esa visión crítica?
+
+CARLOS: Tienes que ser muy específico en el rol y la intención. En lugar de pedirle código, pídele análisis. Un ejemplo práctico es hacerle saber que analice una función de JavaScript y te genere los 10 casos límite más riesgosos sin escribir el test. Es forzar la perspectiva del fallo.
+
+ANA: Entiendo, entonces no solo se trata de funcionales básicas (éxito/fracaso), sino de anticipar dónde va a romperse el sistema por falta de datos o límites. ¿Hay algo más avanzado que debamos saber?
+
+CARLOS: Sí, lo más avanzado es pasar del código unitario al comportamiento esperado. Hablamos de BDD (Behavior Driven Development) y usar formatos como Gherkin. Le pides a la IA que estructure el flujo en "Dado que...", "Cuando..." y "Entonces...". Es un nivel superior de prueba.
+
+ANA: ¡Wow! Esto no solo nos ahorra tiempo escribiendo tests, sino que también eleva la calidad profesional de lo que hacemos. Carlos, ¿cuál es tu consejo más importante para empezar con esto?
+
+CARLOS: Mi consejo es que empieces poco a poco. No intentes hacer BDD complejo el primer día. Empieza pidiendo a la IA que te identifique los *edge cases* de tus funciones más pequeñas y críticas. Así vas desarrollando ese pensamiento crítico sobre qué debería fallar antes de escribir cualquier línea de código.
+
+ANA: Y en resumen, no uses a la inteligencia artificial solo para generar código, sino como un músculo mental extra para forzarnos a pensar de manera crítica y anticipatoria sobre cómo podría romperse nuestro sistema. Carlos, ha sido una clase maestra, gracias por acompañarnos.

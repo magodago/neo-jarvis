@@ -1,0 +1,19 @@
+ANA: Carlos, siempre hablamos de productividad, pero hay un tema que parece simplemente imposible de domar: la bandeja de entrada de correo electrónico. Es el mayor ladrón de tiempo del profesional moderno, ¿verdad?
+
+CARLOS: Absolutamente, Ana. El correo puede convertirse en una fuente constante de estrés y pérdida de enfoque. No es solo revisar los mensajes; es todo el proceso de clasificar, priorizar y escribir respuestas adecuadas que consume horas valiosas cada semana.
+
+ANA: Exacto. Y lo interesante es que no se trata de trabajar más rápido leyendo correos, sino de dejar que la herramienta haga el trabajo pesado por nosotros. ¿Cómo podemos delegarle a una IA esa gestión completa?
+
+CARLOS: La clave está en la estructura y en los prompts específicos. No basta con pedirle "resumen"; tienes que darle un rol claro a la inteligencia artificial. Por ejemplo, si le pides clasificar los correos como URGENTE, PENDIENTE o INFORMATIVO, el filtro de tu mente se activa automáticamente.
+
+ANA: Así que es casi como programar a la IA para que sea nuestra asistente ejecutiva ideal. ¿Y qué pasa cuando no solo necesito saber la prioridad, sino también responder profesionalmente? Eso siempre requiere mucho esfuerzo mental.
+
+CARLOS: Ahí entran los prompts avanzados para redacción de respuestas. En lugar de escribir desde cero, tú pegas el correo y pides tres tonos distintos: uno directo para un jefe, otro más cercano para un colega, o formal para un cliente. Esto te ahorra la carga cognitiva inicial.
+
+ANA: Me encanta esa idea porque convierte la escritura, que suele ser tediosa, en una opción de menú predefinida. Entonces, además de clasificar y redactar, hay algo más que debamos hacer al final de la semana. ¿Cómo nos aseguramos de no olvidar tareas importantes?
+
+CARLOS: Precisamente, el seguimiento semanal es crucial. Debes usar un prompt para que la IA revise todos los hilos de correo de la semana pasada e identifique qué promesas hiciste y a quién debes responder o qué fecha límite se acerca. Así transformas correos dispersos en una lista priorizada de acciones.
+
+ANA: Resumiendo lo que nos has contado, no debemos ver el email como un flujo constante de lectura, sino como material de entrada para un sistema inteligente. Usamos prompts para clasificarlo, responder y, finalmente, crear nuestras tareas pendientes con la ayuda de la IA. Un cambio de mentalidad total sobre cómo interactuamos con nuestra bandeja de entrada.
+
+CARLOS: Así es. Recuerda que el objetivo no es nunca recibir correos, sino asegurar que ese tiempo se convierta en trabajo procesado y delegado. Empieza por usar solo un prompt para clasificar y ver cuánto tiempo te ahorra esa simple acción.

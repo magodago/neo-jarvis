@@ -71,6 +71,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
 .schema-hidden{display:none}
 @media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"12 Prompts de IA para Programar Mejor","description":"Mejora tu codigo con 12 prompts de IA para debugging, code review, testing y refactoring.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-programacion.html"}}</script>
   <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -92,44 +94,65 @@ footer .copy{font-size:.72rem;color:#6a6558}
     <h1>12 Prompts de IA para Programar Mejor</h1>
     <div class="meta"><span>8 Junio 2026</span><span>9 min de lectura</span></div>
   </div>
-  <div class="article-body">
+  <div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/blog/prompts-ia-programacion.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#1-debugging-asistido">1. Debugging Asistido</a>
+<a href="#2-code-review-automatico">2. Code Review Automatico</a>
+<a href="#3-tests-automaticos">3. Tests Automaticos</a>
+<a href="#4-refactoring-inteligente">4. Refactoring Inteligente</a>
+<a href="#5-diseno-de-arquitectura">5. Diseno de Arquitectura</a>
+<a href="#6-documentacion-automatica">6. Documentacion Automatica</a>
+<a href="#7-optimizacion-de-consultas-sql">7. Optimizacion de Consultas SQL</a>
+<a href="#8-integracion-de-apis">8. Integracion de APIs</a>
+<a href="#9-git-y-control-de-versiones">9. Git y Control de Versiones</a>
+<a href="#10-seguridad-en-codigo">10. Seguridad en Codigo</a>
+<a href="#11-optimizacion-de-rendimiento">11. Optimizacion de Rendimiento</a>
+<a href="#12-automatizacion-de-deployment">12. Automatizacion de Deployment</a></div>
     <p>La IA no va a reemplazar a los programadores, pero los programadores que usan IA van a escribir 10x mas rapido que los que no. La clave esta en saber pedirle lo que necesitas.</p>
     <p>Estos <strong>12 prompts de IA para programacion</strong> cubren debugging, code review, testing, refactoring y arquitectura.</p>
     <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
-    <h2>1. Debugging Asistido</h2>
+    <h2 id="1-debugging-asistido">1. Debugging Asistido</h2>
     <p>Encuentra bugs en segundos. Este prompt analiza tu codigo y te dice exactamente donde falla y como arreglarlo.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un debugger experto.</strong> Este codigo no funciona como espero. [PEGA CODIGO]. Comportamiento esperado: [describe]. Comportamiento actual: [describe]. Dame: 1) Diagnostico del problema, 2) Linea exacta con el error, 3) Solucion con explicacion, 4) Tests para verificar que funciona.</div></div>
-    <h2>2. Code Review Automatico</h2>
+    <h2 id="2-code-review-automatico">2. Code Review Automatico</h2>
     <p>Obtienes una revision de codigo completa como si tu senior developer favorito lo hubiera revisado.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un senior developer haciendo code review.</strong> Revisa este codigo: [PEGA CODIGO]. Evalua: 1) Posibles bugs, 2) Code smells y antipatrones, 3) Problemas de rendimiento, 4) Seguridad, 5) Mejores practicas del lenguaje/framework. Para cada issue, dame prioridad (alta/media/baja) y sugerencia de correccion con codigo.</div></div>
-    <h2>3. Tests Automaticos</h2>
+    <h2 id="3-tests-automaticos">3. Tests Automaticos</h2>
     <p>Genera tests unitarios, de integracion y funcionales para tu codigo en segundos.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un QA engineer.</strong> Genera tests para este codigo: [PEGA CODIGO]. Incluye: 1) Tests unitarios con cobertura de casos normal, borde y error, 2) Tests de integracion, 3) Mocks necesarios, 4) Escenarios de prueba adicionales que se me puedan escapar. Usa [framework de tests].</div></div>
-    <h2>4. Refactoring Inteligente</h2>
+    <h2 id="4-refactoring-inteligente">4. Refactoring Inteligente</h2>
     <p>Limpia y optimiza tu codigo sin cambiar su comportamiento. Este prompt identifica areas de mejora y las implementa.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un arquitecto de software.</strong> Refactoriza este codigo: [PEGA CODIGO]. Aplica: 1) Principios SOLID, 2) DRY, 3) KISS, 4) Extraccion de funciones/metodos, 5) Nombres significativos. Dame el codigo refactorizado completo y explica cada cambio y por que mejora el codigo original.</div></div>
-    <h2>5. Diseno de Arquitectura</h2>
+    <h2 id="5-diseno-de-arquitectura">5. Diseno de Arquitectura</h2>
     <p>Disena la arquitectura de tu sistema con decisiones informadas y patrones probados.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un arquitecto de software senior.</strong> Necesito disenar la arquitectura para un sistema que [describe funcionalidad]. Requisitos: [lista]. Dame: 1) Arquitectura recomendada con diagrama en ASCII, 2) Stack tecnologico sugerido con justificacion, 3) Patrones de diseno a utilizar, 4) Estructura de carpetas, 5) Decisiones clave con sus alternativas y por que elegi cada una.</div></div>
-    <h2>6. Documentacion Automatica</h2>
+    <h2 id="6-documentacion-automatica">6. Documentacion Automatica</h2>
     <p>Genera documentacion clara y util para tu codigo sin escribir una linea de documentacion.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un technical writer.</strong> Genera documentacion para este codigo: [PEGA CODIGO]. Incluye: 1) README con descripcion, instalacion y uso, 2) Comentarios de documentacion para funciones publicas, 3) Ejemplos de uso, 4) Posibles errores y soluciones, 5) Enlace a documentacion externa relevante.</div></div>
-    <h2>7. Optimizacion de Consultas SQL</h2>
+    <h2 id="7-optimizacion-de-consultas-sql">7. Optimizacion de Consultas SQL</h2>
     <p>Mejora el rendimiento de tus consultas a base de datos con analisis experto.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un DBA experto.</strong> Analiza y optimiza esta consulta SQL: [PEGA SQL]. Dame: 1) Plan de ejecucion explicado, 2) Cuellos de botella, 3) Consulta optimizada, 4) Indices recomendados, 5) Explicacion de por que la version optimizada es mejor y en que casos.</div></div>
-    <h2>8. Integracion de APIs</h2>
+    <h2 id="8-integracion-de-apis">8. Integracion de APIs</h2>
     <p>Conecta servicios externos sin dolores de cabeza. Este prompt te guia en la integracion de cualquier API.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un integrador de APIs.</strong> Necesito integrar la API de [servicio]. Documentacion: [enlace o descripcion]. Dame: 1) Cliente API completo en [lenguaje], 2) Manejo de errores y retry logic, 3) Cacheo de respuestas, 4) Tests de integracion, 5) Ejemplos de uso para los 3 endpoints principales.</div></div>
-    <h2>9. Git y Control de Versiones</h2>
+    <h2 id="9-git-y-control-de-versiones">9. Git y Control de Versiones</h2>
     <p>Resuelve conflictos, escribe commits semanticos y gestiona ramas como un profesional.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un git expert.</strong> Ayudame con: 1) Escribir commits convencionales para estos cambios: [describe], 2) Estrategia de branching para [proyecto], 3) Como resolver este conflicto: [PEGA CONFLICTO], 4) Comandos para [tarea especifica], 5) Buenas practicas de git flow para equipo de [X] personas.</div></div>
-    <h2>10. Seguridad en Codigo</h2>
+    <h2 id="10-seguridad-en-codigo">10. Seguridad en Codigo</h2>
     <p>Identifica vulnerabilidades en tu codigo antes de que lo hagan los atacantes.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un security engineer.</strong> Realiza un audit de seguridad de este codigo: [PEGA CODIGO]. Busca: 1) Inyeccion SQL, 2) XSS, 3) CSRF, 4) Exposicion de datos sensibles, 5) Autenticacion debil, 6) Dependencias vulnerables. Para cada hallazgo: riesgo, linea exacta y solucion con codigo seguro.</div></div>
-    <h2>11. Optimizacion de Rendimiento</h2>
+    <h2 id="11-optimizacion-de-rendimiento">11. Optimizacion de Rendimiento</h2>
     <p>Hace que tu codigo corra mas rapido y consuma menos recursos.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un performance engineer.</strong> Analiza el rendimiento de este codigo: [PEGA CODIGO]. Identifica: 1) Algoritmos ineficientes, 2) Operaciones costosas, 3) Optimizaciones de memoria, 4) Cuellos de botella en I/O, 5) Oportunidades de caching. Dame el codigo optimizado y estimacion de mejora porcentual.</div></div>
-    <h2>12. Automatizacion de Deployment</h2>
+    <h2 id="12-automatizacion-de-deployment">12. Automatizacion de Deployment</h2>
     <p>Configura pipelines de CI/CD que despliegan tu codigo automaticamente y sin errores.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un DevOps engineer.</strong> Disena un pipeline de CI/CD para mi proyecto [tipo]. Stack: [tecnologias]. Incluye: 1) Archivo de configuracion YAML completo, 2) Stages: build, test, lint, security scan, deploy, 3) Estrategia de despliegue (blue-green/canary), 4) Rollback automatico, 5) Notificaciones y alertas, 6) Variables de entorno y secretos.</div></div>
     <div class="cta-box"><h3>Pack Completo de Programacion</h3><p>10 prompts premium adicionales para debugging, code review, testing y refactoring.</p><a href="https://payhip.com/b/XTEG5" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>

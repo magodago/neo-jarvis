@@ -1,0 +1,17 @@
+ANA: Carlos, estamos hablando de programación y sé que es un tema muy técnico, pero tengo curiosidad por saber si las herramientas de IA realmente nos están cambiando el juego. ¿Qué impacto tiene esto del *debugging* con ChatGPT?
+
+CARLOS: Ana, has tocado uno de los puntos más críticos para cualquier programador hoy en día. Solía ser la parte más frustrante encontrar un error que te hacía perder horas enteras. Ahora, la IA no solo encuentra ese bug, sino que también explica su causa raíz.
+
+ANA: ¿Pero es magia? Es decir, si simplemente le pegamos el código y el mensaje de error a ChatGPT, nos va a dar todo resuelto sin esfuerzo alguno. Cuéntame cómo se estructura esto para que sea efectivo.
+
+CARLOS: No es magia, es metodología aplicada con un buen *prompt*. Si solo pones "mi código falla", la respuesta será vaga. Lo clave es ser súper específico y darle el contexto completo al modelo de IA. Tienes que especificar qué comportamiento esperabas versus lo que está fallando realmente.
+
+ANA: Entiendo que hay prompts estructurados para eso. Y no solo se trata de errores simples, ¿verdad? Si mi código funciona pero va muy lento con muchos datos, cómo abordarías ese tema utilizando la IA.
+
+CARLOS: Exacto, ahí entra el reto del rendimiento o optimización. Aquí no basta con decir "está lento". Debes indicar a la herramienta que actúe como un optimizador de procesos. Pídele específicamente identificar operaciones costosas o cuellos de botella en términos de complejidad algorítmica.
+
+ANA: Entonces, si resumo bien, para el error general usamos un prompt que pida causa, línea y solución; y para lentitud, pedimos análisis de rendimiento y sugerencias de mejora algorítmica. ¿Es eso correcto?
+
+CARLOS: Perfectamente resumido. Mi consejo práctico es que nunca copies la primera solución que te dé la IA sin entenderla bien. Siempre pídele que te explique el porqué del cambio; ese paso de comprensión es lo que realmente eleva tu nivel como desarrollador.
+
+ANA: Y ahí está la clave, no usarlo solo para copiar y pegar, sino para aprender cómo arreglarlo nosotros mismos. Gracias, Carlos, esto nos ha dado muchísimas herramientas prácticas.

@@ -1,0 +1,17 @@
+ANA: Carlos, el tema de Google Ads siempre suena muy técnico, pero he leído sobre cómo la Inteligencia Artificial está cambiando las reglas del juego con los prompts. ¿De verdad esto es tan sencillo como dar instrucciones?
+
+CARLOS: Para nada fácil si no sabes qué pedirle exactamente a la IA. La clave no es usar la herramienta, sino saber estructurar el problema. Piensa que el prompt tiene que ser un mini-plan de marketing detallado para obtener resultados útiles.
+
+ANA: Entiendo. Entonces, más allá de decir "optimiza mi anuncio", hay una metodología detrás. ¿Podrías darnos un ejemplo práctico de cómo debería empezar a pensar esa estructura?
+
+CARLOS: Claro. Tienes que definir tu nicho, el presupuesto y luego pedirle tres cosas concretas: la estructura de campaña, las keywords principales con su tipo de concordancia, y hasta los enfoques de anuncios. Así cubres todas las bases en una sola petición.
+
+ANA: Eso suena muy completo. Pero incluso si me da una buena estructura inicial, ¿cómo se usa esa IA para detectar qué está fallando después? ¿Es solo generar más ideas o es un análisis real?
+
+CARLOS: Aquí está el verdadero valor: la optimización. Debes alimentarla con métricas reales que tú recopiles de Google Ads. Pídele que actúe como un media buyer senior y que analice el ROI, sugiera dónde reducir gasto y qué nuevas keywords añadir para maximizar las conversiones.
+
+ANA: Me queda claro que la IA es una súper herramienta de análisis si le damos los datos correctos. Pero si tuviera que darte un consejo práctico a alguien que empieza desde cero, ¿qué haría?
+
+CARLOS: Mi consejo es no depender ciegamente del resultado más espectacular. Empieza siempre pidiendo tres estrategias diferentes. Así podrás comparar cuál te da el mejor balance entre agresividad y riesgo, y así tu aprendizaje será mucho más rápido.
+
+ANA: ¡Me parece súper valioso! Entonces, para resumir: la IA nos ayuda a pasar de preguntas vagas a peticiones estructuradas que cubren desde la creación de campaña hasta la optimización diaria, siempre aportando un análisis práctico basado en datos reales. Muchas gracias, Carlos.

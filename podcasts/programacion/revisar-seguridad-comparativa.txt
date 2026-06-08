@@ -1,0 +1,19 @@
+ANA: Bienvenidos a "Código Limpio". Hoy vamos a hablar de un tema crucial para cualquier desarrollador: las revisiones de seguridad. Antes, este proceso era tan tedioso que consumía horas enteras.
+
+CARLOS: Exactamente, Ana. Y por eso es que la inteligencia artificial ha revolucionado esta área. Lo que solía ser una actividad manual y agotadora, ahora podemos hacerlo en minutos con el *prompt* adecuado.
+
+ANA: ¿Y qué significa eso de un "prompt adecuado"? Porque suena muy técnico para alguien que solo quiere entender cómo mejorar su código sin convertirse en experto en IA.
+
+CARLOS: Significa elevar la complejidad de nuestra petición a la herramienta. No basta con decirle "revisa esto". Hay que actuar como si estuviéramos contratando a los mejores consultores, dándole un rol específico y pidiéndole una estructura de respuesta muy detallada.
+
+ANA: ¿Puedes darnos un ejemplo práctico? Algo sencillo que demuestre esa diferencia entre preguntar poco y pedir mucho.
+
+CARLOS: Por supuesto. En lugar de solo decir "Revisa la seguridad", podemos usar algo como: "Actúa como un consultor senior con 20 años de experiencia en ciberseguridad, analiza mi código y dime los tres factores críticos, proponiendo soluciones accionables para cada uno". Es darle contexto y roles.
+
+ANA: ¡Eso tiene mucho más peso! No es solo pedir ayuda, es simular la conversación con un experto muy especializado. ¿Y esto funciona mejor si le pedimos que nos genere automatización?
+
+CARLOS: Sí, ese es el siguiente nivel. Ya no pides soluciones puntuales; pides sistemas completos. Le puedes pedir a la IA que te cree un flujo de trabajo donde ella haga los pasos iniciales y tú solo tengas que supervisar en puntos críticos específicos.
+
+ANA: Para resumir lo que nos has contado, Carlos, clave no es usar *prompts* bonitos, sino usarlos con profundidad, definiendo roles para la IA y pidiéndole siempre un plan de acción estructurado o pasos delegables.
+
+CARLOS: Es justo eso. Mi consejo final es que empieces por elevar el rol. No pienses en la IA como una herramienta de búsqueda; piensa en ella como tu colega más brillante, pero muy literal. Asigna ese título de "consultor senior" y verás cómo cambia radicalmente la calidad del análisis.

@@ -71,6 +71,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
 .schema-hidden{display:none}
 @media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"8 Prompts de IA para Recursos Humanos","description":"Optimiza la seleccion de personal, evaluacion de candidatos y comunicacion interna con IA.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-recursos-humanos.html"}}</script>
   <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -92,32 +94,49 @@ footer .copy{font-size:.72rem;color:#6a6558}
     <h1>8 Prompts de IA para Recursos Humanos</h1>
     <div class="meta"><span>8 Junio 2026</span><span>7 min de lectura</span></div>
   </div>
-  <div class="article-body">
+  <div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/blog/prompts-ia-recursos-humanos.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#1-descripcion-de-puestos-atractiva">1. Descripcion de Puestos Atractiva</a>
+<a href="#2-evaluacion-de-candidatos-con-entrevist">2. Evaluacion de Candidatos con Entrevista</a>
+<a href="#3-criba-curricular-automatica">3. Criba Curricular Automatica</a>
+<a href="#4-plan-de-onboarding">4. Plan de Onboarding</a>
+<a href="#5-comunicacion-interna-efectiva">5. Comunicacion Interna Efectiva</a>
+<a href="#6-encuesta-de-clima-laboral">6. Encuesta de Clima Laboral</a>
+<a href="#7-plan-de-formacion-personalizado">7. Plan de Formacion Personalizado</a>
+<a href="#8-evaluacion-de-desempeno">8. Evaluacion de Desempeno</a></div>
     <p>Los profesionales de RRHH dedican el 60% de su tiempo a tareas administrativas que la IA puede hacer en segundos. Seleccion, evaluacion, comunicacion interna y mas.</p>
     <p>Estos <strong>8 prompts de IA para Recursos Humanos</strong> te ayudaran a ser mas eficiente y estrategico en tu trabajo diario.</p>
     <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
-    <h2>1. Descripcion de Puestos Atractiva</h2>
+    <h2 id="1-descripcion-de-puestos-atractiva">1. Descripcion de Puestos Atractiva</h2>
     <p>Crea ofertas de empleo que atraigan a los mejores candidatos. Este prompt genera descripciones de puesto claras, inclusivas y persuasivas.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un especialista en employer branding.</strong> Crea una descripcion de puesto para [nombre del puesto] en [sector/empresa]. La descripcion debe: 1) Titulo atractivo y SEO-friendly, 2) Resumen del puesto en 3 lineas, 3) Responsabilidades clave (5-7 puntos), 4) Requisitos imprescindibles y deseables, 5) Que ofrecemos (beneficios, cultura, crecimiento), 6) Tono inclusivo que fomente diversidad. Extension: 300-400 palabras.</div></div>
-    <h2>2. Evaluacion de Candidatos con Entrevista</h2>
+    <h2 id="2-evaluacion-de-candidatos-con-entrevist">2. Evaluacion de Candidatos con Entrevista</h2>
     <p>Prepara entrevistas estructuradas con preguntas relevantes y criterios de evaluacion objetivos para cada candidato.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un reclutador senior.</strong> Voy a entrevistar a un candidato para [puesto]. CV del candidato: [PEGA CV]. Dame: 1) 5 preguntas clave para la entrevista basadas en su experiencia, 2) 3 preguntas de competencias situacionales, 3) Criterios de evaluacion objetivos con escala 1-5, 4) Red flags a los que prestar atencion, 5) Preguntas para validar los requisitos tecnicos del puesto.</div></div>
-    <h2>3. Criba Curricular Automatica</h2>
+    <h2 id="3-criba-curricular-automatica">3. Criba Curricular Automatica</h2>
     <p>Analiza multiples CVs en segundos y encuentra a los candidatos que mejor encajan con el puesto.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un analista de talento.</strong> Analiza estos CVs para el puesto de [nombre del puesto]. Requisitos imprescindibles: [lista]. Requisitos valorables: [lista]. Para cada CV: 1) Puntuacion de ajuste (0-100), 2) Puntos fuertes para el puesto, 3) Deficiencias respecto a requisitos, 4) Recomendacion (entrevista/descartar/dudas). Prioriza los 3 mejores candidatos y justifica por que.</div></div>
-    <h2>4. Plan de Onboarding</h2>
+    <h2 id="4-plan-de-onboarding">4. Plan de Onboarding</h2>
     <p>Disena un proceso de onboarding que triplica la retencion de nuevos empleados en los primeros 90 dias.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un especialista en onboarding.</strong> Disena un plan de onboarding de 90 dias para un nuevo empleado de [puesto] en [sector]. Incluye: 1) Semana 1: preparacion, bienvenida y configuracion, 2) Semana 2-4: formacion especifica y primeros proyectos, 3) Mes 2: autonomia progresiva con mentor, 4) Mes 3: evaluacion y plan de desarrollo, 5) Checklist de tareas para RRHH, manager y empleado en cada fase, 6) Metricas para medir exito del onboarding.</div></div>
-    <h2>5. Comunicacion Interna Efectiva</h2>
+    <h2 id="5-comunicacion-interna-efectiva">5. Comunicacion Interna Efectiva</h2>
     <p>Redacta comunicados internos claros y profesionales que mantengan a tu equipo informado y motivado.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un especialista en comunicacion interna.</strong> Necesito redactar un comunicado sobre [tema: cambio normativo/nuevo beneficio/evento] dirigido a [audiencia: toda la empresa/departamento]. Tono: [cercano/formalinformativo]. Incluye: 1) Asunto del email, 2) Cuerpo del mensaje claro y directo, 3) FAQ con 5 preguntas previsibles y respuestas, 4) CTA para siguientes pasos, 5) Version para Slack/Teams si aplica.</div></div>
-    <h2>6. Encuesta de Clima Laboral</h2>
+    <h2 id="6-encuesta-de-clima-laboral">6. Encuesta de Clima Laboral</h2>
     <p>Disena y analiza encuestas de clima laboral que revelen el estado real de tu organizacion.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un analista de clima organizacional.</strong> Disena una encuesta de clima laboral para [empresa] con [X] empleados. Incluye: 1) 15 preguntas clave distribuidas en categorias (satisfaccion, cultura, liderazgo, crecimiento, bienestar), 2) Escala de medicion clara, 3) 2 preguntas abiertas para insights cualitativos, 4) Plantilla de analisis de resultados con categorias, 5) Acciones recomendadas segun rangos de puntuacion.</div></div>
-    <h2>7. Plan de Formacion Personalizado</h2>
+    <h2 id="7-plan-de-formacion-personalizado">7. Plan de Formacion Personalizado</h2>
     <p>Crea planes de desarrollo profesional adaptados a las necesidades de cada empleado y a los objetivos de la empresa.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un talent development specialist.</strong> Creame un plan de formacion para [puesto] con nivel de experiencia [junior/mid/senior]. Objetivos de desarrollo: [lista]. Tiempo disponible: [X]h/semana. Presupuesto: [cantidad]. Incluye: 1) Habilidades a desarrollar priorizadas, 2) Recursos formativos recomendados (cursos, libros, workshops), 3) Calendario de formacion a 6 meses, 4) Proyectos practicos para aplicar lo aprendido, 5) Metricas para medir progreso.</div></div>
-    <h2>8. Evaluacion de Desempeno</h2>
+    <h2 id="8-evaluacion-de-desempeno">8. Evaluacion de Desempeno</h2>
     <p>Prepara evaluaciones de desempeno objetivas y constructivas que motiven a tus empleados a crecer.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un coach de desarrollo profesional.</strong> Ayudame a preparar una evaluacion de desempeno para [empleado] en [puesto]. Logros del periodo: [lista]. Areas de mejora: [lista]. Objetivos para el proximo periodo: [lista]. Genera: 1) Estructura de la reunion con tiempos, 2) Feedback constructivo con tecnica SBI, 3) Objetivos SMART para el proximo periodo, 4) Plan de desarrollo acordado, 5) Preguntas para fomentar la autoevaluacion y el dialogo.</div></div>
     <div class="cta-box"><h3>Pack Completo de RRHH</h3><p>10 prompts premium adicionales para seleccion, onboarding, evaluacion y gestion del talento.</p><a href="https://payhip.com/b/KragB" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>

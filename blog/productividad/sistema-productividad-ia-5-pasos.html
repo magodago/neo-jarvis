@@ -76,6 +76,8 @@ footer .copy{font-size:.7rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
 .s-hidden{display:none}
 @media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Como crear tu sistema de productividad diario con IA en 5 pasos","description":"5 pasos para integrar la IA en tu rutina de productividad diaria.","datePublished":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/productividad/sistema-productividad-ia-5-pasos.html"}}</script>
   <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -97,34 +99,48 @@ footer .copy{font-size:.7rem;color:#6a6558}
     <h1>Como crear tu sistema de productividad diario con IA en 5 pasos</h1>
     <div class="meta"><span>8 Junio 2026</span><span>7 min de lectura</span></div>
   </div>
-  <div class="article-body">
+  <div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/productividad/sistema-productividad-ia-5-pasos.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#paso-1-define-tus-3-prioridades-diarias">Paso 1: Define tus 3 prioridades diarias</a>
+<a href="#paso-2-crea-un-bloque-de-enfoque-de-90-m">Paso 2: Crea un bloque de enfoque de 90 minutos</a>
+<a href="#paso-3-delega-tareas-administrativas-a-l">Paso 3: Delega tareas administrativas a la IA</a>
+<a href="#paso-4-revisa-y-ajusta-cada-semana">Paso 4: Revisa y ajusta cada semana</a>
+<a href="#paso-5-automatiza-lo-que-funciona">Paso 5: Automatiza lo que funciona</a></div>
     <p>La mayoria de la gente usa la IA como un oraculo: le preguntan cosas sueltas y esperan respuestas magicas. Y luego se preguntan por que no notan un cambio real en su productividad.</p>
     <p>El problema no es la IA. El problema es que <strong>no tienes un sistema</strong>. Usar IA sin un sistema es como tener un coche de carreras pero conducir solo al supermercado.</p>
     <p>En esta guia te voy a mostrar los 5 pasos para construir un sistema de productividad con IA que realmente funcione. No es teoria. Es lo que uso a diario y lo que comparto en mi <a href="https://payhip.com/b/EYojF" target="_blank">pack de prompts de productividad</a>.</p>
 
     <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar con ChatGPT, Claude y Gemini.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
 
-    <h2>Paso 1: Define tus 3 prioridades diarias</h2>
+    <h2 id="paso-1-define-tus-3-prioridades-diarias">Paso 1: Define tus 3 prioridades diarias</h2>
     <p>Antes de pedirle nada a la IA, necesitas tener claridad. Cada mañana, define tus 3 prioridades del dia. No 10, no 5. <strong>Tres.</strong></p>
     <p>Usa este prompt para que la IA te ayude a priorizar si tienes una lista larga de tareas:</p>
     <div class="prompt-box"><div class="prompt-label">Prompt para priorizar</div><div class="prompt-text"><strong>Eres un coach de productividad.</strong> Esta es mi lista de tareas de hoy: [lista]. Teniendo en cuenta mis objetivos de la semana y las urgencias reales, selecciona las 3 tareas mas importantes. Para cada una, dime POR QUE es prioritaria y cual es el minimo progreso que debo hacer hoy para sentir que avance.</div></div>
 
-    <h2>Paso 2: Crea un bloque de enfoque de 90 minutos</h2>
+    <h2 id="paso-2-crea-un-bloque-de-enfoque-de-90-m">Paso 2: Crea un bloque de enfoque de 90 minutos</h2>
     <p>La productividad real no ocurre en intervalos de 5 minutos entre notificaciones. Necesitas bloques largos de trabajo profundo. La IA puede ayudarte a preparar ese bloque.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt para preparar el enfoque</div><div class="prompt-text"><strong>Eres un preparador de trabajo profundo.</strong> Voy a trabajar en [tarea principal] durante 90 minutos. Preparame: 1) El objetivo concreto que debo lograr en ese tiempo, 2) Los recursos que necesito tener a mano, 3) 3 posibles distracciones y como evitarlas, 4) Un mantra de 10 palabras para mantener el foco, 5) Que hacer en los 5 minutos previos para entrar en estado de flow.</div></div>
 
-    <h2>Paso 3: Delega tareas administrativas a la IA</h2>
+    <h2 id="paso-3-delega-tareas-administrativas-a-l">Paso 3: Delega tareas administrativas a la IA</h2>
     <p>Todo lo que no requiere tu talento unico, delegaselo a la IA. Correos, resumenes, busquedas, organizacion. Este es el paso que mas tiempo te ahorra.</p>
     <p>Crea un sistema donde la IA haga el primer borrador de todo lo administrativo y tu solo revises. Asi pasas de crear desde cero a editar, que es 10x mas rapido.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt para delegar tareas</div><div class="prompt-text"><strong>Eres mi asistente ejecutivo.</strong> Estas son las tareas administrativas de hoy: [lista]. Para cada una, generame un primer borrador listo para que yo solo revise y apruebe. Se proactivo: si falta informacion, dimela y la busco, no te quedes bloqueado. Prioriza velocidad sobre perfeccion en el primer borrador.</div></div>
 
     <div class="tip-box"><div class="tip-label">Consejo clave</div><p>No revises los borradores de la IA con mentalidad de perfeccion. Preguntate: "Esto es 80% correcto?" Si la respuesta es si, enviado. El 20% restante no compensa el tiempo que perderias haciendolo desde cero.</p></div>
 
-    <h2>Paso 4: Revisa y ajusta cada semana</h2>
+    <h2 id="paso-4-revisa-y-ajusta-cada-semana">Paso 4: Revisa y ajusta cada semana</h2>
     <p>Un sistema sin revision es un sistema que muere. Cada viernes, dedica 15 minutos a revisar tu semana con la IA. Esto no solo te da perspectiva, sino que ademas entrena a la IA para conocerte mejor.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt de revision semanal</div><div class="prompt-text"><strong>Eres un analista de productividad.</strong> Revisemos mi semana. Estos fueron mis logros: [lista]. Mis pendientes: [lista]. Lo que no salio bien: [lista]. Dame: 1) 3 cosas que hice bien y debo repetir, 2) 1 cosa que puedo mejorar la proxima semana, 3) Un plan concreto para el lunes que me de impulso, 4) Una leccion aprendida esta semana.</div></div>
 
-    <h2>Paso 5: Automatiza lo que funciona</h2>
+    <h2 id="paso-5-automatiza-lo-que-funciona">Paso 5: Automatiza lo que funciona</h2>
     <p>Cuando encuentres un prompt que te da resultados consistentes, <strong>conviertelo en una plantilla reutilizable</strong>. No lo escribas cada vez. Tenlo guardado y accede a el en un clic.</p>
     <p>Los profesionales no escriben prompts nuevos cada vez. Tienen una <strong>biblioteca de prompts</strong> que han refinado con el uso. Eso es exactamente lo que encontraras en mi <a href="https://payhip.com/b/EYojF" target="_blank">pack de productividad</a>: 10 prompts probados y optimizados para que no tengas que empezar de cero.</p>
 

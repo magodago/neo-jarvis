@@ -44,6 +44,8 @@ footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin
 footer .copy{font-size:.68rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#7b1fa2,#ce93d8);z-index:9999;transition:width .1s}
 .s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Comparativa 2026: mejores herramientas para revisar seguridad","description":"Comparamos las principales herramientas de IA para ayudarte a elegir la mejor opcion.","datePublished":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/programacion/revisar-seguridad-comparativa.html"}}</script>
 </head>
@@ -56,13 +58,25 @@ footer .copy{font-size:.68rem;color:#6a6558}
 <h1>Comparativa 2026: mejores herramientas para revisar seguridad</h1>
 <div class="meta"><span>8 June 2026</span><span>5 min de lectura</span></div>
 </div>
-<div class="article-body">
+<div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/programacion/revisar-seguridad-comparativa.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#empieza-con-un-prompt-basico">Empieza con un prompt basico</a>
+<a href="#lleva-tus-resultados-al-siguiente-nivel">Lleva tus resultados al siguiente nivel</a>
+<a href="#automatiza-el-proceso-completo">Automatiza el proceso completo</a></div>
 <p>Si hay un area donde la IA realmente marca la diferencia es en revisar seguridad. Lo que antes te llevaba horas, ahora puedes hacerlo en minutos con el prompt adecuado.</p>
-<h2>Empieza con un prompt basico</h2>
+<h2 id="empieza-con-un-prompt-basico">Empieza con un prompt basico</h2>
 <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un experto en Programacion. Necesito ayuda con revisar seguridad. Dame 3 enfoques diferentes, e</strong><br>Eres un experto en Programacion. Necesito ayuda con revisar seguridad. Dame 3 enfoques diferentes, evalua pros y contras de cada uno, y recomiendame el mejor con un plan de accion concreto de 5 pasos.</div></div>
-<h2>Lleva tus resultados al siguiente nivel</h2>
+<h2 id="lleva-tus-resultados-al-siguiente-nivel">Lleva tus resultados al siguiente nivel</h2>
 <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un consultor senior en Programacion con 20 anos de experiencia. Analiza mi situacion actual: [d</strong><br>Eres un consultor senior en Programacion con 20 anos de experiencia. Analiza mi situacion actual: [describe]. Identifica los 3 factores criticos, propone soluciones accionables, y establece metricas de exito para cada una.</div></div>
-<h2>Automatiza el proceso completo</h2>
+<h2 id="automatiza-el-proceso-completo">Automatiza el proceso completo</h2>
 <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Crea un sistema automatico para revisar seguridad en Programacion. Dame: 1) Los pasos que puedo dele</strong><br>Crea un sistema automatico para revisar seguridad en Programacion. Dame: 1) Los pasos que puedo delegar completamente a la IA, 2) Los puntos donde necesito supervisar, 3) Un prompt que lo unifique todo en una sola ejecucion.</div></div>
 <p>Comienza hoy y repite el proceso cada semana para resultados consistentes.</p>
 <div class="cta-box"><h3>Pack de Programacion</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><a href="https://payhip.com/b/XTEG5" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px;">Ver Catalogo</a></div>

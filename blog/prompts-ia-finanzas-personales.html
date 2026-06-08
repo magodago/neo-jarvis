@@ -74,6 +74,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
 .schema-hidden{display:none}
 @media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"10 Prompts de IA para tus Finanzas Personales","description":"Controla tu presupuesto, ahorra mas y planifica tu futuro financiero con IA.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-finanzas-personales.html"}}</script>
   <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -95,38 +97,57 @@ footer .copy{font-size:.72rem;color:#6a6558}
     <h1>10 Prompts de IA para tus Finanzas Personales</h1>
     <div class="meta"><span>8 Junio 2026</span><span>8 min de lectura</span></div>
   </div>
-  <div class="article-body">
+  <div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/blog/prompts-ia-finanzas-personales.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#1-presupuesto-mensual-automatico">1. Presupuesto Mensual Automatico</a>
+<a href="#2-analisis-de-gastos">2. Analisis de Gastos</a>
+<a href="#3-plan-de-ahorro-personalizado">3. Plan de Ahorro Personalizado</a>
+<a href="#4-seguimiento-de-inversiones">4. Seguimiento de Inversiones</a>
+<a href="#5-planificacion-fiscal">5. Planificacion Fiscal</a>
+<a href="#6-proyeccion-financiera">6. Proyeccion Financiera</a>
+<a href="#7-gestion-de-deudas">7. Gestion de Deudas</a>
+<a href="#8-preparacion-de-declaracion">8. Preparacion de Declaracion</a>
+<a href="#9-analisis-de-riesgos">9. Analisis de Riesgos</a>
+<a href="#10-plan-de-retiro">10. Plan de Retiro</a></div>
     <p>Gestionar tus finanzas personales no deberia ser estresante. Con los prompts adecuados, la IA puede convertirse en tu asesor financiero personal, ayudandote a presupuestar, ahorrar e invertir mejor.</p>
     <p>Estos <strong>10 prompts de IA para finanzas</strong> estan probados con ChatGPT, Claude y Gemini. Son los mismos que uso en mi dia a dia y los que incluyo en mis <a href="../catalogo.html">packs premium</a>.</p>
     <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
-    <h2>1. Presupuesto Mensual Automatico</h2>
+    <h2 id="1-presupuesto-mensual-automatico">1. Presupuesto Mensual Automatico</h2>
     <p>Crea un presupuesto personalizado en segundos basado en tus ingresos y gastos fijos. Este prompt analiza tu situacion y te da un plan de gasto optimo.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un asesor financiero.</strong> Con estos ingresos mensuales: [cantidad] y estos gastos fijos: [lista], creame un presupuesto optimo. Aplica la regla 50/30/20, identifica areas de ahorro potencial y sugiereme 3 ajustes concretos para ahorrar mas cada mes.</div></div>
-    <h2>2. Analisis de Gastos</h2>
+    <h2 id="2-analisis-de-gastos">2. Analisis de Gastos</h2>
     <p>Descubre a donde se va tu dinero realmente. Este prompt analiza tus patrones de gasto y te muestra oportunidades de ahorro que no estabas viendo.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un analista financiero.</strong> Analiza estos gastos del ultimo mes: [lista]. Clasificalos por categoria, calcula el porcentaje sobre ingresos totales, identifica los 3 gastos mas prescindibles y sugiereme un plan de reduccion de gastos realista para el proximo mes.</div></div>
-    <h2>3. Plan de Ahorro Personalizado</h2>
+    <h2 id="3-plan-de-ahorro-personalizado">3. Plan de Ahorro Personalizado</h2>
     <p>Define metas de ahorro realistas con un plan paso a paso. Este prompt calcula cuanto necesitas ahorrar y en cuanto tiempo puedes alcanzar tus metas.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un planificador financiero.</strong> Quiero ahorrar para [meta: viaje/casa/fondo emergencia] con un coste estimado de [cantidad] en [plazo] meses. Con un ingreso mensual de [cantidad] y gastos de [cantidad], calcula: 1) Cuanto necesito ahorrar al mes, 2) Estrategias para alcanzarlo, 3) Plan B si no llego.</div></div>
-    <h2>4. Seguimiento de Inversiones</h2>
+    <h2 id="4-seguimiento-de-inversiones">4. Seguimiento de Inversiones</h2>
     <p>Mantente al dia de tus inversiones con un analisis claro de rendimiento, riesgo y diversificacion de tu cartera.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un gestor de carteras.</strong> Mi cartera actual: [activos y cantidades]. Analiza: 1) Diversificacion por tipo de activo, 2) Riesgo actual, 3) Rentabilidad estimada anual, 4) 3 recomendaciones para mejorar la relacion riesgo-rendimiento, 5) Sugiere rebalanceo si es necesario.</div></div>
-    <h2>5. Planificacion Fiscal</h2>
+    <h2 id="5-planificacion-fiscal">5. Planificacion Fiscal</h2>
     <p>Preparate para la declaracion de impuestos con antelacion. Este prompt te ayuda a identificar deducciones y optimizar tu situacion fiscal.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un asesor fiscal.</strong> Mi situacion: [ingresos/gastos/deducciones]. Ayudame a: 1) Identificar todas las deducciones aplicables, 2) Calcular mi base imponible estimada, 3) Sugerir estrategias legales para reducir mi carga fiscal, 4) Preparar la documentacion necesaria para mi declaracion.</div></div>
-    <h2>6. Proyeccion Financiera</h2>
+    <h2 id="6-proyeccion-financiera">6. Proyeccion Financiera</h2>
     <p>Visualiza tu futuro financiero con proyecciones a 1, 5 y 10 anos basadas en tus habitos actuales y metas.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un analista de proyecciones.</strong> Con estos datos: ingresos [cantidad], ahorro mensual [cantidad], gastos [cantidad], inversiones actuales [cantidad] con rentabilidad estimada del [X]%. Proyecta mi situacion financiera a: 1 ano, 5 anos y 10 anos. Incluye grafico mental de evolucion del patrimonio.</div></div>
-    <h2>7. Gestion de Deudas</h2>
+    <h2 id="7-gestion-de-deudas">7. Gestion de Deudas</h2>
     <p>Sal de deudas con un plan estructurado. Este prompt analiza tus deudas y crea una estrategia de pago optima.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un asesor de deudas.</strong> Tengo estas deudas: [deuda1: cantidad interes], [deuda2: cantidad interes], etc. Aplica el metodo bola de nieve y avalancha para: 1) Ordenar las deudas por prioridad, 2) Calcular tiempo total para saldarlas, 3) Sugerir cantidad minima mensual para cada una, 4) Estimar ahorro en intereses.</div></div>
-    <h2>8. Preparacion de Declaracion</h2>
+    <h2 id="8-preparacion-de-declaracion">8. Preparacion de Declaracion</h2>
     <p>Organiza toda la documentacion necesaria para tu declaracion de impuestos sin olvidar nada importante.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un gestor administrativo.</strong> Ayudame a preparar mi declaracion de impuestos. Dame: 1) Checklist completa de documentos necesarios segun mi perfil [autonomo/asalariado/inversor], 2) Calendario de fechas clave, 3) Trampas comunes que debo evitar, 4) Preguntas frecuentes con respuestas claras.</div></div>
-    <h2>9. Analisis de Riesgos</h2>
+    <h2 id="9-analisis-de-riesgos">9. Analisis de Riesgos</h2>
     <p>Evalua los riesgos financieros de tus decisiones antes de tomarlas. Este prompt aplica un analisis de escenarios multiple.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un gestor de riesgos.</strong> Estoy considerando [decision financiera]. Analiza: 1) Escenario optimista, 2) Escenario realista, 3) Escenario pesimista, 4) Probabilidad de cada escenario, 5) Impacto en mis finanzas, 6) Estrategias de mitigacion para el escenario pesimista.</div></div>
-    <h2>10. Plan de Retiro</h2>
+    <h2 id="10-plan-de-retiro">10. Plan de Retiro</h2>
     <p>Planifica tu jubilacion con anticipacion. Este prompt calcula cuanto necesitas ahorrar para mantener tu estilo de vida.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un planificador de retiro.</strong> Tengo [edad] anos, quiero retirarme a los [edad]. Gastos mensuales actuales: [cantidad]. Ahorros actuales: [cantidad]. Aportacion mensual: [cantidad]. Calcula: 1) Cuanto necesito para retirarme, 2) Si voy por buen camino, 3) Ajustes necesarios, 4) Estrategia de inversion recomendada segun mi horizonte temporal.</div></div>
     <div class="cta-box"><h3>Pack Completo de Finanzas</h3><p>10 prompts premium adicionales para analisis financiero, presupuestos, inversiones y planificacion fiscal.</p><a href="https://payhip.com/b/uP62G" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>

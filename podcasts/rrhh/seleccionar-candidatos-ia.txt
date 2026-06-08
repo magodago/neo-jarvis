@@ -1,0 +1,17 @@
+ANA: Carlos, estoy fascinada con cómo está cambiando la tecnología la gestión de talento. Pero sé que hablar de Inteligencia Artificial puede sonar muy abstracto para muchos oyentes. ¿Qué cambios reales podemos esperar en Recursos Humanos?
+
+CARLOS: Hola Ana. El cambio es profundo, pero lo vamos a aterrizando. Principalmente porque la IA automatiza tareas repetitivas y administrativas. Si antes el 60% del tiempo de un reclutador se iba en esa parte tediosa, ahora la tecnología puede liberarlo para que haga algo mucho más valioso: interactuar con el candidato.
+
+ANA: Entiendo ese concepto de 'liberación'. Pero hablemos de lo práctico. ¿Cómo nos ayuda esto cuando tenemos docenas de currículums? No queremos perder calidad solo por velocidad.
+
+CARLOS: Ahí viene la primera gran ventaja, que es la criba curricular automatizada. En lugar de leer cada CV manualmente buscando palabras clave, le pasas el lote a la IA y te devuelve una puntuación de ajuste muy precisa. Es un filtro inicial potente para identificar automáticamente a los mejores perfiles.
+
+ANA: ¡Eso suena espectacular! Y luego, cuando ya tenemos a los finalistas... ¿Cómo nos ayuda con las entrevistas? No podemos simplemente hacer preguntas genéricas, tienen que ser profundas y personalizadas.
+
+CARLOS: Exacto. La IA actúa como un asistente de preparación experto. Tú alimentas el CV del candidato a la herramienta y ella te devuelve preguntas clave basadas en su experiencia y competencias situacionales. Además, te alerta sobre posibles 'banderas rojas' o áreas que debes profundizar durante la conversación.
+
+ANA: Wow, es como tener un mentor súper eficiente preparándote para cada reunión. Para resumir tu consejo de oro: ¿qué sería lo más importante que debe llevarse nuestro público hoy?
+
+CARLOS: Mi consejo es empezar poco a poco, automatizando primero las tareas de volumen, como la clasificación inicial de CVs o la creación del primer borrador de preguntas. La IA es una herramienta de apoyo, no un reemplazo humano. Siempre revisa sus resultados con juicio experto para asegurar que mantienes el toque personal y crítico que solo ustedes tienen.
+
+ANA: Me queda súper claro. Entonces, Ana, recordaremos que la IA nos permite pasar de tareas administrativas de volumen a hacer intervenciones humanas más estratégicas y profundas. ¡Muchísimas gracias, Carlos!

@@ -1,0 +1,21 @@
+ANA: Carlos, hoy vamos a hablar de un tema que es esencial pero que da mucho miedo: las evaluaciones de desempeño. Es un proceso tan vital para la gestión del talento, pero también puede ser súper complejo y emocionalmente pesado.
+
+CARLOS: Así es, Ana. Y si antes lo más difícil era hacerlo con empatía, ahora el reto está en lograrlo sin caer en la subjetividad. Muchas veces terminamos dando feedback que suena bien, pero que no lleva a ningún cambio real.
+
+ANA: Justo eso, esa brecha entre "dar buenas intenciones" y generar un plan de acción concreto. ¿Cómo pueden las herramientas modernas, como ChatGPT, ayudar a los profesionales de RRHH a cerrar esa brecha?
+
+CARLOS: Nos ayuda muchísimo con la estructura y el tono. No lo veo como que la IA reemplace al gerente; piensa en ella como un copiloto avanzado. Su mayor valor es forzarte a pasar del "necesitas mejorar tu comunicación" a algo medible.
+
+ANA: O sea, que no basta con decir que hay un problema; tienes que tener datos concretos para respaldar el punto de mejora, ¿verdad? Eso le da mucho peso y objetividad al proceso.
+
+CARLOS: Exactamente. Puedes darle los datos brutos –por ejemplo, "el informe llegó tres días tarde"– y pedirle a la IA que lo transforme en un punto de desarrollo profesional. Y ahí no nos detenemos; inmediatamente pedimos que eso se convierta en Objetivos SMART.
+
+ANA: Eso es clave porque una evaluación nunca debe terminar siendo solo una crítica. Debe ser, ante todo, un Plan de Desarrollo Personalizado o PDP. ¿Qué otro aspecto delicado puede ayudar a preparar la IA?
+
+CARLOS: Preparar la conversación difícil. Puedes simular el feedback con la herramienta, como si fuera un coach. Esto te ayuda a anticipar objeciones y a mantener siempre el control del mensaje para que la conversación sea constructiva, y no defensiva.
+
+ANA: Me queda súper claro cómo usarlo paso a paso. Si tuviera que darte un consejo práctico para alguien de RRHH que está empezando a integrar esto en su rutina, ¿cuál sería?
+
+CARLOS: Te diría que empieces por la estructura de tus prompts. No le pidas solo "un feedback". Pídele siempre: "Actúa como experto en RRHH y transforma estos datos en tres puntos de mejora SMART con un tono motivacional." Esto cambia el juego desde el principio.
+
+ANA: Excelente consejo, Carlos. Así que resumamos: ChatGPT no escribe la evaluación por ti, sino que te obliga a ser más objetivo, convierte los problemas detectados en planes de acción medibles y prepara al profesional para manejar las conversaciones difíciles. ¡Muchísimas gracias!

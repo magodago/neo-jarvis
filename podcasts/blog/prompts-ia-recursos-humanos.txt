@@ -1,0 +1,21 @@
+ANA: Carlos, es fascinante lo que nos comentas sobre cómo las herramientas de IA están revolucionando la función de Recursos Humanos. Mucha gente piensa que RRHH es solo papel y papeleo, pero no es así, ¿verdad?
+
+CARLOS: Para nada, Ana. Es un departamento estratégico, el motor detrás del talento. Pero tienes razón en señalar lo de la carga administrativa; históricamente, los profesionales dedican demasiado tiempo a tareas repetitivas. Ahí es donde entra la IA para liberar ese potencial.
+
+ANA: Me gustaría entender mejor esa promesa de ser más estratégicos. ¿Significa que dejará de haber trabajo o simplemente nos hará cambiar el foco? Porque suena un poco abrumador al principio.
+
+CARLOS: No significa que desaparezca el trabajo, sino que cambia la naturaleza de las tareas. En lugar de gastar horas redactando descripciones de puesto genéricas o haciendo cribas manuales de CVs, la IA hace el borrador perfecto en segundos. Tú te quedas con lo importante: la estrategia y la conexión humana.
+
+ANA: Por ejemplo, si hablamos de atraer talento, ¿cómo nos ayuda esto? Porque una oferta de trabajo no puede ser aburrida; tiene que vender la empresa.
+
+CARLOS: Exactamente. Con prompts específicos, como los que usamos para crear descripciones atractivas, podemos asegurar que el tono sea inclusivo y persuasivo desde el primer título. La IA garantiza estructura profesional en textos que antes nos costaban mucho tiempo pulir.
+
+ANA: Y esto de la evaluación de candidatos es lo que más me interesa. ¿Es posible automatizar la parte más subjetiva del proceso sin perder calidad?
+
+CARLOS: Es un equilibrio, pero la IA te da herramientas poderosas para estructurarlo. Te ayuda a formular preguntas situacionales objetivas y, crucialmente, a identificar las señales de alerta o "red flags" en los CVs que a simple vista podríamos pasar por alto.
+
+ANA: Perfecto. Entonces, si tengo que llevarme un consejo práctico hoy sobre cómo empezar a integrar esto sin sentirme abrumada... ¿Cuál sería el primer paso?
+
+CARLOS: Empieza pequeño y enfócate en lo más repetitivo. No intentes automatizar toda la nómina mañana. Hoy mismo, identifica una tarea de redacción o clasificación que te tome más de 15 minutos cada semana; eso es tu objetivo inicial para aplicar un prompt de IA y ver el ahorro de tiempo inmediato.
+
+ANA: Me parece muy práctico, Carlos. Entonces, resumen: usar la IA no es solo ahorrar tiempo en tareas administrativas, sino reenfocar nuestro talento en las partes estratégicas y humanas del proceso. Muchas gracias por esta visión tan clara.

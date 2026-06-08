@@ -71,6 +71,8 @@ footer .copy{font-size:.72rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
 .schema-hidden{display:none}
 @media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"10 Prompts de IA para Estudiar Mejor y Aprobar","description":"Aprende mas rapido con 10 prompts de IA para estudiantes. Resumen textos, prepara examenes y organiza tu estudio.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-estudiantes.html"}}</script>
   <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -92,38 +94,57 @@ footer .copy{font-size:.72rem;color:#6a6558}
     <h1>10 Prompts de IA para Estudiar Mejor y Aprobar</h1>
     <div class="meta"><span>8 Junio 2026</span><span>8 min de lectura</span></div>
   </div>
-  <div class="article-body">
+  <div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/blog/prompts-ia-estudiantes.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#1-resumen-inteligente-de-textos">1. Resumen Inteligente de Textos</a>
+<a href="#2-preparacion-de-exameness">2. Preparacion de Exameness</a>
+<a href="#3-redaccion-de-ensayos-academicos">3. Redaccion de Ensayos Academicos</a>
+<a href="#4-tarjetas-de-estudio-flashcards">4. Tarjetas de Estudio (Flashcards)</a>
+<a href="#5-plan-de-estudio-personalizado">5. Plan de Estudio Personalizado</a>
+<a href="#6-citas-y-referencias-bibliograficas">6. Citas y Referencias Bibliograficas</a>
+<a href="#7-comprension-lectora-profunda">7. Comprension Lectora Profunda</a>
+<a href="#8-mapas-mentales-y-conceptuales">8. Mapas Mentales y Conceptuales</a>
+<a href="#9-preparacion-de-presentaciones">9. Preparacion de Presentaciones</a>
+<a href="#10-gestion-del-tiempo-de-estudio">10. Gestion del Tiempo de Estudio</a></div>
     <p>Estudiar no tiene por que ser una tortura. Con los prompts adecuados, la IA se convierte en tu profesor particular, asistente de investigacion y tutor personal, disponible 24/7.</p>
     <p>Estos <strong>10 prompts de IA para estudiantes</strong> te ayudaran a aprender mas rapido, retener mejor la informacion y sacar mejores notas.</p>
     <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
-    <h2>1. Resumen Inteligente de Textos</h2>
+    <h2 id="1-resumen-inteligente-de-textos">1. Resumen Inteligente de Textos</h2>
     <p>Transforma capitulos enteros en resumenes claros que entiendes y recuerdas. Este prompt extrae lo esencial sin perder la profundidad.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un tutor academico.</strong> Resume este texto de [tema]: [PEGA TEXTO]. Adapta el resumen para un estudiante de [nivel: secundaria/bachillerato/universidad]. Incluye: 1) Ideas principales en 3 puntos, 2) Conceptos clave con definiciones, 3) Ejemplos practicos, 4) Posibles preguntas de examen sobre el tema, 5) Conexiones con otros temas de la asignatura.</div></div>
-    <h2>2. Preparacion de Exameness</h2>
+    <h2 id="2-preparacion-de-exameness">2. Preparacion de Exameness</h2>
     <p>Preparate para cualquier examen con preguntas de practica, respuestas modelo y tecnicas de estudio personalizadas.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un profesor de la materia.</strong> Voy a examinarme de [tema/asignatura] dentro de [X] dias. Con estos contenidos: [lista]. Genera: 1) Plan de estudio diario hasta el examen, 2) 10 preguntas de practica tipo examen con sus respuestas, 3) 5 errores comunes que cometen los estudiantes, 4) Tecnicas de memorizacion para los conceptos mas dificiles, 5) Simulacro de examen con temporizacion.</div></div>
-    <h2>3. Redaccion de Ensayos Academicos</h2>
+    <h2 id="3-redaccion-de-ensayos-academicos">3. Redaccion de Ensayos Academicos</h2>
     <p>Escribe ensayos bien estructurados con argumentos solidos y citas academicas. Este prompt te guia desde el esquema hasta la conclusion.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un tutor de escritura academica.</strong> Necesito escribir un ensayo sobre [tema] de [X] palabras. Dame: 1) Esquema detallado con tesis, argumentos y contraargumentos, 2) Introduccion que enganche, 3) Desarrollo con 3 argumentos principales respaldados por evidencia, 4) Conclusion que sintetice y abra nuevas preguntas, 5) 5 fuentes academicas recomendadas sobre el tema.</div></div>
-    <h2>4. Tarjetas de Estudio (Flashcards)</h2>
+    <h2 id="4-tarjetas-de-estudio-flashcards">4. Tarjetas de Estudio (Flashcards)</h2>
     <p>Genera flashcards optimizadas para memorizacion activa basadas en tus apuntes o textos de estudio.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un experto en tecnicas de estudio.</strong> Convierte este contenido en flashcards efectivas: [PEGA CONTENIDO]. Genera: 1) 20 tarjetas pregunta-respuesta, 2) Clasificadas por nivel de dificultad, 3) Incluye mnemotecnias para las mas dificiles, 4) Tarjetas de conceptos clave con definiciones, 5) Formato listo para importar a Anki/Quizlet.</div></div>
-    <h2>5. Plan de Estudio Personalizado</h2>
+    <h2 id="5-plan-de-estudio-personalizado">5. Plan de Estudio Personalizado</h2>
     <p>Organiza tu tiempo de estudio de forma optima con un plan adaptado a tu horario, asignaturas y fecha de examen.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un planificador academico.</strong> Creame un plan de estudio para el proximo mes. Asignaturas: [lista]. Horas disponibles: [X]h/dia. Fechas de examen: [fechas]. Preferencias: [manana/tarde, bloques largos/cortos]. Incluye: 1) Calendario semanal detallado, 2) Bloques de repaso espaciado, 3) Descansos programados, 4) Metodo Pomodoro integrado, 5) Ajustes para dias de baja energia.</div></div>
-    <h2>6. Citas y Referencias Bibliograficas</h2>
+    <h2 id="6-citas-y-referencias-bibliograficas">6. Citas y Referencias Bibliograficas</h2>
     <p>Genera citas academicas en cualquier formato (APA, MLA, Chicago) sin errores ni perder tiempo.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un bibliotecario academico.</strong> Genera las referencias bibliograficas de estas fuentes en formato [APA/MLA/Chicago]: [lista de libros/articulos/sitios web]. Para cada una: 1) Cita en el formato solicitado, 2) Cita en el texto (in-text citation), 3) Enlace DOI o URL si existe, 4) Verifica que todos los elementos requeridos esten presentes segun el estilo.</div></div>
-    <h2>7. Comprension Lectora Profunda</h2>
+    <h2 id="7-comprension-lectora-profunda">7. Comprension Lectora Profunda</h2>
     <p>Entiende textos complejos con preguntas guiadas que te llevan de la comprension superficial al analisis critico.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un profesor de lectura critica.</strong> Guiame a traves de la comprension de este texto: [PEGA TEXTO]. Por favor: 1) Preguntas de comprension literal (que dice el texto), 2) Preguntas de inferencia (que sugiere sin decir), 3) Preguntas de analisis (como se relacionan las ideas), 4) Preguntas de evaluacion (es valido el argumento), 5) Vocabulario clave con definiciones contextuales.</div></div>
-    <h2>8. Mapas Mentales y Conceptuales</h2>
+    <h2 id="8-mapas-mentales-y-conceptuales">8. Mapas Mentales y Conceptuales</h2>
     <p>Organiza visualmente cualquier tema para ver las conexiones entre conceptos y estudiar de forma mas efectiva.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un organizador visual de informacion.</strong> Crea un mapa mental de [tema] basado en este contenido: [PEGA CONTENIDO]. Estructura: 1) Idea central, 2) 5-7 ramas principales, 3) Subramas con detalles, 4) Conexiones entre ramas, 5) Formato en texto plano que pueda dibujar o pasar a herramienta de mapas mentales. Incluye tambien jerarquia de conceptos por importancia.</div></div>
-    <h2>9. Preparacion de Presentaciones</h2>
+    <h2 id="9-preparacion-de-presentaciones">9. Preparacion de Presentaciones</h2>
     <p>Crea presentaciones academicas claras y profesionales con estructura, contenido y consejos de exposicion.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un coach de presentaciones academicas.</strong> Necesito una presentacion de [X] minutos sobre [tema]. Dame: 1) Estructura diapositiva por diapositiva, 2) Contenido para cada diapositiva (max 3 ideas por slide), 3) Que decir en cada transicion, 4) Posibles preguntas del publico y respuestas preparadas, 5) Consejos de lenguaje corporal y voz para esta presentacion en concreto.</div></div>
-    <h2>10. Gestion del Tiempo de Estudio</h2>
+    <h2 id="10-gestion-del-tiempo-de-estudio">10. Gestion del Tiempo de Estudio</h2>
     <p>Supera la procrastinacion y aprovecha al maximo cada sesion de estudio con tecnicas probadas.</p>
     <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un coach de productividad academica.</strong> Ayudame a optimizar mi tiempo de estudio. Mi problema: [describeme]. Aplica: 1) Tecnica Pomodoro adaptada a mi capacidad de atencion, 2) Metodo de estudio activo (Feynman, SQ3R, Cornell), 3) Estrategia contra la procrastinacion (regla de los 2 minutos, 5 segundos), 4) Ambiente de estudio ideal segun mi perfil, 5) Ritual de inicio de sesion para entrar en foco rapido.</div></div>
     <div class="cta-box"><h3>Pack Completo de Educacion</h3><p>10 prompts premium adicionales para estudiantes: resumenes, examenes, ensayos y organizacion del estudio.</p><a href="https://payhip.com/b/M3eqn" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>

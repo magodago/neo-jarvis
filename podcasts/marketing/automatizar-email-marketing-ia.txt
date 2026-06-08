@@ -1,0 +1,16 @@
+ANA: Carlos, siempre escuchamos que el email marketing es clave en el marketing digital, pero ¿es verdad ese mito de que sigue siendo el canal con mejor retorno de inversión?
+CARLOS: Es más que un mito, Ana; es una realidad respaldada por datos sólidos. El email marketing sigue demostrando ser uno de los canales con el ROI más alto, mucho antes de considerar la IA.
+
+ANA: Suena impresionante ese número que mencionaste... Pero si ya usamos emails, ¿dónde entra exactamente la Inteligencia Artificial?
+CARLOS: La IA no reemplaza lo bueno del email; lo multiplica. Nos permite pasar de enviar correos genéricos a crear campañas hiperpersonalizadas y automáticas, como secuencias de bienvenida o segmentaciones avanzadas.
+
+ANA: Hablando de personalización, ¿podrías darnos un ejemplo práctico? Yo me atasco pensando en "qué decir" para que la gente compre.
+CARLOS: Claro. En lugar de enviar un email con solo el descuento, puedes usar IA para crear una secuencia completa: primero bienvenida y educación, luego muestra casos de uso y, recién al tercer correo, introduces la oferta específica.
+
+ANA: Entiendo esa estructura en tres fases. Y esto me lleva a otra duda que leí sobre segmentación. ¿Es tan importante dividir a los suscriptores?
+CARLOS: Es vital, Ana. No es lo mismo tratarlo con un comprador reciente que con alguien que solo se registró por curiosidad. La IA te ayuda a crear segmentos como "inactivos" o "leads calientes" para enviar el contenido exacto que necesita cada grupo.
+
+ANA: Me parece una gestión muy detallada. Para terminar, ¿cuál sería tu consejo más importante para alguien que quiera mejorar su estrategia de email con IA?
+CARLOS: Empieza por la automatización inteligente de las primeras interacciones. En lugar de pensar en la campaña completa, concéntrate en optimizar esa secuencia inicial de bienvenida; ahí es donde conviertes el interés frío en acción real.
+
+ANA: Así que, para resumir lo que nos has dicho hoy: el email marketing tiene un ROI potente natural, y la IA nos permite potenciarlo creando secuencias de bienvenida estructuradas e invirtiendo tiempo en segmentar a nuestra base de datos para enviar mensajes muy específicos. ¡Muchas gracias!

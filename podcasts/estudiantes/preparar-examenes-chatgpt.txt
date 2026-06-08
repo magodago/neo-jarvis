@@ -1,0 +1,17 @@
+ANA: Hoy vamos a hablar de un tema que nos llega a muchísimos estudiantes: prepararse para los exámenes. Y no lo haremos con apuntes aburridos, sino usando la inteligencia artificial. ¿Qué tal abordarlo?
+
+CARLOS: Es una gran oportunidad porque ChatGPT puede pasar de ser solo un buscador de información a ser un verdadero tutor personal. La clave está en cómo le pedimos las cosas; hay que darle estructura para obtener resultados útiles.
+
+ANA: Exacto. Muchos ven estas herramientas como si te dieran la respuesta, pero ¿cómo se usa realmente para estudiar y no solo para copiar? Me gustaría saber qué tipo de peticiones son más efectivas.
+
+CARLOS: Hay que pensar en ChatGPT como un profesor de apoyo muy exigente. Por ejemplo, si quieres practicar, puedes usar el prompt de "Simulacro de examen". Dile exactamente quién es él—un profesor de historia por ejemplo—y pídele diferentes formatos de prueba. Esto simula la presión real del aula.
+
+ANA: Eso suena mucho mejor que solo leer resúmenes. ¿Y si ya tengo un temario, pero no sé cómo organizarme para cubrirlo todo en poco tiempo? Necesito una estrategia más amplia.
+
+CARLOS: Ahí entra el segundo prompt mágico: el plan de estudio. Debes especificar tu fecha de examen, la lista completa de temas y cuántas horas reales puedes dedicar a la semana. El modelo te creará un calendario día por día que prioriza los contenidos débiles o cruciales. Es una guía de gestión del tiempo súper precisa.
+
+ANA: Entonces, no es solo usar el texto generado, sino convertirlo en una herramienta de diagnóstico y organización. Esto nos ahorra muchísimo tiempo de planificación malgastada.
+
+CARLOS: Justo eso. Pero un último consejo que va más allá de los prompts premium es este: nunca uses la IA como sustituto del estudio activo. Úsala para *generar* el examen, pero tú eres quien tiene que estudiar y aprender ese contenido por sí mismo. La repetición activa es lo que fija la memoria.
+
+ANA: Me queda clarísimo. Resumiendo, no se trata de pedir respuestas, sino de usar ChatGPT para crear simulacros realistas, estructurar un plan detallado y, sobre todo, recordar que el repaso final siempre debe venir de nuestro esfuerzo personal. ¡Mil gracias!

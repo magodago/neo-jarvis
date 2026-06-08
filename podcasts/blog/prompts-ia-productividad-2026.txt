@@ -1,0 +1,16 @@
+ANA: Hola a todos y bienvenidos de nuevo al podcast. Carlos, últimamente todo el mundo habla de ChatGPT y la IA es increíble, pero siento que hay mucha confusión sobre cómo sacarle provecho.
+CARLOS: Es normal, Ana. La gente piensa que si usa la herramienta, automáticamente tendrá respuestas perfectas. Pero la realidad es que la clave no está en la inteligencia artificial, sino en nosotros al escribir el *prompt*.
+
+ANA: O sea, ¿el problema no es la IA? Me suena a que hay un truco o una metodología detrás para no quedar atascado con respuestas mediocres.
+CARLOS: Exacto. Un prompt mediocre da respuestas genéricas, pero si le das estructura y rol a la IA, el resultado cambia por completo. Hay que tratarlo como si fuera un experto específico en ese tema.
+
+ANA: ¿Y qué significa darle "rol"? ¿Solo tienes que decir "sé un experto" o hay que ser más detallado con lo que esperas?
+CARLOS: Tienes que hacerte pasar por un *prompt ingeniero* el tiempo suficiente para entender la profundidad. Por ejemplo, si necesitas resolver un problema complejo de negocios, no pidas solo una solución; dile que actúe como consultor estratégico y que use metodologías específicas.
+
+ANA: Eso tiene muchísimo sentido. En lugar de simplemente pedir "ayuda con mi proyecto", tienes que guiar a la IA para que piense paso a paso, aplicando un método claro.
+CARLOS: Precisamente. Recuerda el principio de la especificidad total. Siempre debes darle contexto, definir el formato deseado y establecer qué tipo de análisis o salida esperas.
+
+ANA: Entonces, si resumo lo que dices, es que no basta con preguntar; hay que *diseñar* la pregunta para que la IA nos dé un resultado accionable y estructurado.
+CARLOS: Así es. Mi consejo práctico hoy es este: nunca uses el prompt como una conversación casual. Trátalo siempre como un documento de trabajo donde tú eres el Director y la IA es tu equipo especializado, con tareas muy bien definidas.
+
+ANA: ¡Resumido en una sola frase! Ana, ha sido fascinante entender que dominar la productividad con IA se trata más de *prompt engineering* que solo de tecnología. Gracias por esta sesión.

@@ -1,0 +1,19 @@
+ANA: Carlos, estamos hablando hoy de cómo las herramientas de IA están transformando lo que antes era una tarea manual y tediosa: el code review. ¿Es cierto que podemos dejar que una máquina revise nuestro código?
+
+CARLOS: Es completamente cierto, Ana. La idea es usar la inteligencia artificial no como un reemplazo del desarrollador senior, sino como un asistente de altísimo nivel. Nos permite automatizar las revisiones rutinarias y detectar fallos que pasan desapercibidos para el ojo humano.
+
+ANA: Suena casi mágico, pero ¿de qué manera funciona exactamente? Yo imagino que solo pega el código en un cuadro de texto y listo.
+
+CARLOS: No es tan simple como pegar código. Hay que darle contexto específico a la IA mediante *prompts*. Por ejemplo, si queremos revisar bugs o seguridad, no basta con decir "revisa esto". Debemos pedirle que actúe como un desarrollador senior enfocado en vulnerabilidades de día cero.
+
+ANA: Entiendo. Entonces, el prompt tiene que definir el rol y los criterios de evaluación para ser realmente útil, ¿verdad? Es casi darle una personalidad a la IA revisora.
+
+CARLOS: Exactamente. Podemos segmentar la revisión. Si necesitamos evaluar arquitectura o escalabilidad, usamos un prompt que le pida actuar como un arquitecto de software. Esto nos da análisis sobre mantenibilidad y patrones de diseño, no solo sintaxis.
+
+ANA: Eso es muy valioso porque cubre tanto la parte técnica inmediata como la visión estructural a largo plazo. Pero, ¿hay algún riesgo de depender demasiado de estas herramientas? ¿Podría fallar en casos complejos?
+
+CARLOS: Sí, el código siempre debe pasar por ojos humanos para las revisiones críticas. La IA puede tener "alucinaciones" o sobregeneralizar. El truco es verla como un filtro superpotente que reduce la fatiga del revisor humano, no como la decisión final.
+
+ANA: Me queda claro entonces. Si resumimos tu consejo más práctico para quienes recién empiezan a usar esto en su flujo de trabajo...
+
+CARLOS: Empiecen por las áreas donde la fatiga es alta o el riesgo es grande; seguridad y manejo de dependencias son ideales. Y recuerden siempre refinar sus prompts, pidiéndole que priorice los errores encontrados.

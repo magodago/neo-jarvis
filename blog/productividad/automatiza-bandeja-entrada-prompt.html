@@ -68,6 +68,8 @@ footer .copy{font-size:.7rem;color:#6a6558}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
 .s-hidden{display:none}
 @media(max-width:768px){.breadcrumb{padding-top:80px}}
+
+.podcast-player{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.15);border-radius:14px;padding:14px 18px;margin:24px 0;cursor:pointer;transition:all .3s}.podcast-player:hover{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.12),rgba(5,5,8,.95))}.podcast-icon{font-size:1.6rem;flex-shrink:0}.podcast-info{flex:1}.podcast-label{font-family:var(--font-display,'Syne',sans-serif);font-size:.65rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:2px}.podcast-desc{font-size:.78rem;color:var(--text-muted)}.toc{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:.85rem}.toc-title{font-family:var(--font-display,'Syne',sans-serif);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand,'#d4a853');margin-bottom:8px;text-transform:uppercase}.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem}.toc a:hover{color:var(--brand)}.toc a:before{content:"▸ ";font-size:.65rem}.faq-section{margin:28px 0}.faq-q{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;margin-bottom:6px}.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.faq-q summary::marker{color:var(--brand,'#d4a853')}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:8px;line-height:1.6}.related-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0}.related-card{background:var(--bg3,#11111a);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none!important}.related-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-2px)}.related-card .rc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand,'#d4a853')}.related-card .rc-title{font-size:.82rem;color:#fff;margin-top:4px;font-weight:500}.related-card .rc-desc{font-size:.72rem;color:var(--text-muted);margin-top:2px}
 </style>
 <script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Automatiza tu bandeja de entrada con un prompt de 3 lineas","description":"Filtra, prioriza y responde emails automaticamente con IA.","datePublished":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/productividad/automatiza-bandeja-entrada-prompt.html"}}</script>
   <meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
@@ -89,18 +91,30 @@ footer .copy{font-size:.7rem;color:#6a6558}
     <h1>Automatiza tu bandeja de entrada con un prompt de 3 lineas</h1>
     <div class="meta"><span>8 Junio 2026</span><span>5 min de lectura</span></div>
   </div>
-  <div class="article-body">
+  <div class="podcast-player" onclick="this.querySelector('audio').play()">
+ <div class="podcast-icon">🎙️</div>
+ <div class="podcast-info">
+  <div class="podcast-label">🎧 ESCUCHAR PODCAST</div>
+  <div class="podcast-desc">Versión audio de este artículo — ~3 min</div>
+ </div>
+ <audio preload="none" style="display:none" controls>
+  <source src="https://magodago.github.io/neo-jarvis/podcasts/productividad/automatiza-bandeja-entrada-prompt.mp3" type="audio/mpeg">
+ </audio>
+</div>
+<div class="article-body"><div class="toc"><div class="toc-title">📋 Contenido</div><a href="#el-prompt-maestro-para-tu-bandeja-de-ent">El prompt maestro para tu bandeja de entrada</a>
+<a href="#prompt-para-respuestas-profesionales">Prompt para respuestas profesionales</a>
+<a href="#prompt-para-seguimiento-semanal">Prompt para seguimiento semanal</a></div>
     <p>El correo electronico es el mayor ladron de tiempo del profesional moderno. Estudios demuestran que pasamos una media de <strong>3 horas al dia</strong> gestionando emails. La mayoria de ese tiempo es innecesario.</p>
     <p>Con un solo prompt de 3 lineas, puedes delegar a la IA la gestion completa de tu bandeja de entrada: filtrar, priorizar, resumir e incluso redactar respuestas.</p>
     <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
-    <h2>El prompt maestro para tu bandeja de entrada</h2>
+    <h2 id="el-prompt-maestro-para-tu-bandeja-de-ent">El prompt maestro para tu bandeja de entrada</h2>
     <p>Copia este prompt en ChatGPT, Claude o Gemini y pega el contenido de los emails que quieras procesar. El prompt hace todo el trabajo:</p>
     <div class="prompt-box"><div class="prompt-label">Prompt principal</div><div class="prompt-text"><strong>Eres mi asistente de correo electronico.</strong> Estos son los emails de mi bandeja de entrada: [PEGA EMAILS]. Clasificalos en: 1) URGENTE (requiere accion hoy), 2) PENDIENTE (puede esperar 48h), 3) INFORMATIVO (solo leer), 4) BASURA (spam/newsletter). Para los urgentes, redactame una respuesta lista para enviar. Para los informativos, haz un resumen de una linea.</div></div>
     <p>Este simple prompt transforma 30 minutos de gestion de correo en <strong>2 minutos</strong>. Lo usas, pegas los emails, y la IA te devuelve todo clasificado con respuestas listas.</p>
-    <h2>Prompt para respuestas profesionales</h2>
+    <h2 id="prompt-para-respuestas-profesionales">Prompt para respuestas profesionales</h2>
     <p>Cuando necesites responder un email importante pero no quieras pasar 15 minutos redactando:</p>
     <div class="prompt-box"><div class="prompt-label">Prompt de respuestas</div><div class="prompt-text"><strong>Eres un experto en comunicacion profesional.</strong> Necesito responder a este email: [PEGA EMAIL]. Dame 3 versiones de respuesta: 1) Directa y ejecutiva (2 parrafos), 2) Cercana y detallada, 3) Formal con estructura. Mi relacion con el remitente es [cliente/jefe/colega]. Incluye asunto sugerido para cada version.</div></div>
-    <h2>Prompt para seguimiento semanal</h2>
+    <h2 id="prompt-para-seguimiento-semanal">Prompt para seguimiento semanal</h2>
     <p>Al final de cada semana, usa este prompt para asegurarte de que no se te escapa nada importante:</p>
     <div class="prompt-box"><div class="prompt-label">Prompt de revision</div><div class="prompt-text"><strong>Eres un gestor de tareas.</strong> Revisa estos emails de la semana: [PEGA EMAILS]. Identifica: 1) Promesas hechas que debo cumplir la proxima semana, 2) Personas que estan esperando respuesta mia, 3) Fechas limite que se acercan, 4) Tareas que puedo dejar para la siguiente semana sin riesgo. Genera una lista de pendientes priorizada.</div></div>
     <div class="cta-box"><h3>Pack de Prompts de Productividad</h3><p>10 prompts premium para automatizar tu flujo de trabajo. Gestion de correo, priorizacion y delegacion.</p><a href="https://payhip.com/b/EYojF" target="_blank" class="btn btn-primary">Comprar 9.99</a></div>
