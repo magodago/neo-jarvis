@@ -248,7 +248,7 @@ function init() {
   document.getElementById('total-articulos').textContent = totalArts + ' artículos';
   
   // Try GoatCounter API
-  fetch('https://neo-jarvis.goatcounter.com/counter/visits.json')
+  fetch('https://davidformulas.goatcounter.com/counter/visits.json')
     .then(r => r.json())
     .then(d => {
       if (d && d.count) {
@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', init);
 setInterval(init, 60000);
 </script>
 
-<script data-goatcounter="https://neo-jarvis.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<noscript><img src="https://neo-jarvis.goatcounter.com/count?p=/dashboard"></noscript>
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/dashboard"></noscript>
 </body>
 </html>
