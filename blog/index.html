@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog NEO Labs — Prompts IA, Productividad y Planners</title>
+<meta name="description" content="Artículos sobre prompts de IA, productividad, organización y planners Excel. Guías prácticas para profesionales, estudiantes y emprendedores.">
+<meta name="keywords" content="blog prompts IA, productividad, planners, chatgpt, finanzas, marketing, programación">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050510;color:#e8e0d0;font-family:'Inter',sans-serif;line-height:1.8}
+.container{max-width:900px;margin:0 auto;padding:20px}
+header{background:#0a0a14;border-bottom:1px solid rgba(212,175,55,0.08);padding:20px 0;position:sticky;top:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.header-inner{max-width:900px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Orbitron',monospace;font-size:14px;color:#d4af37;letter-spacing:3px;text-decoration:none}
+header nav a{color:#8a7a60;text-decoration:none;font-size:12px;letter-spacing:1px;margin-left:20px;transition:color .3s}
+header nav a:hover{color:#d4af37}
+h1{font-family:'Orbitron',monospace;font-size:clamp(28px,4vw,40px);font-weight:600;color:#e8e0d0;margin:40px 0 8px;letter-spacing:-0.5px}
+.subtitle{color:#8a7a60;font-size:15px;font-weight:300;margin-bottom:40px}
+/* Free banner */
+.free-banner{background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(10,10,20,0.9));border:1px solid rgba(212,175,55,0.15);border-radius:12px;padding:30px;text-align:center;margin:30px 0 40px}
+.free-banner h3{font-family:'Orbitron',monospace;color:#d4af37;font-size:18px;margin-bottom:8px}
+.free-banner p{color:#8a7a60;font-size:13px;margin-bottom:16px}
+.free-banner a{display:inline-block;background:#d4af37;color:#050510;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:0.5px;transition:all .3s}
+.free-banner a:hover{background:#f0d68a;box-shadow:0 0 30px rgba(212,175,55,0.2)}
+/* Ad Space */
+.ad-space{background:#0f0f1e;border:1px dashed rgba(212,175,55,0.2);border-radius:8px;padding:30px;text-align:center;margin:40px 0;color:#4a3a20;font-size:11px;letter-spacing:2px;font-family:monospace}
+/* Article grid */
+.article-grid{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+.article-card{background:#0a0a14;border:1px solid rgba(255,255,255,0.04);border-radius:10px;padding:24px;display:flex;gap:20px;align-items:flex-start;transition:all .3s;text-decoration:none;position:relative;overflow:hidden}
+.article-card:hover{border-color:rgba(212,175,55,0.15);transform:translateY(-2px);box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+.article-card .icon{font-size:28px;flex-shrink:0;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:#0f0f1e;border-radius:8px}
+.article-card .content{flex:1}
+.article-card .cat{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;color:#d4af37;text-transform:uppercase;margin-bottom:4px}
+.article-card h3{font-size:16px;font-weight:600;color:#e8e0d0;margin-bottom:4px}
+.article-card p{font-size:13px;color:#8a7a60;line-height:1.5}
+.article-card .meta{display:flex;gap:16px;margin-top:8px;font-size:11px;color:#4a3a20}
+/* AdSense banner */
+.adsense-banner{background:#0f0f1e;border:1px solid rgba(255,255,255,0.04);border-radius:8px;padding:60px 20px;text-align:center;margin:40px 0;color:#4a3a20;font-size:11px;letter-spacing:2px;font-family:monospace}
+/* Footer */
+footer{text-align:center;padding:40px 20px 20px;border-top:1px solid rgba(255,255,255,0.04);margin-top:40px}
+footer .logo{font-family:'Orbitron',monospace;font-size:12px;color:#d4af37;letter-spacing:3px;margin-bottom:16px;display:block;text-decoration:none}
+footer .links{display:flex;justify-content:center;gap:20px;margin-bottom:16px;flex-wrap:wrap}
+footer .links a{color:#8a7a60;text-decoration:none;font-size:12px;transition:color .3s}
+footer .links a:hover{color:#d4af37}
+footer .copy{font-size:10px;color:#4a3a20}
+@media(max-width:600px){.article-card{flex-direction:column;gap:12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="https://magodago.github.io/neo-jarvis/neo-labs.html" class="logo">NEO LABS</a>
+    <nav>
+      <a href="https://magodago.github.io/neo-jarvis/neo-labs.html">Inicio</a>
+      <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catálogo</a>
+      <a href="https://payhip.com/b/98ens">Guía Gratis</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1>📝 Blog NEO Labs</h1>
+  <p class="subtitle">Guías y tutoriales sobre prompts de IA, productividad, organización personal y profesional.</p>
+
+  <!-- FREE BANNER -->
+  <div class="free-banner">
+    <h3>🎁 Guía Gratuita</h3>
+    <p>5 Prompts de IA para Multiplicar tu Productividad — Descárgala gratis</p>
+    <a href="https://payhip.com/b/98ens" target="_blank">DESCARGAR GRATIS</a>
+  </div>
+
+  <!-- ADSENSE -->
+  <div class="adsense-banner">PUBLICIDAD · GOOGLE ADSENSE</div>
+
+  <!-- ARTICLES -->
+  <div class="article-grid">
+    <a href="prompts-ia-productividad-2026.html" class="article-card">
+      <div class="icon">⚡</div>
+      <div class="content">
+        <div class="cat">Productividad</div>
+        <h3>10 Mejores Prompts de IA para Productividad en 2026</h3>
+        <p>Organiza tu día, escribe emails profesionales, resume documentos y resuelve problemas con estos 10 prompts probados.</p>
+        <div class="meta"><span>8 Jun 2026</span><span>· 10 min</span></div>
+      </div>
+    </a>
+
+    <a href="prompts-ia-finanzas-personales.html" class="article-card">
+      <div class="icon">💰</div>
+      <div class="content">
+        <div class="cat">Finanzas</div>
+        <h3>10 Prompts de IA para tus Finanzas Personales</h3>
+        <p>Controla tu presupuesto, ahorra más, invierte mejor y planifica tu futuro financiero con IA.</p>
+        <div class="meta"><span>8 Jun 2026</span><span>· 8 min</span></div>
+      </div>
+    </a>
+
+    <a href="prompts-ia-marketing-digital.html" class="article-card">
+      <div class="icon">📊</div>
+      <div class="content">
+        <div class="cat">Marketing</div>
+        <h3>15 Prompts de IA para Marketing Digital</h3>
+        <p>SEO, redes sociales, email marketing, copywriting y analítica. Los prompts que todo marketero necesita.</p>
+        <div class="meta"><span>8 Jun 2026</span><span>· 10 min</span></div>
+      </div>
+    </a>
+
+    <a href="prompts-ia-programacion.html" class="article-card">
+      <div class="icon">💻</div>
+      <div class="content">
+        <div class="cat">Programación</div>
+        <h3>12 Prompts de IA para Programar Mejor</h3>
+        <p>Debugging, code review, tests, arquitectura y refactoring asistentes por IA para desarrolladores.</p>
+        <div class="meta"><span>8 Jun 2026</span><span>· 9 min</span></div>
+      </div>
+    </a>
+
+    <a href="prompts-ia-estudiantes.html" class="article-card">
+      <div class="icon">📚</div>
+      <div class="content">
+        <div class="cat">Educación</div>
+        <h3>10 Prompts de IA para Estudiar Mejor</h3>
+        <p>Resume textos, prepara exámenes, escribe ensayos y aprende más rápido con la ayuda de la IA.</p>
+        <div class="meta"><span>8 Jun 2026</span><span>· 8 min</span></div>
+      </div>
+    </a>
+
+    <a href="prompts-ia-recursos-humanos.html" class="article-card">
+      <div class="icon">👥</div>
+      <div class="content">
+        <div class="cat">RRHH</div>
+        <h3>8 Prompts de IA para Recursos Humanos</h3>
+        <p>Selección de personal, evaluación de candidatos, descripciones de puesto y comunicación interna con IA.</p>
+        <div class="meta"><span>8 Jun 2026</span><span>· 7 min</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ADSENSE BOTTOM -->
+  <div class="adsense-banner">PUBLICIDAD · GOOGLE ADSENSE</div>
+</div>
+
+<footer>
+  <a href="https://magodago.github.io/neo-jarvis/neo-labs.html" class="logo">NEO LABS</a>
+  <div class="links">
+    <a href="https://magodago.github.io/neo-jarvis/neo-labs.html">Inicio</a>
+    <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catálogo</a>
+    <a href="https://payhip.com/b/98ens">Guía Gratis</a>
+    <a href="https://payhip.com/formulasia76">Tienda</a>
+  </div>
+  <div class="copy">NEO Labs © 2026 — Tecnología que transforma tu vida.</div>
+</footer>
+</body>
+</html>
