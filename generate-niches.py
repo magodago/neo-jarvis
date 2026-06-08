@@ -31,8 +31,8 @@ OK = [
     "photo-1560472354-b33ff0c44a43",   # spreadsheet
     "photo-1611974789855-9c2a0a7236a3", # stocks
     "photo-1488190211105-8b0e65b80b4e", # bookshelf
-    "photo-1491841550275-ad7854e35ca0", # study
     "photo-1503676260728-1c00da094a0b", # learning
+    "photo-1434030216411-0b793f4b4173", # desk (study2)
     "photo-1522071820081-009f0129c71c", # team meeting
     "photo-1600880292203-757bb62b4baf", # office team
     "photo-1554224154-26032dfc0dae",   # FAILS - don't use
