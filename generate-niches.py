@@ -48,7 +48,7 @@ NICHES = [
      "imgs":[OK[21],OK[22],OK[16],OK[23],OK[7],OK[6]],
      "arts":[
          ("10 Prompts de IA para tus Finanzas Personales","Guia","Controla tu presupuesto y ahorra con prompts de IA.","../prompts-ia-finanzas-personales.html"),
-         ("Como crear un presupuesto automatico con IA","Tutorial","Un prompt que analiza tus gastos y crea un plan.","../prompts-ia-finanzas-personales.html"),
+         ("Como crear un presupuesto automatico con IA","Tutorial","Un prompt que analiza tus gastos y crea un plan.","presupuesto-automatico-ia.html"),
          ("ChatGPT para analizar tus inversiones","Guia","Evaluacion de cartera y recomendaciones con IA.","../prompts-ia-finanzas-personales.html"),
          ("5 Prompts para ahorrar mas cada mes","Guia","Estrategias de ahorro automaticas con IA.","../prompts-ia-finanzas-personales.html"),
          ("Claude vs ChatGPT para finanzas","Comparativa","Cual IA es mejor para gestionar tu dinero.","../prompts-ia-finanzas-personales.html"),
@@ -60,7 +60,7 @@ NICHES = [
      "imgs":[OK[14],OK[19],OK[16],OK[5],OK[20],OK[4]],
      "arts":[
          ("15 Prompts de IA para Marketing Digital en 2026","Guia","SEO, redes, email y copywriting con IA.","../prompts-ia-marketing-digital.html"),
-         ("Como crear una estrategia SEO con IA","Tutorial","Keywords, contenido y link building automatizado.","../prompts-ia-marketing-digital.html"),
+         ("Como crear una estrategia SEO con IA","Tutorial","Keywords, contenido y link building automatizado.","estrategia-seo-con-ia.html"),
          ("ChatGPT para copywriting persuasivo","Guia","Escribe textos que venden con un solo prompt.","../prompts-ia-marketing-digital.html"),
          ("Automatiza tus campanas de email con IA","Tutorial","Secuencias que convierten sin esfuerzo manual.","../prompts-ia-marketing-digital.html"),
          ("Google Ads optimizados con IA","Guia","Crea campanas que maximizan tu ROI.","../prompts-ia-marketing-digital.html"),
@@ -72,7 +72,7 @@ NICHES = [
      "imgs":[OK[15],OK[0],OK[17],OK[10],OK[18],OK[2]],
      "arts":[
          ("12 Prompts de IA para Programar Mejor","Guia","Debugging, code review y testing con IA.","../prompts-ia-programacion.html"),
-         ("Como debuggear codigo con ChatGPT","Tutorial","Encuentra bugs en segundos con el prompt adecuado.","../prompts-ia-programacion.html"),
+         ("Como debuggear codigo con ChatGPT","Tutorial","Encuentra bugs en segundos con el prompt adecuado.","debuggear-codigo-chatgpt.html"),
          ("Code review automatico con IA","Guia","Tu senior developer personal revisa tu codigo.","../prompts-ia-programacion.html"),
          ("Genera tests automaticos con un prompt","Tutorial","Cobertura completa sin escribir una linea.","../prompts-ia-programacion.html"),
          ("Refactoriza codigo legacy con IA","Guia","Transforma codigo antiguo sin romper nada.","../prompts-ia-programacion.html"),
@@ -84,7 +84,7 @@ NICHES = [
      "imgs":[OK[24],OK[3],OK[25],OK[4],OK[26],OK[11]],
      "arts":[
          ("10 Prompts de IA para Estudiar Mejor","Guia","Resume textos, prepara examenes y aprende mas rapido.","../prompts-ia-estudiantes.html"),
-         ("Como resumir textos academicos con IA","Tutorial","Extrae lo esencial de cualquier texto en segundos.","../prompts-ia-estudiantes.html"),
+         ("Como resumir textos academicos con IA","Tutorial","Extrae lo esencial de cualquier texto en segundos.","resumir-textos-academicos-ia.html"),
          ("Prepara tus examenes con ChatGPT","Guia","Preguntas de practica y planes de estudio personalizados.","../prompts-ia-estudiantes.html"),
          ("Escribe ensayos academicos con IA","Tutorial","Estructura, argumentos y citas en minutos.","../prompts-ia-estudiantes.html"),
          ("Organiza tu semestre con prompts de IA","Guia","Plan de estudio, calendario y seguimiento automatico.","../prompts-ia-estudiantes.html"),
@@ -96,7 +96,7 @@ NICHES = [
      "imgs":[OK[28],OK[7],OK[4],OK[9],OK[12],OK[13]],
      "arts":[
          ("8 Prompts de IA para Recursos Humanos","Guia","Seleccion, evaluacion y comunicacion interna con IA.","../prompts-ia-recursos-humanos.html"),
-         ("Como seleccionar candidatos con IA","Tutorial","Criba curricular y entrevistas asistidas por IA.","../prompts-ia-recursos-humanos.html"),
+         ("Como seleccionar candidatos con IA","Tutorial","Criba curricular y entrevistas asistidas por IA.","seleccionar-candidatos-ia.html"),
          ("Evaluaciones de desempeno con ChatGPT","Guia","Feedback constructivo y planes de desarrollo.","../prompts-ia-recursos-humanos.html"),
          ("Onboarding automatizado con prompts de IA","Tutorial","Los primeros 90 dias optimizados.","../prompts-ia-recursos-humanos.html"),
          ("Clima laboral analizado con IA","Guia","Encuestas y analisis de satisfaccion automaticos.","../prompts-ia-recursos-humanos.html"),
