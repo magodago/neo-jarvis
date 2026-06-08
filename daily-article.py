@@ -121,7 +121,7 @@ def build_article_html(niche, topic, article_type, template, content, slug):
     html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>{title} — NEO Labs</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canonical}">

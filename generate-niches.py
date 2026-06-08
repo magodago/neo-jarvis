@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate all niche blog index pages at once."""
+"""Regenerate all niche blog index pages with fixed images and mobile support."""
 import os
 from pathlib import Path
 
@@ -14,15 +14,22 @@ NICHES = [
         "brand_light": "#a5d6a7",
         "brand_dark": "#388e3c",
         "hero_img": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1400&q=85",
-        "desc": "Noticias, guias y recursos sobre finanzas personales con inteligencia artificial. Presupuestos, ahorro, inversiones y planificacion financiera.",
+        "desc": "Finanzas personales con inteligencia artificial.",
         "hero_desc": "Controla tu dinero, ahorra mas, invierte mejor con la ayuda de la inteligencia artificial.",
-        "product_name": "Finanzas",
-        "payhip_id": "uP62G",
+        "product_name": "Finanzas", "payhip_id": "uP62G",
+        "images": [
+            "https://images.unsplash.com/photo-1579621970563-449ec9b7e6e7?w=600&q=85",
+            "https://images.unsplash.com/photo-1554224154-26032dfc0dae?w=600&q=85",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=85",
+            "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=85",
+            "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=85",
+            "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=85",
+        ],
         "articles": [
-            ("10 Prompts de IA para tus Finanzas Personales", "guia", "Controla tu presupuesto y ahorra con prompts de IA.", "../prompts-ia-finanzas-personales.html"),
+            ("10 Prompts de IA para tus Finanzas Personales", "Guia", "Controla tu presupuesto y ahorra con prompts de IA.", "../prompts-ia-finanzas-personales.html"),
             ("Como crear un presupuesto automatico con IA", "Tutorial", "Un prompt que analiza tus gastos y crea un plan.", "../prompts-ia-finanzas-personales.html"),
             ("ChatGPT para analizar tus inversiones", "Guia", "Evaluacion de cartera y recomendaciones con IA.", "../prompts-ia-finanzas-personales.html"),
-            ("5 Prompts para ahorrar mas cada mes", "Guia", "Estrategias de ahorro automaticas potenciadas con IA.", "../prompts-ia-finanzas-personales.html"),
+            ("5 Prompts para ahorrar mas cada mes", "Guia", "Estrategias de ahorro automaticas con IA.", "../prompts-ia-finanzas-personales.html"),
             ("Claude vs ChatGPT para finanzas", "Comparativa", "Cual IA es mejor para gestionar tu dinero.", "../prompts-ia-finanzas-personales.html"),
             ("Nuevas funciones de IA para banca online", "Noticia", "Los bancos integran IA en sus apps.", "../prompts-ia-finanzas-personales.html"),
         ]
@@ -34,12 +41,19 @@ NICHES = [
         "brand_light": "#90caf9",
         "brand_dark": "#1976d2",
         "hero_img": "https://images.unsplash.com/photo-1557838923-2985c318be48?w=1400&q=85",
-        "desc": "Noticias, guias y recursos sobre marketing digital con inteligencia artificial. SEO, redes sociales, email marketing y copywriting.",
+        "desc": "Marketing digital con inteligencia artificial.",
         "hero_desc": "Crea campanas que convierten, contenido que engancha y estrategias que funcionan con IA.",
-        "product_name": "Marketing",
-        "payhip_id": "Q5RYA",
+        "product_name": "Marketing", "payhip_id": "Q5RYA",
+        "images": [
+            "https://images.unsplash.com/photo-1557838923-2985c318be48?w=600&q=85",
+            "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=85",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=85",
+            "https://images.unsplash.com/photo-1432889821006-3149403a5c5d?w=600&q=85",
+            "https://images.unsplash.com/photo-1552581234-26160f608093?w=600&q=85",
+            "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=85",
+        ],
         "articles": [
-            ("15 Prompts de IA para Marketing Digital en 2026", "guia", "SEO, redes, email y copywriting con IA.", "../prompts-ia-marketing-digital.html"),
+            ("15 Prompts de IA para Marketing Digital en 2026", "Guia", "SEO, redes, email y copywriting con IA.", "../prompts-ia-marketing-digital.html"),
             ("Como crear una estrategia SEO con IA", "Tutorial", "Keywords, contenido y link building automatizado.", "../prompts-ia-marketing-digital.html"),
             ("ChatGPT para copywriting persuasivo", "Guia", "Escribe textos que venden con un solo prompt.", "../prompts-ia-marketing-digital.html"),
             ("Automatiza tus campanas de email con IA", "Tutorial", "Secuencias que convierten sin esfuerzo manual.", "../prompts-ia-marketing-digital.html"),
@@ -54,12 +68,19 @@ NICHES = [
         "brand_light": "#ce93d8",
         "brand_dark": "#7b1fa2",
         "hero_img": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=85",
-        "desc": "Noticias, guias y recursos sobre programacion con inteligencia artificial. Debugging, code review, testing y arquitectura.",
-        "hero_desc": "Codifica mejor, mas rapido y con menos errores usando inteligencia artificial como tu senior developer de respaldo.",
-        "product_name": "Programacion",
-        "payhip_id": "XTEG5",
+        "desc": "Programacion con inteligencia artificial.",
+        "hero_desc": "Codifica mejor, mas rapido y con menos errores usando IA como tu senior developer de respaldo.",
+        "product_name": "Programacion", "payhip_id": "XTEG5",
+        "images": [
+            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=85",
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=85",
+            "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=85",
+            "https://images.unsplash.com/photo-1515879218367-8466d910aujsh?w=600&q=85",
+            "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=600&q=85",
+            "https://images.unsplash.com/photo-1537432376046-6d1b1e6e9d0c?w=600&q=85",
+        ],
         "articles": [
-            ("12 Prompts de IA para Programar Mejor", "guia", "Debugging, code review y testing con IA.", "../prompts-ia-programacion.html"),
+            ("12 Prompts de IA para Programar Mejor", "Guia", "Debugging, code review y testing con IA.", "../prompts-ia-programacion.html"),
             ("Como debuggear codigo con ChatGPT", "Tutorial", "Encuentra bugs en segundos con el prompt adecuado.", "../prompts-ia-programacion.html"),
             ("Code review automatico con IA", "Guia", "Tu senior developer personal revisa tu codigo.", "../prompts-ia-programacion.html"),
             ("Genera tests automaticos con un prompt", "Tutorial", "Cobertura completa sin escribir una linea.", "../prompts-ia-programacion.html"),
@@ -74,12 +95,19 @@ NICHES = [
         "brand_light": "#ffcc80",
         "brand_dark": "#ef6c00",
         "hero_img": "https://images.unsplash.com/photo-1523050854058-8df90110c296?w=1400&q=85",
-        "desc": "Noticias, guias y recursos para estudiantes con inteligencia artificial. Resumenes, examenes, ensayos y organizacion del estudio.",
+        "desc": "Educacion con inteligencia artificial para estudiantes.",
         "hero_desc": "Estudia menos, aprende mas. La IA como tu profesor particular 24/7.",
-        "product_name": "Educacion",
-        "payhip_id": "M3eqn",
+        "product_name": "Educacion", "payhip_id": "M3eqn",
+        "images": [
+            "https://images.unsplash.com/photo-1523050854058-8df90110c296?w=600&q=85",
+            "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=85",
+            "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&q=85",
+            "https://images.unsplash.com/photo-1452860606245-3a5e68b8a8f9?w=600&q=85",
+            "https://images.unsplash.com/photo-1491841550275-ad7854e35ca0?w=600&q=85",
+            "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=85",
+        ],
         "articles": [
-            ("10 Prompts de IA para Estudiar Mejor", "guia", "Resume textos, prepara examenes y aprende mas rapido.", "../prompts-ia-estudiantes.html"),
+            ("10 Prompts de IA para Estudiar Mejor", "Guia", "Resume textos, prepara examenes y aprende mas rapido.", "../prompts-ia-estudiantes.html"),
             ("Como resumir textos academicos con IA", "Tutorial", "Extrae lo esencial de cualquier texto en segundos.", "../prompts-ia-estudiantes.html"),
             ("Prepara tus examenes con ChatGPT", "Guia", "Preguntas de practica y planes de estudio personalizados.", "../prompts-ia-estudiantes.html"),
             ("Escribe ensayos academicos con IA", "Tutorial", "Estructura, argumentos y citas en minutos.", "../prompts-ia-estudiantes.html"),
@@ -94,39 +122,37 @@ NICHES = [
         "brand_light": "#f48fb1",
         "brand_dark": "#c2185b",
         "hero_img": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=85",
-        "desc": "Noticias, guias y recursos sobre recursos humanos con inteligencia artificial. Seleccion, evaluacion, onboarding y gestion del talento.",
+        "desc": "Recursos humanos con inteligencia artificial.",
         "hero_desc": "Optimiza tus procesos de RRHH con IA. Selecciona mejor, reten mas talento.",
-        "product_name": "RRHH",
-        "payhip_id": "KragB",
+        "product_name": "RRHH", "payhip_id": "KragB",
+        "images": [
+            "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=85",
+            "https://images.unsplash.com/photo-1573497620053-e3e3d7f3c3e8?w=600&q=85",
+            "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=85",
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=85",
+            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=85",
+            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=85",
+        ],
         "articles": [
-            ("8 Prompts de IA para Recursos Humanos", "guia", "Seleccion, evaluacion y comunicacion interna con IA.", "../prompts-ia-recursos-humanos.html"),
+            ("8 Prompts de IA para Recursos Humanos", "Guia", "Seleccion, evaluacion y comunicacion interna con IA.", "../prompts-ia-recursos-humanos.html"),
             ("Como seleccionar candidatos con IA", "Tutorial", "Criba curricular y entrevistas asistidas por IA.", "../prompts-ia-recursos-humanos.html"),
             ("Evaluaciones de desempeno con ChatGPT", "Guia", "Feedback constructivo y planes de desarrollo automaticos.", "../prompts-ia-recursos-humanos.html"),
-            ("Onboarding automatizado con prompts de IA", "Tutorial", "Los primeros 90 dias de tu nuevo empleado optimizados.", "../prompts-ia-recursos-humanos.html"),
+            ("Onboarding automatizado con prompts de IA", "Tutorial", "Los primeros 90 dias optimizados.", "../prompts-ia-recursos-humanos.html"),
             ("Clima laboral analizado con IA", "Guia", "Encuestas y analisis de satisfaccion automaticos.", "../prompts-ia-recursos-humanos.html"),
-            ("Nuevas tendencias de IA en RRHH", "Noticia", "Como la IA esta transformando la gestion del talento.", "../prompts-ia-recursos-humanos.html"),
+            ("Nuevas tendencias de IA en RRHH", "Noticia", "Como la IA transforma la gestion del talento.", "../prompts-ia-recursos-humanos.html"),
         ]
     },
 ]
 
 def gen_index(niche):
-    slug = niche["slug"]
-    name = niche["name"]
-    brand = niche["brand"]
-    brand_light = niche["brand_light"]
-    brand_dark = niche["brand_dark"]
-    hero_img = niche["hero_img"]
-    desc = niche["desc"]
-    hero_desc = niche["hero_desc"]
-    product_name = niche["product_name"]
-    payhip_id = niche["payhip_id"]
-    
+    images = niche["images"]
     articles_html = ""
-    for i, (title, tag, snippet, url) in enumerate(niche["articles"], 1):
-        tag_type = "Guia" if tag in ("guia", "Guia") else tag
+    for i, (title, tag, snippet, url) in enumerate(niche["articles"]):
+        img = images[i % len(images)]
+        tag_type = tag
         articles_html += f"""
     <a href="{url}" class="article-card reveal">
-      <img src="https://images.unsplash.com/photo-{1512314889357}+e157c22f938d?w=400&q=85" alt="">
+      <img src="{img}" alt="{niche['name']} {tag_type}" loading="lazy">
       <div class="overlay"></div>
       <div class="a-content">
         <span class="a-tag">{tag_type}</span>
@@ -135,43 +161,43 @@ def gen_index(niche):
         <div class="a-meta">Disponible</div>
       </div>
     </a>"""
-    
+
     html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog de {name} con IA — NEO Labs</title>
-<meta name="description" content="{desc}">
-<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/{slug}/">
-<meta property="og:title" content="Blog de {name} con IA — NEO Labs">
-<meta property="og:description" content="{desc}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Blog de {niche['name']} con IA — NEO Labs</title>
+<meta name="description" content="{niche['desc']}">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/{niche['slug']}/">
+<meta property="og:title" content="Blog de {niche['name']} con IA — NEO Labs">
+<meta property="og:description" content="{niche['desc']}">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{{margin:0;padding:0;box-sizing:border-box}}:root{{--brand:{brand};--brand-light:{brand_light};--brand-dark:{brand_dark};--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}}
-html{{scroll-behavior:smooth}}body{{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.7}}a{{color:var(--brand);text-decoration:none;transition:all .3s}}a:hover{{color:var(--brand-light)}}
+*{{margin:0;padding:0;box-sizing:border-box}}:root{{--brand:{niche['brand']};--brand-light:{niche['brand_light']};--brand-dark:{niche['brand_dark']};--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}}
+html{{scroll-behavior:smooth}}body{{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.7;touch-action:pan-y}}a{{color:var(--brand);text-decoration:none;transition:all .3s}}a:hover{{color:var(--brand-light)}}
 nav{{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,.1);transition:transform .35s}}nav.hidden{{transform:translateY(-100%)}}
-.nav-logo{{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff}}.nav-logo span{{color:var(--gold,#d4a853)}}
+.nav-logo{{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff}}.nav-logo span{{color:#d4a853}}
 .nav-links{{display:flex;gap:28px;list-style:none;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}}
 .nav-links a{{color:var(--text-muted);position:relative}}.nav-links a::after{{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--brand);transition:width .35s}}.nav-links a:hover::after,.nav-links a:hover{{width:100%;color:var(--brand)}}
 @media(max-width:768px){{.nav-links{{display:none}};nav{{padding:14px 20px}}}}
-.hero{{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}}
-.hero .bg-img{{position:absolute;inset:0;object-fit:cover;z-index:0}}.hero .bg-overlay{{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(5,5,8,.88) 20%,rgba(5,5,8,.5) 60%,rgba(5,5,8,.15))}}
+.hero{{min-height:65vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}}
+.hero .bg-img{{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}}.hero .bg-overlay{{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(5,5,8,.88) 20%,rgba(5,5,8,.5) 60%,rgba(5,5,8,.15))}}
 .hero .hero-content{{position:relative;z-index:2;max-width:700px;padding:100px 24px 60px}}
 .hero .hero-badge{{display:inline-block;padding:7px 18px;border:1px solid rgba(212,168,83,.3);border-radius:100px;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--brand);margin-bottom:24px;backdrop-filter:blur(4px);text-shadow:0 1px 8px rgba(0,0,0,.6)}}
 .hero .hero-title{{font-family:var(--font-display);font-size:clamp(1.8rem,4.5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:12px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.5)}}
 .hero .hero-title .brand{{color:var(--brand)}}.hero .hero-desc{{font-size:.95rem;color:#f0e8d8;max-width:500px;margin:0 auto;line-height:1.8;text-shadow:0 1px 10px rgba(0,0,0,.5)}}
 .strip{{background:linear-gradient(135deg,var(--brand-dark),var(--brand),var(--brand-light));padding:16px 24px;text-align:center}}.strip p{{color:var(--bg);font-family:var(--font-display);font-size:.85rem;font-weight:600}}.strip a{{color:var(--bg);text-decoration:underline;font-weight:700}}
-.content{{padding:48px 24px;background:var(--bg2)}}.wrap{{max-width:1100px;margin:0 auto}}
+.content{{padding:48px 24px;background:var(--bg2)}}.wrap{{max-width:1100px;margin:0 auto;padding:0 24px}}
 .section-head{{text-align:center;margin-bottom:36px}}.section-head .label{{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--brand);margin-bottom:6px}}
 .section-head h2{{font-family:var(--font-display);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:#fff;letter-spacing:-.5px}}
-.article-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}}
-.article-card{{position:relative;border-radius:14px;overflow:hidden;min-height:240px;text-decoration:none;display:flex;align-items:flex-end}}
-.article-card img{{position:absolute;inset:0;object-fit:cover;z-index:0;transition:transform .5s}}
+.article-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}}
+.article-card{{position:relative;border-radius:14px;overflow:hidden;min-height:220px;text-decoration:none;display:flex;align-items:flex-end}}
+.article-card img{{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .5s}}
 .article-card:hover img{{transform:scale(1.05)}}
 .article-card .overlay{{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(5,5,8,.92) 15%,rgba(5,5,8,.25) 55%,transparent)}}
 .article-card .a-content{{position:relative;z-index:2;padding:24px 20px;width:100%}}
@@ -186,29 +212,29 @@ nav{{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 40px;display:
 .btn:hover{{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}}
 .btn-outline{{border:1px solid var(--brand);color:var(--brand);background:transparent}}.btn-outline:hover{{background:rgba(212,168,83,.1)}}
 footer{{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:40px 24px 24px;text-align:center}}
-footer .logo{{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:12px;text-transform:uppercase;color:#fff}}footer .logo span{{color:var(--gold,#d4a853)}}
+footer .logo{{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:12px;text-transform:uppercase;color:#fff}}footer .logo span{{color:#d4a853}}
 footer .links{{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}}footer .links a{{color:var(--text-muted);font-size:.8rem;letter-spacing:1px}}footer .links a:hover{{color:var(--brand)}}
 footer .copy{{font-size:.7rem;color:#6a6558}}
 .reveal{{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}}.reveal.visible{{opacity:1;transform:translateY(0)}}
 #progress{{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand-light));z-index:9999;transition:width .1s}}
-@media(max-width:768px){{.article-grid{{grid-template-columns:1fr}}}}
+@media(max-width:768px){{.hero{{min-height:50vh}}.hero .hero-content{{padding:80px 24px 40px}}.article-grid{{grid-template-columns:1fr}}.article-card{{min-height:200px}}.content{{padding:32px 16px}}.wrap{{padding:0 16px}}.cta-box{{padding:28px 20px}}}}
 </style>
 </head>
 <body>
 <div id="progress"></div>
 <nav id="nav"><div class="nav-logo">NE<span>O</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
 <section class="hero">
-<img class="bg-img" src="{hero_img}" alt=""><div class="bg-overlay"></div>
-<div class="hero-content reveal"><div class="hero-badge">{name} con IA</div><h1 class="hero-title">Blog de <span class="brand">{name}</span></h1><p class="hero-desc">{hero_desc}</p></div>
+<img class="bg-img" src="{niche['hero_img']}" alt="{niche['name']}" loading="lazy"><div class="bg-overlay"></div>
+<div class="hero-content reveal"><div class="hero-badge">{niche['name']} con IA</div><h1 class="hero-title">Blog de <span class="brand">{niche['name']}</span></h1><p class="hero-desc">{niche['hero_desc']}</p></div>
 </section>
 <section class="strip"><p><strong>Gratis:</strong> <a href="https://payhip.com/b/98ens" target="_blank">5 Prompts de IA para Multiplicar tu Productividad</a></p></section>
 <section class="content"><div class="wrap">
-<div class="section-head"><div class="label">Nuestros articulos</div><h2>Contenido sobre <span style="color:var(--brand)">{name.lower()} con IA</span></h2></div>
+<div class="section-head"><div class="label">Nuestros articulos</div><h2>Contenido sobre <span style="color:var(--brand)">{niche['name'].lower()} con IA</span></h2></div>
 <div class="article-grid">{articles_html}
 </div>
-<div class="cta-box reveal"><h3>Pack de {product_name}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini.</p><a href="https://payhip.com/b/{payhip_id}" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px">Ver Catalogo</a></div>
+<div class="cta-box reveal"><h3>Pack de {niche['product_name']}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini.</p><a href="https://payhip.com/b/{niche['payhip_id']}" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px">Ver Catalogo</a></div>
 </div></section>
-<footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/b/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs &mdash; Blog de {name}</p></footer>
+<footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/b/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs &mdash; Blog de {niche['name']}</p></footer>
 <script>
 let p=document.getElementById('progress');document.addEventListener('scroll',()=>{{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'}})
 let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{{if(window.scrollY>s&&window.scrollY>70)n.classList.add('hidden');else n.classList.remove('hidden');s=window.scrollY}})
@@ -218,11 +244,11 @@ document.querySelectorAll('.reveal').forEach(e=>o.observe(e))
 </body>
 </html>"""
     
-    path = BLOG / slug / "index.html"
+    path = BLOG / niche["slug"] / "index.html"
     path.write_text(html, encoding="utf-8")
-    print(f"✓ {slug}/index.html — {name}")
+    print(f"✓ {niche['slug']}/index.html — {niche['name']} ({len(niche['articles'])} articulos, {len(niche['images'])} imagenes)")
 
 if __name__ == "__main__":
     for niche in NICHES:
         gen_index(niche)
-    print("Todos los blogs nicho creados!")
+    print("Todos los blogs nicho regenerados con imagenes fijas y soporte movil!")
