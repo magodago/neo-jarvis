@@ -1,130 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>12 Prompts de IA para Programar Mejor [Guía 2026]</title>
-<meta name="description" content="12 prompts de IA para desarrollo de software: debugging, code review, arquitectura, testing, refactoring y documentación con ChatGPT, Claude o Gemini.">
-<meta name="keywords" content="prompts IA programación, chatgpt developer, code review ia, debugging prompts, programar con inteligencia artificial">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12 Prompts de IA para Programar Mejor — NEO Labs</title>
+<meta name="description" content="Mejora tu codigo con estos 12 prompts de IA para programacion. Debugging, code review, testing, refactoring y arquitectura asistidos por inteligencia artificial.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/prompts-ia-programacion.html">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Source+Code+Pro&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta property="og:title" content="12 Prompts de IA para Programar Mejor">
+<meta property="og:description" content="Debugging, code review y testing con inteligencia artificial.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://magodago.github.io/neo-jarvis/blog/prompts-ia-programacion.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0e;color:#d0d0d0;font-family:'Inter',sans-serif;line-height:1.8;font-size:16px}
-.container{max-width:800px;margin:0 auto;padding:20px}
-header{background:#06060a;border-bottom:2px solid #d4af37;padding:20px 0;text-align:center;margin-bottom:30px}
-header a{color:#d4af37;text-decoration:none;font-size:0.9em}
-h1{color:#d4af37;font-size:2em;margin:20px 0}
-h2{color:#d4af37;font-size:1.4em;margin:30px 0 15px;border-bottom:1px solid #2a2a2a;padding-bottom:8px}
-h3{color:#f0e0a0;font-size:1em;margin:20px 0 10px}
-p{margin:15px 0}
-.prompt-box{background:#0f0f14;border:1px solid #2a2a2a;border-radius:6px;padding:15px;margin:15px 0;font-family:'Source Code Pro',monospace;font-size:0.8em;color:#b0b0b0;line-height:1.6}
-.prompt-box strong{color:#d4af37;font-family:'Inter',sans-serif}
-.cta-box{background:linear-gradient(135deg,#0f0f14,#1a1a1a);border:1px solid #d4af37;border-radius:8px;padding:25px;margin:30px 0;text-align:center}
-.cta-box h3{color:#d4af37;margin:0 0 10px}
-.cta-box a{display:inline-block;background:#d4af37;color:#0a0a0e;padding:12px 25px;border-radius:5px;text-decoration:none;font-weight:bold;margin:10px 0}
-.cta-box .secondary-link{color:#d4af37;text-decoration:none;font-size:0.9em;margin:5px 10px;display:inline-block}
-.ad-space{background:#0a0a0e;border:1px dashed rgba(212,175,55,0.15);border-radius:8px;padding:30px;text-align:center;margin:40px 0;color:#3a3a3a;font-size:11px;letter-spacing:2px;font-family:monospace}
-footer{text-align:center;padding:30px;color:#555;border-top:1px solid #222;font-size:0.85em;margin-top:40px}
-footer a{color:#d4af37}
+:root{--gold:#d4a853;--gold-light:#e8c97a;--gold-dark:#b8922f;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8}
+a{color:var(--gold);text-decoration:none;transition:all .3s}
+a:hover{color:var(--gold-light)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,.1);transition:transform .35s}
+nav.hidden{transform:translateY(-100%)}
+.nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links a{color:var(--text-muted);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:768px){.nav-links{display:none};nav{padding:14px 20px}}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;letter-spacing:.5px;padding-top:90px;margin-bottom:8px}
+.breadcrumb a{color:#6a6558}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb span{color:#6a6558}
+.article-header{margin-bottom:40px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:12px}
+.article-header .meta{display:flex;gap:20px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:#fff;margin:40px 0 12px;letter-spacing:-.3px}
+.article-body p{font-size:.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.article-body p strong{color:var(--text)}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:20px 24px;margin:16px 0 24px}
+.prompt-box .prompt-label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+.prompt-box .prompt-text{font-size:.88rem;color:#d0c8bc;line-height:1.7;font-style:italic;white-space:pre-wrap}
+.prompt-box .prompt-text strong{color:var(--gold-light)}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:36px 28px;text-align:center;margin:32px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.88rem;margin-bottom:18px}
+.btn{padding:12px 30px;border-radius:8px;font-family:var(--font-display);font-size:.76rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.35);color:var(--bg)}
+.related-section{padding:48px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:48px}
+.related-section h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:20px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:18px 16px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-3px)}
+.related-card .cat{font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.related-card h4{font-family:var(--font-display);font-size:.82rem;font-weight:600;color:#fff;letter-spacing:-.1px}
+.related-card p{font-size:.75rem;color:var(--text-muted);line-height:1.5;margin-top:4px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:44px 24px 28px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.3rem;letter-spacing:4px;font-weight:700;margin-bottom:14px;text-transform:uppercase;color:#fff}
+footer .logo span{color:var(--gold)}
+footer .links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+footer .links a{color:var(--text-muted);font-size:.82rem;letter-spacing:1px}
+footer .links a:hover{color:var(--gold)}
+footer .copy{font-size:.72rem;color:#6a6558}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
+.schema-hidden{display:none}
+@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
 </style>
+<script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"12 Prompts de IA para Programar Mejor","description":"Mejora tu codigo con 12 prompts de IA para debugging, code review, testing y refactoring.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-programacion.html"}}</script>
 </head>
 <body>
-<header><div class="container"><a href="https://magodago.github.io/neo-jarvis/blog/">← Blog NEO Labs</a></div></header>
-<div class="container">
-
-<h1>12 Prompts de IA para Programar Mejor</h1>
-<p style="color:#888;font-size:0.9em">Publicado: 8 Junio 2026 · 9 min de lectura</p>
-
-<p>La IA ha cambiado la forma de programar. Estos 12 prompts cubren desde debugging hasta arquitectura, pensados para developers que quieren escribir mejor código en menos tiempo.</p>
-
-<div class="cta-box">
-  <h3>🎁 Descarga gratis 5 prompts premium</h3>
-  <p>Empieza con mi guía gratuita. 5 prompts probados para ser más productivo con IA.</p>
-  <a href="https://payhip.com/b/98ens" target="_blank">DESCARGAR GRATIS</a>
+<div id="progress"></div>
+<nav id="nav">
+  <div class="nav-logo">NE<span>O</span></div>
+  <ul class="nav-links">
+    <li><a href="../neo-labs.html">Inicio</a></li>
+    <li><a href="../catalogo.html">Catalogo</a></li>
+    <li><a href="index.html">Blog</a></li>
+  </ul>
+</nav>
+<div class="wrap">
+  <div class="breadcrumb"><a href="../neo-labs.html">Inicio</a> <span>/</span> <a href="index.html">Blog</a> <span>/</span> <span>Programacion</span></div>
+  <div class="article-header">
+    <span class="cat-tag" style="background:rgba(156,39,176,.15);color:#9c27b0">Programacion</span>
+    <h1>12 Prompts de IA para Programar Mejor</h1>
+    <div class="meta"><span>8 Junio 2026</span><span>9 min de lectura</span></div>
+  </div>
+  <div class="article-body">
+    <p>La IA no va a reemplazar a los programadores, pero los programadores que usan IA van a escribir 10x mas rapido que los que no. La clave esta en saber pedirle lo que necesitas.</p>
+    <p>Estos <strong>12 prompts de IA para programacion</strong> cubren debugging, code review, testing, refactoring y arquitectura.</p>
+    <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
+    <h2>1. Debugging Asistido</h2>
+    <p>Encuentra bugs en segundos. Este prompt analiza tu codigo y te dice exactamente donde falla y como arreglarlo.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un debugger experto.</strong> Este codigo no funciona como espero. [PEGA CODIGO]. Comportamiento esperado: [describe]. Comportamiento actual: [describe]. Dame: 1) Diagnostico del problema, 2) Linea exacta con el error, 3) Solucion con explicacion, 4) Tests para verificar que funciona.</div></div>
+    <h2>2. Code Review Automatico</h2>
+    <p>Obtienes una revision de codigo completa como si tu senior developer favorito lo hubiera revisado.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un senior developer haciendo code review.</strong> Revisa este codigo: [PEGA CODIGO]. Evalua: 1) Posibles bugs, 2) Code smells y antipatrones, 3) Problemas de rendimiento, 4) Seguridad, 5) Mejores practicas del lenguaje/framework. Para cada issue, dame prioridad (alta/media/baja) y sugerencia de correccion con codigo.</div></div>
+    <h2>3. Tests Automaticos</h2>
+    <p>Genera tests unitarios, de integracion y funcionales para tu codigo en segundos.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un QA engineer.</strong> Genera tests para este codigo: [PEGA CODIGO]. Incluye: 1) Tests unitarios con cobertura de casos normal, borde y error, 2) Tests de integracion, 3) Mocks necesarios, 4) Escenarios de prueba adicionales que se me puedan escapar. Usa [framework de tests].</div></div>
+    <h2>4. Refactoring Inteligente</h2>
+    <p>Limpia y optimiza tu codigo sin cambiar su comportamiento. Este prompt identifica areas de mejora y las implementa.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un arquitecto de software.</strong> Refactoriza este codigo: [PEGA CODIGO]. Aplica: 1) Principios SOLID, 2) DRY, 3) KISS, 4) Extraccion de funciones/metodos, 5) Nombres significativos. Dame el codigo refactorizado completo y explica cada cambio y por que mejora el codigo original.</div></div>
+    <h2>5. Diseno de Arquitectura</h2>
+    <p>Disena la arquitectura de tu sistema con decisiones informadas y patrones probados.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un arquitecto de software senior.</strong> Necesito disenar la arquitectura para un sistema que [describe funcionalidad]. Requisitos: [lista]. Dame: 1) Arquitectura recomendada con diagrama en ASCII, 2) Stack tecnologico sugerido con justificacion, 3) Patrones de diseno a utilizar, 4) Estructura de carpetas, 5) Decisiones clave con sus alternativas y por que elegi cada una.</div></div>
+    <h2>6. Documentacion Automatica</h2>
+    <p>Genera documentacion clara y util para tu codigo sin escribir una linea de documentacion.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un technical writer.</strong> Genera documentacion para este codigo: [PEGA CODIGO]. Incluye: 1) README con descripcion, instalacion y uso, 2) Comentarios de documentacion para funciones publicas, 3) Ejemplos de uso, 4) Posibles errores y soluciones, 5) Enlace a documentacion externa relevante.</div></div>
+    <h2>7. Optimizacion de Consultas SQL</h2>
+    <p>Mejora el rendimiento de tus consultas a base de datos con analisis experto.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un DBA experto.</strong> Analiza y optimiza esta consulta SQL: [PEGA SQL]. Dame: 1) Plan de ejecucion explicado, 2) Cuellos de botella, 3) Consulta optimizada, 4) Indices recomendados, 5) Explicacion de por que la version optimizada es mejor y en que casos.</div></div>
+    <h2>8. Integracion de APIs</h2>
+    <p>Conecta servicios externos sin dolores de cabeza. Este prompt te guia en la integracion de cualquier API.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un integrador de APIs.</strong> Necesito integrar la API de [servicio]. Documentacion: [enlace o descripcion]. Dame: 1) Cliente API completo en [lenguaje], 2) Manejo de errores y retry logic, 3) Cacheo de respuestas, 4) Tests de integracion, 5) Ejemplos de uso para los 3 endpoints principales.</div></div>
+    <h2>9. Git y Control de Versiones</h2>
+    <p>Resuelve conflictos, escribe commits semanticos y gestiona ramas como un profesional.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un git expert.</strong> Ayudame con: 1) Escribir commits convencionales para estos cambios: [describe], 2) Estrategia de branching para [proyecto], 3) Como resolver este conflicto: [PEGA CONFLICTO], 4) Comandos para [tarea especifica], 5) Buenas practicas de git flow para equipo de [X] personas.</div></div>
+    <h2>10. Seguridad en Codigo</h2>
+    <p>Identifica vulnerabilidades en tu codigo antes de que lo hagan los atacantes.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un security engineer.</strong> Realiza un audit de seguridad de este codigo: [PEGA CODIGO]. Busca: 1) Inyeccion SQL, 2) XSS, 3) CSRF, 4) Exposicion de datos sensibles, 5) Autenticacion debil, 6) Dependencias vulnerables. Para cada hallazgo: riesgo, linea exacta y solucion con codigo seguro.</div></div>
+    <h2>11. Optimizacion de Rendimiento</h2>
+    <p>Hace que tu codigo corra mas rapido y consuma menos recursos.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un performance engineer.</strong> Analiza el rendimiento de este codigo: [PEGA CODIGO]. Identifica: 1) Algoritmos ineficientes, 2) Operaciones costosas, 3) Optimizaciones de memoria, 4) Cuellos de botella en I/O, 5) Oportunidades de caching. Dame el codigo optimizado y estimacion de mejora porcentual.</div></div>
+    <h2>12. Automatizacion de Deployment</h2>
+    <p>Configura pipelines de CI/CD que despliegan tu codigo automaticamente y sin errores.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un DevOps engineer.</strong> Disena un pipeline de CI/CD para mi proyecto [tipo]. Stack: [tecnologias]. Incluye: 1) Archivo de configuracion YAML completo, 2) Stages: build, test, lint, security scan, deploy, 3) Estrategia de despliegue (blue-green/canary), 4) Rollback automatico, 5) Notificaciones y alertas, 6) Variables de entorno y secretos.</div></div>
+    <div class="cta-box"><h3>Pack Completo de Programacion</h3><p>10 prompts premium adicionales para debugging, code review, testing y refactoring.</p><a href="https://payhip.com/b/XTEG5" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>
+    <div class="cta-box"><h3>60 Prompts Premium</h3><p>Los 6 packs tematicos en uno. Mas de 200 paginas de prompts profesionales.</p><a href="../catalogo.html" class="btn btn-primary">Ver Catalogo Completo</a></div>
+  </div>
+  <div class="related-section"><h3>Articulos Relacionados</h3>
+    <div class="related-grid">
+      <a href="prompts-ia-productividad-2026.html" class="related-card"><div class="cat">Productividad</div><h4>10 Mejores Prompts de IA para Productividad</h4><p>Organiza tu dia y multiplica tu rendimiento.</p></a>
+      <a href="prompts-ia-estudiantes.html" class="related-card"><div class="cat">Educacion</div><h4>10 Prompts de IA para Estudiar Mejor</h4><p>Prepara examenes y resumes textos con IA.</p></a>
+      <a href="prompts-ia-marketing-digital.html" class="related-card"><div class="cat">Marketing</div><h4>15 Prompts de IA para Marketing Digital</h4><p>SEO, redes y copywriting con inteligencia artificial.</p></a>
+    </div>
+  </div>
 </div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>1. Debugging Asistido</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Tengo este error en [lenguaje/framework]: [código o mensaje de error]. Actúa como un debugger senior. Analiza: 1) Causa raíz del error, 2) Por qué ocurre (explicación técnica clara), 3) Solución paso a paso, 4) Cómo prevenirlo en el futuro. Si hay múltiples causas posibles, priorízalas por probabilidad."
-</div>
-
-<h2>2. Code Review Automatizado</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un senior developer haciendo code review. Revisa este código: [pega tu código]. Evalúa: 1) Posibles bugs, 2) Problemas de rendimiento, 3) Violaciones de principios SOLID/clean code, 4) Seguridad, 5) Tests faltantes. Dame sugerencias concretas con ejemplos de código mejorado. Sé exigente."
-</div>
-
-<h2>3. Generación de Tests Unitarios</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Genera tests unitarios completos para esta función en [lenguaje]: [código]. Cubre: casos normales, casos borde, errores esperados, y mocks necesarios. Usa [framework de tests]. Los tests deben seguir el patrón AAA (Arrange, Act, Assert). Dame también la cobertura estimada."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>4. Refactoring de Código Legacy</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Refactoriza este código legacy para mejorar mantenibilidad sin cambiar su funcionalidad: [código]. Aplica: 1) Extracción de funciones, 2) Nombres descriptivos, 3) Eliminación de código muerto, 4) Patrones de diseño si aplican. Explícame cada cambio y por qué mejora el código."
-</div>
-
-<h2>5. Diseño de Arquitectura</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un arquitecto de software. Necesito diseñar un sistema para [requisitos]. Tecnologías disponibles: [stack]. Dame: 1) Diagrama de arquitectura (textual), 2) Componentes y sus responsabilidades, 3) Flujo de datos, 4) Decisiones técnicas clave con justificación, 5) Posibles cuellos de botella y cómo mitigarlos."
-</div>
-
-<h2>6. Explicación de Código Complejo</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Explícame este código como si fuera un developer junior: [código]. Dame: 1) Qué hace a alto nivel, 2) Cómo funciona cada parte, 3) Por qué está estructurado así, 4) Posibles mejoras. Si tiene patrones de diseño, nómbralos y explica por qué se usaron."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>7. Optimización de Rendimiento</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Analiza el rendimiento de este código: [código]. Identifica: 1) Cuellos de botella (big-O), 2) Operaciones innecesarias, 3) Problemas de memoria, 4) Consultas N+1 o similares. Dame una versión optimizada y explica cuánto mejora cada cambio. Prioriza las optimizaciones de mayor impacto."
-</div>
-
-<h2>8. Documentación Técnica</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Genera documentación técnica completa para este código: [código]. Incluye: 1) Descripción del módulo/función, 2) Parámetros y tipos, 3) Valor de retorno, 4) Excepciones, 5) Ejemplos de uso, 6) Notas de implementación. Formato JSDoc/TSDoc/docstring según el lenguaje."
-</div>
-
-<h2>9. Migración de Código</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Migra este código de [lenguaje/framework A] a [lenguaje/framework B]: [código]. Mantén la misma funcionalidad pero siguiendo las convenciones y mejores prácticas del lenguaje destino. Dame también un plan de migración si hay dependencias que considerar."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>10. Generación de Scripts y Utilidades</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Crea un script en [lenguaje] que [tarea específica]. Requisitos: [lista]. El script debe: 1) Manejar errores correctamente, 2) Tener logs informativos, 3) Aceptar argumentos CLI, 4) Ser reutilizable. Incluye instrucciones de uso y ejemplo."
-</div>
-
-<h2>11. Consultas SQL Optimizadas</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un DBA experto. Optimiza esta consulta SQL: [código SQL]. Analiza: 1) Índices necesarios, 2) Plan de ejecución estimado, 3) Subconsultas que se pueden evitar, 4) JOINs ineficientes. Dame la versión optimizada y explica por qué es mejor. Base de datos: [PostgreSQL/MySQL/SQL Server]."
-</div>
-
-<h2>12. Resolución de Problemas Técnicos</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Estoy enfrentando este problema técnico en producción: [descripción]. Stack: [tecnologías]. Dame un plan de diagnóstico y resolución: 1) Hipótesis más probable, 2) Pasos para confirmar, 3) Solución temporal (workaround), 4) Solución definitiva, 5) Medidas para evitar recurrencia. Prioriza rapidez de implementación."
-</div>
-
-<div class="tip"><strong>💡 Consejo:</strong> Los mejores desarrolladores con IA no piden a la IA que haga su trabajo — la usan como pair programmer senior que acelera su flujo.</div>
-
-<div class="cta-box">
-  <h3>🚀 Pack Completo: 60 Prompts Premium de Programación</h3>
-  <p>10 categorías: debugging, arquitectura, testing, refactoring, SQL, DevOps, documentación y más.</p>
-  <a href="https://payhip.com/b/XTEG5" target="_blank">CONSIGUE EL PACK → 9.99€</a>
-  <br>
-  <a href="https://payhip.com/b/nvD5I" target="_blank" class="secondary-link">🐍 Pack Python → 9.99€</a>
-</div>
-
-<ul style="margin:15px 20px;color:#bbb">
-  <li><a href="https://payhip.com/b/98ens" style="color:#d4af37">📥 Guía gratuita: 5 Prompts de IA</a></li>
-  <li><a href="https://magodago.github.io/neo-jarvis/blog/" style="color:#d4af37">📝 Blog NEO Labs</a></li>
-</ul>
-</div>
-<footer><p>NEO Labs © 2026 — <a href="https://magodago.github.io/neo-jarvis/blog/">Blog</a> · <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catálogo</a></p></footer>
+<footer>
+  <div class="logo">NE<span>O</span></div>
+  <div class="links">
+    <a href="../neo-labs.html">Inicio</a>
+    <a href="../catalogo.html">Catalogo</a>
+    <a href="index.html">Blog</a>
+    <a href="https://payhip.com/b/98ens" target="_blank">Guia Gratuita</a>
+  </div>
+  <p class="copy">&copy; 2026 NEO Labs. Productividad aumentada con inteligencia artificial.</p>
+</footer>
+<script>
+let p=document.getElementById('progress')
+document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav')
+document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
 </body>
 </html>

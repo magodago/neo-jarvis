@@ -1,122 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>10 Prompts de IA para Estudiar Mejor [Guía 2026]</title>
-<meta name="description" content="10 prompts de IA para estudiantes: resumir textos, preparar exámenes, escribir ensayos, organizar el tiempo y aprender más rápido con ChatGPT o Claude.">
-<meta name="keywords" content="prompts IA estudiantes, estudiar con chatgpt, resumir textos ia, preparar examenes ia, aprender con inteligencia artificial">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Prompts de IA para Estudiar Mejor y Aprobar — NEO Labs</title>
+<meta name="description" content="Aprende mas rapido con estos 10 prompts de IA para estudiantes. Resumen textos, prepara examenes, escribe ensayos y organiza tu estudio con inteligencia artificial.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/prompts-ia-estudiantes.html">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta property="og:title" content="10 Prompts de IA para Estudiar Mejor y Aprobar">
+<meta property="og:description" content="Resume textos, prepara examenes y aprende mas rapido con IA.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://magodago.github.io/neo-jarvis/blog/prompts-ia-estudiantes.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#121212;color:#e0e0e0;font-family:'Inter',sans-serif;line-height:1.8;font-size:17px}
-.container{max-width:800px;margin:0 auto;padding:20px}
-header{background:#0a0a0a;border-bottom:2px solid #d4af37;padding:20px 0;text-align:center;margin-bottom:30px}
-header a{color:#d4af37;text-decoration:none;font-size:0.9em}
-h1{color:#d4af37;font-size:2em;margin:20px 0}
-h2{color:#d4af37;font-size:1.4em;margin:30px 0 15px;border-bottom:1px solid #333;padding-bottom:8px}
-h3{color:#f0e0a0;font-size:1.1em;margin:20px 0 10px}
-p{margin:15px 0}
-.prompt-box{background:#1a1a1a;border-left:3px solid #d4af37;padding:15px;margin:15px 0;border-radius:0 6px 6px 0;font-size:0.9em;color:#ccc}
-.prompt-box strong{color:#d4af37}
-.cta-box{background:linear-gradient(135deg,#1a1a1a,#2a2a1a);border:1px solid #d4af37;border-radius:8px;padding:25px;margin:30px 0;text-align:center}
-.cta-box h3{color:#d4af37;margin:0 0 10px;font-size:1.2em}
-.cta-box a{display:inline-block;background:#d4af37;color:#121212;padding:12px 25px;border-radius:5px;text-decoration:none;font-weight:bold;margin:10px 0}
-.cta-box .secondary-link{color:#d4af37;text-decoration:none;font-size:0.9em;margin:5px 10px;display:inline-block}
-.ad-space{background:#0f0f1e;border:1px dashed rgba(212,175,55,0.2);border-radius:8px;padding:30px;text-align:center;margin:40px 0;color:#4a3a20;font-size:11px;letter-spacing:2px;font-family:monospace}
-footer{text-align:center;padding:30px;color:#555;border-top:1px solid #222;font-size:0.85em;margin-top:40px}
-footer a{color:#d4af37}
+:root{--gold:#d4a853;--gold-light:#e8c97a;--gold-dark:#b8922f;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8}
+a{color:var(--gold);text-decoration:none;transition:all .3s}
+a:hover{color:var(--gold-light)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,.1);transition:transform .35s}
+nav.hidden{transform:translateY(-100%)}
+.nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links a{color:var(--text-muted);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:768px){.nav-links{display:none};nav{padding:14px 20px}}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;letter-spacing:.5px;padding-top:90px;margin-bottom:8px}
+.breadcrumb a{color:#6a6558}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb span{color:#6a6558}
+.article-header{margin-bottom:40px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:12px}
+.article-header .meta{display:flex;gap:20px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:#fff;margin:40px 0 12px;letter-spacing:-.3px}
+.article-body p{font-size:.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.article-body p strong{color:var(--text)}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:20px 24px;margin:16px 0 24px}
+.prompt-box .prompt-label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+.prompt-box .prompt-text{font-size:.88rem;color:#d0c8bc;line-height:1.7;font-style:italic;white-space:pre-wrap}
+.prompt-box .prompt-text strong{color:var(--gold-light)}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:36px 28px;text-align:center;margin:32px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.88rem;margin-bottom:18px}
+.btn{padding:12px 30px;border-radius:8px;font-family:var(--font-display);font-size:.76rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.35);color:var(--bg)}
+.related-section{padding:48px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:48px}
+.related-section h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:20px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:18px 16px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-3px)}
+.related-card .cat{font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.related-card h4{font-family:var(--font-display);font-size:.82rem;font-weight:600;color:#fff;letter-spacing:-.1px}
+.related-card p{font-size:.75rem;color:var(--text-muted);line-height:1.5;margin-top:4px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:44px 24px 28px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.3rem;letter-spacing:4px;font-weight:700;margin-bottom:14px;text-transform:uppercase;color:#fff}
+footer .logo span{color:var(--gold)}
+footer .links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+footer .links a{color:var(--text-muted);font-size:.82rem;letter-spacing:1px}
+footer .links a:hover{color:var(--gold)}
+footer .copy{font-size:.72rem;color:#6a6558}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
+.schema-hidden{display:none}
+@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
 </style>
+<script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"10 Prompts de IA para Estudiar Mejor y Aprobar","description":"Aprende mas rapido con 10 prompts de IA para estudiantes. Resumen textos, prepara examenes y organiza tu estudio.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-estudiantes.html"}}</script>
 </head>
 <body>
-<header><div class="container"><a href="https://magodago.github.io/neo-jarvis/blog/">← Blog NEO Labs</a></div></header>
-<div class="container">
-
-<h1>10 Prompts de IA para Estudiar Mejor</h1>
-<p style="color:#888;font-size:0.9em">Publicado: 8 Junio 2026 · 8 min de lectura</p>
-
-<p>Estudiar con IA no es hacer trampa — es estudiar de forma más inteligente. Estos 10 prompts te ayudarán a comprender, retener y aplicar conocimientos más rápido que nunca.</p>
-
-<div class="cta-box">
-  <h3>🎁 Guía Gratuita: 5 Prompts de IA para Productividad</h3>
-  <p>Descárgala gratis — te servirá para organizar tu estudio y mucho más.</p>
-  <a href="https://payhip.com/b/98ens" target="_blank">DESCARGAR GRATIS</a>
+<div id="progress"></div>
+<nav id="nav">
+  <div class="nav-logo">NE<span>O</span></div>
+  <ul class="nav-links">
+    <li><a href="../neo-labs.html">Inicio</a></li>
+    <li><a href="../catalogo.html">Catalogo</a></li>
+    <li><a href="index.html">Blog</a></li>
+  </ul>
+</nav>
+<div class="wrap">
+  <div class="breadcrumb"><a href="../neo-labs.html">Inicio</a> <span>/</span> <a href="index.html">Blog</a> <span>/</span> <span>Educacion</span></div>
+  <div class="article-header">
+    <span class="cat-tag" style="background:rgba(255,152,0,.15);color:#ff9800">Educacion</span>
+    <h1>10 Prompts de IA para Estudiar Mejor y Aprobar</h1>
+    <div class="meta"><span>8 Junio 2026</span><span>8 min de lectura</span></div>
+  </div>
+  <div class="article-body">
+    <p>Estudiar no tiene por que ser una tortura. Con los prompts adecuados, la IA se convierte en tu profesor particular, asistente de investigacion y tutor personal, disponible 24/7.</p>
+    <p>Estos <strong>10 prompts de IA para estudiantes</strong> te ayudaran a aprender mas rapido, retener mejor la informacion y sacar mejores notas.</p>
+    <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
+    <h2>1. Resumen Inteligente de Textos</h2>
+    <p>Transforma capitulos enteros en resumenes claros que entiendes y recuerdas. Este prompt extrae lo esencial sin perder la profundidad.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un tutor academico.</strong> Resume este texto de [tema]: [PEGA TEXTO]. Adapta el resumen para un estudiante de [nivel: secundaria/bachillerato/universidad]. Incluye: 1) Ideas principales en 3 puntos, 2) Conceptos clave con definiciones, 3) Ejemplos practicos, 4) Posibles preguntas de examen sobre el tema, 5) Conexiones con otros temas de la asignatura.</div></div>
+    <h2>2. Preparacion de Exameness</h2>
+    <p>Preparate para cualquier examen con preguntas de practica, respuestas modelo y tecnicas de estudio personalizadas.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un profesor de la materia.</strong> Voy a examinarme de [tema/asignatura] dentro de [X] dias. Con estos contenidos: [lista]. Genera: 1) Plan de estudio diario hasta el examen, 2) 10 preguntas de practica tipo examen con sus respuestas, 3) 5 errores comunes que cometen los estudiantes, 4) Tecnicas de memorizacion para los conceptos mas dificiles, 5) Simulacro de examen con temporizacion.</div></div>
+    <h2>3. Redaccion de Ensayos Academicos</h2>
+    <p>Escribe ensayos bien estructurados con argumentos solidos y citas academicas. Este prompt te guia desde el esquema hasta la conclusion.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un tutor de escritura academica.</strong> Necesito escribir un ensayo sobre [tema] de [X] palabras. Dame: 1) Esquema detallado con tesis, argumentos y contraargumentos, 2) Introduccion que enganche, 3) Desarrollo con 3 argumentos principales respaldados por evidencia, 4) Conclusion que sintetice y abra nuevas preguntas, 5) 5 fuentes academicas recomendadas sobre el tema.</div></div>
+    <h2>4. Tarjetas de Estudio (Flashcards)</h2>
+    <p>Genera flashcards optimizadas para memorizacion activa basadas en tus apuntes o textos de estudio.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un experto en tecnicas de estudio.</strong> Convierte este contenido en flashcards efectivas: [PEGA CONTENIDO]. Genera: 1) 20 tarjetas pregunta-respuesta, 2) Clasificadas por nivel de dificultad, 3) Incluye mnemotecnias para las mas dificiles, 4) Tarjetas de conceptos clave con definiciones, 5) Formato listo para importar a Anki/Quizlet.</div></div>
+    <h2>5. Plan de Estudio Personalizado</h2>
+    <p>Organiza tu tiempo de estudio de forma optima con un plan adaptado a tu horario, asignaturas y fecha de examen.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un planificador academico.</strong> Creame un plan de estudio para el proximo mes. Asignaturas: [lista]. Horas disponibles: [X]h/dia. Fechas de examen: [fechas]. Preferencias: [manana/tarde, bloques largos/cortos]. Incluye: 1) Calendario semanal detallado, 2) Bloques de repaso espaciado, 3) Descansos programados, 4) Metodo Pomodoro integrado, 5) Ajustes para dias de baja energia.</div></div>
+    <h2>6. Citas y Referencias Bibliograficas</h2>
+    <p>Genera citas academicas en cualquier formato (APA, MLA, Chicago) sin errores ni perder tiempo.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un bibliotecario academico.</strong> Genera las referencias bibliograficas de estas fuentes en formato [APA/MLA/Chicago]: [lista de libros/articulos/sitios web]. Para cada una: 1) Cita en el formato solicitado, 2) Cita en el texto (in-text citation), 3) Enlace DOI o URL si existe, 4) Verifica que todos los elementos requeridos esten presentes segun el estilo.</div></div>
+    <h2>7. Comprension Lectora Profunda</h2>
+    <p>Entiende textos complejos con preguntas guiadas que te llevan de la comprension superficial al analisis critico.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un profesor de lectura critica.</strong> Guiame a traves de la comprension de este texto: [PEGA TEXTO]. Por favor: 1) Preguntas de comprension literal (que dice el texto), 2) Preguntas de inferencia (que sugiere sin decir), 3) Preguntas de analisis (como se relacionan las ideas), 4) Preguntas de evaluacion (es valido el argumento), 5) Vocabulario clave con definiciones contextuales.</div></div>
+    <h2>8. Mapas Mentales y Conceptuales</h2>
+    <p>Organiza visualmente cualquier tema para ver las conexiones entre conceptos y estudiar de forma mas efectiva.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un organizador visual de informacion.</strong> Crea un mapa mental de [tema] basado en este contenido: [PEGA CONTENIDO]. Estructura: 1) Idea central, 2) 5-7 ramas principales, 3) Subramas con detalles, 4) Conexiones entre ramas, 5) Formato en texto plano que pueda dibujar o pasar a herramienta de mapas mentales. Incluye tambien jerarquia de conceptos por importancia.</div></div>
+    <h2>9. Preparacion de Presentaciones</h2>
+    <p>Crea presentaciones academicas claras y profesionales con estructura, contenido y consejos de exposicion.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un coach de presentaciones academicas.</strong> Necesito una presentacion de [X] minutos sobre [tema]. Dame: 1) Estructura diapositiva por diapositiva, 2) Contenido para cada diapositiva (max 3 ideas por slide), 3) Que decir en cada transicion, 4) Posibles preguntas del publico y respuestas preparadas, 5) Consejos de lenguaje corporal y voz para esta presentacion en concreto.</div></div>
+    <h2>10. Gestion del Tiempo de Estudio</h2>
+    <p>Supera la procrastinacion y aprovecha al maximo cada sesion de estudio con tecnicas probadas.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un coach de productividad academica.</strong> Ayudame a optimizar mi tiempo de estudio. Mi problema: [describeme]. Aplica: 1) Tecnica Pomodoro adaptada a mi capacidad de atencion, 2) Metodo de estudio activo (Feynman, SQ3R, Cornell), 3) Estrategia contra la procrastinacion (regla de los 2 minutos, 5 segundos), 4) Ambiente de estudio ideal segun mi perfil, 5) Ritual de inicio de sesion para entrar en foco rapido.</div></div>
+    <div class="cta-box"><h3>Pack Completo de Educacion</h3><p>10 prompts premium adicionales para estudiantes: resumenes, examenes, ensayos y organizacion del estudio.</p><a href="https://payhip.com/b/M3eqn" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>
+    <div class="cta-box"><h3>60 Prompts Premium</h3><p>Los 6 packs tematicos en uno. Mas de 200 paginas de prompts profesionales.</p><a href="../catalogo.html" class="btn btn-primary">Ver Catalogo Completo</a></div>
+  </div>
+  <div class="related-section"><h3>Articulos Relacionados</h3>
+    <div class="related-grid">
+      <a href="prompts-ia-productividad-2026.html" class="related-card"><div class="cat">Productividad</div><h4>10 Mejores Prompts de IA para Productividad</h4><p>Organiza tu dia y multiplica tu rendimiento.</p></a>
+      <a href="prompts-ia-finanzas-personales.html" class="related-card"><div class="cat">Finanzas</div><h4>10 Prompts de IA para Finanzas Personales</h4><p>Controla tu presupuesto con inteligencia artificial.</p></a>
+      <a href="prompts-ia-programacion.html" class="related-card"><div class="cat">Programacion</div><h4>12 Prompts de IA para Programar Mejor</h4><p>Debugging y code review con IA.</p></a>
+    </div>
+  </div>
 </div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>1. Resumir Textos Académicos</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un tutor académico. Resume este texto manteniendo toda la información clave: [pega el texto]. El resumen debe tener: 1) Idea principal (1 frase), 2) 5 puntos clave numerados, 3) Términos importantes con definiciones simples, 4) Preguntas de comprensión. Nivel de detalle: [medio/alto]. Extensión máxima: 500 palabras."
-</div>
-
-<h2>2. Preparación de Exámenes</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Voy a tener un examen de [materia] sobre [temas]. Genérame un plan de estudio de [días] días. Incluye: qué estudiar cada día, ejercicios prácticos, preguntas tipo examen, y técnicas de memorización para cada tema. También dame 10 preguntas de práctica con respuestas para autoevaluarme."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>3. Explicación de Conceptos Complejos</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Explícame [concepto complejo] como si fuera un niño de 10 años. Luego, como si fuera un estudiante universitario. Finalmente, como si fuera un experto en la materia. Cada explicación debe incluir: analogía, aplicación práctica, y por qué es importante entenderlo."
-</div>
-
-<h2>4. Redacción de Ensayos</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Ayúdame a estructurar un ensayo sobre [tema] para [nivel educativo]. Dame: 1) Tesis principal, 2) 3 argumentos con evidencia, 3) Contraargumentos y refutaciones, 4) Conclusión impactante. No escribas el ensayo completo — solo la estructura y puntos clave. Extensión objetivo: [palabras]."
-</div>
-
-<h2>5. Flashcards Inteligentes</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Genérame 20 flashcards de estudio sobre [tema/materia] siguiendo el método de repaso espaciado. Cada flashcard debe tener: anverso (pregunta corta), reverso (respuesta clara y concisa), y nivel de dificultad (básico/intermedio/avanzado). Organízalas por categorías temáticas."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>6. Aprendizaje de Idiomas</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Soy nivel [principiante/intermedio/avanzado] en [idioma]. Quiero practicar [aspecto: conversación/gramática/vocabulario]. Crea un ejercicio interactivo: 1) 10 frases para traducir, 2) Corrección con explicación, 3) 5 nuevas palabras con ejemplos en contexto, 4) Un mini-diálogo para leer en voz alta."
-</div>
-
-<h2>7. Organización del Tiempo de Estudio</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Tengo [horas] horas semanales para estudiar [materias/módulos]. Crea un horario de estudio óptimo usando la técnica Pomodoro (25 min estudio, 5 min descanso). Distribuye las materias alternando: teoría, práctica, repaso. Incluye bloques para descanso, ejercicio y sueño. Prioriza las materias más difíciles en mis horas de mayor energía."
-</div>
-
-<h2>8. Investigación para Trabajos</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Necesito investigar sobre [tema] para un trabajo académico. Dame: 1) 3 enfoques posibles para mi investigación, 2) Fuentes recomendadas (libros, papers, autores clave), 3) Preguntas de investigación, 4) Metodología sugerida, 5) Posibles limitaciones. También sugiéreme una estructura de capítulos."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>9. Corrección de Textos Académicos</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Corrige este texto académico: [pega tu texto]. Señala: 1) Errores gramaticales y ortográficos, 2) Problemas de estructura argumentativa, 3) Repeticiones y muletillas, 4) Claridad y precisión. No reescribas todo — solo señala los problemas y sugiere mejoras específicas."
-</div>
-
-<h2>10. Técnicas de Memorización</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Necesito memorizar [lista de conceptos/datos/fechas]. Aplica las siguientes técnicas para cada uno: 1) Regla mnemotécnica, 2) Asociación visual, 3) Historia narrativa, 4) Conexión con conocimientos previos. Dame también un plan de repaso espaciado para los próximos 7 días."
-</div>
-
-<div class="tip"><strong>💡 Consejo:</strong> La IA es tu tutor personal 24/7. Aprovéchala para entender conceptos, no para evitar aprender. El conocimiento que construyes tú es el que se queda.</div>
-
-<div class="cta-box">
-  <h3>📚 Recursos NEO Labs para Estudiantes</h3>
-  <p>Organiza tu vida académica con nuestro Student Planner Excel y los packs de prompts de Educación e Idiomas.</p>
-  <a href="https://payhip.com/b/06lFJ" target="_blank">📋 Student Planner → 14.99€</a>
-  <br>
-  <a href="https://payhip.com/b/M3eqn" target="_blank" class="secondary-link">📖 Pack Educación → 9.99€</a>
-  <a href="https://payhip.com/b/lIKX7" target="_blank" class="secondary-link">🌍 Pack Idiomas → 9.99€</a>
-</div>
-
-<ul style="margin:15px 20px;color:#bbb">
-  <li><a href="https://payhip.com/b/98ens" style="color:#d4af37">📥 Guía gratuita: 5 Prompts de IA</a></li>
-  <li><a href="https://magodago.github.io/neo-jarvis/blog/" style="color:#d4af37">📝 Blog NEO Labs</a></li>
-  <li><a href="https://magodago.github.io/neo-jarvis/catalogo.html" style="color:#d4af37">📋 Catálogo completo</a></li>
-</ul>
-</div>
-<footer><p>NEO Labs © 2026 — <a href="https://magodago.github.io/neo-jarvis/blog/">Blog</a> · <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catálogo</a> · <a href="https://payhip.com/b/98ens">Guía Gratis</a></p></footer>
+<footer>
+  <div class="logo">NE<span>O</span></div>
+  <div class="links">
+    <a href="../neo-labs.html">Inicio</a>
+    <a href="../catalogo.html">Catalogo</a>
+    <a href="index.html">Blog</a>
+    <a href="https://payhip.com/b/98ens" target="_blank">Guia Gratuita</a>
+  </div>
+  <p class="copy">&copy; 2026 NEO Labs. Productividad aumentada con inteligencia artificial.</p>
+</footer>
+<script>
+let p=document.getElementById('progress')
+document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav')
+document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
 </body>
 </html>

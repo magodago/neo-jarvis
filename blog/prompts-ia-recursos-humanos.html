@@ -1,110 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>8 Prompts de IA para Recursos Humanos [Guía 2026]</title>
-<meta name="description" content="8 prompts de IA para selección de personal, evaluación de candidatos, descripciones de puesto, comunicación interna y gestión de equipos con ChatGPT.">
-<meta name="keywords" content="prompts IA rrhh, seleccion personal ia, descripcion puesto ia, recursos humanos chatgpt, entrevistas ia">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 Prompts de IA para Recursos Humanos — NEO Labs</title>
+<meta name="description" content="Optimiza la seleccion de personal, evaluacion de candidatos y comunicacion interna con estos 8 prompts de IA para profesionales de RRHH.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/prompts-ia-recursos-humanos.html">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta property="og:title" content="8 Prompts de IA para Recursos Humanos">
+<meta property="og:description" content="Seleccion, evaluacion y comunicacion interna con IA para RRHH.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://magodago.github.io/neo-jarvis/blog/prompts-ia-recursos-humanos.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#121212;color:#e0e0e0;font-family:'Inter',sans-serif;line-height:1.8;font-size:17px}
-.container{max-width:800px;margin:0 auto;padding:20px}
-header{background:#0a0a0a;border-bottom:2px solid #d4af37;padding:20px 0;text-align:center;margin-bottom:30px}
-header a{color:#d4af37;text-decoration:none;font-size:0.9em}
-h1{color:#d4af37;font-size:2em;margin:20px 0}
-h2{color:#d4af37;font-size:1.4em;margin:30px 0 15px;border-bottom:1px solid #333;padding-bottom:8px}
-p{margin:15px 0}
-.prompt-box{background:#1a1a1a;border-left:3px solid #d4af37;padding:15px;margin:15px 0;border-radius:0 6px 6px 0;font-size:0.9em;color:#ccc}
-.prompt-box strong{color:#d4af37}
-.cta-box{background:linear-gradient(135deg,#1a1a1a,#2a2a1a);border:1px solid #d4af37;border-radius:8px;padding:25px;margin:30px 0;text-align:center}
-.cta-box h3{color:#d4af37;margin:0 0 10px}
-.cta-box a{display:inline-block;background:#d4af37;color:#121212;padding:12px 25px;border-radius:5px;text-decoration:none;font-weight:bold;margin:10px 0}
-.cta-box .secondary-link{color:#d4af37;text-decoration:none;font-size:0.9em;margin:5px 10px;display:inline-block}
-.ad-space{background:#0f0f1e;border:1px dashed rgba(212,175,55,0.2);border-radius:8px;padding:30px;text-align:center;margin:40px 0;color:#4a3a20;font-size:11px;letter-spacing:2px;font-family:monospace}
-footer{text-align:center;padding:30px;color:#555;border-top:1px solid #222;font-size:0.85em;margin-top:40px}
-footer a{color:#d4af37}
+:root{--gold:#d4a853;--gold-light:#e8c97a;--gold-dark:#b8922f;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8}
+a{color:var(--gold);text-decoration:none;transition:all .3s}
+a:hover{color:var(--gold-light)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,.1);transition:transform .35s}
+nav.hidden{transform:translateY(-100%)}
+.nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links a{color:var(--text-muted);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:768px){.nav-links{display:none};nav{padding:14px 20px}}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;letter-spacing:.5px;padding-top:90px;margin-bottom:8px}
+.breadcrumb a{color:#6a6558}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb span{color:#6a6558}
+.article-header{margin-bottom:40px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:12px}
+.article-header .meta{display:flex;gap:20px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:#fff;margin:40px 0 12px;letter-spacing:-.3px}
+.article-body p{font-size:.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.article-body p strong{color:var(--text)}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:20px 24px;margin:16px 0 24px}
+.prompt-box .prompt-label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+.prompt-box .prompt-text{font-size:.88rem;color:#d0c8bc;line-height:1.7;font-style:italic;white-space:pre-wrap}
+.prompt-box .prompt-text strong{color:var(--gold-light)}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:36px 28px;text-align:center;margin:32px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.88rem;margin-bottom:18px}
+.btn{padding:12px 30px;border-radius:8px;font-family:var(--font-display);font-size:.76rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.35);color:var(--bg)}
+.related-section{padding:48px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:48px}
+.related-section h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:20px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:18px 16px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-3px)}
+.related-card .cat{font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.related-card h4{font-family:var(--font-display);font-size:.82rem;font-weight:600;color:#fff;letter-spacing:-.1px}
+.related-card p{font-size:.75rem;color:var(--text-muted);line-height:1.5;margin-top:4px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:44px 24px 28px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.3rem;letter-spacing:4px;font-weight:700;margin-bottom:14px;text-transform:uppercase;color:#fff}
+footer .logo span{color:var(--gold)}
+footer .links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+footer .links a{color:var(--text-muted);font-size:.82rem;letter-spacing:1px}
+footer .links a:hover{color:var(--gold)}
+footer .copy{font-size:.72rem;color:#6a6558}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:9999;transition:width .1s}
+.schema-hidden{display:none}
+@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
 </style>
+<script type="application/ld+json" class="schema-hidden">{"@context":"https://schema.org","@type":"Article","headline":"8 Prompts de IA para Recursos Humanos","description":"Optimiza la seleccion de personal, evaluacion de candidatos y comunicacion interna con IA.","datePublished":"2026-06-08","dateModified":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/prompts-ia-recursos-humanos.html"}}</script>
 </head>
 <body>
-<header><div class="container"><a href="https://magodago.github.io/neo-jarvis/blog/">← Blog NEO Labs</a></div></header>
-<div class="container">
-
-<h1>8 Prompts de IA para Recursos Humanos</h1>
-<p style="color:#888;font-size:0.9em">Publicado: 8 Junio 2026 · 7 min de lectura</p>
-
-<p>Los departamentos de RRHH que usan IA están ahorrando hasta un 40% de tiempo en procesos de selección y gestión de talento. Estos 8 prompts cubren las tareas más importantes del área.</p>
-
-<div class="cta-box">
-  <h3>🎁 Descarga gratis 5 prompts premium</h3>
-  <p>Empieza con mi guía gratuita de 5 prompts probados para productividad profesional.</p>
-  <a href="https://payhip.com/b/98ens" target="_blank">DESCARGAR GRATIS</a>
+<div id="progress"></div>
+<nav id="nav">
+  <div class="nav-logo">NE<span>O</span></div>
+  <ul class="nav-links">
+    <li><a href="../neo-labs.html">Inicio</a></li>
+    <li><a href="../catalogo.html">Catalogo</a></li>
+    <li><a href="index.html">Blog</a></li>
+  </ul>
+</nav>
+<div class="wrap">
+  <div class="breadcrumb"><a href="../neo-labs.html">Inicio</a> <span>/</span> <a href="index.html">Blog</a> <span>/</span> <span>RRHH</span></div>
+  <div class="article-header">
+    <span class="cat-tag" style="background:rgba(233,30,99,.15);color:#e91e63">RRHH</span>
+    <h1>8 Prompts de IA para Recursos Humanos</h1>
+    <div class="meta"><span>8 Junio 2026</span><span>7 min de lectura</span></div>
+  </div>
+  <div class="article-body">
+    <p>Los profesionales de RRHH dedican el 60% de su tiempo a tareas administrativas que la IA puede hacer en segundos. Seleccion, evaluacion, comunicacion interna y mas.</p>
+    <p>Estos <strong>8 prompts de IA para Recursos Humanos</strong> te ayudaran a ser mas eficiente y estrategico en tu trabajo diario.</p>
+    <div class="cta-box"><h3>Descarga gratis 5 prompts premium</h3><p>Quieres empezar ya? Descarga mi guia gratuita con 5 prompts listos para usar.</p><a href="https://payhip.com/b/98ens" target="_blank" class="btn btn-primary">Descargar Gratis</a></div>
+    <h2>1. Descripcion de Puestos Atractiva</h2>
+    <p>Crea ofertas de empleo que atraigan a los mejores candidatos. Este prompt genera descripciones de puesto claras, inclusivas y persuasivas.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un especialista en employer branding.</strong> Crea una descripcion de puesto para [nombre del puesto] en [sector/empresa]. La descripcion debe: 1) Titulo atractivo y SEO-friendly, 2) Resumen del puesto en 3 lineas, 3) Responsabilidades clave (5-7 puntos), 4) Requisitos imprescindibles y deseables, 5) Que ofrecemos (beneficios, cultura, crecimiento), 6) Tono inclusivo que fomente diversidad. Extension: 300-400 palabras.</div></div>
+    <h2>2. Evaluacion de Candidatos con Entrevista</h2>
+    <p>Prepara entrevistas estructuradas con preguntas relevantes y criterios de evaluacion objetivos para cada candidato.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un reclutador senior.</strong> Voy a entrevistar a un candidato para [puesto]. CV del candidato: [PEGA CV]. Dame: 1) 5 preguntas clave para la entrevista basadas en su experiencia, 2) 3 preguntas de competencias situacionales, 3) Criterios de evaluacion objetivos con escala 1-5, 4) Red flags a los que prestar atencion, 5) Preguntas para validar los requisitos tecnicos del puesto.</div></div>
+    <h2>3. Criba Curricular Automatica</h2>
+    <p>Analiza multiples CVs en segundos y encuentra a los candidatos que mejor encajan con el puesto.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un analista de talento.</strong> Analiza estos CVs para el puesto de [nombre del puesto]. Requisitos imprescindibles: [lista]. Requisitos valorables: [lista]. Para cada CV: 1) Puntuacion de ajuste (0-100), 2) Puntos fuertes para el puesto, 3) Deficiencias respecto a requisitos, 4) Recomendacion (entrevista/descartar/dudas). Prioriza los 3 mejores candidatos y justifica por que.</div></div>
+    <h2>4. Plan de Onboarding</h2>
+    <p>Disena un proceso de onboarding que triplica la retencion de nuevos empleados en los primeros 90 dias.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un especialista en onboarding.</strong> Disena un plan de onboarding de 90 dias para un nuevo empleado de [puesto] en [sector]. Incluye: 1) Semana 1: preparacion, bienvenida y configuracion, 2) Semana 2-4: formacion especifica y primeros proyectos, 3) Mes 2: autonomia progresiva con mentor, 4) Mes 3: evaluacion y plan de desarrollo, 5) Checklist de tareas para RRHH, manager y empleado en cada fase, 6) Metricas para medir exito del onboarding.</div></div>
+    <h2>5. Comunicacion Interna Efectiva</h2>
+    <p>Redacta comunicados internos claros y profesionales que mantengan a tu equipo informado y motivado.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un especialista en comunicacion interna.</strong> Necesito redactar un comunicado sobre [tema: cambio normativo/nuevo beneficio/evento] dirigido a [audiencia: toda la empresa/departamento]. Tono: [cercano/formalinformativo]. Incluye: 1) Asunto del email, 2) Cuerpo del mensaje claro y directo, 3) FAQ con 5 preguntas previsibles y respuestas, 4) CTA para siguientes pasos, 5) Version para Slack/Teams si aplica.</div></div>
+    <h2>6. Encuesta de Clima Laboral</h2>
+    <p>Disena y analiza encuestas de clima laboral que revelen el estado real de tu organizacion.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un analista de clima organizacional.</strong> Disena una encuesta de clima laboral para [empresa] con [X] empleados. Incluye: 1) 15 preguntas clave distribuidas en categorias (satisfaccion, cultura, liderazgo, crecimiento, bienestar), 2) Escala de medicion clara, 3) 2 preguntas abiertas para insights cualitativos, 4) Plantilla de analisis de resultados con categorias, 5) Acciones recomendadas segun rangos de puntuacion.</div></div>
+    <h2>7. Plan de Formacion Personalizado</h2>
+    <p>Crea planes de desarrollo profesional adaptados a las necesidades de cada empleado y a los objetivos de la empresa.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un talent development specialist.</strong> Creame un plan de formacion para [puesto] con nivel de experiencia [junior/mid/senior]. Objetivos de desarrollo: [lista]. Tiempo disponible: [X]h/semana. Presupuesto: [cantidad]. Incluye: 1) Habilidades a desarrollar priorizadas, 2) Recursos formativos recomendados (cursos, libros, workshops), 3) Calendario de formacion a 6 meses, 4) Proyectos practicos para aplicar lo aprendido, 5) Metricas para medir progreso.</div></div>
+    <h2>8. Evaluacion de Desempeno</h2>
+    <p>Prepara evaluaciones de desempeno objetivas y constructivas que motiven a tus empleados a crecer.</p>
+    <div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un coach de desarrollo profesional.</strong> Ayudame a preparar una evaluacion de desempeno para [empleado] en [puesto]. Logros del periodo: [lista]. Areas de mejora: [lista]. Objetivos para el proximo periodo: [lista]. Genera: 1) Estructura de la reunion con tiempos, 2) Feedback constructivo con tecnica SBI, 3) Objetivos SMART para el proximo periodo, 4) Plan de desarrollo acordado, 5) Preguntas para fomentar la autoevaluacion y el dialogo.</div></div>
+    <div class="cta-box"><h3>Pack Completo de RRHH</h3><p>10 prompts premium adicionales para seleccion, onboarding, evaluacion y gestion del talento.</p><a href="https://payhip.com/b/KragB" target="_blank" class="btn btn-primary">Comprar Pack 9.99</a></div>
+    <div class="cta-box"><h3>60 Prompts Premium</h3><p>Los 6 packs tematicos en uno. Mas de 200 paginas de prompts profesionales.</p><a href="../catalogo.html" class="btn btn-primary">Ver Catalogo Completo</a></div>
+  </div>
+  <div class="related-section"><h3>Articulos Relacionados</h3>
+    <div class="related-grid">
+      <a href="prompts-ia-productividad-2026.html" class="related-card"><div class="cat">Productividad</div><h4>10 Mejores Prompts de IA para Productividad</h4><p>Organiza tu dia y multiplica tu rendimiento.</p></a>
+      <a href="prompts-ia-marketing-digital.html" class="related-card"><div class="cat">Marketing</div><h4>15 Prompts de IA para Marketing Digital</h4><p>SEO, redes y copywriting con inteligencia artificial.</p></a>
+      <a href="prompts-ia-estudiantes.html" class="related-card"><div class="cat">Educacion</div><h4>10 Prompts de IA para Estudiar Mejor</h4><p>Prepara examenes y resumes textos con IA.</p></a>
+    </div>
+  </div>
 </div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>1. Descripciones de Puesto Atractivas</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un especialista en employer branding. Redacta una descripción de puesto para [cargo] en una empresa de [sector]. La descripción debe: 1) Captar atención en las primeras 2 líneas, 2) Incluir responsabilidades clave (5-7 bullets), 3) Requisitos imprescindibles y deseables, 4) Beneficios y cultura, 5) Call to action. Tono: [formal/cercano/innovador]. Longitud: 300-400 palabras."
-</div>
-
-<h2>2. Preguntas para Entrevistas</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Genérame 15 preguntas de entrevista para un candidato a [puesto]. Clasifícalas en: 1) Comportamentales (método STAR), 2) Técnicas específicas del rol, 3) De motivación y valores, 4) De resolución de problemas. Para cada pregunta, indica qué evaluar en la respuesta y señales de alerta. Nivel de seniority: [junior/mid/senior]."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>3. Evaluación de CV</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un recruiter senior. Evalúa este CV para el puesto de [cargo]: [pega el CV/texto]. Dame: 1) Puntuación del 1-10 y por qué, 2) Fortalezas clave, 3) Debilidades o gaps, 4) Preguntas específicas que hacerle en entrevista, 5) Recomendación final (contratar/no contratar/probar). Sé objetivo y específico."
-</div>
-
-<h2>4. Plan de Onboarding</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Diseña un plan de onboarding de [días/semanas] para un nuevo empleado de [puesto] en [sector/empresa]. Incluye: día a día con objetivos específicos, personas con las que reunirse, herramientas que aprender, documentos que leer, y milestones de integración. El plan debe asegurar que en [plazo] el empleado sea completamente autónomo."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>5. Comunicación Interna Efectiva</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Necesito comunicar [mensaje/anuncio] a todo el equipo de [tamaño] personas. El tono debe ser [formal/cercano]. Dame: 1) Email para toda la empresa, 2) Mensaje para Slack/Teams, 3) Resumen ejecutivo para dirección. Cada versión debe ser clara, empática y con un CTA si aplica. Considera que habrá preguntas — anticipa las 5 más probables con respuestas."
-</div>
-
-<h2>6. Evaluación de Desempeño</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un coach de desarrollo profesional. Prepara una evaluación de desempeño para un empleado de [puesto] con [años] en la empresa. Logros destacados: [lista]. Áreas de mejora: [lista]. Dame: estructura de la reunión, puntos a destacar, feedback constructivo, plan de desarrollo con objetivos SMART, y posibles preguntas difíciles con respuestas preparadas."
-</div>
-
-<h2>7. Cálculo de Rango Salarial</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Necesito establecer un rango salarial para [puesto] en [ubicación/remoto]. Sector: [sector]. Experiencia requerida: [años]. Dame: 1) Rango salarial bajo/medio/alto para el mercado actual, 2) Factores que justifican cada nivel, 3) Benchmarks de empresas similares, 4) Recomendación para oferta inicial considerando retención y competitividad. Moneda: [EUR/USD]."
-</div>
-
-<div class="ad-space">PUBLICIDAD · GOOGLE ADSENSE</div>
-
-<h2>8. Plan de Retención de Talento</h2>
-<div class="prompt-box"><strong>Prompt:</strong><br>
-"Eres un consultor de gestión del talento. Ayúdame a diseñar un plan de retención para mi equipo de [tamaño] personas. El perfil predominante es [perfil]. Factores de riesgo: [rotación/burnout/falta de crecimiento]. Dame: 1) Estrategias de retención por perfil, 2) Programa de desarrollo profesional, 3) Beneficios diferenciales con bajo coste, 4) Métricas para medir retención, 5) Plan de acción trimestral."
-</div>
-
-<div class="tip"><strong>💡 Consejo:</strong> La IA en RRHH no reemplaza el criterio humano — lo potencia. Úsala para ser más eficiente en lo administrativo y dedicar más tiempo a lo que realmente importa: las personas.</div>
-
-<div class="cta-box">
-  <h3>🚀 Pack Completo: 60 Prompts Premium de RRHH</h3>
-  <p>Selección, onboarding, evaluación, comunicación, legislación laboral y desarrollo de equipos. PDF descargable.</p>
-  <a href="https://payhip.com/b/KragB" target="_blank">CONSIGUE EL PACK → 9.99€</a>
-  <br>
-  <a href="https://payhip.com/b/Fvg2O" target="_blank" class="secondary-link">📋 Pack Recursos Humanos → 9.99€</a>
-</div>
-
-<ul style="margin:15px 20px;color:#bbb">
-  <li><a href="https://payhip.com/b/98ens" style="color:#d4af37">📥 Guía gratuita: 5 Prompts de IA</a></li>
-  <li><a href="https://magodago.github.io/neo-jarvis/blog/" style="color:#d4af37">📝 Blog NEO Labs</a></li>
-  <li><a href="https://magodago.github.io/neo-jarvis/catalogo.html" style="color:#d4af37">📋 Catálogo completo</a></li>
-</ul>
-</div>
-<footer><p>NEO Labs © 2026 — <a href="https://magodago.github.io/neo-jarvis/blog/">Blog</a> · <a href="https://magodago.github.io/neo-jarvis/catalogo.html">Catálogo</a></p></footer>
+<footer>
+  <div class="logo">NE<span>O</span></div>
+  <div class="links">
+    <a href="../neo-labs.html">Inicio</a>
+    <a href="../catalogo.html">Catalogo</a>
+    <a href="index.html">Blog</a>
+    <a href="https://payhip.com/b/98ens" target="_blank">Guia Gratuita</a>
+  </div>
+  <p class="copy">&copy; 2026 NEO Labs. Productividad aumentada con inteligencia artificial.</p>
+</footer>
+<script>
+let p=document.getElementById('progress')
+document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav')
+document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
 </body>
 </html>
