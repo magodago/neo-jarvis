@@ -1,0 +1,1272 @@
+{
+ "productividad": [
+  {
+   "kw": "organizar tu dia con chatgpt",
+   "target": "organizar tu dia con ChatGPT",
+   "title": "Como organizar tu dia con ChatGPT en 5 minutos",
+   "desc": "Aprende a usar ChatGPT para planificar tu dia de forma optima. Prioriza tareas, gestiona tu tiempo y se mas productivo desde ya.",
+   "sections": [
+    [
+     "Planifica tu dia en segundos",
+     "El mejor momento para planificar tu dia con ChatGPT es por la manana. Prompt: Eres un planificador experto. Hoy tengo estas tareas: [lista]. Dispongo de [X] horas. Dame un plan horario optimizado con bloques de enfoque de 90 minutos."
+    ],
+    [
+     "Gestiona interrupciones con IA",
+     "Prompt: Acabo de recibir una tarea urgente [descripcion]. Mi plan actual es [plan]. Como reajusto mi dia sin sacrificar lo importante? Dame 3 opciones."
+    ],
+    [
+     "Prompt experto para planificacion",
+     "El prompt definitivo que ahorra 30 minutos cada lunes. Pide a ChatGPT que analice tu calendario semanal y optimice tu plan."
+    ]
+   ]
+  },
+  {
+   "kw": "gestionar tiempo con inteligencia artificial",
+   "target": "gestionar tiempo con IA",
+   "title": "Gestiona tu tiempo con inteligencia artificial como un CEO",
+   "desc": "Tecnicas de gestion del tiempo potenciadas con IA.",
+   "sections": [
+    [
+     "Auditoria de tiempo",
+     "He registrado mi tiempo esta semana: [datos]. Analiza como lo he invertido: porcentaje en tareas importantes vs urgentes, patrones de procrastinacion."
+    ],
+    [
+     "Time blocking",
+     "Dame un time blocking schedule para manana. Tengo [horas] disponibles. Quiero 3 bloques de enfoque profundo."
+    ],
+    [
+     "Elimina ladrones de tiempo",
+     "Identifica mis 5 mayores ladrones de tiempo y dame una estrategia concreta para eliminarlos."
+    ]
+   ]
+  },
+  {
+   "kw": "escribir emails mas rapido con chatgpt",
+   "target": "escribir emails con ChatGPT",
+   "title": "Escribe emails profesionales en 1 minuto con ChatGPT",
+   "desc": "Redacta emails perfectos en segundos con prompts de IA.",
+   "sections": [
+    [
+     "El prompt para emails",
+     "Eres mi asistente de comunicacion. Necesito un email sobre [asunto]. Tono: [profesional/cercano]. Dame 3 versiones."
+    ],
+    [
+     "Bandeja de entrada cero",
+     "Clasifica mis 50 emails en: responder hoy, esta semana, delegar, archivar. Dame borradores de respuesta."
+    ],
+    [
+     "Emails dificiles",
+     "Necesito rechazar una propuesta sin quemar puentes. Dame 3 enfoques: directo, diplomatico, constructivo."
+    ]
+   ]
+  },
+  {
+   "kw": "automatizar tareas repetitivas con ia",
+   "target": "automatizar tareas con IA",
+   "title": "Automatiza tus tareas repetitivas con inteligencia artificial",
+   "desc": "Delega tareas tediosas a la IA y recupera horas.",
+   "sections": [
+    [
+     "Identifica que automatizar",
+     "Describe tu trabajo diario. Identifica que se puede automatizar con IA, que delegar, y que requiere atencion humana."
+    ],
+    [
+     "Automatiza resumenes",
+     "Eres mi asistente. Extrae de este documento: puntos clave, decisiones, acciones pendientes."
+    ],
+    [
+     "Plantillas reutilizables",
+     "Crea tu biblioteca de prompts para tareas recurrentes. Una hora de inversion ahorra 5 horas semanales."
+    ]
+   ]
+  },
+  {
+   "kw": "tomar notas reuniones con chatgpt",
+   "target": "tomar notas con ChatGPT",
+   "title": "Toma notas de reuniones perfectas con ChatGPT",
+   "desc": "Resume reuniones y extrae acciones con IA.",
+   "sections": [
+    [
+     "Minutas perfectas",
+     "A partir de estas notas genera: resumen ejecutivo, decisiones, acciones pendientes, proximos pasos."
+    ],
+    [
+     "Reuniones con clientes",
+     "Genera email de seguimiento: agradecimiento, resumen, proximos pasos con fechas."
+    ],
+    [
+     "Acciones post-reunion",
+     "Identifica: tareas a delegar, riesgos no mencionados, temas para la siguiente reunion."
+    ]
+   ]
+  },
+  {
+   "kw": "crear sistema productividad personal chatgpt",
+   "target": "sistema de productividad con ChatGPT",
+   "title": "Crea tu sistema de productividad personal con ChatGPT",
+   "desc": "Construye un sistema de productividad a medida.",
+   "sections": [
+    [
+     "Disena tu sistema",
+     "Ayudame a disenar un sistema de productividad para mi sector. Quiero: planificacion diaria, seguimiento semanal, revision mensual."
+    ],
+    [
+     "Implementa",
+     "Crea una plantilla de revision semanal: logros, pendientes, ajustes, leccion aprendida. 10 minutos."
+    ],
+    [
+     "Mejora continua",
+     "Cada semana: analiza mi progreso y dame 3 cambios concretos para mejorar."
+    ]
+   ]
+  },
+  {
+   "kw": "priorizar tareas con inteligencia artificial",
+   "target": "priorizar tareas con IA",
+   "title": "Prioriza tus tareas como un experto con IA",
+   "desc": "Usa ChatGPT para matrices de priorizacion.",
+   "sections": [
+    [
+     "Matriz Eisenhower",
+     "Aplica la matriz de Eisenhower a mis tareas. Clasifica en urgente/importante/no urgente/no importante."
+    ],
+    [
+     "Valor vs esfuerzo",
+     "Prioriza mis proyectos usando matriz valor-esfuerzo. Top 5 por mejor relacion."
+    ],
+    [
+     "Decisiones complejas",
+     "Ayudame a decidir entre opciones usando analisis multicriterio."
+    ]
+   ]
+  },
+  {
+   "kw": "organizar proyectos con chatgpt",
+   "target": "organizar proyectos con ChatGPT",
+   "title": "Organiza proyectos con ChatGPT",
+   "desc": "Planifica y gestiona proyectos con IA.",
+   "sections": [
+    [
+     "Planifica",
+     "Ayudame a planificar mi proyecto: WBS, hitos, dependencias, riesgos."
+    ],
+    [
+     "Seguimiento",
+     "Actualizo mi proyecto. Identifica desviaciones y tareas criticas."
+    ],
+    [
+     "Comunicacion",
+     "Crea informe de avance para stakeholders: %, hitos, riesgos."
+    ]
+   ]
+  },
+  {
+   "kw": "mejorar enfoque concentracion trabajo ia",
+   "target": "mejorar enfoque con IA",
+   "title": "Mejora tu enfoque con inteligencia artificial",
+   "desc": "Elimina distracciones y concentrate mejor.",
+   "sections": [
+    [
+     "Preparate",
+     "Sesion de 90 minutos sobre [tema]. Dame objetivos y recursos."
+    ],
+    [
+     "Gestiona distracciones",
+     "Perdi 30 minutos en X. Analiza por que y dame estrategias."
+    ],
+    [
+     "Entorno optimo",
+     "Recomienda mejoras para mi entorno de trabajo."
+    ]
+   ]
+  },
+  {
+   "kw": "resumir documentos largos chatgpt",
+   "target": "resumir con ChatGPT",
+   "title": "Resume documentos largos con ChatGPT",
+   "desc": "Ahorra horas de lectura con resumenes IA.",
+   "sections": [
+    [
+     "Resumen ejecutivo",
+     "Resume: puntos clave, datos relevantes, conclusiones."
+    ],
+    [
+     "Por niveles",
+     "3 versiones: CEO (2 lineas), equipo (parrafo), personal (detallado)."
+    ],
+    [
+     "Aprendizajes",
+     "Extrae: ideas principales, ejemplos, datos, aplicacion semanal."
+    ]
+   ]
+  },
+  {
+   "kw": "planificar semana laboral chatgpt",
+   "target": "planificar semana con ChatGPT",
+   "title": "Planifica tu semana en 10 minutos con ChatGPT",
+   "desc": "Organiza tu semana desde el domingo.",
+   "sections": [
+    [
+     "Revision domingo",
+     "Dame plan diario priorizado y los 3 resultados clave de la semana."
+    ],
+    [
+     "Ajustes miercoles",
+     "Mi plan era X, paso Y. Como reajusto? Prioriza."
+    ],
+    [
+     "Retrospectiva viernes",
+     "Que funciono, que no, 3 cambios para la proxima."
+    ]
+   ]
+  },
+  {
+   "kw": "delegar tareas a inteligencia artificial",
+   "target": "delegar a IA",
+   "title": "Aprende a delegar tareas a la inteligencia artificial",
+   "desc": "Instrucciones precisas para resultados profesionales.",
+   "sections": [
+    [
+     "El arte del prompt",
+     "Necesito que hagas [tarea]. Contexto completo: que, para que, formato deseado."
+    ],
+    [
+     "Revisa resultados",
+     "Revisa lo que generaste. Hay errores? Senala todo lo incorrecto."
+    ],
+    [
+     "Sistema de delegacion",
+     "Checklist de que delegar, plantillas, proceso de revision."
+    ]
+   ]
+  },
+  {
+   "kw": "productividad personal google gemini",
+   "target": "productividad con Gemini",
+   "title": "Guia de productividad personal con Google Gemini",
+   "desc": "Usa Gemini integrado con Google Calendar y Drive.",
+   "sections": [
+    [
+     "Integracion Google",
+     "Conecta con mi calendario. Analiza mi semana y optimiza mi tiempo."
+    ],
+    [
+     "Gestion proyectos",
+     "Usa Google Drive para analizar documentos del proyecto."
+    ],
+    [
+     "Briefing diario",
+     "Integra calendario, emails y Drive para un briefing de 5 puntos."
+    ]
+   ]
+  },
+  {
+   "kw": "organizar tareas diarias claude ai",
+   "target": "organizar con Claude",
+   "title": "Organiza tus tareas diarias con Claude AI",
+   "desc": "Prompts optimizados para Claude. Contexto largo.",
+   "sections": [
+    [
+     "Contexto largo",
+     "He pegado 3 meses de historial. Analiza patrones y recomienda mejoras."
+    ],
+    [
+     "Organizacion diaria",
+     "Basado en notas y calendario, genera plan de accion priorizado."
+    ],
+    [
+     "Coach de productividad",
+     "Actua como mi coach. Feedback y 1 ajuste para manana."
+    ]
+   ]
+  },
+  {
+   "kw": "automatizar informes semanales inteligencia artificial",
+   "target": "automatizar informes con IA",
+   "title": "Automatiza tus informes semanales con IA",
+   "desc": "Reportes profesionales con solo dar datos.",
+   "sections": [
+    [
+     "Estructura",
+     "Genera informe semanal: resumen, KPIs, logros, incidencias, plan."
+    ],
+    [
+     "Datos a informe",
+     "Te paso datos crudos. Analiza tendencias y genera informe ejecutivo."
+    ],
+    [
+     "Multi-audiencia",
+     "3 versiones: jefe (metricas), equipo (detalles), stakeholders (vision)."
+    ]
+   ]
+  }
+ ],
+ "finanzas": [
+  {
+   "kw": "controlar gastos mensuales con chatgpt",
+   "target": "controlar gastos con ChatGPT",
+   "title": "Controla tus gastos mensuales con ChatGPT",
+   "desc": "Usa IA para analizar y optimizar tus gastos.",
+   "sections": [
+    [
+     "Categoriza gastos",
+     "Clasifica estos gastos en categorias: vivienda, alimentacion, ocio. Dame total por categoria y %."
+    ],
+    [
+     "Presupuesto inteligente",
+     "Crea presupuesto mensual basado en ingresos y gastos. Incluye ahorro del 20%."
+    ],
+    [
+     "Alertas",
+     "Cada semana revisa mis gastos. Alerta si me paso en alguna categoria."
+    ]
+   ]
+  },
+  {
+   "kw": "planificar ahorro mensual inteligencia artificial",
+   "target": "planificar ahorro con IA",
+   "title": "Planifica tu ahorro mensual con IA",
+   "desc": "Estrategias de ahorro personalizadas.",
+   "sections": [
+    [
+     "Diagnostico",
+     "Analiza mi situacion. Estoy en buena salud financiera? Cuanto deberia ahorrar?"
+    ],
+    [
+     "Plan 6 meses",
+     "Crea plan de ahorro. De donde sacar el dinero y como mantener la motivacion."
+    ],
+    [
+     "Regla 50/30/20",
+     "Aplica la regla a mis gastos. Cumplo? Que ajustes hacer?"
+    ]
+   ]
+  },
+  {
+   "kw": "analizar inversiones con chatgpt",
+   "target": "analizar inversiones con ChatGPT",
+   "title": "Analiza tus inversiones con ChatGPT",
+   "desc": "Evaluacion de carteras y riesgos.",
+   "sections": [
+    [
+     "Analisis cartera",
+     "Evalua mi cartera: diversificacion, riesgo, rentabilidad, comisiones."
+    ],
+    [
+     "Comparativa",
+     "Compara opciones de inversion. Recomiendame la mejor."
+    ],
+    [
+     "Riesgo",
+     "Evalua el riesgo de mi cartera del 1 al 10. Como mejorarlo?"
+    ]
+   ]
+  },
+  {
+   "kw": "presupuesto familiar inteligencia artificial",
+   "target": "presupuesto familiar con IA",
+   "title": "Gestiona el presupuesto familiar con IA",
+   "desc": "Finanzas del hogar con ayuda de IA.",
+   "sections": [
+    [
+     "Presupuesto",
+     "Crea presupuesto familiar realista con ingresos, gastos fijos y objetivos."
+    ],
+    [
+     "Seguimiento",
+     "Comparamos gastos del mes con presupuesto. Progresamos hacia metas?"
+    ],
+    [
+     "Plan 5 anos",
+     "Planificacion financiera a 5 anos. Es factible con ingresos actuales?"
+    ]
+   ]
+  },
+  {
+   "kw": "preparar declaracion renta chatgpt",
+   "target": "declaracion renta con ChatGPT",
+   "title": "Preparate para la renta con ChatGPT",
+   "desc": "Documentacion fiscal organizada.",
+   "sections": [
+    [
+     "Documentacion",
+     "Checklist completo de documentacion para mi declaracion."
+    ],
+    [
+     "Deducciones",
+     "Identifica todas las deducciones a las que opto. Ahorro estimado."
+    ],
+    [
+     "Simulacion",
+     "Simula mi declaracion: me sale a pagar o devolver? Cuanto?"
+    ]
+   ]
+  },
+  {
+   "kw": "educacion financiera inteligencia artificial",
+   "target": "educacion financiera con IA",
+   "title": "Aprende educacion financiera con IA",
+   "desc": "Curso personalizado de finanzas.",
+   "sections": [
+    [
+     "Diagnostico",
+     "Evalua mi nivel financiero. Crea plan de aprendizaje personalizado."
+    ],
+    [
+     "Conceptos",
+     "Explica conceptos con analogias y preguntas de verificacion."
+    ],
+    [
+     "Casos practicos",
+     "Problemas financieros reales para resolver. Solucion paso a paso."
+    ]
+   ]
+  },
+  {
+   "kw": "reducir deudas con inteligencia artificial",
+   "target": "reducir deudas con IA",
+   "title": "Reduce tus deudas con un plan creado por IA",
+   "desc": "Bola de nieve o avalancha.",
+   "sections": [
+    [
+     "Diagnostico",
+     "Analiza mis deudas. Metodo recomendado y tiempo estimado."
+    ],
+    [
+     "Plan pago",
+     "Plan mes a mes con fecha estimada de liberacion."
+    ],
+    [
+     "Negociacion",
+     "Guion para negociar con mi entidad financiera."
+    ]
+   ]
+  },
+  {
+   "kw": "crear fondo emergencia inteligencia artificial",
+   "target": "fondo emergencia con IA",
+   "title": "Crea tu fondo de emergencia con IA",
+   "desc": "Construye tu colchon financiero.",
+   "sections": [
+    [
+     "Calculo",
+     "Gastos esenciales [X]. Meses cobertura: 3-6. Cuanto necesito?"
+    ],
+    [
+     "Plan ahorro",
+     "Plan para ahorrar [X] en [Y] meses. Paso a paso."
+    ],
+    [
+     "Donde guardarlo",
+     "Compara opciones: cuenta ahorro, deposito, fondo monetario."
+    ]
+   ]
+  },
+  {
+   "kw": "detectar eliminar gastos hormiga inteligencia artificial",
+   "target": "gastos hormiga con IA",
+   "title": "Detecta gastos hormiga con IA",
+   "desc": "Pequenos gastos que suman cientos. Descubrelos.",
+   "sections": [
+    [
+     "Caza gastos",
+     "Revisa mis gastos 3 meses. Identifica patrones de gasto innecesario."
+    ],
+    [
+     "Impacto anual",
+     "Calcula el impacto anual. Cuanto podria haber ahorrado?"
+    ],
+    [
+     "Plan 30 dias",
+     "Plan semanal para eliminar gastos hormiga. Recompensa por logros."
+    ]
+   ]
+  },
+  {
+   "kw": "planificar jubilacion inteligencia artificial",
+   "target": "planificar jubilacion con IA",
+   "title": "Planifica tu jubilacion con IA",
+   "desc": "Calcula cuanto necesitas.",
+   "sections": [
+    [
+     "Calculo",
+     "Edad jubilacion [X], gasto [Y], esperanza vida [Z]. Cuanto necesito?"
+    ],
+    [
+     "Estrategia",
+     "Llego a mi objetivo con mi ahorro actual? Varios escenarios."
+    ],
+    [
+     "Optimizacion fiscal",
+     "Compara: plan pensiones, PPAS, index funds. Ventajas fiscales."
+    ]
+   ]
+  },
+  {
+   "kw": "controlar suscripciones mensuales inteligencia artificial",
+   "target": "controlar suscripciones con IA",
+   "title": "Controla tus suscripciones con IA",
+   "desc": "Ahorra en suscripciones que no usas.",
+   "sections": [
+    [
+     "Auditoria",
+     "Clasifica mis suscripciones: esenciales, prescindibles, no usadas. Total."
+    ],
+    [
+     "Plan cancelacion",
+     "Que cancelar hoy, que reducir, que compartir."
+    ],
+    [
+     "Alternativas",
+     "Alternativas mas baratas o gratuitas para cada suscripcion."
+    ]
+   ]
+  },
+  {
+   "kw": "generar ingresos extra inteligencia artificial",
+   "target": "ingresos extra con IA",
+   "title": "Genera ingresos extra con IA",
+   "desc": "Ideas para ganar dinero adicional.",
+   "sections": [
+    [
+     "Ideas",
+     "5 ideas concretas usando IA para empezar esta semana."
+    ],
+    [
+     "Automatiza",
+     "Automatiza tu side hustle con IA. Procesos y herramientas."
+    ],
+    [
+     "Escala",
+     "Analiza tus ingresos. Como duplicarlos en 3 meses?"
+    ]
+   ]
+  }
+ ],
+ "estudiantes": [
+  {
+   "kw": "tomar apuntes con chatgpt",
+   "target": "apuntes con ChatGPT",
+   "title": "Toma apuntes perfectos con ChatGPT",
+   "desc": "Apuntes claros y organizados.",
+   "sections": [
+    [
+     "Estructura",
+     "Reorganiza apuntes: ideas principales, conceptos, ejemplos."
+    ],
+    [
+     "Mapas mentales",
+     "Convierte apuntes en estructura de mapa mental."
+    ],
+    [
+     "Conexiones",
+     "Identifica relaciones entre diferentes temas."
+    ]
+   ]
+  },
+  {
+   "kw": "resumir libros academicos inteligencia artificial",
+   "target": "resumir libros con IA",
+   "title": "Resume libros academicos con IA",
+   "desc": "Ahorra horas de lectura.",
+   "sections": [
+    [
+     "Por capitulos",
+     "Resume con tesis, argumentos, ejemplos y terminos clave."
+    ],
+    [
+     "Fichas estudio",
+     "10 fichas formato pregunta-respuesta."
+    ],
+    [
+     "Contrasta autores",
+     "Compara autores sobre mismo tema. Acuerdos y diferencias."
+    ]
+   ]
+  },
+  {
+   "kw": "preparar examenes inteligencia artificial",
+   "target": "preparar examenes con IA",
+   "title": "Prepara examenes con IA",
+   "desc": "Simulacros y repaso optimizado.",
+   "sections": [
+    [
+     "Simulacro",
+     "20 preguntas tipo test con respuestas y explicaciones."
+    ],
+    [
+     "Desarrollo",
+     "5 preguntas de desarrollo con criterios de evaluacion."
+    ],
+    [
+     "Plan repaso",
+     "Plan diario hasta el examen. Prioriza temas debiles."
+    ]
+   ]
+  },
+  {
+   "kw": "hacer trabajos academicos con chatgpt",
+   "target": "trabajos academicos con ChatGPT",
+   "title": "Haz trabajos academicos con ChatGPT",
+   "desc": "Apoyo etico para tus trabajos.",
+   "sections": [
+    [
+     "Estructura",
+     "Indice detallado con secciones y contenido de cada una."
+    ],
+    [
+     "Investigacion",
+     "Fuentes, autores clave y debates actuales en tu tema."
+    ],
+    [
+     "Revision",
+     "Revisa tu texto: claridad, rigor, fluidez."
+    ]
+   ]
+  },
+  {
+   "kw": "organizar horario estudio inteligencia artificial",
+   "target": "horario estudio con IA",
+   "title": "Organiza tu horario de estudio con IA",
+   "desc": "Maximo rendimiento academico.",
+   "sections": [
+    [
+     "Horario semanal",
+     "Horario optimizado con descansos cada 90 minutos."
+    ],
+    [
+     "Prioriza",
+     "Distribuye tu tiempo entre asignaturas segun urgencia y dificultad."
+    ],
+    [
+     "Tecnicas",
+     "Incorpora Pomodoro y repaso espaciado en tu horario."
+    ]
+   ]
+  },
+  {
+   "kw": "aprender idiomas con chatgpt",
+   "target": "aprender idiomas con ChatGPT",
+   "title": "Aprende idiomas mas rapido con ChatGPT",
+   "desc": "Tutor personal de idiomas.",
+   "sections": [
+    [
+     "Conversacion",
+     "Practica con nativo IA. Te corrige y explica errores."
+    ],
+    [
+     "Correccion",
+     "Revisa tus textos senalando errores y mejores expresiones."
+    ],
+    [
+     "Vocabulario",
+     "20 palabras por tema con ejemplos y dialogo."
+    ]
+   ]
+  },
+  {
+   "kw": "completar trabajo fin grado inteligencia artificial",
+   "target": "TFG con IA",
+   "title": "Completa tu TFG con ayuda de IA",
+   "desc": "Guia etica para tu trabajo final.",
+   "sections": [
+    [
+     "Define tema",
+     "5 ideas con pregunta, objetivos, metodologia."
+    ],
+    [
+     "Marco teorico",
+     "Estructura con conceptos, teorias, autores."
+    ],
+    [
+     "Metodologia",
+     "Recomendacion de metodologia para tu investigacion."
+    ]
+   ]
+  },
+  {
+   "kw": "resolver problemas matematicos inteligencia artificial",
+   "target": "matematicas con IA",
+   "title": "Resuelve problemas de matematicas con IA",
+   "desc": "De algebra a calculo.",
+   "sections": [
+    [
+     "Paso a paso",
+     "Resuelve explicando concepto, cada paso y su justificacion."
+    ],
+    [
+     "Conceptos",
+     "Explica de 3 formas: formula, ejemplo visual, analogia."
+    ],
+    [
+     "Practica",
+     "Problemas para resolver con correccion y feedback."
+    ]
+   ]
+  },
+  {
+   "kw": "leer articulos cientificos inteligencia artificial",
+   "target": "articulos cientificos con IA",
+   "title": "Lee articulos cientificos con IA",
+   "desc": "Comprende papers complejos.",
+   "sections": [
+    [
+     "Resumen",
+     "Pregunta, metodologia, resultados, limitaciones."
+    ],
+    [
+     "Glosario",
+     "Terminos tecnicos explicados en lenguaje sencillo."
+    ],
+    [
+     "Conexiones",
+     "Relacion con otros papers: confirma, contradice o complementa?"
+    ]
+   ]
+  },
+  {
+   "kw": "citar fuentes academicas inteligencia artificial",
+   "target": "citar fuentes con IA",
+   "title": "Cita fuentes correctamente con ChatGPT",
+   "desc": "APA, MLA, Chicago.",
+   "sections": [
+    [
+     "Generacion",
+     "Cita en formato APA 7a ed. Texto y referencia completa."
+    ],
+    [
+     "Bibliografia",
+     "Bibliografia completa desde tus fuentes."
+    ],
+    [
+     "Verificacion",
+     "Revisa tus citas: formato, elementos, ortografia."
+    ]
+   ]
+  },
+  {
+   "kw": "crear presentaciones academicas inteligencia artificial",
+   "target": "presentaciones academicas con IA",
+   "title": "Crea presentaciones academicas con IA",
+   "desc": "Diapositivas efectivas.",
+   "sections": [
+    [
+     "Estructura",
+     "Distribucion de diapositivas y tiempo para tu presentacion."
+    ],
+    [
+     "Contenido",
+     "Titulo, 3 viinetas, notas del presentador."
+    ],
+    [
+     "Defensa",
+     "Posibles preguntas con respuestas preparadas."
+    ]
+   ]
+  },
+  {
+   "kw": "mantener motivacion estudiar inteligencia artificial",
+   "target": "motivacion estudio con IA",
+   "title": "Mantiene la motivacion para estudiar con IA",
+   "desc": "Supera la procrastinacion.",
+   "sections": [
+    [
+     "Supera bloqueo",
+     "Micro-objetivo para hoy y estrategia para recuperar el habito."
+    ],
+    [
+     "Rutina 30 dias",
+     "Crea el habito de estudio. Encadena con rutinas existentes."
+    ],
+    [
+     "Celebra logros",
+     "Reconocimiento por cumplir. Plan para la proxima semana."
+    ]
+   ]
+  }
+ ],
+ "rrhh": [
+  {
+   "kw": "seleccionar candidatos inteligencia artificial",
+   "target": "seleccionar candidatos con IA",
+   "title": "Selecciona candidatos mas rapido con IA",
+   "desc": "Criba de CVs automatizada.",
+   "sections": [
+    [
+     "Criba CVs",
+     "Revisa CVs para el puesto. Clasifica en si, quiza, descarte."
+    ],
+    [
+     "Preguntas",
+     "15 preguntas para entrevista por competencias."
+    ],
+    [
+     "Evaluacion",
+     "Compara finalistas con tabla y recomendacion."
+    ]
+   ]
+  },
+  {
+   "kw": "evaluar desempeno empleados chatgpt",
+   "target": "evaluar desempeno con ChatGPT",
+   "title": "Evalua el desempeno de tus empleados con ChatGPT",
+   "desc": "Evaluaciones constructivas.",
+   "sections": [
+    [
+     "Plantilla",
+     "Plantilla con dimensiones, escala y espacios de feedback."
+    ],
+    [
+     "Feedback",
+     "3 enfoques para dar feedback dificil."
+    ],
+    [
+     "Plan mejora",
+     "Plan 30 dias con objetivos y checkpoints."
+    ]
+   ]
+  },
+  {
+   "kw": "descripcion puestos trabajo inteligencia artificial",
+   "target": "descripciones puestos con IA",
+   "title": "Crea descripciones de puestos con IA",
+   "desc": "Atrae mejores candidatos.",
+   "sections": [
+    [
+     "Completa",
+     "Resumen, responsabilidades, requisitos, beneficios."
+    ],
+    [
+     "Optimizada",
+     "Reescribe para atraer candidatos de calidad."
+    ],
+    [
+     "Requisitos",
+     "Clasifica en imprescindibles, importantes, nice-to-have."
+    ]
+   ]
+  },
+  {
+   "kw": "onboarding nuevos empleados inteligencia artificial",
+   "target": "onboarding con IA",
+   "title": "Automatiza el onboarding con IA",
+   "desc": "Empleados productivos dia 1.",
+   "sections": [
+    [
+     "Plan 30 dias",
+     "Plan detallado: dia 1, semana 1, mes 1."
+    ],
+    [
+     "Guia bienvenida",
+     "Historia, cultura, organigrama, FAQs."
+    ],
+    [
+     "Checklist",
+     "Tareas de IT, RH, equipo, manager por fase."
+    ]
+   ]
+  },
+  {
+   "kw": "evaluar clima laboral encuestas inteligencia artificial",
+   "target": "clima laboral con IA",
+   "title": "Evalua el clima laboral con IA",
+   "desc": "Encuestas inteligentes.",
+   "sections": [
+    [
+     "Diseno",
+     "15 preguntas cuanti-cuali sobre todas las dimensiones."
+    ],
+    [
+     "Analisis",
+     "Puntuacion global, mejores y peores areas."
+    ],
+    [
+     "Plan accion",
+     "Plan 3 meses para las 3 areas criticas."
+    ]
+   ]
+  },
+  {
+   "kw": "formacion empleados inteligencia artificial",
+   "target": "formacion empleados con IA",
+   "title": "Planes de formacion con IA",
+   "desc": "Capacitacion personalizada.",
+   "sections": [
+    [
+     "Necesidades",
+     "Brechas de habilidades y prioridades de formacion."
+    ],
+    [
+     "Plan 3 meses",
+     "Programa con temas, formato y evaluacion."
+    ],
+    [
+     "ROI",
+     "Sistema para medir el retorno de la formacion."
+    ]
+   ]
+  },
+  {
+   "kw": "preparar entrevistas trabajo chatgpt",
+   "target": "entrevistas con ChatGPT",
+   "title": "Prepara entrevistas de trabajo con ChatGPT",
+   "desc": "Como entrevistador o candidato.",
+   "sections": [
+    [
+     "Para candidato",
+     "Preguntas probables, metodo STAR, puntos fuertes."
+    ],
+    [
+     "Simulacion",
+     "Entrevista simulada de 20 min con feedback."
+    ],
+    [
+     "Post-entrevista",
+     "Evalua al candidato: cumple, cultural fit?"
+    ]
+   ]
+  },
+  {
+   "kw": "gestion talento inteligencia artificial",
+   "target": "gestion talento con IA",
+   "title": "Gestion del talento con IA",
+   "desc": "People analytics.",
+   "sections": [
+    [
+     "Identifica",
+     "Alto potencial, listos para promocion, riesgo de fuga."
+    ],
+    [
+     "Plan carrera",
+     "Plan 12 meses con habilidades, proyectos, mentor."
+    ],
+    [
+     "Retencion",
+     "Factores de retencion clave. Plan para roles criticos."
+    ]
+   ]
+  },
+  {
+   "kw": "gestionar nominas contratos inteligencia artificial",
+   "target": "nominas y contratos con IA",
+   "title": "Gestiona nominas y contratos con IA",
+   "desc": "Documentacion laboral.",
+   "sections": [
+    [
+     "Contratos",
+     "Redacta contrato con clausulas legales."
+    ],
+    [
+     "Nominas",
+     "Calcula nomina completa: base, IRPF, SS, neto."
+    ],
+    [
+     "Documentacion",
+     "Plantillas de finiquito, nomina, certificados."
+    ]
+   ]
+  },
+  {
+   "kw": "automatizar procesos recursos humanos inteligencia artificial",
+   "target": "automatizar RRHH con IA",
+   "title": "Automatiza procesos de RRHH con IA",
+   "desc": "Identifica y automatiza.",
+   "sections": [
+    [
+     "Mapeo",
+     "Procesos automatizables, semi y humanos. Prioriza."
+    ],
+    [
+     "Chatbot RH",
+     "20 FAQs con flujo de conversacion."
+    ],
+    [
+     "Workflow",
+     "Flujo de aprobaciones con niveles y escalado."
+    ]
+   ]
+  },
+  {
+   "kw": "fomentar diversidad inclusion empresa inteligencia artificial",
+   "target": "diversidad e inclusion con IA",
+   "title": "Fomenta diversidad e inclusion con IA",
+   "desc": "Procesos inclusivos.",
+   "sections": [
+    [
+     "Analisis sesgos",
+     "Revisa descripciones: lenguaje sesgado y requisitos excluyentes."
+    ],
+    [
+     "Politica",
+     "Politica de diversidad con acciones y metricas."
+    ],
+    [
+     "Seleccion inclusiva",
+     "CVs ciegos, paneles diversos, criterios objetivos."
+    ]
+   ]
+  },
+  {
+   "kw": "medir productividad equipo inteligencia artificial",
+   "target": "medir productividad con IA",
+   "title": "Mide la productividad del equipo con IA",
+   "desc": "KPIs y dashboard.",
+   "sections": [
+    [
+     "KPIs",
+     "5 KPIs con formula, frecuencia y benchmark."
+    ],
+    [
+     "Dashboard",
+     "Una pantalla con metricas clave y alertas."
+    ],
+    [
+     "Analisis",
+     "Rendimiento del equipo: mejores, necesitan apoyo, patrones."
+    ]
+   ]
+  }
+ ],
+ "marketing": [
+  {
+   "kw": "crear contenido redes sociales chatgpt",
+   "target": "crear contenido redes con ChatGPT",
+   "title": "Crea contenido para redes sociales con ChatGPT",
+   "desc": "Genera posts para todas tus redes.",
+   "sections": [
+    [
+     "Calendario",
+     "20 ideas con titulo, formato, copy y CTA para tu nicho."
+    ],
+    [
+     "Adapta",
+     "Contenido adaptado a Instagram, LinkedIn, Twitter, TikTok."
+    ],
+    [
+     "Optimiza",
+     "Analiza patrones de exitos. Crea plantilla optimizada."
+    ]
+   ]
+  },
+  {
+   "kw": "copywriting persuasivo inteligencia artificial",
+   "target": "copywriting persuasivo con IA",
+   "title": "Copywriting persuasivo con IA",
+   "desc": "Escribe textos que venden.",
+   "sections": [
+    [
+     "AIDA",
+     "Copy AIDA: atencion, interes, deseo, accion para tu producto."
+    ],
+    [
+     "Prueba social",
+     "5 versiones: testimonial, estadistica, autoridad, escasez."
+    ],
+    [
+     "CTAs",
+     "10 llamadas a la accion: urgencia, curiosidad, valor."
+    ]
+   ]
+  },
+  {
+   "kw": "email marketing automatizado inteligencia artificial",
+   "target": "email marketing automatizado con IA",
+   "title": "Email marketing automatizado con IA",
+   "desc": "Secuencias que convierten.",
+   "sections": [
+    [
+     "Bienvenida",
+     "3 emails con lead magnet. Confianza y primera compra."
+    ],
+    [
+     "Ventas",
+     "Email persuasivo: problema, solucion, prueba social, CTA."
+    ],
+    [
+     "Carrito",
+     "3 emails: recordatorio, valor, ultima oportunidad."
+    ]
+   ]
+  },
+  {
+   "kw": "posicionamiento seo inteligencia artificial",
+   "target": "SEO con IA",
+   "title": "Posiciona tu web en Google con IA",
+   "desc": "Keywords y SEO on-page.",
+   "sections": [
+    [
+     "Keywords",
+     "20 principales, 50 long-tail, preguntas frecuentes."
+    ],
+    [
+     "On-page",
+     "Analiza URL: title, meta, H1, keywords, enlaces."
+    ],
+    [
+     "Clusters",
+     "Pillar page + 10 subtemas con enlaces internos."
+    ]
+   ]
+  },
+  {
+   "kw": "estrategia marketing digital gemini",
+   "target": "marketing digital con Gemini",
+   "title": "Estrategia marketing digital con Gemini",
+   "desc": "Integracion con Google.",
+   "sections": [
+    [
+     "Auditoria",
+     "Analiza tu marketing: canales, embudo, oportunidades."
+    ],
+    [
+     "Plan 3 meses",
+     "Estrategia multicanal con KPIs y presupuesto."
+    ],
+    [
+     "Optimiza",
+     "Analiza ultima campana: que funciono, 3 cambios."
+    ]
+   ]
+  },
+  {
+   "kw": "analisis competencia inteligencia artificial",
+   "target": "analizar competencia con IA",
+   "title": "Analiza a tu competencia con IA",
+   "desc": "Supera a tu competencia.",
+   "sections": [
+    [
+     "Perfil",
+     "Analiza competidores: propuesta, canales, debilidades."
+    ],
+    [
+     "Contenido",
+     "Compara tu contenido vs competidores. Oportunidades."
+    ],
+    [
+     "Diferenciacion",
+     "Tu ventaja unica. 3 areas para diferenciarte."
+    ]
+   ]
+  },
+  {
+   "kw": "crear anuncios google ads inteligencia artificial",
+   "target": "Google Ads con IA",
+   "title": "Crea campanas de Google Ads con IA",
+   "desc": "Anuncios que convierten.",
+   "sections": [
+    [
+     "Estructura",
+     "Grupos de anuncios, keywords y pujas optimizadas."
+    ],
+    [
+     "Anuncios",
+     "5 textos de anuncio para maximo CTR."
+    ],
+    [
+     "Optimiza",
+     "Metricas de campana. 5 optimizaciones concretas."
+    ]
+   ]
+  },
+  {
+   "kw": "plan marketing contenidos inteligencia artificial",
+   "target": "plan contenidos con IA",
+   "title": "Plan de marketing de contenidos con IA",
+   "desc": "Calendario editorial.",
+   "sections": [
+    [
+     "Estrategia",
+     "Pilares de contenido para tu nicho y audiencia."
+    ],
+    [
+     "Calendario",
+     "3 meses con titulos, keywords y CTA por pieza."
+    ],
+    [
+     "Repurposing",
+     "Contenido existente a otros formatos y canales."
+    ]
+   ]
+  },
+  {
+   "kw": "ventas prompts chatgpt inteligencia artificial",
+   "target": "ventas con ChatGPT",
+   "title": "Cierra mas ventas usando ChatGPT",
+   "desc": "Scripts y seguimiento.",
+   "sections": [
+    [
+     "Script",
+     "Llamada de ventas: apertura, objeciones, cierre."
+    ],
+    [
+     "Objeciones",
+     "5 objeciones comunes con 3 enfoques cada una."
+    ],
+    [
+     "Seguimiento",
+     "30 dias post-venta: retencion y upselling."
+    ]
+   ]
+  },
+  {
+   "kw": "personalizar mensajes marketing inteligencia artificial",
+   "target": "personalizar marketing con IA",
+   "title": "Personaliza mensajes marketing con IA",
+   "desc": "Marketing uno a uno.",
+   "sections": [
+    [
+     "Segmentacion",
+     "Divide tu audiencia con necesidades y tono."
+    ],
+    [
+     "Mensajes",
+     "Email personalizado para cada segmento."
+    ],
+    [
+     "Pruebas AB",
+     "3 variantes del mensaje con hipotesis de mejora."
+    ]
+   ]
+  },
+  {
+   "kw": "interpretar datos analytics inteligencia artificial",
+   "target": "analytics con IA",
+   "title": "Interpreta datos de analytics con IA",
+   "desc": "Datos a decisiones.",
+   "sections": [
+    [
+     "Informe",
+     "Google Analytics: tendencias, fuentes, 3 recomendaciones."
+    ],
+    [
+     "Comportamiento",
+     "Patrones de navegacion, paginas de salida."
+    ],
+    [
+     "Dashboard",
+     "KPIS con formulas y benchmarks del sector."
+    ]
+   ]
+  },
+  {
+   "kw": "crear branding personal inteligencia artificial",
+   "target": "branding personal con IA",
+   "title": "Construye tu marca personal con IA",
+   "desc": "Posicionate como referente.",
+   "sections": [
+    [
+     "Define",
+     "Propuesta de valor, tono, 3 pilares de contenido."
+    ],
+    [
+     "Plan 30 dias",
+     "15 ideas de posts para tu plataforma."
+    ],
+    [
+     "Biografia",
+     "3 versiones: LinkedIn, web, redes. Tono coherente."
+    ]
+   ]
+  }
+ ]
+}

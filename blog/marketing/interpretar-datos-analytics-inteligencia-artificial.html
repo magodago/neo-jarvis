@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Interpreta datos de analytics con IA — NEO Labs</title>
+<meta name="description" content="Datos a decisiones.">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/marketing/interpretar-datos-analytics-inteligencia-artificial.html">
+<meta property="og:title" content="Interpreta datos de analytics con IA">
+<meta property="og:description" content="Datos a decisiones.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--brand:#42a5f5;--brand-dark:#1976d2;--brand-light:#42a5f588;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8;touch-action:pan-y}
+a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;padding-top:90px;margin-bottom:8px}.breadcrumb a{color:#6a6558}.breadcrumb a:hover{color:var(--brand)}
+.article-header{margin-bottom:28px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.article-header .meta{display:flex;gap:20px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:#fff;margin:30px 0 10px;letter-spacing:-.3px}
+.article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px}
+.article-body p strong{color:var(--text)}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--brand);border-radius:0 10px 10px 0;padding:16px 20px;margin:12px 0 20px}
+.prompt-box .prompt-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:3px}
+.prompt-box .prompt-text{font-size:.85rem;color:#d0c8bc;line-height:1.7;font-style:italic}
+.tip-box{background:rgba(76,175,80,.06);border-left:3px solid #4caf50;border-radius:0 10px 10px 0;padding:12px 16px;margin:12px 0 20px}
+.tip-box .tip-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:#4caf50;font-weight:600;margin-bottom:2px}
+.tip-box p{font-size:.85rem;color:#c0d0b8;line-height:1.7;margin:0}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:28px 22px;text-align:center;margin:24px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--brand);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.82rem;margin-bottom:14px}
+.btn{padding:10px 24px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .3s;border:none;cursor:pointer;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.toc{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin:20px 0;font-size:.85rem}
+.toc-title{font-family:var(--font-display);font-size:.7rem;letter-spacing:2px;font-weight:700;color:var(--brand);margin-bottom:8px;text-transform:uppercase}
+.toc a{display:block;padding:3px 0;color:var(--text-muted);transition:color .2s;font-size:.82rem;text-decoration:none}
+.toc a:hover{color:var(--brand)}.toc a:before{content:"\u25b8 ";font-size:.65rem}
+.faq-section{margin:24px 0}.faq-q{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 16px;margin-bottom:6px}
+.faq-q summary{font-weight:600;font-size:.88rem;color:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}
+.faq-q summary::marker{color:var(--brand)}.faq-q p{font-size:.82rem;color:var(--text-muted);margin-top:6px;line-height:1.6}
+.newsletter-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:24px 20px;text-align:center;margin:28px 0}
+.nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-desc{font-size:.78rem;color:var(--text-muted);margin-bottom:14px;max-width:380px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:360px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:160px;padding:10px 14px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none}
+.nl-input:focus{border-color:var(--brand)}
+.nl-btn{padding:10px 18px;border-radius:8px;border:none;background:var(--brand);color:#050508;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.3rem;letter-spacing:4px;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}
+footer .logo span{color:var(--brand)}
+footer .links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+footer .links a{color:var(--text-muted);font-size:.78rem}
+footer .copy{font-size:.68rem;color:#6a6558}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--brand-dark),var(--brand));z-index:9999;transition:width .1s}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Interpreta datos de analytics con IA","description":"Datos a decisiones.","datePublished":"2026-06-08","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/marketing/interpretar-datos-analytics-inteligencia-artificial.html"}}</script>
+<meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
+</head>
+<body>
+<div id="progress"></div>
+<nav id="nav">
+<div class="nav-logo">NE<span>O</span></div>
+<ul class="nav-links">
+<li><a href="../../neo-labs.html">Inicio</a></li>
+<li><a href="../../catalogo.html">Catalogo</a></li>
+<li><a href="../index.html">Blog</a></li>
+</ul>
+</nav>
+<div class="wrap">
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="index.html">Blog Programacion</a> <span>/</span> <span>analytics con IA</span></div>
+<div class="article-header">
+<span class="cat-tag">Guia</span>
+<h1>Interpreta datos de analytics con IA</h1>
+<div class="meta"><span>2026-06-08</span><span>NEO Labs</span><span>8 min lectura</span></div>
+</div>
+<div class="article-body">
+<p>Datos a decisiones.</p>
+
+<div class="toc"><div class="toc-title">Contenido</div>
+<a href="#seccion1">1. Informe</a>
+<a href="#seccion2">2. Comportamiento</a>
+<a href="#seccion3">3. Dashboard</a>
+</div>
+
+<h2 id="seccion1">Informe</h2>
+<p>Google Analytics: tendencias, fuentes, 3 recomendaciones.</p>
+
+<div class="prompt-box"><div class="prompt-label">Prompt para analytics con IA</div><div class="prompt-text">Actua como un experto en analytics con IA. Dame una guia paso a paso con ejemplos practicos y prompts listos para copiar. Enfocate en resultados inmediatos.</div></div>
+
+<h2 id="seccion2">Comportamiento</h2>
+<p>Patrones de navegacion, paginas de salida.</p>
+
+<div class="tip-box"><div class="tip-label">Consejo Profesional</div><p>La clave para obtener los mejores resultados es la iteracion. No te conformes con la primera respuesta de la IA. Refina tu prompt basandote en lo que obtienes.</p></div>
+
+<h2 id="seccion3">Dashboard</h2>
+<p>KPIS con formulas y benchmarks del sector.</p>
+
+<div class="cta-box">
+<h3>Pack de Programacion NEO</h3>
+<p>10 prompts premium de programacion listos para usar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p>
+<a href="https://payhip.com/b/Q5RYA" target="_blank" class="btn btn-primary">Conseguir por 9.99</a>
+<a href="../../catalogo.html" class="btn" style="margin-left:8px;border:1px solid var(--brand);color:var(--brand);background:transparent">Ver Catalogo</a>
+</div>
+
+<div class="faq-section">
+<h3>Preguntas frecuentes sobre analytics con IA</h3>
+<details class="faq-q"><summary>Que necesito para empezar?</summary><p>Solo necesitas acceso a ChatGPT, Claude o Gemini. Todos nuestros prompts y guias funcionan con cualquier plataforma de IA moderna.</p></details>
+<details class="faq-q"><summary>Cuanto tiempo se tarda en ver resultados?</summary><p>La mayoria de nuestros usuarios ven mejoras significativas desde la primera semana de uso consistente de las tecnicas descritas.</p></details>
+<details class="faq-q"><summary>Funciona con cualquier lenguaje de programacion?</summary><p>Si. Los prompts y tecnicas funcionan con Python, JavaScript, Java, Go, Rust y cualquier otro lenguaje. Solo cambia el contexto que le das a la IA.</p></details>
+</div>
+
+<div class="newsletter-box">
+<div class="nl-icon">&#10027;</div>
+<div class="nl-title">Recibe los mejores prompts de IA gratis</div>
+<div class="nl-desc">Cada semana, 3 prompts exclusivos + tendencias directo a tu bandeja de entrada.</div>
+<form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{'method':'POST','headers':{'Content-Type':'application/json'},'body':JSON.stringify({'email':document.querySelector('.nl-input').value})}).catch(function(){})";">
+  <input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs">
+  <input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="text" name="_honey" style="display:none">
+  <input type="email" name="email" placeholder="tu@email.com" required class="nl-input">
+  <button type="submit" class="nl-btn">Suscribirme</button>
+</form>
+</div>
+</div>
+<footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/b/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<script>
+var p=document.getElementById('progress');document.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+var s=0,n=document.getElementById('nav');document.addEventListener('scroll',function(){var t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
