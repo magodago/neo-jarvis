@@ -196,6 +196,9 @@ def main():
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canonical}">
 <meta property="og:title" content="{title}"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<!-- GoatCounter analytics -->
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
