@@ -1,115 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/aprender-idiomas-con-chatgpt.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/index.html</loc>
     <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/neo-labs.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/catalogo.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/index.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/index.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/citar-fuentes-academicas-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/finanzas/index.html</loc>
     <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/completar-trabajo-fin-grado-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/marketing/index.html</loc>
     <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/crear-presentaciones-academicas-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/programacion/index.html</loc>
     <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/escribir-ensayos-academicos-ia.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/gestionar-el-tiempo-de-estudio-guia.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/hacer-trabajos-academicos-con-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/index.html</loc>
     <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/leer-articulos-cientificos-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/rrhh/index.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/automatiza-bandeja-entrada-prompt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/mantener-motivacion-estudiar-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/automatizar-informes-semanales-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/nuevas-herramientas-ia-estudiantes.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/automatizar-tareas-repetitivas-con-ia.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/organizar-horario-estudio-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/chatgpt-modo-productividad-calendario.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/organizar-semestre-prompts.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/crear-sistema-productividad-personal-chatgpt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/preparar-examenes-chatgpt.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/delegar-tareas-a-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/preparar-examenes-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/escribir-emails-mas-rapido-con-chatgpt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/resolver-problemas-matematicos-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/gestionar-tiempo-con-ia.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/resumir-libros-academicos-inteligencia-artificial.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/gestionar-tiempo-con-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/resumir-textos-academicos-ia.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/mejorar-enfoque-concentracion-trabajo-ia.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/tomar-apuntes-con-chatgpt.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-dia-con-chatgpt.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-proyectos-con-chatgpt.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-tareas-diarias-claude-ai.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-tu-dia-con-chatgpt.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/planificar-semana-laboral-chatgpt.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/priorizar-tareas-con-inteligencia-artificial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/productividad-personal-google-gemini.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/reducir-carga-trabajo-50-prompts.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/resumir-documentos-largos-chatgpt.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/sistema-productividad-ia-5-pasos.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/tomar-notas-reuniones-con-chatgpt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -181,12 +253,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/finanzas/index.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://magodago.github.io/neo-jarvis/blog/finanzas/planificar-ahorro-mensual-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -218,12 +284,6 @@
   </url>
   <url>
     <loc>https://magodago.github.io/neo-jarvis/blog/finanzas/reducir-deudas-con-inteligencia-artificial.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/index.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -301,12 +361,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/marketing/index.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://magodago.github.io/neo-jarvis/blog/marketing/interpretar-datos-analytics-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -332,138 +386,6 @@
   </url>
   <url>
     <loc>https://magodago.github.io/neo-jarvis/blog/marketing/ventas-prompts-chatgpt-inteligencia-artificial.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/automatiza-bandeja-entrada-prompt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/automatizar-informes-semanales-inteligencia-artificial.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/automatizar-tareas-repetitivas-con-ia.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/chatgpt-modo-productividad-calendario.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/crear-sistema-productividad-personal-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/delegar-tareas-a-inteligencia-artificial.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/escribir-emails-mas-rapido-con-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/gestionar-tiempo-con-ia.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/gestionar-tiempo-con-inteligencia-artificial.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/index.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/mejorar-enfoque-concentracion-trabajo-ia.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-dia-con-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-proyectos-con-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-tareas-diarias-claude-ai.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/organizar-tu-dia-con-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/planificar-semana-laboral-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/priorizar-tareas-con-inteligencia-artificial.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/productividad-personal-google-gemini.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/reducir-carga-trabajo-50-prompts.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/resumir-documentos-largos-chatgpt.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/sistema-productividad-ia-5-pasos.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/productividad/tomar-notas-reuniones-con-chatgpt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -571,12 +493,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/programacion/index.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://magodago.github.io/neo-jarvis/blog/programacion/refactorizar-codigo-con-chatgpt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -601,37 +517,109 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-estudiantes.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/aprender-idiomas-con-chatgpt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-finanzas-personales.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/citar-fuentes-academicas-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-marketing-digital.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/completar-trabajo-fin-grado-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-productividad-2026.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/crear-presentaciones-academicas-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-programacion.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/escribir-ensayos-academicos-ia.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-recursos-humanos.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/gestionar-el-tiempo-de-estudio-guia.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/hacer-trabajos-academicos-con-chatgpt.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/leer-articulos-cientificos-inteligencia-artificial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/mantener-motivacion-estudiar-inteligencia-artificial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/nuevas-herramientas-ia-estudiantes.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/organizar-horario-estudio-inteligencia-artificial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/organizar-semestre-prompts.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/preparar-examenes-chatgpt.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/preparar-examenes-inteligencia-artificial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/resolver-problemas-matematicos-inteligencia-artificial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/resumir-libros-academicos-inteligencia-artificial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/resumir-textos-academicos-ia.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/estudiantes/tomar-apuntes-con-chatgpt.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -697,12 +685,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/blog/rrhh/index.html</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://magodago.github.io/neo-jarvis/blog/rrhh/medir-productividad-equipo-inteligencia-artificial.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -745,25 +727,37 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/catalogo.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-estudiantes.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/dashboard.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-finanzas-personales.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/index.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-marketing-digital.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://magodago.github.io/neo-jarvis/neo-labs.html</loc>
+    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-productividad-2026.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-programacion.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://magodago.github.io/neo-jarvis/blog/prompts-ia-recursos-humanos.html</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
