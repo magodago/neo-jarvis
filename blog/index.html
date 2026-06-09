@@ -185,7 +185,23 @@ footer .copy{font-size:.7rem;color:#6a6558}
     <span class="cat-filter" data-filter="programacion">Programacion</span>
     <span class="cat-filter" data-filter="educacion">Educacion</span>
     <span class="cat-filter" data-filter="rrhh">RRHH</span>
+    <span class="cat-filter" data-filter="ofertas">Ofertas</span>
   </div>
+
+  <!-- ARTICULO DESTACADO: MEGA BUNDLE -->
+  <a href="500-prompts-premium-mega-bundle.html" class="featured-card reveal" data-category="ofertas" style="border-color:rgba(212,168,83,.3)">
+    <div class="featured-visual">
+      <div class="icon-large" style="background:linear-gradient(135deg,var(--gold),#8b6914)">B</div>
+      <div class="gradient-bar" style="background:linear-gradient(90deg,var(--gold),var(--gold))"></div>
+    </div>
+    <div class="featured-info">
+      <span class="cat-tag" style="background:rgba(212,168,83,.15);color:var(--gold);border:1px solid rgba(212,168,83,.25)">Lanzamiento</span>
+      <h3>500 Prompts Premium: El Mega Bundle Definitivo para Dominar la IA</h3>
+      <p>500 prompts reales en 7 categor&iacute;as. Sin inflar. Sin gen&eacute;ricos. La alternativa inteligente a God of Prompt y PromptsPro por solo 14,99&euro;. Cada prompt con variables reales para adaptarlo a tu proyecto.</p>
+      <div class="meta"><span>9 Junio 2026</span><span>5 min de lectura</span></div>
+      <span class="read-arrow">Leer articulo</span>
+    </div>
+  </a>
 
   <!-- ARTICULO DESTACADO: PRODUCTIVIDAD -->
   <a href="prompts-ia-productividad-2026.html" class="featured-card reveal" data-category="productividad">
@@ -328,7 +344,7 @@ document.querySelectorAll('.reveal').forEach(e=>o.observe(e))
 // CATEGORY FILTERS (funcionales de verdad)
 const filters=document.querySelectorAll('.cat-filter')
 const articles=document.querySelectorAll('.article-card')
-const featured=document.querySelector('.featured-card')
+const featuredCards=document.querySelectorAll('.featured-card')
 
 filters.forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -347,14 +363,14 @@ filters.forEach(btn=>{
       }
     })
 
-    // Filter featured
-    if(featured){
-      if(cat==='all'||featured.dataset.category===cat){
-        featured.style.display='grid'
+    // Filter featured cards
+    featuredCards.forEach(f=>{
+      if(cat==='all'||f.dataset.category===cat){
+        f.style.display=''
       }else{
-        featured.style.display='none'
+        f.style.display='none'
       }
-    }
+    })
 
     // Show "no results" message
     let visible=document.querySelectorAll('.article-card:not(.hidden)').length
