@@ -271,7 +271,7 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 </div>
 <div class="article-body">
 {body_html}
-<div class="cta-box"><h3>Pack de {b['name']}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><a href="https://payhip.com/b/{b['payhip']}" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px;">Ver Catalogo</a></div>
+<div class="cta-box"><h3>Pack de {b['name']}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Codigo <strong>NEO10</strong> = 10% desc</p><a href="https://payhip.com/b/{b['payhip']}" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px;">Ver Catalogo</a></div>
 </div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
 <a href="../prompts-ia-{b['slug']}-2026.html" class="related-card" style="display:none"><div class="cat">Guia</div><h4>Guias de {b['name']}</h4><p>Contenido destacado del blog.</p></a>
