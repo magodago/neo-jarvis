@@ -1,3 +1,4 @@
+import json
 #!/usr/bin/env python3
 """Daily article generator v2 — SEO-optimized, varied, high-quality content.
 Generates one article per day rotating through niches.
@@ -109,18 +110,37 @@ ESTRUCTURA REQUERIDA:
 - Un parrafo de conclusion
 
 REGLAS:
-- Escribe SOLO el cuerpo (sin HTML, sin titulo)
+- NO incluyas absolutamente ningun proceso de pensamiento ni razonamiento interno
+- Escribe SOLO el cuerpo del articulo (sin HTML, sin titulo, sin prefijos)
 - Usa lenguaje claro, directo y util
 - Los prompts deben ser practicos, copiables y con [corchetes] para personalizar
 - Incluye ejemplos concretos
 - Termina con una frase que motive a la accion
 
-Responde SOLO con el texto del articulo."""
+Responde UNICAMENTE con el texto del articulo, sin ningun prefijo,sin Thinking,sin explicaciones.
+
+IMPORTANTE: Usa EXACTAMENTE este formato para cada seccion y prompt:
+## Titulo de seccion
+
+PROMPT: [texto del prompt]
+
+Asegurate de incluir AL MENOS 2 secciones con su prompt, y que el articulo tenga 500-700 palabras."""
     try:
-        result = subprocess.run(["ollama","run","qwen2.5-hermes",prompt],
-                                capture_output=True,text=True,timeout=150)
-        if result.returncode == 0 and result.stdout.strip():
-            return result.stdout.strip()
+        resp = subprocess.run(
+            ["curl","-s","--max-time","150",
+             "http://localhost:11434/api/generate",
+             "-d", '{"model":"gemma4","prompt":' + json.dumps(prompt) + ',"stream":false,"options":{"num_predict":4096,"temperature":0.8}}'],
+            capture_output=True,text=True,timeout=160
+        )
+        if resp.returncode == 0 and resp.stdout.strip():
+            import json as _j
+            data = _j.loads(resp.stdout)
+            content = data.get("response","").strip()
+            if content:
+                for prefix in ["Thinking...","thinking","**Pensamiento:**","**Razonamiento:**","Here's"]:
+                    if content.startswith(prefix):
+                        content = content[len(prefix):].strip()
+                return content
     except: pass
     return None
 
