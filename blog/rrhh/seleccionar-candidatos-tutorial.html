@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Guia practica para seleccionar candidatos usando inteligencia artificial — NEO Labs</title>
+<meta name="description" content="Aprende paso a paso como seleccionar candidatos con la ayuda de la inteligencia artificial.">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/rrhh/seleccionar-candidatos-tutorial.html">
+<meta property="og:title" content="Guia practica para seleccionar candidatos usando inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<!-- GoatCounter analytics -->
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--brand:#ec407a;--brand-dark:#c2185b;--brand-light:#f48fb1;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8;touch-action:pan-y}
+a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;padding-top:100px;margin-bottom:8px}.breadcrumb a{color:#6a6558}.breadcrumb a:hover{color:var(--brand)}
+.article-header{margin-bottom:32px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
+.article-body p strong{color:var(--text)}
+.article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--brand);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0 22px}
+.prompt-box .prompt-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:4px}
+.prompt-box .prompt-text{font-size:.85rem;color:#d0c8bc;line-height:1.7;font-style:italic}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:32px 24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--brand);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
+.btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#c2185b,#ec407a,#f48fb1);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
+.related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
+.related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
+.related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
+.{}related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
+footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
+footer .copy{font-size:.68rem;color:#6a6558}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#c2185b,#f48fb1);z-index:9999;transition:width .1s}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guia practica para seleccionar candidatos usando inteligencia artificial","description":"Aprende paso a paso como seleccionar candidatos con la ayuda de la inteligencia artificial.","datePublished":"2026-06-10","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/rrhh/seleccionar-candidatos-tutorial.html"}}</script>
+</head>
+<body><div id="progress"></div>
+<nav id="nav"><div class="nav-logo">NE<span>O</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<div class="wrap">
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">RRHH</a> <span>/</span> <span>Guia practica para seleccionar candidatos usando i</span></div>
+<div class="article-header">
+<span class="cat-tag">Tutorial</span>
+<h1>Guia practica para seleccionar candidatos usando inteligencia artificial</h1>
+<div class="meta"><span>10 June 2026</span><span>9 min de lectura</span></div>
+</div>
+<div class="article-body">
+<p>Thinking...</p>
+<p>Here's a thinking process to ensure the prompt is followed correctly:</p>
+<p>1.  **Analyze the Request:**</p>
+<p>*   **Role:** Professional Blog Writer.</p>
+<p>*   **Topic:** Selecting candidates in the HR area (RRHH).</p>
+<p>*   **Type:** Tutorial article.</p>
+<p>*   **Length:** 500-700 words.</p>
+<p>*   **Language:** Spanish.</p>
+<p>*   **Structure:**</p>
+<p>*   Introduction (2 engaging paragraphs explaining importance).</p>
+<p>*   2-3 sections with H2 titles, each containing a practical prompt[6D[K</p>
+<p>prompt (formatted as `PROMPT: [text]`).</p>
+<p>*   Conclusion paragraph.</p>
+<p>*   **Constraints/Rules:**</p>
+<p>*   Write *ONLY* the body text (no HTML tags like `<h1>`, `<h2>`, e[1D[K</p>
+<p>etc., but use the concept of headings).</p>
+<p>*   Language must be clear, direct, and useful.</p>
+<p>*   Prompts must be practical, copyable, and include placeholders ([1D[K</p>
+<p>(`[corchetes]`).</p>
+<p>*   Include concrete examples.</p>
+<p>*   End with a strong Call to Action (CTA) phrase.</p>
+<p>*   Response must contain *ONLY* the article text.</p>
+<p>2.  **Drafting - Introduction (2 paragraphs):**</p>
+<p>*   *Goal:* Hook the reader and establish the critical importance of go[2D[K</p>
+<p>good selection in HR.</p>
+<p>*   *Content Idea 1 (Hook):* Focus on talent being the company's most v[1D[K</p>
+<p>valuable asset.</p>
+<p>*   *Content Idea 2 (Why it matters):* Poor hiring costs money, time, a[1D[K</p>
+<p>and morale. Selection is not just filtering CVs; it's predicting success.</p>
+<p>3.  **Drafting - Sections/H2s (Need 3 for better coverage):**</p>
+<p>*   *Section 1:* Initial screening & behavioral assessment (Moving beyo[4D[K</p>
+<p>beyond keywords).</p>
+<p>*   *Section 2:* Deep dive into practical skills and cultural fit (The [K</p>
+<p>interview structure).</p>
+<p>*   *Section 3:* The final stage: Reference checks and structured feedb[5D[K</p>
+<p>feedback (Systematization).</p>
+<p>4.  **Developing the Content for Each Section (Focusing on Prompts):**</p>
+<p>*   **H2 1: Más allá del CV: Evaluación de competencias blandas**</p>
+<p>*   *Concept:* Don't just read what they wrote; test how they think[5D[K</p>
+<p>think and behave. Use behavioral questions.</p>
+<p>*   *Prompt Focus:* Designing scenario-based questions (STAR method[6D[K</p>
+<p>method).</p>
+<p>*   **H2 2: Estructurando la Entrevista para medir el 'Fit' Cultural**</p>
+<p>*   *Concept:* The interview needs a purpose beyond pleasantries. I[1D[K</p>
+<p>It must gauge motivation and alignment with company values.</p>
+<p>*   *Prompt Focus:* Creating specific questions that link job requi[5D[K</p>
+<p>requirements to company culture/mission.</p>
+<p>*   **H2 3: El Proceso de Selección Integral: Verificación y Feedback**[10D[K</p>
+<p>Feedback**</p>
+<p>*   *Concept:* Don't assume everything is perfect. Verify[6D[K</p>
+<p>Verify claims (references) and standardize the hiring experience (feedback [K</p>
+<p>loop).</p>
+<p>*   *Prompt Focus:* Structuring a reference check or creating feedb[5D[K</p>
+<p>feedback templates.</p>
+<p>5.  **Drafting - Conclusion:**</p>
+<p>*   *Goal:* Summarize the key takeaway (selection is a system, not an e[1D[K</p>
+<p>event).</p>
+<p>*   *CTA:* Motivate immediate action on optimizing the process.</p>
+<p>6.  **Review and Refinement (Self-Correction/Word Count Check):**</p>
+<p>*   *Tone:* Professional, expert, tutorial. (Checked: Yes.)</p>
+<p>*   *Format:* No HTML tags, only body text. (Checked: Yes.)</p>
+<p>*   *Prompts:* Are they practical and copyable? (Checked: Yes, using `P[2D[K</p>
+<p>`PROMPT:` format and placeholders.)</p>
+<p>*   *Length Check:* The detailed sections ensure the 500-700 word targe[5D[K</p>
+<p>target is met naturally.</p>
+<p>7.  **Final Polish:** (Translate technical jargon smoothly into engaging Sp[2D[K</p>
+<p>Spanish blog prose.) (Executing the final response.)</p>
+<p>...done thinking.</p>
+<p>En el complejo y acelerado mercado laboral de hoy, la adquisición de talent[6D[K</p>
+<p>talento ha pasado de ser un proceso administrativo a convertirse en la estr[4D[K</p>
+<p>estrategia de negocio más crítica. Sabemos que nuestra empresa depende del [K</p>
+<p>capital humano; sin embargo, simplemente publicar una oferta de empleo es i[1D[K</p>
+<p>insuficiente para garantizar el éxito. Seleccionar al candidato adecuado no[2D[K</p>
+<p>no se trata únicamente de revisar currículums impecables o títulos universi[8D[K</p>
+<p>universitarios brillantes; se trata de predecir quién podrá crecer con noso[4D[K</p>
+<p>nosotros y aportar valor real desde el día uno.</p>
+<p>Por ello, cualquier equipo de Recursos Humanos debe entender que la selecci[7D[K</p>
+<p>selección es un arte científico: requiere metodologías rigurosas para filtr[5D[K</p>
+<p>filtrar al mero postulante del verdadero empleado estrella. Un proceso defi[4D[K</p>
+<p>deficiente no solo causa frustración a los candidatos, sino que genera cost[4D[K</p>
+<p>costos ocultos masivos en la empresa—tiempo de capacitación perdido, baja p[1D[K</p>
+<p>productividad y la moral deteriorada por el mal encaje cultural. Adoptar un[2D[K</p>
+<p>un enfoque sistemático es la única manera de blindar su organización contra[6D[K</p>
+<p>contra contrataciones de riesgo.</p>
+<h2>Más allá del CV: Evaluación de competencias blandas</h2>
+<p>El mayor error que cometemos como reclutadores novatos es creer que lo escr[4D[K</p>
+<p>escrito en papel refleja la realidad profesional. Un candidato puede listar[6D[K</p>
+<p>listar "liderazgo" y "resolución de problemas", pero sin pruebas concretas,[10D[K</p>
+<p>concretas, esas frases son solo palabras vacías. Para determinar si un aspi[4D[K</p>
+<p>aspirante posee realmente una competencia, debemos ir más allá de las pregu[5D[K</p>
+<p>preguntas teóricas y adentrarnos en el método STAR (Situación, Tarea, Acció[5D[K</p>
+<p>Acción, Resultado). Este enfoque obliga al candidato a narrar experiencias [K</p>
+<p>pasadas reales.</p>
+<p>Para empezar a implementar esta metodología, debe crear un *prompt* que fue[3D[K</p>
+<p>fuerce la narración basada en retos concretos:</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>"Háblame de una situación [específica del puesto] donde te sentiste[8D[K</strong><br>"Háblame de una situación [específica del puesto] donde te sentiste[8D[K</div></div>
+<p>sentiste bajo presión y tuviste que tomar una decisión difícil con informac[8D[K</p>
+<p>información incompleta. ¿Cuál fue tu rol exacto? Describe el proceso que se[2D[K</p>
+<p>seguiste paso a paso, qué aprendiste de esa experiencia y cómo la aplicaría[9D[K</p>
+<p>aplicarías aquí."</p>
+<h2>Estructurando la Entrevista para medir el 'Fit' Cultural</h2>
+<p>Un candidato puede tener las habilidades técnicas perfectas (el *hard skill[5D[K</p>
+<p>skill*), pero si no se alinea con los valores o ritmos operativos de su emp[3D[K</p>
+<p>empresa (el *soft skill* o ajuste cultural), fracasará. Por lo tanto, la en[2D[K</p>
+<p>entrevista debe ser una sesión doble: medir habilidades y contrastar valore[6D[K</p>
+<p>valores. No pregunte solo "¿Qué te motivó a trabajar aquí?"; pregúntele por[3D[K</p>
+<p>por qué sus valores se alinean con los suyos.</p>
+<p>Utilice este *prompt* para crear preguntas que destaquen las tensiones cult[4D[K</p>
+<p>culturales o éticas que su empresa maneja diariamente:</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>"Nuestra empresa valora la autonomía y el trabajo colaborativo, lo [K</strong><br>"Nuestra empresa valora la autonomía y el trabajo colaborativo, lo [K</div></div>
+<p>cual a veces genera tensión entre ambos ideales. Cuéntame de un momento en [K</p>
+<p>el que tuviste que equilibrar tu necesidad de trabajar independientemente c[1D[K</p>
+<p>con la obligación de colaborar estrechamente con otros departamentos. ¿Cómo[5D[K</p>
+<p>¿Cómo manejaste esa fricción?"</p>
+<h2>El Proceso de Selección Integral: Verificación y Feedback</h2>
+<p>La fase de selección no termina cuando se emite una oferta; su proceso debe[4D[K</p>
+<p>debe ser circular e integral. Dos herramientas son vitales aquí: la verific[7D[K</p>
+<p>verificación rigurosa (referencias) y el feedback constante. Los empleadore[10D[K</p>
+<p>empleadores anteriores son fuentes valiosas, pero deben ser abordadas con e[1D[K</p>
+<p>estructura. Además, enviar un *feedback* profesional a los candidatos recha[5D[K</p>
+<p>rechazados no solo mejora la experiencia de marca empleadora, sino que tamb[4D[K</p>
+<p>también ayuda a usted a calibrar su proceso interno al identificar patrones[8D[K</p>
+<p>patrones de debilidad o confusión en sus propias preguntas.</p>
+<p>Para sistematizar la verificación externa, use este *prompt* para estructur[9D[K</p>
+<p>estructurar la conversación con el jefe de referencia:</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>"Más allá del desempeño general, ¿podría describirme un momento esp[3D[K</strong><br>"Más allá del desempeño general, ¿podría describirme un momento esp[3D[K</div></div>
+<p>específico en los últimos 12 meses en el que [Nombre del Candidato] tuvo qu[2D[K</p>
+<p>que manejar una crisis inesperada o adaptarse a un cambio significativo? ¿C[2D[K</p>
+<p>¿Cómo reaccionó y cuál fue el impacto medible de su acción?"</p>
+<p>Implementar estos pasos elevará su proceso de selección de ser reactivo y s[1D[K</p>
+<p>subjetivo, a convertirse en una máquina predictiva de talento. Recuerde que[3D[K</p>
+<p>que la mejora continua es clave: evalúe *cada* proceso para encontrar el cu[2D[K</p>
+<p>cuello de botella o la variable emocional que está debilitando sus decision[8D[K</p>
+<p>decisiones. ¡Comience hoy mismo a sistematizar estas herramientas, y transf[6D[K</p>
+<p>transforme su departamento de RRHH en un verdadero motor de crecimiento est[3D[K</p>
+<p>estratégico!</p>
+<div class="cta-box"><h3>Pack de RRHH</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><a href="https://payhip.com/b/KragB" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px;">Ver Catalogo</a></div>
+</div>
+<div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
+<a href="../prompts-ia-rrhh-2026.html" class="related-card" style="display:none"><div class="cat">Guia</div><h4>Guias de RRHH</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de RRHH</h4><p>Todos los articulos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catalogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+</div></div>
+</div>
+<footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/b/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<script>
+let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
+</body>
+</html>
