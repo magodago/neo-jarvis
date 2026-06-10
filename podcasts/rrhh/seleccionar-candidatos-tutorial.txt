@@ -1,0 +1,21 @@
+ANA: Carlos, estamos hablando de la selección de talento y es imposible no mencionar a la Inteligencia Artificial. Parece que lo va a resolver todo, pero ¿de verdad está lista para cambiar el departamento de RRHH?
+
+CARLOS: Hola Ana. Es un tema fascinante porque la IA no viene a reemplazar al profesional de RRHH; viene a eliminar las tareas más tediosas y las inconsistencias humanas. Piensa en ella como una lupa que amplifica lo mejor del reclutador, haciéndolo mucho más eficiente.
+
+ANA: Yo veo el potencial, pero me preocupa un poco el sesgo algorítmico. Si entrenas la IA con datos históricos de contratación, ¿no correrá el riesgo de replicar los prejuicios humanos pasados?
+
+CARLOS: Es una preocupación muy válida y que debemos tener en cuenta siempre. La clave no está solo en usar la IA, sino en cómo se alimenta. Debes auditar tus propios datos para asegurarte de que son diversos e inclusivos desde el inicio del entrenamiento del sistema.
+
+ANA: Entonces, ¿la tecnología es tan útil si los datos iniciales están contaminados? Eso suena a un reto enorme para implementar esto en una empresa mediana.
+
+CARLOS: Lo es, pero hay soluciones graduales. Empieza usando la IA no para decidir quién es el mejor candidato, sino para filtrar automáticamente las primeras 100 candidaturas y reducirlo a las 20 más prometedoras. Esto te permite enfocar tu criterio humano en donde realmente importa.
+
+ANA: Es decir que la IA se encarga de la cantidad, dejándonos a nosotros el trabajo cualitativo con los pocos mejores. ¿Pero qué pasa cuando tenemos una entrevista difícil o necesitamos medir habilidades blandas?
+
+CARLOS: Ahí sigue siendo vital lo humano. La IA es excelente para detectar patrones lingüísticos y competencias técnicas específicas, pero no mide empatía ni resiliencia en un contexto real. El toque del experto sigue siendo irremplazable.
+
+ANA: Me queda claro que la tecnología debe ser una herramienta de apoyo, nunca el juez final. Carlos, si tuvieras que dar un consejo práctico a alguien que quiere empezar con esto mañana mismo, ¿cuál sería?
+
+CARLOS: Mi consejo es no comprar soluciones "listas para usar" sin probarlas primero. Antes de invertir en la IA, define exactamente qué problema buscas resolver hoy: ¿es el tiempo o es el sesgo? Si enfocas tu pregunta, podrás buscar una herramienta que solucione ese punto específico y aumentarás muchísimo tus probabilidades de éxito.
+
+ANA: Un consejo muy aterrizado. Entonces, para resumir nuestro debate: la IA es un filtro potente que automatiza lo repetitivo y nos devuelve tiempo, pero el criterio humano debe mantenerse como el centro del proceso, asegurándonos siempre de que los datos con los que funciona sean éticos y diversos. ¡Muchísimas gracias, Carlos!
