@@ -185,7 +185,7 @@ footer .copy{{font-size:.7rem;color:#4a4538;margin-top:4px}}
 <div class="meta">{datetime.now().strftime('%-d %B %Y')}</div>
 </div>
 {body_html}
-<div class="cta-box"><h3>Pack completo de {niche.capitalize()}</h3><p>Lleva tu productividad al siguiente nivel con prompts premium.</p><a href="https://payhip.com/b/{payhip}" target="_blank" class="btn" rel="noopener">Comprar 9,99€</a></div>
+<div class="cta-box"><h3>Pack completo de {niche.capitalize()}</h3><p>Lleva tu productividad al siguiente nivel con prompts premium.</p><a href="https://payhip.com/bundle/{payhip}" target="_blank" class="btn" rel="noopener">Comprar 9,99€</a></div>
 </div>
 <footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
 <script>

@@ -127,10 +127,10 @@ PROMPT: [texto del prompt]
 Asegurate de incluir AL MENOS 2 secciones con su prompt, y que el articulo tenga 500-700 palabras."""
     try:
         resp = subprocess.run(
-            ["curl","-s","--max-time","150",
+            ["curl","-s","--max-time","240",
              "http://localhost:11434/api/generate",
-             "-d", '{"model":"gemma4","prompt":' + json.dumps(prompt) + ',"stream":false,"options":{"num_predict":4096,"temperature":0.8}}'],
-            capture_output=True,text=True,timeout=160
+             "-d", '{"model":"qwen3:8b","prompt":' + json.dumps(prompt) + ',"stream":false,"options":{"num_predict":4096,"temperature":0.8}}'],
+            capture_output=True,text=True,timeout=250
         )
         if resp.returncode == 0 and resp.stdout.strip():
             import json as _j
@@ -243,6 +243,8 @@ a{{color:var(--brand);text-decoration:none}}a:hover{{filter:brightness(1.2)}}
 .cta-box p{{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}}
 .btn{{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,{b['brand_dark']},{b['brand']},{b['brand_light']});color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}}
 .btn:hover{{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}}
+.btn-outline{{border:1px solid var(--brand);color:var(--brand);background:transparent}}
+.btn-outline:hover{{background:rgba(212,168,83,.1)}}
 .related-section{{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}}
 .related-section h3{{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}}
 .related-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}}
@@ -255,13 +257,21 @@ footer{{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding
 footer .logo{{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}}footer .logo span{{color:#d4a853}}
 footer .links{{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}}footer .links a{{color:var(--text-muted);font-size:.78rem}}footer .links a:hover{{color:var(--brand)}}
 footer .copy{{font-size:.68rem;color:#6a6558}}
+#nav{{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}}
+#nav.hidden{{transform:translateY(-100%)}}
+#nav .nav-logo{{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}}
+#nav .nav-logo span{{color:var(--brand)}}
+#nav .nav-links{{display:flex;list-style:none;gap:24px;margin:0;padding:0}}
+#nav .nav-links li a{{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}}
+#nav .nav-links li a:hover{{color:var(--brand)}}
 #progress{{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,{b['brand_dark']},{b['brand_light']});z-index:9999;transition:width .1s}}
-.s-hidden{{display:none}}@media(max-width:768px){{.breadcrumb{{padding-top:80px}}.related-grid{{grid-template-columns:1fr}}}}
+.cta-buttons{{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}}
+.s-hidden{{display:none}}@media(max-width:768px){{.breadcrumb{{padding-top:80px}}.related-grid{{grid-template-columns:1fr}}#nav{{padding:12px 16px}}#nav .nav-links{{gap:14px}}#nav .nav-links li a{{font-size:.7rem}}}}
 </style>
 <script type="application/ld+json" class="s-hidden">{{"@context":"https://schema.org","@type":"Article","headline":"{title}","description":"{desc}","datePublished":"{datetime.now().strftime('%Y-%m-%d')}","author":{{"@type":"Person","name":"NEO Labs"}},"publisher":{{"@type":"Organization","name":"NEO Labs"}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{canonical}"}}}}</script>
 </head>
 <body><div id="progress"></div>
-<nav id="nav"><div class="nav-logo">NE<span>O</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
 <div class="wrap">
 <div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">{b['name']}</a> <span>/</span> <span>{title[:50]}</span></div>
 <div class="article-header">
@@ -271,7 +281,7 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 </div>
 <div class="article-body">
 {body_html}
-<div class="cta-box"><h3>Pack de {b['name']}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Codigo <strong>NEO10</strong> = 10% desc</p><a href="https://payhip.com/b/{b['payhip']}" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px;">Ver Catalogo</a></div>
+<div class="cta-box"><h3>Pack de {b['name']}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Codigo <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/bundle/{b['payhip']}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
 </div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
 <a href="../prompts-ia-{b['slug']}-2026.html" class="related-card" style="display:none"><div class="cat">Guia</div><h4>Guias de {b['name']}</h4><p>Contenido destacado del blog.</p></a>
@@ -279,7 +289,7 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 <a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catalogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
 </div></div>
 </div>
-<footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/b/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
 <script>
 let p=document.getElementById('progress');document.addEventListener('scroll',()=>{{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'}})
 let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t}})

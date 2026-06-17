@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-NEO Podcast Generator — Gemma 4 + edge-tts
+NEO Podcast Generator — Qwen3 8B + edge-tts
 Generates Spanish podcast conversations from article content.
 100% local, 0€.
 """
@@ -13,26 +13,26 @@ AUDIO_DIR = REPO / "podcasts"
 OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
 
 # Edge-TTS voices for Spanish (Spain)
-HOST_VOICE = "es-ES-ElviraNeural"      # Female host
-EXPERT_VOICE = "es-ES-AlvaroNeural"     # Male expert
+HOST_VOICE = "es-ES-ElviraNeural"      # Gema (voz femenina cálida)
+EXPERT_VOICE = "es-ES-AlvaroNeural"     # Neo (voz masculina)
 
 SYSTEM_PROMPT = """Eres un guionista de podcasts. Genera una conversación entre dos personas:
-- ANA (presentadora): entusiasta, cercana, hace preguntas
-- CARLOS (experto): responde con claridad, da ejemplos prácticos
+- GEMA (presentadora): cálida, entusiasta, cercana. Hace preguntas con energía.
+- NEO (experto): sereno, analítico, responde con claridad y da ejemplos prácticos.
 
 Reglas:
-- Idioma: español neutro, natural, conversacional
+- Idioma: español natural, conversacional, como una charla de café
 - NO uses marcadores tipo [RISAS], [MÚSICA]
-- Formato: "ANA: texto" / "CARLOS: texto" en líneas separadas
+- Formato: "GEMA: texto" / "NEO: texto" en líneas separadas
 - Entre 6 y 10 intervenciones en total
-- Cada intervención: 2-4 frases
+- Cada intervención: 2-3 frases cortas
 - La conversación debe sonar real, no leer un artículo
-- Al final, Carlos da un consejo práctico y Ana resume
+- Al final, NEO da un consejo práctico y GEMA resume con energía
 - NO menciones que eres una IA o que esto es generado
-- NO uses emojis ni asteriscos para formato"""
+- NO uses emojis ni asteriscos"""
 
 async def generate_script(article_text: str, title: str, niche: str) -> str:
-    """Generate podcast script using Gemma 4."""
+    """Generate podcast script using Qwen3 8B."""
     
     prompt = f"""Título del artículo: {title}
 Tema: {niche}
@@ -40,11 +40,11 @@ Tema: {niche}
 Contenido del artículo:
 {article_text[:3000]}
 
-Genera una conversación de podcast en español entre Ana (presentadora) y Carlos (experto) sobre este tema.
-Formato: "ANA: texto" / "CARLOS: texto" """
+Genera una conversación de podcast en español entre GEMA (presentadora, cálida y entusiasta) y NEO (experto, sereno y analítico) sobre este tema.
+Formato: "GEMA: texto" / "NEO: texto" """
     
     payload = {
-        "model": "gemma4",
+        "model": "qwen3:8b",
         "prompt": f"{SYSTEM_PROMPT}\n\n{prompt}",
         "stream": False,
         "options": {
@@ -65,7 +65,7 @@ def parse_script(raw: str):
     lines = []
     for line in raw.strip().split("\n"):
         line = line.strip()
-        m = re.match(r"^(ANA|CARLOS):\s*(.+)", line)
+        m = re.match(r"^(GEMA|NEO):\s*(.+)", line)
         if m:
             speaker = m.group(1)
             text = m.group(2).strip()
@@ -147,7 +147,7 @@ async def process_article(html_path: Path, force: bool = False):
     
     print(f"🎙️  Generando: {title} ({len(text)} chars)")
     
-    # Generate script with Gemma 4
+    # Generate script with Qwen3 8B
     script = await generate_script(text, title, niche_name)
     
     if not script.strip():
