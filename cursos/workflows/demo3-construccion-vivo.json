@@ -1,0 +1,115 @@
+{
+  "name": "🔧 Demo 3 - Construcción en Vivo",
+  "nodes": [
+    {
+      "id": "webhook-trigger",
+      "name": "Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "parameters": {
+        "path": "curso-ia-demo3",
+        "responseMode": "lastNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "ai-categorize",
+      "name": "IA Categorizar",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "parameters": {
+        "options": {
+          "model": "gpt-4o-mini"
+        },
+        "messages": {
+          "values": [
+            { "role": "system", "content": "Clasifica el mensaje en una categoría: tecnica, comercial, soporte, interna. Devuelve SOLO la categoría." },
+            { "role": "user", "content": "={{ $json.body.consulta || $json.body }}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "switch-category",
+      "name": "Router categoría",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.output }}",
+        "rules": [
+          { "outputKey": "tecnica", "value": "tecnica" },
+          { "outputKey": "comercial", "value": "comercial" },
+          { "outputKey": "soporte", "value": "soporte" }
+        ],
+        "fallbackOutput": "interna"
+      }
+    },
+    {
+      "id": "ai-tech-response",
+      "name": "IA Respuesta técnica",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [850, 150],
+      "parameters": {
+        "options": { "model": "gpt-4o-mini" },
+        "messages": {
+          "values": [
+            { "role": "system", "content": "Eres un agente de soporte técnico. Responde de forma profesional, con pasos concretos." },
+            { "role": "user", "content": "={{ $('Trigger').item.json.consulta }}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ai-commercial-response",
+      "name": "IA Respuesta comercial",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "parameters": {
+        "options": { "model": "gpt-4o-mini" },
+        "messages": {
+          "values": [
+            { "role": "system", "content": "Eres un comercial. Responde de forma cercana, orientada a solución." },
+            { "role": "user", "content": "={{ $('Trigger').item.json.consulta }}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "respond",
+      "name": "Responder",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1050, 300],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"categoria\": $json.output,\n  \"respuesta\": $json.output\n}"
+      }
+    }
+  ],
+  "connections": {
+    "Trigger": { "main": [[ { "node": "IA Categorizar", "type": "main", "index": 0 } ]] },
+    "IA Categorizar": { "main": [[ { "node": "Router categoría", "type": "main", "index": 0 } ]] },
+    "Router categoría": {
+      "main": [
+        [ { "node": "IA Respuesta técnica", "type": "main", "index": 0 } ],
+        [ { "node": "IA Respuesta comercial", "type": "main", "index": 0 } ],
+        [ { "node": "Responder", "type": "main", "index": 0 } ],
+        [ { "node": "Responder", "type": "main", "index": 0 } ]
+      ]
+    },
+    "IA Respuesta técnica": { "main": [[ { "node": "Responder", "type": "main", "index": 0 } ]] },
+    "IA Respuesta comercial": { "main": [[ { "node": "Responder", "type": "main", "index": 0 } ]] }
+  },
+  "settings": {},
+  "staticData": null,
+  "tags": ["curso-ia", "demo-3"]
+}

@@ -197,6 +197,7 @@ def build_html(data, niche):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
 <title>{TITLE} — NEO Labs</title>
 <meta name="description" content="{TDESC}">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/{NS}/{slug}.html">

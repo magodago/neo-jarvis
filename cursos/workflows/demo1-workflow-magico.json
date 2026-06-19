@@ -1,0 +1,98 @@
+{
+  "name": "🎯 Demo 1 - Workflow Mágico (Hook)",
+  "nodes": [
+    {
+      "id": "webhook-trigger",
+      "name": "Recibir mensaje",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "parameters": {
+        "path": "curso-ia-demo1",
+        "responseMode": "lastNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "ai-extract",
+      "name": "IA Extraer datos",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "parameters": {
+        "options": {
+          "model": "gpt-4o-mini",
+          "temperature": 0.3
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "Eres un asistente que extrae datos estructurados de mensajes. Devuelve SIEMPRE JSON con: { \"categoria\": \"soporte/ventas/interna\", \"urgencia\": \"alta/media/baja\", \"resumen\": \"...\", \"accion\": \"...\" }"
+            },
+            {
+              "role": "user",
+              "content": "={{ $json.body.mensaje || $json.body }}"
+            }
+          ]
+        },
+        "respondContent": "message"
+      }
+    },
+    {
+      "id": "gsheet-save",
+      "name": "Guardar en Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [650, 300],
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "sheetId": "{{ $parameter.sheetId }}",
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "fecha": "={{ $now.format('DD/MM/YYYY HH:mm') }}",
+            "mensaje": "={{ $json.body.mensaje }}",
+            "categoria": "={{ $json.categoria }}",
+            "urgencia": "={{ $json.urgencia }}",
+            "resumen": "={{ $json.resumen || $json.output }}"
+          }
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      }
+    },
+    {
+      "id": "slack-notify",
+      "name": "Notificar Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "parameters": {
+        "channelId": "curso-ia-demo",
+        "text": "🚨 *Nuevo mensaje procesado*\n*Categoría:* {{ $json.categoria }}\n*Urgencia:* {{ $json.urgencia }}\n*Resumen:* {{ $json.resumen || $json.output }}\n*Hora:* {{ $now.format('HH:mm') }}"
+      }
+    },
+    {
+      "id": "webhook-response",
+      "name": "Responder",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1050, 300],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      }
+    }
+  ],
+  "connections": {
+    "Recibir mensaje": { "main": [[ { "node": "IA Extraer datos", "type": "main", "index": 0 } ]] },
+    "IA Extraer datos": { "main": [[ { "node": "Guardar en Sheets", "type": "main", "index": 0 } ]] },
+    "Guardar en Sheets": { "main": [[ { "node": "Notificar Slack", "type": "main", "index": 0 } ]] },
+    "Notificar Slack": { "main": [[ { "node": "Responder", "type": "main", "index": 0 } ]] }
+  },
+  "settings": {},
+  "staticData": null,
+  "tags": ["curso-ia", "demo-1"]
+}

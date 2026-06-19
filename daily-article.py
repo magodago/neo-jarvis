@@ -54,15 +54,15 @@ ARTICLE_TYPES = [
 TOPICS = {
     "productividad":["organizar tu agenda","gestionar tu tiempo","priorizar tareas","automatizar informes",
                      "planificar proyectos","gestionar el correo","preparar reuniones","tomar decisiones"],
-    "finanzas":["crear un presupuesto","analizar tus gastos","planificar tu jubilacion","optimizar tu fiscalidad",
+    "finanzas":["crear un presupuesto","analizar tus gastos","planificar tu jubilación","optimizar tu fiscalidad",
                 "gestionar inversiones","reducir deudas","planificar metas financieras"],
-    "marketing":["crear contenido SEO","analizar tu audiencia","automatizar emails","optimizar campanas",
-                 "crear embudos de venta","hacer segmentacion","analizar metricas"],
-    "programacion":["debuggear codigo","revisar pull requests","escribir tests","documentar APIs",
-                    "refactorizar codigo","revisar seguridad","optimizar rendimiento"],
-    "estudiantes":["resumir textos academicos","preparar examenes","escribir ensayos","organizar tu estudio",
+    "marketing":["crear contenido SEO","analizar tu audiencia","automatizar emails","optimizar campañas",
+                 "crear embudos de venta","hacer segmentación","analizar métricas"],
+    "programacion":["debuggear código","revisar pull requests","escribir tests","documentar APIs",
+                    "refactorizar código","revisar seguridad","optimizar rendimiento"],
+    "estudiantes":["resumir textos académicos","preparar exámenes","escribir ensayos","organizar tu estudio",
                    "crear flashcards","hacer presentaciones","gestionar el tiempo de estudio"],
-    "rrhh":["seleccionar candidatos","evaluar desempeno","redactar ofertas","planificar formacion",
+    "rrhh":["seleccionar candidatos","evaluar desempeño","redactar ofertas","planificar formación",
             "mejorar clima laboral","hacer onboarding","gestionar el talento"],
 }
 
@@ -100,24 +100,25 @@ def pick(seq, day=None):
 
 def generate_via_ollama(niche, topic, article_type):
     """Try to generate content via local Ollama."""
-    prompt = f"""Eres un escritor de blogs profesional. Escribe un articulo en español sobre {topic} en el area de {niche['name']}.
-Tipo de articulo: {article_type}.
-Extension: 500-700 palabras.
+    prompt = f"""Eres un escritor de blogs profesional. Escribe un artículo en español sobre {topic} en el área de {niche['name']}.
+Tipo de artículo: {article_type}.
+Extensión: 500-700 palabras.
 
 ESTRUCTURA REQUERIDA:
-- Introduccion (2 parrafos) que enganche y explique por que es importante
-- 2-3 secciones con titulos H2, cada una con un prompt practico formateado como PROMPT: seguido del texto del prompt
-- Un parrafo de conclusion
+- Introducción (2 párrafos) que enganche y explique por qué es importante
+- 2-3 secciones con títulos H2, cada una con un prompt práctico formateado como PROMPT: seguido del texto del prompt
+- Un párrafo de conclusión
 
 REGLAS:
-- NO incluyas absolutamente ningun proceso de pensamiento ni razonamiento interno
-- Escribe SOLO el cuerpo del articulo (sin HTML, sin titulo, sin prefijos)
-- Usa lenguaje claro, directo y util
-- Los prompts deben ser practicos, copiables y con [corchetes] para personalizar
+- NO incluyas absolutamente ningún proceso de pensamiento ni razonamiento interno
+- Escribe SÓLO el cuerpo del artículo (sin HTML, sin título, sin prefijos)
+- Usa lenguaje claro, directo y útil
+- Los prompts deben ser prácticos, copiables y con [corchetes] para personalizar
 - Incluye ejemplos concretos
-- Termina con una frase que motive a la accion
+- Termina con una frase que motive a la acción
+- **IMPORTANTE:** Usa ORTOGRAFÍA CORRECTA del español. Incluye TODAS las tildes (á, é, í, ó, ú), la letra ñ, y los signos de apertura (¿, ¡). "año" NO es "ano", "útil" NO es "util", "acción" NO es "accion".
 
-Responde UNICAMENTE con el texto del articulo, sin ningun prefijo,sin Thinking,sin explicaciones.
+Responde ÚNICAMENTE con el texto del artículo, sin ningún prefijo, sin Thinking, sin explicaciones.
 
 IMPORTANTE: Usa EXACTAMENTE este formato para cada seccion y prompt:
 ## Titulo de seccion
@@ -212,6 +213,7 @@ def main():
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
 <title>{title} — NEO Labs</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canonical}">
