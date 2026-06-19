@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Daily article generator v3 — high-quality SEO content via DeepSeek."""
-import json, os, subprocess, random, re, sys, html
+import json, os, subprocess, random, re, sys
+from html import escape as h_escape
 from datetime import datetime
 from pathlib import Path
 
@@ -206,7 +207,7 @@ def build_body(content_or_fallback, niche, topic):
                         parts.append(f"<p>{para}</p>")
             if prompt_part:
                 # Escape HTML
-                safe_prompt = html.escape(prompt_part[:200])
+                safe_prompt = h_escape(prompt_part[:200])
                 parts.append(f'<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">{safe_prompt}</div></div>')
         
         parts.append(f"<p>{content_or_fallback['conclusion']}</p>")
@@ -229,7 +230,7 @@ def build_body(content_or_fallback, niche, topic):
             if in_prompt:
                 html_parts.append('</div></div>')
             txt = s[7:].strip()
-            safe_txt = html.escape(txt)
+            safe_txt = h_escape(txt)
             html_parts.append(f'<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">{safe_txt}</div>')
             in_prompt = True
         elif s.startswith("## ") or s.startswith("# "):
@@ -237,14 +238,14 @@ def build_body(content_or_fallback, niche, topic):
                 html_parts.append('</div></div>')
                 in_prompt = False
             title = s.lstrip("# ").strip()
-            html_parts.append(f'<h2>{html.escape(title)}</h2>')
+            html_parts.append(f'<h2>{h_escape(title)}</h2>')
         else:
             if in_prompt:
                 # Continuation of prompt text
-                safe_txt = html.escape(s)
+                safe_txt = h_escape(s)
                 html_parts.append(f'<br>{safe_txt}')
             else:
-                html_parts.append(f"<p>{html.escape(s)}</p>")
+                html_parts.append(f"<p>{h_escape(s)}</p>")
     
     if in_prompt:
         html_parts.append('</div></div>')
@@ -296,10 +297,10 @@ def main():
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
-<title>{html.escape(title)} — NEO Labs</title>
-<meta name="description" content="{html.escape(desc)}">
+<title>{h_escape(title)} — NEO Labs</title>
+<meta name="description" content="{h_escape(desc)}">
 <link rel="canonical" href="{canonical}">
-<meta property="og:title" content="{html.escape(title)}"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="{h_escape(title)}"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
 <script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -351,24 +352,24 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 .cta-buttons{{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}}
 .s-hidden{{display:none}}@media(max-width:768px){{.breadcrumb{{padding-top:80px}}.related-grid{{grid-template-columns:1fr}}#nav{{padding:12px 16px}}#nav .nav-links{{gap:14px}}#nav .nav-links li a{{font-size:.7rem}}}}
 </style>
-<script type="application/ld+json" class="s-hidden">{{"@context":"https://schema.org","@type":"Article","headline":"{html.escape(title)}","description":"{html.escape(desc)}","datePublished":"{datetime.now().strftime('%Y-%m-%d')}","author":{{"@type":"Person","name":"NEO Labs"}},"publisher":{{"@type":"Organization","name":"NEO Labs"}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{canonical}"}}}}</script>
+<script type="application/ld+json" class="s-hidden">{{"@context":"https://schema.org","@type":"Article","headline":"{h_escape(title)}","description":"{h_escape(desc)}","datePublished":"{datetime.now().strftime('%Y-%m-%d')}","author":{{"@type":"Person","name":"NEO Labs"}},"publisher":{{"@type":"Organization","name":"NEO Labs"}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{canonical}"}}}}</script>
 </head>
 <body><div id="progress"></div>
 <nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
 <div class="wrap">
-<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">{html.escape(b['name'])}</a> <span>/</span> <span>{html.escape(title[:50])}</span></div>
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">{h_escape(b['name'])}</a> <span>/</span> <span>{h_escape(title[:50])}</span></div>
 <div class="article-header">
-<span class="cat-tag">{html.escape(art_type['tag'])}</span>
-<h1>{html.escape(title)}</h1>
+<span class="cat-tag">{h_escape(art_type['tag'])}</span>
+<h1>{h_escape(title)}</h1>
 <div class="meta"><span>{date_str}</span><span>{read_time} min de lectura</span></div>
 </div>
 <div class="article-body">
 {body_html}
-<div class="cta-box"><h3>Pack de {html.escape(b['name'])}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/bundle/{b['payhip']}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="cta-box"><h3>Pack de {h_escape(b['name'])}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/bundle/{b['payhip']}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
 </div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
-<a href="../prompts-ia-{html.escape(b['slug'])}-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de {html.escape(b['name'])}</h4><p>Contenido destacado del blog.</p></a>
-<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de {html.escape(b['name'])}</h4><p>Todos los artículos del blog.</p></a>
+<a href="../prompts-ia-{h_escape(b['slug'])}-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de {h_escape(b['name'])}</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de {h_escape(b['name'])}</h4><p>Todos los artículos del blog.</p></a>
 <a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
 </div></div>
 </div>
