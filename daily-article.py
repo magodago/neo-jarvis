@@ -332,6 +332,16 @@ a{{color:var(--brand);text-decoration:none}}a:hover{{filter:brightness(1.2)}}
 .btn:hover{{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}}
 .btn-outline{{border:1px solid var(--brand);color:var(--brand);background:transparent}}
 .btn-outline:hover{{background:rgba(212,168,83,.1)}}
+.nl-box{{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}}
+.nl-box .nl-icon{{font-size:1.8rem;color:var(--brand);margin-bottom:4px}}
+.nl-box .nl-title{{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}}
+.nl-box .nl-desc{{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}}
+.nl-form{{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}}
+.nl-input{{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}}
+.nl-input:focus{{border-color:var(--brand)}}
+.nl-input::placeholder{{color:#6a6558}}
+.nl-btn{{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}}
+.nl-btn:hover{{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}}
 .related-section{{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}}
 .related-section h3{{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}}
 .related-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}}
@@ -370,6 +380,7 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 <div class="article-body">
 {body_html}
 <div class="cta-box"><h3>Pack de {h_escape(b['name'])}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="{payhip_url}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify({{email:this.email.value}})}}).catch(()=>{{}});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
 </div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
 <a href="../prompts-ia-{h_escape(b['slug'])}-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de {h_escape(b['name'])}</h4><p>Contenido destacado del blog.</p></a>
