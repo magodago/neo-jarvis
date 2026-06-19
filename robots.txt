@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 10
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
 Sitemap: https://magodago.github.io/neo-jarvis/sitemap.xml
