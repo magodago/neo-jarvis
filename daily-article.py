@@ -292,6 +292,7 @@ def main():
     b = niche
     canonical = f"https://magodago.github.io/neo-jarvis/blog/{b['slug']}/{slug}.html"
     
+    payhip_url = f"https://payhip.com/b/{b['payhip']}"
     html = f'''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -365,7 +366,7 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 </div>
 <div class="article-body">
 {body_html}
-<div class="cta-box"><h3>Pack de {h_escape(b['name'])}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/bundle/{b['payhip']}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="cta-box"><h3>Pack de {h_escape(b['name'])}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="{payhip_url}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
 </div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
 <a href="../prompts-ia-{h_escape(b['slug'])}-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de {h_escape(b['name'])}</h4><p>Contenido destacado del blog.</p></a>
