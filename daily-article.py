@@ -1,14 +1,21 @@
-import json
 #!/usr/bin/env python3
-"""Daily article generator v2 — SEO-optimized, varied, high-quality content.
-Generates one article per day rotating through niches.
-"""
-import os, subprocess, random, re, sys
+"""Daily article generator v3 — high-quality SEO content via DeepSeek."""
+import json, os, subprocess, random, re, sys, html
 from datetime import datetime
 from pathlib import Path
 
 REPO = Path.home() / "neo-jarvis"
 BLOG = REPO / "blog"
+
+# Load DeepSeek API key
+DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+if not DEEPSEEK_KEY:
+    env_path = Path.home() / ".hermes" / ".env"
+    if env_path.exists():
+        for line in env_path.read_text().splitlines():
+            if line.startswith("DEEPSEEK_API_KEY="):
+                DEEPSEEK_KEY = line.split("=", 1)[1].strip().strip("'\"")
+DEEPSEEK_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1") + "/chat/completions"
 
 NICHES = [
     {"slug":"productividad","name":"Productividad","brand":"#d4a853","brand_dark":"#b8922f","brand_light":"#f0d68a","payhip":"EYojF",
@@ -17,15 +24,14 @@ NICHES = [
      "hero_img":"photo-1554224155-8d04cb21cd6c"},
     {"slug":"marketing","name":"Marketing","brand":"#42a5f5","brand_dark":"#1976d2","brand_light":"#90caf9","payhip":"Q5RYA",
      "hero_img":"photo-1557838923-2985c318be48"},
-    {"slug":"programacion","name":"Programacion","brand":"#ab47bc","brand_dark":"#7b1fa2","brand_light":"#ce93d8","payhip":"XTEG5",
+    {"slug":"programacion","name":"Programación","brand":"#ab47bc","brand_dark":"#7b1fa2","brand_light":"#ce93d8","payhip":"XTEG5",
      "hero_img":"photo-1461749280684-dccba630e2f6"},
-    {"slug":"estudiantes","name":"Educacion","brand":"#ffa726","brand_dark":"#ef6c00","brand_light":"#ffcc80","payhip":"M3eqn",
+    {"slug":"estudiantes","name":"Educación","brand":"#ffa726","brand_dark":"#ef6c00","brand_light":"#ffcc80","payhip":"M3eqn",
      "hero_img":"photo-1488190211105-8b0e65b80b4e"},
     {"slug":"rrhh","name":"RRHH","brand":"#ec407a","brand_dark":"#c2185b","brand_light":"#f48fb1","payhip":"KragB",
      "hero_img":"photo-1600880292203-757bb62b4baf"},
 ]
 
-# Known-good Unsplash photo IDs for article hero images
 IMAGES = [
     "photo-1555066931-4365d14bab8c","photo-1512314889357-e157c22f938d","photo-1454165804606-c3d57bc86b40",
     "photo-1434030216411-0b793f4b4173","photo-1555421689-d68471e189f2","photo-1450101499163-c8848c66ca85",
@@ -34,21 +40,21 @@ IMAGES = [
 ]
 
 ARTICLE_TYPES = [
-    {"type":"guia","tag":"Guia",
-     "titles":["Guia completa de {} con inteligencia artificial","Los mejores prompts de IA para {}",
+    {"type":"guia","tag":"Guía",
+     "titles":["Guía completa de {} con inteligencia artificial","Los mejores prompts de IA para {}",
                "Todo lo que necesitas saber sobre {} con IA","Estrategia definitiva de {} potenciada con IA"],
-     "desc":"Guia detallada sobre {} con prompts de IA probados y refinados."},
+     "desc":"Guía detallada sobre {} con prompts de IA probados y refinados."},
     {"type":"tutorial","tag":"Tutorial",
-     "titles":["Como {} con IA paso a paso","Guia practica para {} usando inteligencia artificial",
-               "Aprende a {} con prompts de IA","Tutorial practico de {} con ChatGPT y Claude"],
-     "desc":"Aprende paso a paso como {} con la ayuda de la inteligencia artificial."},
+     "titles":["Cómo {} con IA paso a paso","Guía práctica para {} usando inteligencia artificial",
+               "Aprende a {} con prompts de IA","Tutorial práctico de {} con ChatGPT y Claude"],
+     "desc":"Aprende paso a paso cómo {} con la ayuda de la inteligencia artificial."},
     {"type":"noticia","tag":"Noticia",
-     "titles":["Novedades de IA para {}: lo que cambia en 2026","Nueva actualizacion de ChatGPT afecta a {}",
-               "Lo ultimo en IA para {} que no puedes ignorar","Breakthrough en IA: nuevo impacto en {}"],
-     "desc":"Las ultimas novedades de inteligencia artificial aplicadas a {}."},
+     "titles":["Novedades de IA para {}: lo que cambia en 2026","Nueva actualización de ChatGPT afecta a {}",
+               "Lo último en IA para {} que no puedes ignorar","Breakthrough en IA: nuevo impacto en {}"],
+     "desc":"Las últimas novedades de inteligencia artificial aplicadas a {}."},
     {"type":"comparativa","tag":"Comparativa",
-     "titles":["ChatGPT vs Claude vs Gemini: cual es mejor para {}","Comparativa 2026: mejores herramientas para {}"],
-     "desc":"Comparamos las principales herramientas de IA para ayudarte a elegir la mejor opcion."},
+     "titles":["ChatGPT vs Claude vs Gemini: cuál es mejor para {}","Comparativa 2026: mejores herramientas para {}"],
+     "desc":"Comparamos las principales herramientas de IA para ayudarte a elegir la mejor opción."},
 ]
 
 TOPICS = {
@@ -66,159 +72,234 @@ TOPICS = {
             "mejorar clima laboral","hacer onboarding","gestionar el talento"],
 }
 
-# 5 different fallback article templates for variety when Ollama fails
-FALLBACKS = [
-    {
-        "intro": "Si hay un area donde la IA realmente marca la diferencia es en {topic}. Lo que antes te llevaba horas, ahora puedes hacerlo en minutos con el prompt adecuado.",
-        "sections": [
-            ("Empieza con un prompt basico", "Eres un experto en {niche}. Necesito ayuda con {topic}. Dame 3 enfoques diferentes, evalua pros y contras de cada uno, y recomiendame el mejor con un plan de accion concreto de 5 pasos."),
-            ("Lleva tus resultados al siguiente nivel", "Eres un consultor senior en {niche} con 20 anos de experiencia. Analiza mi situacion actual: [describe]. Identifica los 3 factores criticos, propone soluciones accionables, y establece metricas de exito para cada una."),
-            ("Automatiza el proceso completo", "Crea un sistema automatico para {topic} en {niche}. Dame: 1) Los pasos que puedo delegar completamente a la IA, 2) Los puntos donde necesito supervisar, 3) Un prompt que lo unifique todo en una sola ejecucion."),
-        ]
-    },
-    {
-        "intro": "La clave del exito con IA no esta en la herramienta que uses, sino en como le pides las cosas. Para {topic}, la diferencia entre un resultado mediocre y uno excelente esta en los detalles del prompt.",
-        "sections": [
-            ("El prompt que todo profesional necesita", "Eres un asistente virtual especializado en {topic}. Mi objetivo es [describe]. Dame una estrategia completa dividida en: 1) Diagnostico de la situacion actual, 2) Plan de accion con 3 fases, 3) Recursos necesarios, 4) Timeline estimado, 5) Metricas de exito."),
-            ("Refina los resultados con contexto adicional", "Teniendo en cuenta mi contexto especifico: [contexto]. Revisa la estrategia anterior y adaptala. Identifica que partes del plan pueden no funcionar en mi caso y sugiereme alternativas personalizadas."),
-        ]
-    },
-    {
-        "intro": "Mucha gente cree que usar IA es solo escribir lo primero que se te viene a la mente y esperar un resultado magico. La realidad es que los mejores resultados vienen de prompts bien estructurados. Para {topic}, esta es la formula que funciona.",
-        "sections": [
-            ("La estructura que siempre funciona", "Eres un experto mundial en {niche} y {topic}. Dame tu metodologia completa: 1) Marco teorico (2 parrafos), 2) Paso a paso practico (5 pasos), 3) Errores comunes y como evitarlos, 4) Ejemplo real aplicado, 5) Conclusion con siguiente paso."),
-            ("Personaliza segun tu caso", "Ahora adapta esa metodologia a mi caso concreto: [describe tu situacion]. Que cambiaria? Que mantendria? Dame una version personalizada paso a paso."),
-            ("Crea un sistema de seguimiento", "Disena un sistema de seguimiento semanal para {topic}. Indicadores clave, frecuencia de revision, ajustes recomenda-dos segun resultados. Quiero poder evaluar mi progreso en 5 minutos cada semana."),
-        ]
-    },
-]
-
 def pick(seq, day=None):
     if day is not None:
         return seq[day % len(seq)]
     return random.choice(seq)
 
-def generate_via_ollama(niche, topic, article_type):
-    """Try to generate content via local Ollama."""
-    prompt = f"""Eres un escritor de blogs profesional. Escribe un artículo en español sobre {topic} en el área de {niche['name']}.
-Tipo de artículo: {article_type}.
-Extensión: 500-700 palabras.
+def generate_via_deepseek(niche, topic, article_type):
+    """Generate high-quality article via DeepSeek API."""
+    if not DEEPSEEK_KEY:
+        print("ERROR: No DeepSeek API key found")
+        return None
 
-ESTRUCTURA REQUERIDA:
-- Introducción (2 párrafos) que enganche y explique por qué es importante
-- 2-3 secciones con títulos H2, cada una con un prompt práctico formateado como PROMPT: seguido del texto del prompt
-- Un párrafo de conclusión
+    prompt = f"""Eres un escritor de blogs profesional y experto en {niche['name']}. Tu audiencia son profesionales hispanohablantes que buscan contenido útil y bien fundamentado. NO eres una IA — escribes como un humano con experiencia real.
 
-REGLAS:
-- NO incluyas absolutamente ningún proceso de pensamiento ni razonamiento interno
-- Escribe SÓLO el cuerpo del artículo (sin HTML, sin título, sin prefijos)
-- Usa lenguaje claro, directo y útil
-- Los prompts deben ser prácticos, copiables y con [corchetes] para personalizar
-- Incluye ejemplos concretos
-- Termina con una frase que motive a la acción
-- **IMPORTANTE:** Usa ORTOGRAFÍA CORRECTA del español. Incluye TODAS las tildes (á, é, í, ó, ú), la letra ñ, y los signos de apertura (¿, ¡). "año" NO es "ano", "útil" NO es "util", "acción" NO es "accion".
+Escribe un artículo sobre: {topic}
+Nichos: {niche['name']}
+Tipo: {article_type}
 
-Responde ÚNICAMENTE con el texto del artículo, sin ningún prefijo, sin Thinking, sin explicaciones.
+REQUISITOS DE CALIDAD (NO NEGOCIABLES):
+1. **Longitud**: 900-1200 palabras. Con contenido real, no relleno.
+2. **Estructura**: Introducción convincente → 3-4 secciones H2 con contenido sustancial → Conclusión con llamado a la acción.
+3. **Cada sección H2 debe incluir un prompt práctico** con esta sintaxis PROMPT: seguido del prompt listo para copiar y pegar.
+4. **Investiga mentalmente**: No generalices. Da pasos concretos, herramientas reales, métricas específicas.
+5. **Ejemplos prácticos**: Al menos 2 ejemplos concretos aplicados a situaciones reales.
+6. **Errores comunes**: Una sección dedicada a errores que comete la gente y cómo evitarlos.
+7. **Datos actualizados 2026**: Referencias a versiones actuales de ChatGPT, Claude, Gemini.
 
-IMPORTANTE: Usa EXACTAMENTE este formato para cada seccion y prompt:
-## Titulo de seccion
+REGLAS DE ESTILO:
+- Tono profesional pero cercano. Como un consultor que habla con un colega.
+- Ortografía correcta del español: á, é, í, ó, ú, ñ, ¿, ¡. OBLIGATORIO.
+- Sin markdown. Sin HTML en el contenido. Sin pensamientos internos.
+- Sin autoreferencias ("como hemos visto", "como mencioné antes").
+- Vocabulario variado. Evita repetir palabras a menos de 3 frases.
+- Los prompts deben tener variables entre [corchetes] para personalizar.
 
-PROMPT: [texto del prompt]
+Formato de salida (responde SOLO esto, sin prefijos):
+## [Título sección]
+Contenido de la sección en párrafos.
 
-Asegurate de incluir AL MENOS 2 secciones con su prompt, y que el articulo tenga 500-700 palabras."""
+PROMPT: [texto del prompt práctico]
+
+Sigue esta estructura exacta. Mínimo 3 secciones con prompt."""
+
+    payload = json.dumps({
+        "model": "deepseek-v4-flash",
+        "messages": [
+            {"role": "system", "content": "Eres un escritor de blogs experto. Escribes artículos profundos, prácticos y bien documentados. Tu ortografía es perfecta. Respondes ÚNICAMENTE con el cuerpo del artículo, sin prefijos ni explicaciones."},
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.7,
+        "max_tokens": 4096,
+    })
+
     try:
         resp = subprocess.run(
-            ["curl","-s","--max-time","240",
-             "http://localhost:11434/api/generate",
-             "-d", '{"model":"qwen3:8b","prompt":' + json.dumps(prompt) + ',"stream":false,"options":{"num_predict":4096,"temperature":0.8}}'],
-            capture_output=True,text=True,timeout=250
+            ["curl", "-s", "--max-time", "120",
+             DEEPSEEK_URL,
+             "-H", "Content-Type: application/json",
+             "-H", f"Authorization: Bearer {DEEPSEEK_KEY}",
+             "-d", payload],
+            capture_output=True, text=True, timeout=130
         )
-        if resp.returncode == 0 and resp.stdout.strip():
-            import json as _j
-            data = _j.loads(resp.stdout)
-            content = data.get("response","").strip()
-            if content:
-                for prefix in ["Thinking...","thinking","**Pensamiento:**","**Razonamiento:**","Here's"]:
-                    if content.startswith(prefix):
-                        content = content[len(prefix):].strip()
-                return content
-    except: pass
-    return None
+        if resp.returncode != 0:
+            print(f"curl error: {resp.stderr[:200]}")
+            return None
+        
+        data = json.loads(resp.stdout)
+        if "choices" not in data:
+            print(f"API error: {data.get('error', {}).get('message', str(data)[:200])}")
+            return None
+        
+        content = data["choices"][0]["message"]["content"].strip()
+        
+        # Strip thinking prefixes
+        thinking_prefixes = ["Thinking...", "thinking", "**Pensamiento:**", "**Razonamiento:**", 
+                           "Here's", "Claro,", "Por supuesto,"]
+        for prefix in thinking_prefixes:
+            if content.startswith(prefix):
+                content = content[len(prefix):].strip()
+        
+        # Check minimum length
+        word_count = len(content.split())
+        if word_count < 400:
+            print(f"Article too short ({word_count} words), skipping")
+            return None
+            
+        print(f"Generated {word_count} words via DeepSeek")
+        return content
+        
+    except json.JSONDecodeError as e:
+        print(f"JSON decode error: {e}")
+        return None
+    except subprocess.TimeoutExpired:
+        print("DeepSeek timeout")
+        return None
+    except Exception as e:
+        print(f"DeepSeek error: {e}")
+        return None
 
-def build_body(content, fallback, niche, topic):
-    """Build article body from Ollama output or fallback."""
-    if content:
-        lines = content.split("\n")
-        html_parts = []
-        for line in lines:
-            s = line.strip()
-            if not s: continue
-            if s.startswith("PROMPT:"):
-                txt = s[7:].strip()
-                html_parts.append(f'<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>{txt[:80]}</strong><br>{txt}</div></div>')
-            elif s.startswith("## ") or s.startswith("# "):
-                html_parts.append(f'<h2>{s.lstrip("# ")}</h2>')
+def generate_fallback(niche, topic):
+    """Generate a reasonable fallback article when API fails."""
+    sections_data = {
+        "introduccion": f"Si trabajas con inteligencia artificial, sabes que la calidad del resultado depende casi por completo de la calidad del input. Para {topic}, la diferencia entre un resultado aceptable y uno excepcional está en los detalles del prompt que escribes. En este artículo te voy a mostrar exactamente cómo estructurar tus prompts para obtener resultados profesionales, con ejemplos concretos que puedes usar hoy mismo.",
+        "secciones": [
+            ("El prompt base que necesitas", f"Para empezar a trabajar en {topic}, necesitas un prompt bien estructurado. La clave está en darle a la IA suficiente contexto sin abrumarla. Este es el prompt base que recomiendo para cualquier profesional:\n\nPROMPT: Eres un consultor experto en {niche['name']} con más de 10 años de experiencia. Necesito tu ayuda para {topic}. Dame 3 enfoques diferentes, evaluando pros y contras de cada uno, y recomiéndame el mejor con un plan de acción concreto de 5 pasos. Incluye métricas para medir el éxito de cada enfoque."),
+            ("Cómo refinar los resultados", "El primer resultado rara vez es el definitivo. La clave está en iterar. Una vez que tengas el primer output, usa este prompt para refinarlo:\n\nPROMPT: Revisa el plan anterior. Identifica qué partes pueden no funcionar en mi caso específico, donde mi contexto es: [describe tu situación actual]. Adáptalo a mi realidad, teniendo en cuenta limitaciones de [tiempo/recursos/conocimiento]. Dame alternativas para los puntos más débiles."),
+            ("Crea un sistema que funcione solo", "El verdadero poder de la IA no está en usarla una vez, sino en crear sistemas que puedas repetir. Este prompt te ayuda a construir ese sistema:\n\nPROMPT: Diseña un sistema de trabajo semanal para {topic}. Incluye: 1) Qué tareas puedo delegar completamente a la IA, 2) En qué puntos necesito supervisión humana, 3) Un flujo de trabajo con tiempos estimados, 4) Indicadores clave para evaluar resultados. Quiero poder ejecutarlo en menos de 30 minutos cada semana."),
+        ],
+        "conclusion": f"La clave del éxito con IA para {topic} no está en la herramienta, sino en cómo la usas. Estos prompts son tu punto de partida. Pruébalos, ajústalos, y sobre todo, úsalos de forma consistente. La práctica constante con prompts bien estructurados te dará resultados que hablan por sí solos."
+    }
+    return sections_data
+
+def build_body(content_or_fallback, niche, topic):
+    """Build HTML body from DeepSeek output or fallback."""
+    if isinstance(content_or_fallback, dict):
+        # Fallback mode
+        parts = [f"<p>{content_or_fallback['introduccion']}</p>"]
+        for h, p_text in content_or_fallback["secciones"]:
+            # Split PROMPT: from text
+            prompt_marker = "PROMPT:"
+            if prompt_marker in p_text:
+                text_part, prompt_part = p_text.split(prompt_marker, 1)
+                prompt_part = prompt_part.strip()
             else:
-                html_parts.append(f"<p>{s}</p>")
-        return "\n".join(html_parts)
-    else:
-        # Use fallback
-        fb = pick(fallback)
-        intro = fb["intro"].format(topic=topic, niche=niche["name"])
-        parts = [f"<p>{intro}</p>"]
-        for h, p in fb["sections"]:
+                text_part = p_text
+                prompt_part = ""
+            
             parts.append(f"<h2>{h}</h2>")
-            prompt_text = p.format(topic=topic, niche=niche["name"])
-            parts.append(f'<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>{prompt_text[:100]}</strong><br>{prompt_text}</div></div>')
-        conclusion = pick(["Ponlo en practica esta misma semana y veras la diferencia.","Comienza hoy y repite el proceso cada semana para resultados consistentes.","La practica constante con estos prompts te dara resultados que hablan por si solos."])
-        parts.append(f"<p>{conclusion}</p>")
+            if text_part.strip():
+                for para in text_part.strip().split("\n\n"):
+                    para = para.strip()
+                    if para:
+                        parts.append(f"<p>{para}</p>")
+            if prompt_part:
+                # Escape HTML
+                safe_prompt = html.escape(prompt_part[:200])
+                parts.append(f'<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">{safe_prompt}</div></div>')
+        
+        parts.append(f"<p>{content_or_fallback['conclusion']}</p>")
         return "\n".join(parts)
+    
+    # DeepSeek mode
+    lines = content_or_fallback.split("\n")
+    html_parts = []
+    in_prompt = False
+    
+    for line in lines:
+        s = line.strip()
+        if not s:
+            if in_prompt:
+                html_parts.append('</div></div>')
+                in_prompt = False
+            continue
+        
+        if s.startswith("PROMPT:"):
+            if in_prompt:
+                html_parts.append('</div></div>')
+            txt = s[7:].strip()
+            safe_txt = html.escape(txt)
+            html_parts.append(f'<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">{safe_txt}</div>')
+            in_prompt = True
+        elif s.startswith("## ") or s.startswith("# "):
+            if in_prompt:
+                html_parts.append('</div></div>')
+                in_prompt = False
+            title = s.lstrip("# ").strip()
+            html_parts.append(f'<h2>{html.escape(title)}</h2>')
+        else:
+            if in_prompt:
+                # Continuation of prompt text
+                safe_txt = html.escape(s)
+                html_parts.append(f'<br>{safe_txt}')
+            else:
+                html_parts.append(f"<p>{html.escape(s)}</p>")
+    
+    if in_prompt:
+        html_parts.append('</div></div>')
+    
+    return "\n".join(html_parts)
 
 def main():
     day_of_year = datetime.now().timetuple().tm_yday
     
-    # Rotate niche and article type deterministically
     niche = NICHES[day_of_year % len(NICHES)]
     art_type = ARTICLE_TYPES[day_of_year % len(ARTICLE_TYPES)]
     
-    # Pick topic
     topics_list = TOPICS.get(niche["slug"], ["mejorar tu productividad"])
     topic = topics_list[day_of_year % len(topics_list)]
     
-    # Build title, desc, slug
     title_template = art_type["titles"][day_of_year % len(art_type["titles"])]
     title = title_template.format(topic)
     desc = art_type["desc"].format(topic)
-    # Truncate desc to 155 chars for SEO
     desc = desc[:155] if len(desc) > 155 else desc
     slug = re.sub(r'[^a-z0-9-]', '', topic.lower().replace(' ', '-'))[:40] + f"-{art_type['type']}"
     date_str = datetime.now().strftime("%-d %B %Y")
     read_time = random.randint(5, 9)
     
-    # Generate content
     print(f"Generando: {niche['name']} / {art_type['type']} / {topic}")
-    content = generate_via_ollama(niche, topic, art_type["type"])
-    body_html = build_body(content, FALLBACKS, niche, topic)
     
-    # Build image URL
+    # Try DeepSeek first
+    content = generate_via_deepseek(niche, topic, art_type["type"])
+    
+    # Use fallback if DeepSeek fails
+    if content is None:
+        print("DeepSeek failed, using fallback")
+        fallback_content = generate_fallback(niche, topic)
+        body_html = build_body(fallback_content, niche, topic)
+    else:
+        body_html = build_body(content, niche, topic)
+        if body_html is None or len(body_html) < 200:
+            print("Generated body too short, using fallback")
+            fallback_content = generate_fallback(niche, topic)
+            body_html = build_body(fallback_content, niche, topic)
+    
     hero_img_id = pick(IMAGES, day_of_year)
     hero_img = f"https://images.unsplash.com/{hero_img_id}?w=800&q=85"
     
-    # Brand colors
     b = niche
     canonical = f"https://magodago.github.io/neo-jarvis/blog/{b['slug']}/{slug}.html"
     
-    # Article template with ALL improvements
     html = f'''<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
-<title>{title} — NEO Labs</title>
-<meta name="description" content="{desc}">
+<title>{html.escape(title)} — NEO Labs</title>
+<meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{canonical}">
-<meta property="og:title" content="{title}"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
-<!-- GoatCounter analytics -->
+<meta property="og:title" content="{html.escape(title)}"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
 <script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,7 +335,7 @@ a{{color:var(--brand);text-decoration:none}}a:hover{{filter:brightness(1.2)}}
 .related-card:hover{{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}}
 .related-card .cat{{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}}
 .related-card h4{{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}}
-.{{}}related-card p{{font-size:.7rem;color:var(--text-muted);margin-top:2px}}
+.related-card p{{font-size:.7rem;color:var(--text-muted);margin-top:2px}}
 footer{{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}}
 footer .logo{{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}}footer .logo span{{color:#d4a853}}
 footer .links{{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}}footer .links a{{color:var(--text-muted);font-size:.78rem}}footer .links a:hover{{color:var(--brand)}}
@@ -270,28 +351,28 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 .cta-buttons{{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}}
 .s-hidden{{display:none}}@media(max-width:768px){{.breadcrumb{{padding-top:80px}}.related-grid{{grid-template-columns:1fr}}#nav{{padding:12px 16px}}#nav .nav-links{{gap:14px}}#nav .nav-links li a{{font-size:.7rem}}}}
 </style>
-<script type="application/ld+json" class="s-hidden">{{"@context":"https://schema.org","@type":"Article","headline":"{title}","description":"{desc}","datePublished":"{datetime.now().strftime('%Y-%m-%d')}","author":{{"@type":"Person","name":"NEO Labs"}},"publisher":{{"@type":"Organization","name":"NEO Labs"}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{canonical}"}}}}</script>
+<script type="application/ld+json" class="s-hidden">{{"@context":"https://schema.org","@type":"Article","headline":"{html.escape(title)}","description":"{html.escape(desc)}","datePublished":"{datetime.now().strftime('%Y-%m-%d')}","author":{{"@type":"Person","name":"NEO Labs"}},"publisher":{{"@type":"Organization","name":"NEO Labs"}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{canonical}"}}}}</script>
 </head>
 <body><div id="progress"></div>
-<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
 <div class="wrap">
-<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">{b['name']}</a> <span>/</span> <span>{title[:50]}</span></div>
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">{html.escape(b['name'])}</a> <span>/</span> <span>{html.escape(title[:50])}</span></div>
 <div class="article-header">
-<span class="cat-tag">{art_type['tag']}</span>
-<h1>{title}</h1>
+<span class="cat-tag">{html.escape(art_type['tag'])}</span>
+<h1>{html.escape(title)}</h1>
 <div class="meta"><span>{date_str}</span><span>{read_time} min de lectura</span></div>
 </div>
 <div class="article-body">
 {body_html}
-<div class="cta-box"><h3>Pack de {b['name']}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Codigo <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/bundle/{b['payhip']}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="cta-box"><h3>Pack de {html.escape(b['name'])}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/bundle/{b['payhip']}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
 </div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
-<a href="../prompts-ia-{b['slug']}-2026.html" class="related-card" style="display:none"><div class="cat">Guia</div><h4>Guias de {b['name']}</h4><p>Contenido destacado del blog.</p></a>
-<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de {b['name']}</h4><p>Todos los articulos del blog.</p></a>
-<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catalogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+<a href="../prompts-ia-{html.escape(b['slug'])}-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de {html.escape(b['name'])}</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de {html.escape(b['name'])}</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
 </div></div>
 </div>
-<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
 <script>
 let p=document.getElementById('progress');document.addEventListener('scroll',()=>{{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'}})
 let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t}})
@@ -301,9 +382,9 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     
     filepath = BLOG / b["slug"] / f"{slug}.html"
     filepath.write_text(html, encoding="utf-8")
-    print(f"Articulo escrito: {filepath.name}")
+    print(f"Artículo escrito: {filepath.name}")
     
-    # Git
+    # Git + sitemap + blog index
     os.chdir(str(REPO))
     
     # Rebuild sitemap
@@ -332,7 +413,7 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     except Exception as e:
         print(f"Error en sitemap: {e}")
     
-    # Update blog index with latest articles (static links for SEO)
+    # Update blog index
     try:
         subprocess.run([sys.executable, str(REPO / "update_blog_index.py")], timeout=30)
         print("Blog index actualizado!")
@@ -341,22 +422,20 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     
     subprocess.run(["git","add",str(filepath)], capture_output=True)
     subprocess.run(["git","add",str(BLOG / "index.html")], capture_output=True)
-    subprocess.run(["git","commit","-m",f"articulo diario: {topic} ({b['name']})"], capture_output=True)
+    subprocess.run(["git","commit","-m",f"artículo diario: {topic} ({b['name']})"], capture_output=True)
     r = subprocess.run(["git","push"], capture_output=True, text=True)
     print(f"Publicado! ({r.stdout[:100] if r.stdout else 'ok'})")
     
-    # Ping Google
-    try:
-        article_url = f"https://magodago.github.io/neo-jarvis/blog/{b['slug']}/{slug}.html"
-        sm_url = "https://magodago.github.io/neo-jarvis/sitemap.xml"
-        subprocess.run(["curl","-s","-o","/dev/null",f"https://www.google.com/ping?sitemap={sm_url}"], timeout=10)
-        subprocess.run(["curl","-s","-o","/dev/null",f"https://www.google.com/ping?sitemap={article_url}"], timeout=10)
-        print("Google notificado!")
-    except:
-        print("Ping a Google no disponible")
-    
-    # Podcast generation disabled: 0/114 articles generated podcasts (broken)
-    # Kept for reference — podcast_gen.py was consuming 300s per run with no output
+    # Ping search engines
+    for url in [
+        f"https://www.google.com/ping?sitemap=https://magodago.github.io/neo-jarvis/sitemap.xml",
+        f"https://api.indexnow.org/indexnow?url={filepath.name}&key=indexnow-key"
+    ]:
+        try:
+            subprocess.run(["curl","-s","-o","/dev/null",url], timeout=10)
+        except:
+            pass
+    print("Search engines notified!")
 
 if __name__ == "__main__":
     main()
