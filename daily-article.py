@@ -355,19 +355,8 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     except:
         print("Ping a Google no disponible")
     
-    # Generate podcast for the new article
-    try:
-        podcast_script = REPO / "podcast_gen.py"
-        if podcast_script.exists():
-            r = subprocess.run(
-                [sys.executable, str(podcast_script), "--article", f"{b['slug']}/{slug}.html"],
-                capture_output=True, text=True, timeout=300
-            )
-            print(f"Podcast: {r.stdout.strip()[-100:] if r.stdout else 'ok'}")
-            # Git add podcast files
-            subprocess.run(["git","add","podcasts/"], capture_output=True)
-    except Exception as e:
-        print(f"Podcast error: {e}")
+    # Podcast generation disabled: 0/114 articles generated podcasts (broken)
+    # Kept for reference — podcast_gen.py was consuming 300s per run with no output
 
 if __name__ == "__main__":
     main()

@@ -81,15 +81,27 @@ print(f"Generated {len(recent)} recent article cards")
 # Read current index
 index_content = INDEX.read_text(encoding="utf-8")
 
-# Find insertion point: before the <script> tags at the end
-insert_pos = index_content.rfind("<!-- GoatCounter analytics -->")
-if insert_pos == -1:
-    # Fallback: before </body>
-    insert_pos = index_content.rfind("</body>")
+# Check if the RECENT ARTICLES section already exists and replace it
+start_marker = "<!-- === RECENT ARTICLES (static, for SEO) === -->"
+end_marker = "<!-- GoatCounter analytics -->"
 
-if insert_pos > 0:
-    new_content = index_content[:insert_pos] + section_html + index_content[insert_pos:]
+if start_marker in index_content:
+    # Replace existing section
+    start_idx = index_content.find(start_marker)
+    end_idx = index_content.find(end_marker)
+    if end_idx == -1:
+        end_idx = index_content.rfind("</body>")
+    new_content = index_content[:start_idx] + section_html + index_content[end_idx:]
     INDEX.write_text(new_content, encoding="utf-8")
-    print(f"Updated {INDEX}")
+    print(f"Replaced existing recent articles section in {INDEX}")
 else:
-    print("ERROR: Could not find insertion point")
+    # Insert fresh
+    insert_pos = index_content.rfind(end_marker)
+    if insert_pos == -1:
+        insert_pos = index_content.rfind("</body>")
+    if insert_pos > 0:
+        new_content = index_content[:insert_pos] + section_html + index_content[insert_pos:]
+        INDEX.write_text(new_content, encoding="utf-8")
+        print(f"Inserted fresh recent articles section in {INDEX}")
+    else:
+        print("ERROR: Could not find insertion point")
