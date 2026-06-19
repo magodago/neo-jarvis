@@ -332,7 +332,15 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     except Exception as e:
         print(f"Error en sitemap: {e}")
     
+    # Update blog index with latest articles (static links for SEO)
+    try:
+        subprocess.run([sys.executable, str(REPO / "update_blog_index.py")], timeout=30)
+        print("Blog index actualizado!")
+    except Exception as e:
+        print(f"Error updating blog index: {e}")
+    
     subprocess.run(["git","add",str(filepath)], capture_output=True)
+    subprocess.run(["git","add",str(BLOG / "index.html")], capture_output=True)
     subprocess.run(["git","commit","-m",f"articulo diario: {topic} ({b['name']})"], capture_output=True)
     r = subprocess.run(["git","push"], capture_output=True, text=True)
     print(f"Publicado! ({r.stdout[:100] if r.stdout else 'ok'})")
