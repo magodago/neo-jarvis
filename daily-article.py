@@ -317,6 +317,8 @@ a{{color:var(--brand);text-decoration:none}}a:hover{{filter:brightness(1.2)}}
 .article-header h1{{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}}
 .article-header .meta{{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}}
 .article-body h2{{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}}
+.article-hero{{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}}
+.article-hero img{{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}}
 .article-body p{{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}}
 .article-body p strong{{color:var(--text)}}
 .article-body ul, .article-body ol{{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}}
@@ -364,6 +366,7 @@ footer .copy{{font-size:.68rem;color:#6a6558}}
 <h1>{h_escape(title)}</h1>
 <div class="meta"><span>{date_str}</span><span>{read_time} min de lectura</span></div>
 </div>
+<div class="article-hero"><img src="https://images.unsplash.com/{b['hero_img']}?w=780&h=400&fit=crop" alt="{h_escape(title)}" loading="lazy"></div>
 <div class="article-body">
 {body_html}
 <div class="cta-box"><h3>Pack de {h_escape(b['name'])}</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="{payhip_url}" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>

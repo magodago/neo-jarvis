@@ -1,49 +1,60 @@
 #!/usr/bin/env python3
-"""LinkedIn setup: one-time login, then saves session for automation."""
+"""LinkedIn setup v3 — login en perfil persistente (se reutiliza siempre)."""
 from playwright.sync_api import sync_playwright
+from pathlib import Path
+import json, time
 
-print("="*50)
-print("LINKEDIN SETUP — LOGIN UNA SOLA VEZ")
-print("="*50)
-print("Se va a abrir una ventana del navegador.")
-print("Introduce tus credenciales de LinkedIn MANUALMENTE.")
-print("Después del login, la sesión se guardará automáticamente.")
-print("A partir de ahí, los posts serán automáticos.")
-input("\nPresiona ENTER para continuar...")
+PROFILE_DIR = Path.home() / ".hermes" / "linkedin_profile"
+
+print("="*60)
+print("  LINKEDIN SETUP v3 — LOGIN EN PERFIL PERSISTENTE")
+print("="*60)
+print()
+print("Esto abre LinkedIn en un perfil Chromium que REUTILIZARÉ siempre.")
+print("El fingerprint del navegador será idéntico cada vez.")
+print()
+print("1. Se abrirá Chromium")
+print("2. LOGUÉATE en LinkedIn")
+print("3. Cuando veas tu FEED, pulsa ENTER aquí")
+print()
 
 with sync_playwright() as p:
-    b = p.chromium.launch(headless=False, args=['--no-sandbox'])
-    ctx = b.new_context(viewport={'width': 1280, 'height': 800})
+    ctx = p.chromium.launch_persistent_context(
+        user_data_dir=str(PROFILE_DIR),
+        headless=False,
+        args=['--no-sandbox', '--disable-blink-features=AutomationControlled'],
+        viewport={'width': 1280, 'height': 800},
+        locale='es-ES',
+    )
+    
     page = ctx.new_page()
+    page.add_init_script("""
+        Object.defineProperty(navigator, 'webdriver', { get: () => false });
+        window.chrome = { runtime: {} };
+    """)
     
     page.goto('https://www.linkedin.com/login', wait_until='domcontentloaded', timeout=30000)
-    print("\n✅ Navegador abierto. LOGUÉATE MANUALMENTE en LinkedIn.")
-    print("   Cuando termines, vuelve aquí y presiona ENTER...")
-    input("   (Esperando a que termines el login...)")
+    print("✅ Navegador abierto. LOGUÉATE en LinkedIn y ve a tu feed.")
+    print("   Cuando veas tu feed, pulsa ENTER aquí.")
     
-    page.wait_for_timeout(3000)
-    current_url = page.url
-    print(f"\nURL actual: {current_url[:60]}")
+    input("   🔵 Pulsa ENTER cuando estés en tu feed...\n")
     
-    if 'feed' in current_url:
-        print("✅ Login detectado! Guardando cookies...")
-        import json
-        from pathlib import Path
-        
-        cookies = ctx.cookies()
-        cookie_file = Path.home() / ".hermes" / "linkedin_cookies.json"
-        cookie_file.write_text(json.dumps(cookies, indent=2))
-        print(f"Cookies guardadas en {cookie_file}")
-        
-        # Also save local storage
-        storage = page.context.storage_state()
-        storage_file = Path.home() / ".hermes" / "linkedin_storage.json"
-        storage_file.write_text(json.dumps(storage, indent=2))
-        print(f"Storage guardado en {storage_file}")
-        
-        print("\n✅ SETUP COMPLETO. A partir de ahora los posts serán automáticos.")
-    else:
-        print("❌ No se detectó login. La URL no contiene /feed/")
+    # Save cookies from this persistent context
+    cookies = ctx.cookies()
+    storage = ctx.storage_state()
     
+    storage_file = Path.home() / ".hermes" / "linkedin_storage.json"
+    storage_file.write_text(json.dumps(storage, indent=2))
+    
+    print(f"✅ Estado guardado: {len(cookies)} cookies")
+    print(f"✅ Perfil persistente en: {PROFILE_DIR}")
+    
+    li_at = any(c.get("name") == "li_at" for c in cookies)
+    jsession = any(c.get("name") == "JSESSIONID" for c in cookies)
+    print(f"   li_at: {'✅' if li_at else '❌'} | JSESSIONID: {'✅' if jsession else '❌'}")
+    
+    if li_at and jsession:
+        print("\n🎉 SETUP COMPLETO. Ahora los posts funcionarán automáticamente.")
+    
+    input("\nPulsa ENTER para cerrar el navegador...\n")
     ctx.close()
-    b.close()
