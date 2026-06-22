@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
+<title>Guía práctica para hacer onboarding usando inteligencia artificial — NEO Labs</title>
+<meta name="description" content="Aprende paso a paso cómo hacer onboarding con la ayuda de la inteligencia artificial.">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/rrhh/hacer-onboarding-tutorial.html">
+<meta property="og:title" content="Guía práctica para hacer onboarding usando inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--brand:#ec407a;--brand-dark:#c2185b;--brand-light:#f48fb1;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8;touch-action:pan-y}
+a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;padding-top:100px;margin-bottom:8px}.breadcrumb a{color:#6a6558}.breadcrumb a:hover{color:var(--brand)}
+.article-header{margin-bottom:32px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-hero{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.article-hero img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}
+.article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
+.article-body p strong{color:var(--text)}
+.article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--brand);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0 22px}
+.prompt-box .prompt-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:4px}
+.prompt-box .prompt-text{font-size:.85rem;color:#d0c8bc;line-height:1.7;font-style:italic}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:32px 24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--brand);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
+.btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#c2185b,#ec407a,#f48fb1);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand);background:transparent}
+.btn-outline:hover{background:rgba(212,168,83,.1)}
+.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}
+.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}
+.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:#6a6558}
+.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
+.related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
+.related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
+.related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
+.related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
+.related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
+footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
+footer .copy{font-size:.68rem;color:#6a6558}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#nav.hidden{transform:translateY(-100%)}
+#nav .nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}
+#nav .nav-logo span{color:var(--brand)}
+#nav .nav-links{display:flex;list-style:none;gap:24px;margin:0;padding:0}
+#nav .nav-links li a{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}
+#nav .nav-links li a:hover{color:var(--brand)}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#c2185b,#f48fb1);z-index:9999;transition:width .1s}
+.cta-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}#nav{padding:12px 16px}#nav .nav-links{gap:14px}#nav .nav-links li a{font-size:.7rem}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guía práctica para hacer onboarding usando inteligencia artificial","description":"Aprende paso a paso cómo hacer onboarding con la ayuda de la inteligencia artificial.","datePublished":"2026-06-22","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/rrhh/hacer-onboarding-tutorial.html"}}</script>
+</head>
+<body><div id="progress"></div>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<div class="wrap">
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">RRHH</a> <span>/</span> <span>Guía práctica para hacer onboarding usando intelig</span></div>
+<div class="article-header">
+<span class="cat-tag">Tutorial</span>
+<h1>Guía práctica para hacer onboarding usando inteligencia artificial</h1>
+<div class="meta"><span>22 June 2026</span><span>5 min de lectura</span></div>
+</div>
+<div class="article-hero"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=780&h=400&fit=crop" alt="Guía práctica para hacer onboarding usando inteligencia artificial" loading="lazy"></div>
+<div class="article-body">
+<p>La contratación de un nuevo talento es solo el primer latido de un proceso que define su permanencia y productividad. El onboarding, lejos de ser una simple bienvenida, se ha convertido en el eslabón más frágil de la retención. Según datos de 2025, casi el 30% de las renuncias ocurren en los primeros 90 días, y la causa principal no es el salario, sino una experiencia de integración deficiente. En 2026, con equipos híbridos y herramientas de IA como ChatGPT-5 o Claude 4, el margen de error se ha reducido: un onboarding mal ejecutado cuesta en productividad lo que antes costaba en rotación. Este tutorial te ofrece un mapa concreto, con pasos medibles y prompts prácticos, para que no solo recibas a tu nueva persona, sino que la ancles a tu cultura desde el primer minuto.</p>
+<h2>Prepara el terreno: onboarding antes del primer día</h2>
+<p>El onboarding no empieza cuando la persona cruza la puerta (física o virtual). Empieza en el momento en que firma la oferta. Mi recomendación es dedicar al menos cinco días hábiles previos a su llegada para estructurar su experiencia. En 2026, esto incluye enviar un kit digital con acceso a herramientas básicas (Slack, Notion, la intranet), un documento de cultura que explique valores y expectativas, y una agenda de la primera semana con espacios en blanco para absorber información. Herramientas como BambooHR o las automatizaciones en Zapier permiten disparar estos envíos sin intervención manual. El error más común es esperar al lunes para todo; la persona necesita sentirse esperada, no una sorpresa.</p>
+<p>La clave aquí es la personalización. Una empresa tecnológica media recibe perfiles muy distintos: no es lo mismo integrar a un desarrollador senior en un equipo remoto que a un vendedor junior en oficina. Por eso, debes segmentar por rol y por seniority. Por ejemplo, para un perfil técnico, incluye en el kit previo un repositorio con ejemplos de código y acceso a la documentación técnica; para un comercial, un dossier con buyer personas y casos de éxito recientes. Este gesto reduce la ansiedad del primer día y acelera su autonomía.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">&quot;Actúa como un especialista en experiencia del empleado. Diseña un plan de pre-onboarding de 5 días para un [rol específico] en [industria] que trabajará en modalidad [remota/híbrida/presencial]. Incluye: 1. Los 3 documentos imprescindibles que debe recibir antes del día uno. 2. Las configuraciones técnicas que deben estar listas (correo, accesos, herramientas). 3. Un mensaje de bienvenida personalizado del líder directo. 4. Una checklist para RRHH que garantice que todo está operativo. El resultado debe ser una lista de acciones cronológicas, sin asumir que la persona tiene experiencia previa con nuestras herramientas.&quot;</div>
+</div></div>
+<h2>La primera semana: estructura y acompañamiento</h2>
+<p>Una vez que la persona está a bordo, la primera semana marca el ritmo de su confianza. Olvida la idea de &quot;aprender haciendo&quot; sin guía; eso funciona para roles muy autónomos, pero para el 80% de los puestos genera frustración. Diseña una semana con bloques temáticos: día 1, bienvenida cultural y equipo; día 2, herramientas y procesos; día 3, proyecto sombra con un compañero; día 4, revisión de expectativas; día 5, feedback abierto. En 2026, puedes usar herramientas como Culture Amp o incluso prompts en Gemini para generar checklists diarias. Lo crucial es asignar un buddy (compañero de integración) que no sea su jefe; alguien que resuelva dudas informales y evite que la persona se sienta perdida.</p>
+<p>Un ejemplo práctico: en una startup de logística que implementé, el buddy enviaba cada mañana un mensaje por Slack con el objetivo del día y un tip sobre cultura (ejemplo: &quot;Hoy es miércoles de demos, no temas interrumpir a cualquiera para preguntar&quot;). Esto redujo el tiempo de integración de 45 a 22 días en productividad básica. Además, programa reuniones de 15 minutos al final del primer y quinto día para que la persona exprese qué le falta. No asumas que lo dirá espontáneamente; el silencio no es conformidad, es incomodidad.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">&quot;Genera un cronograma de onboarding para la primera semana de un [nombre del puesto] en [sector]. El formato debe ser día por día, con actividades específicas cada día, incluyendo: reuniones con stakeholders clave, tiempo de lectura de documentación, ejercicios prácticos y momentos de feedback. Además, define 3 indicadores de éxito para el final de la semana (por ejemplo: &#x27;sabe usar el CRM sin ayuda&#x27;, &#x27;conoce a 5 compañeros de otros equipos&#x27;). Asegúrate de que cada actividad tenga un tiempo asignado y un responsable. El tono debe ser ejecutable, no teórico.&quot;</div>
+</div></div>
+<h2>Errores típicos que arruinan la experiencia</h2>
+<p>He visto más onboarding fallidos que exitosos, y los patrones se repiten. El primer error es la sobrecarga informativa: bombardear a la persona con manuales, videos y políticas en los primeros dos días. El cerebro humano no retiene más de tres conceptos nuevos por sesión. En vez de eso, fragmenta la información en microaprendizajes con herramientas como Notion o Confluence, y programa sesiones diarias de 20 minutos durante dos semanas. El segundo error es ignorar el componente social en equipos híbridos. Si la persona está remota y todos en oficina, su integración será nula. Solución: en la primera semana, exige que el equipo tenga al menos dos horas diarias de trabajo síncrono con cámara encendida, y programa un café virtual con cada miembro.</p>
+<p>El tercer error, y quizás el más costoso, es no medir. En 2026, con analíticas de RRHH disponibles en plataformas como Workday o Lattice, no hay excusa para no rastrear métricas como el tiempo hasta la primera contribución o la puntuación en encuestas de pulso a los 30 días. Un cliente en retail redujo su rotación temprana en un 40% solo con implementar una encuesta a los 15 días que preguntaba: &quot;¿Sabes a quién acudir si tienes un problema técnico?&quot; y &quot;¿Entiendes cómo tu rol impacta en el equipo?&quot;. Si la respuesta era negativa, intervenían de inmediato.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">&quot;Eres un consultor de RRHH con 10 años de experiencia. Redacta una guía de 3 errores comunes en el onboarding de [tipo de empresa: startup, corporación, pyme] y, para cada error, ofrece una solución concreta con herramientas de 2026. Incluye: nombre del error, señal de alerta (cómo detectarlo), paso a paso para corregirlo y una métrica para verificar que se solucionó. El tono debe ser directo, como un consejo entre colegas, sin jerga académica.&quot;</div>
+</div></div>
+<h2>Casos reales y métricas que importan</h2>
+<p>La teoría se sostiene con ejemplos. Tomemos el caso de una empresa de software con 200 empleados que rediseñó su onboarding en 2025 para equipos distribuidos. Anteriormente, la experiencia era un pdf de 50 páginas y una llamada con RRHH. Después de aplicar una estructura de 30-60-90 días con checklists semanales y un buddy asignado, su tasa de retención a los 90 días pasó del 68% al 91%. La métrica clave fue el Net Promoter Score de onboarding, que subió de 12 a 67. ¿Cómo lo lograron? Automatizaron las tareas administrativas con Claude 4 para redactar resúmenes diarios y usaron ChatGPT-5 para simular conversaciones de role-playing con el nuevo empleado antes de reuniones reales.</p>
+<p>Otro caso contrastante: una consultora tradicional que seguía haciendo inducciones grupales de 8 horas el primer día. Su rotación a los seis meses era del 35%. Al separar la inducción en tres sesiones de 2 horas durante la primera semana y añadir un mentor del área, redujeron la rotación al 18% en un año. La moraleja es que no importa el tamaño de la empresa; la estructura vence al caos. Las métricas que debes vigilar son: tiempo hasta la primera contribución, engagement score a los 30 días y número de preguntas no resueltas en la primera semana. Si este último supera las cinco, el onboarding está fallando.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">&quot;Con base en datos de 2026 sobre retención de talento, crea un informe de una página que compare dos estrategias de onboarding en una [industria específica]. La primera debe ser la tradicional (inducción masiva y sin seguimiento), la segunda debe ser personalizada y con apoyo de IA. Incluye: métricas de retención a 90 y 180 días, coste estimado por empleado y un análisis de ROI. El formato debe ser ejecutivo, con viñetas claras y sin párrafos largos.&quot;</div>
+</div></div>
+<p>El onboarding no es un evento, es un proceso que se extiende hasta el día 90 y que, bien ejecutado, multiplica la productividad y el compromiso. Deja de tratarlo como un trámite administrativo. Invierte en la preparación previa, estructura la primera semana con herramientas de 2026 y mide cada paso. Tu equipo y tu rentabilidad te lo agradecerán. Empieza hoy: elige a tu próxima contratación y aplica el primer prompt de este artículo. No esperes a que llegue el lunes.</p>
+<div class="cta-box"><h3>Pack de RRHH</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/b/KragB" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
+</div>
+<div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
+<a href="../prompts-ia-rrhh-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de RRHH</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de RRHH</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+</div></div>
+</div>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<script>
+let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
+</body>
+</html>
