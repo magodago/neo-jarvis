@@ -100,143 +100,145 @@ def get_weather():
     except: pass
     return "—"
 
-# ─── 2. WORLD CUP ────────────────────────────────────────────
+# ─── 2. WORLD CUP (KNOCKOUT STAGE) ──────────────────────────
+ROUND_ES = {"r32":"1/32","r16":"1/16","qf":"Cuartos","sf":"Semifinal","final":"Final","third":"3er Puesto"}
+
 def get_world_cup():
     today = date.today()
     yesterday = today - timedelta(days=1)
+    today_str = today.strftime("%m/%d/%Y")
+    yesterday_str = yesterday.strftime("%m/%d/%Y")
     
     matches = fetch_json("https://worldcup26.ir/get/games")
-    groups_data = fetch_json("https://worldcup26.ir/get/groups")
-    teams_data = fetch_json("https://worldcup26.ir/get/teams")
-    
-    team_map = {t["id"]: es(t["name_en"]) for t in teams_data} if teams_data else {}
     if not matches: return fallback_wc()
     
-    # Filter to matches with names
-    valid = [m for m in matches if m.get("home_team_name_en") and m.get("away_team_name_en")]
-    if not valid: return fallback_wc()
+    # Filter to knockout matches only (skip group stage)
+    ko_matches = [m for m in matches if m.get('type') != 'group']
+    if not ko_matches: return fallback_wc()
     
     html = ""
     
-    # ── A. AYER (resultados) ──
-    ayer_match = [m for m in valid if m.get("local_date", "").startswith(yesterday.strftime("%m/%d/%Y")) or m.get("finished","FALSE").upper()=="TRUE"]
-    # Get most recent finished matches (up to 5)
-    ayer_match.sort(key=lambda m: m.get("local_date",""), reverse=True)
-    ayer_match = ayer_match[:5]
+    # ── A. YESTERDAY'S RESULTS ──
+    ayer = [m for m in ko_matches if m.get('local_date','').startswith(yesterday_str) and m.get('finished','FALSE').upper()=='TRUE']
+    # Also include earlier knockout matches that weren't shown yet (completed in last 3 days)
+    earlier = [m for m in ko_matches if m.get('finished','FALSE').upper()=='TRUE' and not m.get('local_date','').startswith(yesterday_str) and not m.get('local_date','').startswith(today_str)]
+    earlier.sort(key=lambda m: m.get('local_date',''), reverse=True)
     
-    if ayer_match:
-        html += '<div class="section-sub" style="margin-bottom:12px">Resultados</div>'
-        for m in ayer_match:
+    if ayer or earlier:
+        html += '<div class="section-sub" style="margin-bottom:10px">Resultados</div>'
+        
+        # Show all recent knockout results (up to 8)
+        all_res = sorted(ayer + earlier, key=lambda m: m.get('local_date',''), reverse=True)[:6]
+        
+        for m in all_res:
             home = es(m.get("home_team_name_en","?"))
             away = es(m.get("away_team_name_en","?"))
-            hs = m.get("home_score","")
-            as_ = m.get("away_score","")
-            h_scorers = parse_scorers(m.get("home_scorers",""))
-            a_scorers = parse_scorers(m.get("away_scorers",""))
+            hs = m.get("home_score","0")
+            as_ = m.get("away_score","0")
+            typ = ROUND_ES.get(m.get("type",""), m.get("type",""))
+            h_sc = parse_scorers(m.get("home_scorers",""))
+            a_sc = parse_scorers(m.get("away_scorers",""))
+            ldate = m.get("local_date","")
             
-            # Parse date/time
-            local_date = m.get("local_date","")
-            time_str = ""
-            if local_date:
-                try:
-                    dt = datetime.strptime(local_date, "%m/%d/%Y %H:%M")
-                    time_str = dt.strftime("%d %b · %H:%M")
-                except: pass
+            # Format date
+            dstr = ""
+            try:
+                dt = datetime.strptime(ldate, "%m/%d/%Y %H:%M")
+                dstr = f"{dt.day}/{dt.month}"
+            except: pass
             
             scorers_html = ""
-            if h_scorers or a_scorers:
-                h_s = ", ".join(h_scorers[:3]) if h_scorers else ""
-                a_s = ", ".join(a_scorers[:3]) if a_scorers else ""
-                if h_s: scorers_html += f'<div style="font-size:.65rem;color:var(--muted);margin-top:4px">⚽ {h_s}</div>'
-                if a_s: scorers_html += f'<div style="font-size:.65rem;color:var(--muted)">⚽ {a_s}</div>'
+            if h_sc:
+                scorers_html += f'<div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ {home}: {", ".join(h_sc[:3])}</div>'
+            if a_sc:
+                scorers_html += f'<div style="font-size:.62rem;color:var(--muted)">⚽ {away}: {", ".join(a_sc[:3])}</div>'
+            
+            # Determine winner for bold
+            home_won = int(hs) > int(as_) if hs.isdigit() and as_.isdigit() else False
             
             html += f"""
 <div class="wc-card">
-  <div class="wc-status finished">FINAL</div>
-  <div style="font-size:.6rem;color:var(--muted);margin-bottom:4px">{time_str}</div>
-  <div class="wc-match">
-    <div class="wc-team home"><span class="wc-team-name">{home}</span></div>
-    <div class="wc-score"><strong>{hs}–{as_}</strong></div>
-    <div class="wc-team away"><span class="wc-team-name">{away}</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+    <div class="wc-status finished">FINAL</div>
+    <span style="font-size:.6rem;color:var(--muted)">{typ} · {dstr}</span>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">{home}</span></div>
+    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">{hs}–{as_}</div>
+    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">{away}</span></div>
   </div>
   {scorers_html}
 </div>"""
     
-    # ── B. HOY / PRÓXIMOS ──
-    hoy_prox = [m for m in valid if m.get("finished","FALSE").upper()!="TRUE"]
-    hoy_prox.sort(key=lambda m: m.get("local_date",""))
-    
-    if hoy_prox:
-        html += '<div class="section-sub" style="margin-top:16px;margin-bottom:12px">Próximos partidos</div>'
-        count = 0
-        for m in hoy_prox:
-            if count >= 4: break
+    # ── B. TODAY'S MATCHES ──
+    hoy = [m for m in ko_matches if m.get('local_date','').startswith(today_str)]
+    if hoy:
+        html += f'<div class="section-sub" style="margin-top:14px;margin-bottom:10px">Partidos de hoy</div>'
+        for m in hoy:
             home = es(m.get("home_team_name_en","?"))
             away = es(m.get("away_team_name_en","?"))
+            typ = ROUND_ES.get(m.get("type",""), m.get("type",""))
+            ldate = m.get("local_date","")
+            hs = m.get("home_score","0")
+            as_ = m.get("away_score","0")
             elapsed = m.get("time_elapsed","").lower()
             is_live = bool(re.match(r"^\d+", elapsed))
-            local_date = m.get("local_date","")
             
             time_str = ""
-            if local_date:
-                try:
-                    dt = datetime.strptime(local_date, "%m/%d/%Y %H:%M")
-                    weekday = ["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"][dt.weekday()]
-                    time_str = f"{weekday} {dt.day} {dt.strftime('%b')} · {dt.strftime('%H:%M')}"
-                except: pass
+            try:
+                dt = datetime.strptime(ldate, "%m/%d/%Y %H:%M")
+                time_str = dt.strftime("%H:%M")
+            except: pass
             
             if is_live:
-                hs = m.get("home_score","0")
-                as_ = m.get("away_score","0")
                 status = f'<div class="wc-status live">EN VIVO · {elapsed}</div>'
-                score = f'<div class="wc-score"><span class="live-dot"></span>{hs}–{as_}</div>'
+                score = f'<div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px"><span class="live-dot"></span>{hs}–{as_}</div>'
             else:
-                status = f'<div class="wc-status pending">PRÓXIMO</div>'
-                score = f'<div class="wc-score"><span class="vs">{time_str}</span></div>'
+                status = f'<div class="wc-status pending">{time_str}</div>'
+                score = f'<div style="font-family:Syne;font-size:.8rem;font-weight:600;color:var(--muted);margin:0 12px">{typ}</div>'
             
             html += f"""
 <div class="wc-card">
-  {status}
   <div class="wc-match">
     <div class="wc-team home"><span class="wc-team-name">{home}</span></div>
     {score}
     <div class="wc-team away"><span class="wc-team-name">{away}</span></div>
   </div>
+  {status}
 </div>"""
-            count += 1
     
-    # ── C. CLASIFICACIÓN ──
-    if groups_data:
-        html += '<div class="section-sub" style="margin-top:16px;margin-bottom:12px">Clasificación</div>'
-        
-        # Sort groups by name
-        groups_data.sort(key=lambda g: g.get("name",""))
-        
-        for g in groups_data[:6]:  # Show first 6 groups (compact)
-            gname = g.get("name","?")
-            sorted_teams = sorted(g["teams"], key=lambda t: (int(t.get("pts",0)), int(t.get("gd",0))), reverse=True)
+    # ── C. UPCOMING (next 4, not today) ──
+    prox = [m for m in ko_matches if not m.get('local_date','').startswith(today_str) and not m.get('local_date','').startswith(yesterday_str) and m.get('finished','FALSE').upper()!='TRUE' and m.get('home_team_name_en') and m.get('away_team_name_en')]
+    prox.sort(key=lambda m: m.get('local_date',''))
+    
+    if prox:
+        html += f'<div class="section-sub" style="margin-top:14px;margin-bottom:10px">Próximos partidos</div>'
+        for m in prox[:4]:
+            home = es(m.get("home_team_name_en","?"))
+            away = es(m.get("away_team_name_en","?"))
+            typ = ROUND_ES.get(m.get("type",""), m.get("type",""))
+            ldate = m.get("local_date","")
             
-            html += f'<div style="font-size:.7rem;font-family:Syne;color:var(--gold);font-weight:700;letter-spacing:1px;margin:8px 0 4px">Grupo {gname}</div>'
+            dstr = ""
+            try:
+                dt = datetime.strptime(ldate, "%m/%d/%Y %H:%M")
+                wd = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"][dt.weekday()]
+                dstr = f"{wd} {dt.day}/{dt.month} · {dt.strftime('%H:%M')}"
+            except: pass
             
-            # Determine qualifying cutoff (top 2 in 48-team format advance)
-            for i, t in enumerate(sorted_teams):
-                tid = t["team_id"]
-                tname = team_map.get(tid, f"#{tid}")
-                pts = t.get("pts","0")
-                gd = t.get("gd","0")
-                is_qualifying = i < 2  # Top 2 advance
-                qual_icon = "●" if is_qualifying else "○"
-                qual_color = "var(--gold)" if is_qualifying else "var(--muted)"
-                
-                html += f"""<div style="display:flex;align-items:center;gap:8px;padding:3px 0;font-size:.7rem">
-  <span style="color:{qual_color};font-size:.5rem">{qual_icon}</span>
-  <span style="flex:1;color:#fff;font-weight:{'600' if is_qualifying else '400'}">{tname}</span>
-  <span style="color:var(--muted);min-width:28px;text-align:center">{pts}pts</span>
-  <span style="color:var(--muted);min-width:28px;text-align:center">{gd}</span>
+            html += f"""
+<div class="wc-card">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">{home}</span></div>
+    <div style="text-align:center;margin:0 10px">
+      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:var(--gold)">{typ}</div>
+      <div style="font-size:.6rem;color:var(--muted)">{dstr}</div>
+    </div>
+    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">{away}</span></div>
+  </div>
 </div>"""
-        
-        html += f'<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver clasificación completa →</a>'
     
+    html += f'<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a>'
     return html
 
 def fallback_wc():
