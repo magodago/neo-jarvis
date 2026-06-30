@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>NEO Briefing · {{DATE}}</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050508'/><text x='4' y='22' font-family='Syne, sans-serif' font-weight='800' font-size='17' fill='%23fff'>NE</text><text x='20' y='22' font-family='Syne, sans-serif' font-weight='800' font-size='17' fill='%23d4af37'>O</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050508;
+  --bg2:#0a0a12;
+  --card:rgba(255,255,255,.03);
+  --gold:#d4af37;
+  --gold-dim:#c9a840;
+  --gold-soft:rgba(212,175,55,.15);
+  --text:#e8e8e8;
+  --muted:rgba(255,255,255,.3);
+  --border:rgba(255,255,255,.06);
+  --font-display:'Syne',sans-serif;
+  --font-body:'Sora',sans-serif;
+  --radius:16px;
+  --radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* ===== TOP BAR ===== */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 20px;
+  padding-top:calc(12px + env(safe-area-inset-top,0px));
+  background:rgba(5,5,8,.85);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.top-bar-brand{
+  font-family:var(--font-display);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#fff;
+}
+.top-bar-brand span{color:var(--gold)}
+.top-bar-weather{
+  display:flex;align-items:center;gap:6px;
+  font-size:.7rem;
+  color:var(--muted);
+}
+.top-bar-weather svg{width:14px;height:14px;fill:var(--gold)}
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:100px 24px 60px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-40%;left:-20%;
+  width:140%;height:80%;
+  background:radial-gradient(ellipse at 50% 50%,rgba(212,175,55,.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-label{
+  font-family:var(--font-display);
+  font-size:.65rem;
+  font-weight:500;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:16px;
+  opacity:0;
+  animation:fadeUp .6s ease .2s forwards;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem,10vw,4.2rem);
+  font-weight:800;
+  line-height:1.05;
+  color:#fff;
+  letter-spacing:-1.5px;
+  margin-bottom:12px;
+  opacity:0;
+  animation:fadeUp .6s ease .3s forwards;
+}
+.hero-title span{color:var(--gold)}
+.hero-date{
+  font-size:.85rem;
+  color:var(--muted);
+  opacity:0;
+  animation:fadeUp .6s ease .4s forwards;
+}
+.hero-date strong{color:var(--text);font-weight:400}
+.hero-greeting{
+  margin-top:20px;
+  font-size:.8rem;
+  color:rgba(255,255,255,.2);
+  letter-spacing:1px;
+  line-height:1.5;
+  font-style:italic;
+  opacity:0;
+  animation:fadeUp .6s ease .5s forwards;
+}
+/* ===== SECTION HEADERS ===== */
+.section{
+  padding:48px 20px;
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.section.visible{opacity:1;transform:translateY(0)}
+.section-header{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:20px;
+}
+.section-icon{
+  width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--gold-soft);
+  border-radius:8px;
+  font-size:.75rem;
+  color:var(--gold);
+}
+.section-title{
+  font-family:var(--font-display);
+  font-size:1.05rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-.3px;
+}
+.section-sub{
+  font-size:.7rem;
+  color:var(--muted);
+  margin-left:38px;
+  margin-top:-8px;
+  margin-bottom:16px;
+}
+/* ===== PODCAST CARD ===== */
+.podcast-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+.podcast-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.podcast-top{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:14px;
+}
+.podcast-avatar{
+  width:44px;height:44px;
+  border-radius:12px;
+  background:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.podcast-avatar svg{width:20px;height:20px;fill:var(--gold)}
+.podcast-info{flex:1;min-width:0}
+.podcast-title{
+  font-family:var(--font-display);
+  font-size:.85rem;
+  font-weight:700;
+  color:#fff;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.podcast-desc{
+  font-size:.7rem;
+  color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.podcast-player{
+  margin-top:6px;
+}
+.podcast-player audio{
+  width:100%;
+  height:40px;
+  border-radius:var(--radius-sm);
+  outline:none;
+}
+.podcast-player audio::-webkit-media-controls-panel{
+  background:var(--bg2);
+}
+.podcast-waveform{
+  width:100%;
+  height:48px;
+  margin-top:10px;
+  border-radius:var(--radius-sm);
+  background:rgba(255,255,255,.02);
+  cursor:pointer;
+}
+.podcast-waveform canvas{width:100%;height:100%;display:block;border-radius:var(--radius-sm)}
+.podcast-actions{
+  display:flex;gap:8px;
+  margin-top:12px;
+}
+.podcast-btn{
+  flex:1;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  background:transparent;
+  color:var(--muted);
+  font-family:var(--font-body);
+  font-size:.7rem;
+  cursor:pointer;
+  transition:all .2s;
+  text-align:center;
+  text-decoration:none;
+}
+.podcast-btn:hover{border-color:var(--gold);color:var(--gold)}
+.podcast-btn.primary{
+  background:var(--gold);
+  color:var(--bg);
+  border-color:var(--gold);
+  font-weight:600;
+}
+.podcast-btn.primary:active{transform:scale(.97)}
+/* ===== NEWS CARDS ===== */
+.news-grid{display:flex;flex-direction:column;gap:10px}
+.news-card{
+  display:flex;gap:12px;
+  padding:14px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  transition:all .25s;
+  cursor:pointer;
+  text-decoration:none;
+  color:inherit;
+}
+.news-card:active{transform:scale(.98);background:rgba(255,255,255,.06)}
+.news-card-img{
+  width:48px;height:48px;
+  border-radius:8px;
+  flex-shrink:0;
+  background:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  overflow:hidden;
+}
+.news-card-img img{width:100%;height:100%;object-fit:cover}
+.news-card-body{flex:1;min-width:0}
+.news-card-source{
+  font-size:.6rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:2px;
+}
+.news-card-title{
+  font-size:.8rem;
+  font-weight:400;
+  color:#fff;
+  line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.news-card-time{
+  font-size:.6rem;
+  color:var(--muted);
+  margin-top:4px;
+}
+/* ===== WORLD CUP ===== */
+.wc-grid{display:flex;flex-direction:column;gap:10px}
+.wc-card{
+  padding:16px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+}
+.wc-status{
+  font-size:.6rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+.wc-status.live{color:#2ecc71}
+.wc-status.pending{color:var(--gold)}
+.wc-status.finished{color:var(--muted)}
+.wc-match{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:8px;
+}
+.wc-team{
+  display:flex;align-items:center;gap:8px;
+  flex:1;
+}
+.wc-team.away{flex-direction:row-reverse}
+.wc-team-name{
+  font-size:.8rem;
+  font-weight:500;
+  color:#fff;
+}
+.wc-score{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-.5px;
+  min-width:48px;
+  text-align:center;
+}
+.wc-score .vs{font-size:.65rem;color:var(--muted)}
+.wc-score .live-dot{
+  display:inline-block;
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#2ecc71;
+  margin-right:4px;
+  animation:pulse 1.5s infinite;
+}
+.wc-minute{
+  font-size:.6rem;color:#2ecc71;
+  text-align:center;
+  margin-top:4px;
+}
+.wc-more{
+  display:block;
+  text-align:center;
+  padding:12px;
+  font-size:.75rem;
+  color:var(--muted);
+  text-decoration:none;
+  border:1px dashed var(--border);
+  border-radius:var(--radius-sm);
+  margin-top:8px;
+  transition:all .2s;
+}
+.wc-more:active{background:var(--card);color:var(--gold)}
+/* ===== VIDEOS ===== */
+.video-grid{display:flex;flex-direction:column;gap:10px}
+.video-card{
+  display:flex;gap:10px;
+  padding:10px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  text-decoration:none;
+  color:inherit;
+  transition:all .2s;
+}
+.video-card:active{transform:scale(.98)}
+.video-thumb{
+  width:100px;height:56px;
+  border-radius:6px;
+  flex-shrink:0;
+  background:var(--bg2);
+  overflow:hidden;
+  position:relative;
+}
+.video-thumb img{width:100%;height:100%;object-fit:cover}
+.video-thumb::after{
+  content:'▶';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  color:#fff;
+  font-size:.8rem;
+  opacity:.7;
+  text-shadow:0 1px 6px rgba(0,0,0,.8);
+}
+.video-info{flex:1;min-width:0}
+.video-title{
+  font-size:.78rem;
+  font-weight:400;
+  color:#fff;
+  line-height:1.3;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.video-channel{
+  font-size:.65rem;
+  color:var(--gold);
+  margin-top:3px;
+}
+.video-date{
+  font-size:.6rem;
+  color:var(--muted);
+  margin-top:2px;
+}
+/* ===== PROMPT CARD ===== */
+.prompt-card{
+  background:linear-gradient(135deg,rgba(212,175,55,.06),transparent 60%);
+  border:1px solid var(--border);
+  border-left:3px solid var(--gold);
+  border-radius:var(--radius);
+  padding:20px;
+  margin-top:4px;
+}
+.prompt-label{
+  font-size:.6rem;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:8px;
+}
+.prompt-text{
+  font-size:.85rem;
+  line-height:1.6;
+  color:rgba(255,255,255,.85);
+  font-style:italic;
+}
+.prompt-text strong{color:var(--gold);font-style:normal}
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  padding:40px 20px 60px;
+  padding-bottom:calc(40px + env(safe-area-inset-bottom,20px));
+  border-top:1px solid var(--border);
+  margin-top:20px;
+}
+.footer-brand{
+  font-family:var(--font-display);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:4px;
+  color:var(--muted);
+}
+.footer-brand span{color:var(--gold)}
+.footer-sub{
+  font-size:.6rem;
+  color:rgba(255,255,255,.15);
+  margin-top:6px;
+}
+/* ===== KEYFRAMES ===== */
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:.3}
+}
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(212,175,55,.2);border-radius:10px}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-brand">NE<span>O</span> BRIEFING</div>
+  <div class="top-bar-weather">
+    <svg viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/></svg>
+    {{WEATHER}}
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Daily Briefing</div>
+  <h1 class="hero-title">NE<span>O</span> Briefing</h1>
+  <p class="hero-date"><strong>{{DATE}}</strong> · {{DAY_NAME}} · {{WEEK_NUM}}ª semana del año</p>
+  <p class="hero-greeting">"{{QUOTE}}"</p>
+</div>
+
+<!-- PODCAST SECTION -->
+<div class="section" id="section-podcast">
+  <div class="section-header">
+    <div class="section-icon">♪</div>
+    <span class="section-title">Podcast del día</span>
+  </div>
+  <div class="podcast-card">
+    <div class="podcast-top">
+      <div class="podcast-avatar">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      </div>
+      <div class="podcast-info">
+        <div class="podcast-title">NEO Daily · {{DATE_SHORT}}</div>
+        <div class="podcast-desc">{{PODCAST_DURATION}} · {{PODCAST_TOPICS}}</div>
+      </div>
+    </div>
+    <div class="podcast-player">
+      <audio id="podcast-audio" preload="metadata" controls>
+        <source src="{{PODCAST_AUDIO}}" type="audio/mpeg">
+      </audio>
+    </div>
+    <div class="podcast-waveform" id="waveform-container">
+      <canvas id="waveform-canvas"></canvas>
+    </div>
+    <div class="podcast-actions">
+      <a href="{{PODCAST_AUDIO}}" class="podcast-btn primary" download>⬇ Descargar</a>
+    </div>
+  </div>
+</div>
+
+<!-- WORLD CUP -->
+<div class="section" id="section-worldcup">
+  <div class="section-header">
+    <div class="section-icon">⚽</div>
+    <span class="section-title">Mundial 2026</span>
+  </div>
+  <div class="section-sub">Resultados y próximos partidos</div>
+  <div class="wc-grid" id="wc-grid">
+    {{WORLD_CUP}}
+  </div>
+</div>
+
+<!-- AI NEWS -->
+<div class="section" id="section-news">
+  <div class="section-header">
+    <div class="section-icon">📰</div>
+    <span class="section-title">Noticias AI</span>
+  </div>
+  <div class="section-sub">Lo más destacado en inteligencia artificial</div>
+  <div class="news-grid" id="news-grid">
+    {{AI_NEWS}}
+  </div>
+</div>
+
+<!-- VIDEOS -->
+<div class="section" id="section-videos">
+  <div class="section-header">
+    <div class="section-icon">▶</div>
+    <span class="section-title">Videos destacados</span>
+  </div>
+  <div class="section-sub">De los mejores divulgadores de IA</div>
+  <div class="video-grid" id="video-grid">
+    {{YOUTUBE_VIDEOS}}
+  </div>
+</div>
+
+<!-- PROMPT -->
+<div class="section" id="section-prompt">
+  <div class="section-header">
+    <div class="section-icon">✦</div>
+    <span class="section-title">Prompt del día</span>
+  </div>
+  <div class="prompt-card">
+    <div class="prompt-label">✦ Prompt IA ✦</div>
+    <p class="prompt-text">{{PROMPT}}</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">NE<span>O</span> LABS</div>
+  <div class="footer-sub">Generado con IA · {{GENERATED_AT}}</div>
+</div>
+
+<script>
+// ===== SCROLL REVEAL =====
+(function(){
+  var sections = document.querySelectorAll('.section');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+    });
+  },{threshold:.1});
+  sections.forEach(function(s){obs.observe(s)});
+})();
+
+// ===== WAVEFORM VISUALIZER =====
+(function(){
+  var audio = document.getElementById('podcast-audio');
+  var canvas = document.getElementById('waveform-canvas');
+  var container = document.getElementById('waveform-container');
+  var ctx, audioCtx, src, analyser, animId;
+  var w, h;
+
+  function resize(){
+    if(!canvas)return;
+    var rect = container.getBoundingClientRect();
+    canvas.width = rect.width * 2;
+    canvas.height = rect.height * 2;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    w = canvas.width;
+    h = canvas.height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function drawStatic(){
+    if(!canvas)return;
+    var c = canvas.getContext('2d');
+    c.clearRect(0,0,w,h);
+    var bars = 64;
+    var gap = 2;
+    var bw = (w - gap * (bars + 1)) / bars;
+    c.fillStyle = 'rgba(212,175,55,.06)';
+    for(var i=0;i<bars;i++){
+      var bh = 4 + Math.random() * (h * .35);
+      var x = gap + i * (bw + gap);
+      var y = (h - bh) / 2;
+      c.fillRect(x,y,bw,bh);
+    }
+  }
+  drawStatic();
+
+  function initAudio(){
+    if(!audioCtx){
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      src = audioCtx.createMediaElementSource(audio);
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 128;
+      src.connect(analyser);
+      analyser.connect(audioCtx.destination);
+    }
+  }
+
+  function drawWave(){
+    var c = canvas.getContext('2d');
+    c.clearRect(0,0,w,h);
+    var data = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(data);
+    var bars = data.length;
+    var gap = 2;
+    var bw = (w - gap * (bars + 1)) / bars;
+    for(var i=0;i<bars;i++){
+      var pct = data[i] / 255;
+      var bh = Math.max(2, pct * h * .85);
+      var x = gap + i * (bw + gap);
+      var y = (h - bh) / 2;
+      var alpha = .2 + pct * .6;
+      c.fillStyle = 'rgba(212,175,55,' + alpha + ')';
+      c.fillRect(x,y,bw,bh);
+    }
+    animId = requestAnimationFrame(drawWave);
+  }
+
+  audio.addEventListener('play',function(){
+    initAudio();
+    if(audioCtx.state==='suspended') audioCtx.resume();
+    if(animId) cancelAnimationFrame(animId);
+    drawWave();
+  });
+
+  audio.addEventListener('pause',function(){
+    if(animId){cancelAnimationFrame(animId);animId=null}
+    drawStatic();
+  });
+
+  audio.addEventListener('ended',function(){
+    if(animId){cancelAnimationFrame(animId);animId=null}
+    drawStatic();
+  });
+})();
+</script>
+</body>
+</html>
