@@ -290,6 +290,8 @@ def news_to_html(items):
 # ─── 4. YOUTUBE ──────────────────────────────────────────────
 def get_youtube_today():
     today = date.today()
+    # Briefing es a las 9am, los videos suelen ser del día anterior
+    max_age = timedelta(days=2)
     html = ""
     seen = set()
     for name, ch_id in CHANNELS:
@@ -303,21 +305,27 @@ def get_youtube_today():
                 pub = entry.findtext("{http://www.w3.org/2005/Atom}published","")[:10]
                 if not vid or vid in seen: continue
                 seen.add(vid)
+                age = "—"
                 if pub:
                     try:
-                        if datetime.strptime(pub[:10],"%Y-%m-%d").date() != today: continue
+                        pub_date = datetime.strptime(pub[:10],"%Y-%m-%d").date()
+                        diff = (today - pub_date).days
+                        if diff > 2: continue  # Solo últimos 2 días
+                        if diff == 0: age = "Hoy"
+                        elif diff == 1: age = "Ayer"
+                        else: age = f"Hace {diff} días"
                     except: continue
                 html += f"""<a class="video-card" href="https://youtube.com/watch?v={vid}" target="_blank" rel="noopener">
   <div class="video-thumb"><img src="https://img.youtube.com/vi/{vid}/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="video-info">
     <div class="video-title">{title}</div>
     <div class="video-channel">{name}</div>
-    <div class="video-date">Hoy</div>
+    <div class="video-date">{age}</div>
   </div>
 </a>"""
         except: pass
     if not html:
-        html = '<p style="color:var(--muted);font-size:.8rem;padding:12px">No hay videos nuevos hoy de los canales seguidos</p>'
+        html = '<p style="color:var(--muted);font-size:.8rem;padding:12px">No hay videos nuevos en los últimos 2 días de los canales seguidos</p>'
     return html
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
