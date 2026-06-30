@@ -1,10 +1,13 @@
 Buenos días. Bienvenido al NEO Briefing de 01 de July de 2026.
 
 Hoy en inteligencia artificial:
-Hoy sin noticias destacadas.
+- NotebookLM ahora convierte tus apuntes en vídeos cortos al e
+- Anthropic lanza Claude Sonnet 5, una IA casi tan buena como 
+- Anthropic lanza Claude Science, una IA que acelera el descub
+- Lo último de Google es una locura: su nueva IA genera imágen
 
-En el Mundial 2026, la competición sigue con intensidad. Revisa los resultados en neolabs.es/briefing.
+En el Mundial 2026, la competición continúa. Revisa los resultados en neolabs.es/briefing.
 
-Para el prompt de hoy: imagina que eres un estratega de negocio con acceso a inteligencia artificial. Describe cómo automatizarías una tarea que consumes cada día. No pienses en la tecnología, piensa en el resultado.
+Prompt del día: piensa en una tarea que haces cada día y que podrías delegar completamente a un agente de IA. Describe el resultado ideal, no el proceso.
 
-Gracias por escuchar. Nos vemos mañana. Que tengas un gran día.
+Gracias por escuchar. Que tengas un gran día.

@@ -236,7 +236,80 @@ body{
   border-color:var(--gold);
   font-weight:600;
 }
-.podcast-btn.primary:active{transform:scale(.97)}
+.podcast-btn:active{transform:scale(.97)}
+/* ===== NEWS MODAL ===== */
+.news-modal{
+  display:none;position:fixed;inset:0;
+  z-index:200;
+  background:rgba(5,5,8,.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  align-items:flex-end;justify-content:center;
+}
+.news-modal.active{display:flex}
+.news-modal-content{
+  background:linear-gradient(180deg,#181818,#0E0E0E);
+  border-radius:20px 20px 0 0;
+  width:100%;max-width:500px;
+  max-height:75vh;overflow-y:auto;
+  padding:24px 20px 40px;
+  transform:translateY(100%);
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+  position:relative;
+}
+.news-modal.active .news-modal-content{transform:translateY(0)}
+.nm-drag{
+  width:36px;height:4px;
+  border-radius:2px;
+  background:rgba(255,255,255,.1);
+  margin:0 auto 16px;
+}
+.nm-close{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--muted);
+  font-size:1rem;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.nm-close:active{background:rgba(255,255,255,.06)}
+.nm-source{
+  font-size:.65rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:6px;
+}
+.nm-title{
+  font-family:var(--font-display);
+  font-size:1.1rem;
+  font-weight:700;
+  color:#fff;
+  line-height:1.3;
+  margin-bottom:12px;
+}
+.nm-desc{
+  font-size:.85rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.7);
+  margin-bottom:16px;
+}
+.nm-link{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 18px;
+  background:var(--gold);
+  color:var(--bg);
+  border-radius:10px;
+  font-size:.8rem;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .2s;
+}
+.nm-link:active{transform:scale(.97)}
 /* ===== NEWS CARDS ===== */
 .news-grid{display:flex;flex-direction:column;gap:10px}
 .news-card{
@@ -466,7 +539,7 @@ body{
   <div class="top-bar-brand">NE<span>O</span> BRIEFING</div>
   <div class="top-bar-weather">
     <svg viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/></svg>
-    30°C · Clear 
+    30°C · Clear  · Hum 29%
   </div>
 </div>
 
@@ -491,7 +564,7 @@ body{
       </div>
       <div class="podcast-info">
         <div class="podcast-title">NEO Daily · 01.07.2026</div>
-        <div class="podcast-desc">0:32 min · Noticias AI · Mundial · Productividad</div>
+        <div class="podcast-desc">00:44 · Noticias IA · Mundial · Productividad</div>
       </div>
     </div>
     <div class="podcast-player">
@@ -518,77 +591,53 @@ body{
   <div class="wc-grid" id="wc-grid">
     
 <div class="wc-card">
-  <div class="wc-status live">EN VIVO · notstarted'</div>
+  <div class="wc-status pending">PRÓXIMO</div>
   <div class="wc-match">
-    <div class="wc-team home">
-      <div class="wc-team-name">?</div>
-    </div>
-    <div class="wc-score"><span class='live-dot'></span>0–0</div>
-    <div class="wc-team away">
-      <div class="wc-team-name">?</div>
-    </div>
+    <div class="wc-team home"><span class="wc-team-name">Mexico</span></div>
+    <div class="wc-score"><span class='vs'>19:00</span></div>
+    <div class="wc-team away"><span class="wc-team-name">Ecuador</span></div>
   </div>
 </div>
 <div class="wc-card">
-  <div class="wc-status live">EN VIVO · notstarted'</div>
+  <div class="wc-status pending">PRÓXIMO</div>
   <div class="wc-match">
-    <div class="wc-team home">
-      <div class="wc-team-name">?</div>
-    </div>
-    <div class="wc-score"><span class='live-dot'></span>0–0</div>
-    <div class="wc-team away">
-      <div class="wc-team-name">?</div>
-    </div>
+    <div class="wc-team home"><span class="wc-team-name">England</span></div>
+    <div class="wc-score"><span class='vs'>12:00</span></div>
+    <div class="wc-team away"><span class="wc-team-name">Democratic Republic of the Congo</span></div>
   </div>
 </div>
 <div class="wc-card">
-  <div class="wc-status live">EN VIVO · notstarted'</div>
+  <div class="wc-status pending">PRÓXIMO</div>
   <div class="wc-match">
-    <div class="wc-team home">
-      <div class="wc-team-name">?</div>
-    </div>
-    <div class="wc-score"><span class='live-dot'></span>0–0</div>
-    <div class="wc-team away">
-      <div class="wc-team-name">?</div>
-    </div>
+    <div class="wc-team home"><span class="wc-team-name">Belgium</span></div>
+    <div class="wc-score"><span class='vs'>13:00</span></div>
+    <div class="wc-team away"><span class="wc-team-name">Senegal</span></div>
   </div>
 </div>
 <div class="wc-card">
-  <div class="wc-status live">EN VIVO · notstarted'</div>
+  <div class="wc-status pending">PRÓXIMO</div>
   <div class="wc-match">
-    <div class="wc-team home">
-      <div class="wc-team-name">Argentina</div>
-    </div>
-    <div class="wc-score"><span class='live-dot'></span>0–0</div>
-    <div class="wc-team away">
-      <div class="wc-team-name">Cape Verde</div>
-    </div>
+    <div class="wc-team home"><span class="wc-team-name">United States</span></div>
+    <div class="wc-score"><span class='vs'>17:00</span></div>
+    <div class="wc-team away"><span class="wc-team-name">Bosnia and Herzegovina</span></div>
   </div>
 </div>
 <div class="wc-card">
-  <div class="wc-status live">EN VIVO · notstarted'</div>
+  <div class="wc-status pending">PRÓXIMO</div>
   <div class="wc-match">
-    <div class="wc-team home">
-      <div class="wc-team-name">Australia</div>
-    </div>
-    <div class="wc-score"><span class='live-dot'></span>0–0</div>
-    <div class="wc-team away">
-      <div class="wc-team-name">Egypt</div>
-    </div>
+    <div class="wc-team home"><span class="wc-team-name">Spain</span></div>
+    <div class="wc-score"><span class='vs'>12:00</span></div>
+    <div class="wc-team away"><span class="wc-team-name">Austria</span></div>
   </div>
 </div>
 <div class="wc-card">
-  <div class="wc-status live">EN VIVO · notstarted'</div>
+  <div class="wc-status pending">PRÓXIMO</div>
   <div class="wc-match">
-    <div class="wc-team home">
-      <div class="wc-team-name">?</div>
-    </div>
-    <div class="wc-score"><span class='live-dot'></span>0–0</div>
-    <div class="wc-team away">
-      <div class="wc-team-name">?</div>
-    </div>
+    <div class="wc-team home"><span class="wc-team-name">Portugal</span></div>
+    <div class="wc-score"><span class='vs'>19:00</span></div>
+    <div class="wc-team away"><span class="wc-team-name">Croatia</span></div>
   </div>
-</div><a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a>
+</div><a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos →</a>
   </div>
 </div>
 
@@ -601,70 +650,70 @@ body{
   <div class="section-sub">Lo más destacado en inteligencia artificial</div>
   <div class="news-grid" id="news-grid">
     
-<a class="news-card" href="https://techcrunch.com/2026/06/30/openclaw-is-finally-available-on-android-and-ios/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+<div class="news-card" onclick="openNewsModal(0)" data-index="0">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">OpenClaw is finally available on Android and iOS</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
-<a class="news-card" href="https://techcrunch.com/2026/06/30/the-deepmind-trio-who-built-a-poker-ai-are-now-making-money-for-quant-hedge-funds/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+</div>
+<div class="news-card" onclick="openNewsModal(1)" data-index="1">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">The DeepMind trio who built a poker AI are now making money for quant hedge funds</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
-<a class="news-card" href="https://techcrunch.com/2026/06/30/google-introduces-a-faster-cheaper-image-generator-with-nano-banana-2-lite/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+</div>
+<div class="news-card" onclick="openNewsModal(2)" data-index="2">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">Google introduces a faster, cheaper image generator with Nano Banana 2 Lite</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
-<a class="news-card" href="https://techcrunch.com/2026/06/30/nvidia-competitor-etched-hits-5b-valuation-1b-in-sales-for-ai-chip/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+</div>
+<div class="news-card" onclick="openNewsModal(3)" data-index="3">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">Nvidia competitor Etched hits $5B valuation, $1B in sales for AI chip</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
-<a class="news-card" href="https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+</div>
+<div class="news-card" onclick="openNewsModal(4)" data-index="4">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">Anthropic launches Claude Sonnet 5 as a cheaper way to run agents</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">Los Galaxy Z Fold 8, Fold 8 Ultra y Flip 8, al descubierto: así se ven los nuevos plegable</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
-<a class="news-card" href="https://techcrunch.com/2026/06/30/acti-puts-ai-agents-directly-into-your-smartphone-keyboard/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+</div>
+<div class="news-card" onclick="openNewsModal(5)" data-index="5">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">Acti puts AI agents directly into your smartphone keyboard</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">Mucho ojo si usas esta versión de Windows 11: muy pronto se queda sin soporte</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
-<a class="news-card" href="https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+</div>
+<div class="news-card" onclick="openNewsModal(6)" data-index="6">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">Anthropic’s Claude Science bets on workflow, not a new model, to win over scientists</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">Gemini acaba de enterrar a ChatGPT: la mejor función de su generador de imágenes ahora es </div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
-<a class="news-card" href="https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/" target="_blank" rel="noopener">
-  <div class="news-card-img">📱</div>
+</div>
+<div class="news-card" onclick="openNewsModal(7)" data-index="7">
+  <div class="news-card-img">📰</div>
   <div class="news-card-body">
-    <div class="news-card-source">TechCrunch AI</div>
-    <div class="news-card-title">X now offers an MCP server to make its platform easier for AI tools to use</div>
+    <div class="news-card-source">Hipertextual</div>
+    <div class="news-card-title">Son los precios más bajos en tecnología que hemos visto: los PcDays vienen cargados de ofe</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</a>
+</div>
   </div>
 </div>
 
@@ -676,69 +725,11 @@ body{
   </div>
   <div class="section-sub">De los mejores divulgadores de IA</div>
   <div class="video-grid" id="video-grid">
-    
-<a class="video-card" href="https://youtube.com/watch?v=d0ZHkCd_iXQ" target="_blank" rel="noopener">
-  <div class="video-thumb">
-    <img src="https://img.youtube.com/vi/d0ZHkCd_iXQ/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="video-info">
-    <div class="video-title">¡APRENDE OPENCLAW DESDE CERO! - Instalación, Primeros pasos, Skills, IA en Local</div>
-    <div class="video-channel">DotCSV</div>
-    <div class="video-date">23 Jun</div>
-  </div>
-</a>
-<a class="video-card" href="https://youtube.com/watch?v=pafzciz7COQ" target="_blank" rel="noopener">
-  <div class="video-thumb">
-    <img src="https://img.youtube.com/vi/pafzciz7COQ/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="video-info">
-    <div class="video-title">¡EE.UU. BLOQUEA FABLE 5! (Análisis y opinión) 💥 Anthropic vs. Trump</div>
-    <div class="video-channel">DotCSV</div>
-    <div class="video-date">15 Jun</div>
-  </div>
-</a>
-<a class="video-card" href="https://youtube.com/watch?v=yPRVJfCZVzM" target="_blank" rel="noopener">
-  <div class="video-thumb">
-    <img src="https://img.youtube.com/vi/yPRVJfCZVzM/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="video-info">
-    <div class="video-title">¡NUEVO CLAUDE FABLE 5! (MYTHOS) - El Mejor Modelo, PERO.... 🤨</div>
-    <div class="video-channel">DotCSV</div>
-    <div class="video-date">10 Jun</div>
-  </div>
-</a>
-<a class="video-card" href="https://youtube.com/watch?v=SIvwKjFX5Gc" target="_blank" rel="noopener">
-  <div class="video-thumb">
-    <img src="https://img.youtube.com/vi/SIvwKjFX5Gc/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="video-info">
-    <div class="video-title">Google incorpora la INVESTIGACIÓN PROFUNDA a NotebookLM 🤯 Muy ÚTIL</div>
-    <div class="video-channel">Xavier Mitjana</div>
-    <div class="video-date">24 Nov</div>
-  </div>
-</a>
-<a class="video-card" href="https://youtube.com/watch?v=pw33sBfH-cs" target="_blank" rel="noopener">
-  <div class="video-thumb">
-    <img src="https://img.youtube.com/vi/pw33sBfH-cs/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="video-info">
-    <div class="video-title">Edita imágenes MÁS FÁCIL con esta herramienta de GOOGLE 🤯</div>
-    <div class="video-channel">Xavier Mitjana</div>
-    <div class="video-date">22 Nov</div>
-  </div>
-</a>
-<a class="video-card" href="https://youtube.com/watch?v=j240TyJ4FUA" target="_blank" rel="noopener">
-  <div class="video-thumb">
-    <img src="https://img.youtube.com/vi/j240TyJ4FUA/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="video-info">
-    <div class="video-title">Crea IMÁGENES y VÍDEO con MIDJOURNEY 100% GRATIS 🤯</div>
-    <div class="video-channel">Xavier Mitjana</div>
-    <div class="video-date">21 Nov</div>
-  </div>
-</a>
+    <p style="color:var(--muted);font-size:.8rem;padding:12px">No hay videos nuevos hoy de los canales seguidos</p>
   </div>
 </div>
+
+    <div id="news-modal" class="news-modal" onclick="if(event.target===this)closeNewsModal()"><div class="news-modal-content" id="news-content"></div></div>
 
 <!-- PROMPT -->
 <div class="section" id="section-prompt">
@@ -748,17 +739,33 @@ body{
   </div>
   <div class="prompt-card">
     <div class="prompt-label">✦ Prompt IA ✦</div>
-    <p class="prompt-text">Actúa como un consultor de productividad personal. Analiza tu rutina y sugiere tres automatizaciones con IA que podrían ahorrarte 30 minutos cada día.</p>
+    <p class="prompt-text">Describe cómo usarías IA para transformar una reunión de 1 hora en: notas, acciones, follow-ups y un resumen ejecutivo. Sin escribir nada tú.</p>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-brand">NE<span>O</span> LABS</div>
-  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 00:51</div>
+  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 01:00</div>
 </div>
 
 <script>
+var NEWS_DATA = [{"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "pubdate": "Tue, 30 Jun 2026"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "pubdate": "Tue, 30 Jun 2026"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico", "link": "https://hipertextual.com/inteligencia-artificial/claude-science-ia-anthropic-cientificos/", "desc": "Anthropic ha presentado Claude Science, una nueva herramienta con la que busca ganarse a la comunidad científica. En lugar de diseñar un modelo dedicado, la compañía prefirió personalizar a Claude par", "pubdate": "Tue, 30 Jun 2026"}, {"source": "Hipertextual", "title": "Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos", "link": "https://hipertextual.com/inteligencia-artificial/nano-banana-2-lite-gemini-omni-flash-google/", "desc": "Google ha actualizado su oferta de IA con dos modelos que nos ayudarán a generar contenido multimedia de forma más rápida. A pocas horas de lanzar una función que ter permite obtener contexto de otros", "pubdate": "Tue, 30 Jun 2026"}, {"source": "Hipertextual", "title": "Los Galaxy Z Fold 8, Fold 8 Ultra y Flip 8, al descubierto: así se ven los nuevos plegables de Samsung", "link": "https://hipertextual.com/mobile/nuevos-samsung-galaxy-z-fold-8-fold-8-ultra-y-flip-8-fundas/", "desc": "Julio traerá consigo la presentación de los Galaxy Z Fold 8, Fold 8 Ultra y Flip 8 y, como no podía ser de otra manera, una nueva filtración nos permite ver al completo los nuevos plegables de Samsung", "pubdate": "Tue, 30 Jun 2026"}, {"source": "Hipertextual", "title": "Mucho ojo si usas esta versión de Windows 11: muy pronto se queda sin soporte", "link": "https://hipertextual.com/software/microsoft-deja-sin-soporte-windows-11-24h2/", "desc": "Si tienes un PC con Windows 11, Microsoft está a punto de dejar sin soporte a una versión que debutó en 2024. Para ser más precisos, los de Redmond han comenzado a notificar la decisión a quienes actu", "pubdate": "Tue, 30 Jun 2026"}, {"source": "Hipertextual", "title": "Gemini acaba de enterrar a ChatGPT: la mejor función de su generador de imágenes ahora es GRATIS para todos", "link": "https://hipertextual.com/inteligencia-artificial/gemini-acaba-de-enterrar-a-chatgpt-la-mejor-funcion-de-su-generador-de-imagenes-ahora-es-gratis-para-todos/", "desc": "Probablemente no lo sabías, pero Google tiene una herramienta de generación de imágenes muchísimo mejor que la que utilizas en Gemini ahora mismo. Está basada en Nano Banana 2, y desde que se lanzó so", "pubdate": "Tue, 30 Jun 2026"}, {"source": "Hipertextual", "title": "Son los precios más bajos en tecnología que hemos visto: los PcDays vienen cargados de ofertas increíbles", "link": "https://hipertextual.com/ofertas-descuentos/pcdays-pccomponentes/", "desc": "El otro día un familiar me preguntó qué televisión se podía comprar ahora en el verano. Le dije que comprase el modelo que comprase, se esperase a esta semana, en la que se han anunciado los PcDays de", "pubdate": "Tue, 30 Jun 2026"}];
+
+function openNewsModal(i){
+  var d = NEWS_DATA[i];
+  if(!d) return;
+  var el = document.getElementById('news-content');
+  if(!el) return;
+  el.innerHTML = '<div class="nm-drag"></div><button class="nm-close" onclick="closeNewsModal()">✕</button><div class="nm-source">'+d.source+'</div><div class="nm-title">'+d.title+'</div><div class="nm-desc">'+d.desc+'</div><a class="nm-link" href="'+d.link+'" target="_blank" rel="noopener">Leer original →</a>';
+  document.getElementById('news-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeNewsModal(){
+  document.getElementById('news-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
 // ===== SCROLL REVEAL =====
 (function(){
   var sections = document.querySelectorAll('.section');
