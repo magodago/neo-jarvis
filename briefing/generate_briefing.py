@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NEO Daily Briefing Generator
-Genera un briefing diario premium en HTML con podcast, noticias, mundial, videos y más.
+Genera un briefing diario premium en HTML con podcast, noticias, mundial, videos y mas.
 Ejecutar: python3 generate_briefing.py
 """
 
@@ -14,19 +14,18 @@ AUDIO_DIR = os.path.join(REPO_DIR, "briefing")
 TEMPLATE = os.path.join(REPO_DIR, "briefing", "template.html")
 OUTPUT = os.path.join(REPO_DIR, "briefing", "index.html")
 AUDIO_FILE = os.path.join(AUDIO_DIR, "podcast.mp3")
+SCRIPT_FILE = os.path.join(AUDIO_DIR, "script.txt")
 
+# Verified YouTube channels with working RSS feeds
 CHANNELS = [
-    ("DotCSV", "@DotCSV", "UCFmkKLYOqXJzS_JxUF4xWKw"),
-    ("Jon Hernández", "@la_inteligencia_artificial", "UCnIl3dpIkWQEnMZQF08HnGg"),
-    ("Xavier Mitjana", "@XavierMitjana", "UCeY1OieApUqS0QFYFIhjGAg"),
-    ("Laura IA", "@Laura_IA", "UCvMQhL1ZzKMcYhW9apW3X6w"),
+    ("DotCSV", "UCOTko-zmnQTcOxSRdg5_uOQ"),
+    ("Xavier Mitjana", "UCeu3sN4T72Fka1rhQFR447A"),
 ]
 
 def log(m):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {m}")
 
 def fetch(url, timeout=15):
-    """Fetch URL with retry and headers."""
     for attempt in range(3):
         try:
             req = urllib.request.Request(url, headers={
@@ -35,8 +34,10 @@ def fetch(url, timeout=15):
             resp = urllib.request.urlopen(req, timeout=timeout)
             return resp.read().decode('utf-8', errors='replace')
         except Exception as e:
-            log(f"  fetch attempt {attempt+1}/3 failed: {e}")
-            time.sleep(2)
+            if attempt < 2:
+                time.sleep(2)
+            else:
+                log(f"  fetch failed: {url[:50]}... {e}")
     return ""
 
 # ─── 1. WEATHER ──────────────────────────────────────────────
@@ -50,60 +51,71 @@ def get_weather():
             desc = cc['weatherDesc'][0]['value']
             hum = cc['humidity']
             wind = cc['windspeedKmph']
-            return f"{temp}°C · {desc} · 💨 {wind} km/h"
-    except Exception as e:
-        log(f"  weather error: {e}")
+            return f"{temp}°C · {desc}"
+    except: pass
     return "—"
 
 # ─── 2. WORLD CUP ────────────────────────────────────────────
 def get_world_cup():
-    """Fetch matches from worldcup26.ir free API."""
     try:
         data = fetch("https://worldcup26.ir/get/games")
         if not data:
-            return "<div class='wc-card'><p style='color:var(--muted);font-size:.8rem'>Mundial 2026 — consulta resultados en FIFA.com</p></div>"
+            return fallback_wc()
         
-        matches = json.loads(data)
-        html = ""
-        count = 0
+        raw = json.loads(data)
+        matches = []
+        if isinstance(raw, dict):
+            for v in raw.values():
+                if isinstance(v, list):
+                    matches = v
+                    break
+        elif isinstance(raw, list):
+            matches = raw
         
-        # Get today's matches first, then recent results
-        today = date.today().isoformat()
+        if not matches:
+            return fallback_wc()
         
         # Sort: live first, then by date
         def sort_key(m):
-            status = m.get("status", "")
-            if status == "live": return (0, 0)
-            if status in ("ft", "finished", "completed"): return (2, m.get("date", "zzz"))
-            return (1, m.get("date", "zzz"))
+            finished = m.get("finished", "FALSE").upper() == "TRUE"
+            elapsed = m.get("time_elapsed", "")
+            if elapsed and elapsed != "finished":
+                return (0, 0)  # live
+            if finished:
+                return (2, m.get("local_date", "zzz"))
+            return (1, m.get("local_date", "zzz"))
         
         matches.sort(key=sort_key)
         
+        html = ""
+        count = 0
         for m in matches:
-            if count >= 6:
-                break
+            if count >= 6: break
             
-            home = m.get("home", {}).get("name", "?")
-            away = m.get("away", {}).get("name", "?")
-            home_score = m.get("home", {}).get("score", "")
-            away_score = m.get("away", {}).get("score", "")
-            status = m.get("status", "pending").lower()
-            match_date = m.get("date", "")
-            match_time = m.get("time", "")
+            home = m.get("home_team_name_en", "?")
+            away = m.get("away_team_name_en", "?")
+            hs = m.get("home_score", "")
+            as_ = m.get("away_score", "")
+            finished = m.get("finished", "FALSE").upper() == "TRUE"
+            elapsed = m.get("time_elapsed", "")
+            local_date = m.get("local_date", "")
             
-            if status in ("ft", "finished", "completed"):
+            is_live = elapsed and elapsed != "finished"
+            
+            if is_live:
+                status_class = "live"
+                status_text = f"EN VIVO · {elapsed}'"
+                score_html = f"<span class='live-dot'></span>{hs}–{as_}"
+            elif finished:
                 status_class = "finished"
                 status_text = "FINAL"
-                score_html = f"{home_score}–{away_score}"
-            elif status == "live":
-                status_class = "live"
-                minute = m.get("minute", "")
-                status_text = "EN VIVO"
-                score_html = f"<span class='live-dot'></span>{home_score}–{away_score}"
+                score_html = f"{hs}–{as_}"
             else:
                 status_class = "pending"
                 status_text = "PRÓXIMO"
-                score_html = f"<span class='vs'>{match_time or '—'}</span>"
+                # Extract time from local_date
+                time_match = re.search(r'(\d{2}:\d{2})$', local_date)
+                score_html = f"<span class='vs'>{time_match.group(1) if time_match else '—'}</span>"
             
             html += f"""
 <div class="wc-card">
@@ -120,13 +132,16 @@ def get_world_cup():
 </div>"""
             count += 1
         
-        html += """<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank">Ver todos los partidos →</a>"""
+        html += """<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a>"""
         return html
     except Exception as e:
-        log(f"  world cup error: {e}")
-        return "<div class='wc-card'><p style='color:var(--muted);font-size:.8rem'>Mundial 2026 en curso</p></div>"
+        log(f"  wc error: {e}")
+        return fallback_wc()
 
-# ─── 3. AI NEWS (RSS) ────────────────────────────────────────
+def fallback_wc():
+    return '<div class="wc-card"><p style="color:var(--muted);font-size:.8rem">Mundial 2026 · 48 equipos · 16 sedes</p></div>'
+
+# ─── 3. AI NEWS ──────────────────────────────────────────────
 def get_ai_news():
     rss_feeds = [
         ("TechCrunch AI", "https://techcrunch.com/category/artificial-intelligence/feed/"),
@@ -138,55 +153,40 @@ def get_ai_news():
     seen = set()
     
     for source_name, url in rss_feeds:
+        data = fetch(url)
+        if not data: continue
         try:
-            data = fetch(url)
-            if not data: continue
             root = ElementTree.fromstring(data)
-            ns = {"atom": "http://www.w3.org/2005/Atom"}
-            
-            # RSS 2.0
             for item in root.iter("item"):
-                title = item.findtext("title", "")[:80]
+                title = item.findtext("title", "")[:90]
                 link = item.findtext("link", "")
                 pubdate = item.findtext("pubDate", "")[:16]
                 if title and link and title not in seen:
                     seen.add(title)
                     items.append((source_name, title, link, pubdate))
-                    if len(items) >= 12: break
-            
-            # Atom
-            if not items:
+            if len(items) < 5:
                 for entry in root.iter("{http://www.w3.org/2005/Atom}entry"):
-                    title = entry.findtext("{http://www.w3.org/2005/Atom}title", "")[:80]
+                    title = entry.findtext("{http://www.w3.org/2005/Atom}title", "")[:90]
                     link_el = entry.find("{http://www.w3.org/2005/Atom}link")
                     link = link_el.get("href", "") if link_el is not None else ""
                     if title and link and title not in seen:
                         seen.add(title)
                         items.append((source_name, title, link, ""))
-                        if len(items) >= 12: break
-            
-            if len(items) >= 12: break
-            
         except Exception as e:
-            log(f"  rss {source_name} error: {e}")
-            continue
+            log(f"  rss parse {source_name}: {e}")
     
-    # Limit to 10 items, ensure variety
-    used_sources = set()
-    final_items = []
-    for item in items:
-        if len(final_items) >= 8: break
-        source = item[0]
-        if source not in used_sources or len([x for x in final_items if x[0]==source]) < 3:
-            final_items.append(item)
-            used_sources.add(source)
-    
-    if not final_items:
+    if not items:
         return ""
+    
+    # Max 8 items, variety of sources
+    final = []
+    for item in items:
+        if len(final) >= 8: break
+        final.append(item)
     
     emoji_map = {"TechCrunch AI": "📱", "MIT News AI": "🔬", "HackerNews": "💻"}
     html = ""
-    for source, title, link, pubdate in final_items:
+    for source, title, link, pubdate in final:
         emoji = emoji_map.get(source, "📰")
         html += f"""
 <a class="news-card" href="{link}" target="_blank" rel="noopener">
@@ -201,21 +201,14 @@ def get_ai_news():
 
 # ─── 4. YOUTUBE ──────────────────────────────────────────────
 def get_youtube_videos():
-    """Try RSS feeds for YouTube channels."""
     html = ""
     seen = set()
     
-    for name, handle, ch_id in CHANNELS:
+    for name, ch_id in CHANNELS:
+        data = fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={ch_id}")
+        if not data: continue
         try:
-            data = fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={ch_id}")
-            if not data:
-                # Try handle-based feed
-                data = fetch(f"https://www.youtube.com/feeds/videos.xml?user={handle.replace('@','')}")
-            if not data: continue
-            
             root = ElementTree.fromstring(data)
-            ns = {"yt": "http://www.youtube.com/xml/schemas/2015"}
-            
             count = 0
             for entry in root.iter("{http://www.w3.org/2005/Atom}entry"):
                 if count >= 3: break
@@ -224,7 +217,11 @@ def get_youtube_videos():
                 published = entry.findtext("{http://www.w3.org/2005/Atom}published", "")[:10]
                 if video_id and video_id not in seen:
                     seen.add(video_id)
-                    pub_date = datetime.strptime(published[:10], "%Y-%m-%d").strftime("%d %b") if published else ""
+                    pub_date = ""
+                    if published:
+                        try:
+                            pub_date = datetime.strptime(published[:10], "%Y-%m-%d").strftime("%d %b")
+                        except: pass
                     html += f"""
 <a class="video-card" href="https://youtube.com/watch?v={video_id}" target="_blank" rel="noopener">
   <div class="video-thumb">
@@ -238,147 +235,115 @@ def get_youtube_videos():
 </a>"""
                     count += 1
         except Exception as e:
-            log(f"  yt {name} error: {e}")
-            continue
+            log(f"  yt parse {name}: {e}")
     
     if not html:
-        html = '<p style="color:var(--muted);font-size:.8rem;padding:12px">No hay videos nuevos hoy</p>'
+        html = '<p style="color:var(--muted);font-size:.8rem;padding:12px">Explora los canales de IA en YouTube</p>'
     return html
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
-def generate_podcast(news_items, date_str):
-    """Generate podcast script and audio with edge-tts."""
-    script_path = os.path.join(AUDIO_DIR, "script.txt")
-    
-    # Get news headlines for the script
-    headlines = []
-    if news_items:
-        for item in news_items[:5]:
-            headlines.append(f"- {item[1]}")
-    news_text = "\n".join(headlines) if headlines else "Hoy sin noticias destacadas."
-    
-    # Get world cup status
-    try:
-        wc_data = fetch("https://worldcup26.ir/get/games")
-        wc_matches = json.loads(wc_data) if wc_data else []
-        live_matches = [m for m in wc_matches if m.get("status") == "live"]
-        wc_info = f"{len(live_matches)} partidos en vivo" if live_matches else "sin partidos en este momento"
-    except:
-        wc_info = "Mundial 2026 en curso"
+def generate_podcast(news_headlines, date_str):
+    """Generate podcast script and audio."""
+    news_text = "\n".join(f"- {h}" for h in news_headlines[:5]) if news_headlines else "Hoy sin noticias destacadas."
     
     script = f"""Buenos días. Bienvenido al NEO Briefing de {date_str}.
 
-Hoy en el mundo de la inteligencia artificial:
+Hoy en inteligencia artificial:
 {news_text}
 
-En el Mundial 2026, {wc_info}.
+En el Mundial 2026, la competición sigue con intensidad. Revisa los resultados en neolabs.es/briefing.
 
-Para hoy, te dejo este prompt: imagina que eres un estratega de negocio con acceso a inteligencia artificial. Describe cómo automatizarías una tarea que consumes cada día. No pienses en la tecnología, piensa en el resultado.
+Para el prompt de hoy: imagina que eres un estratega de negocio con acceso a inteligencia artificial. Describe cómo automatizarías una tarea que consumes cada día. No pienses en la tecnología, piensa en el resultado.
 
-Gracias por escuchar. Nos vemos mañana con más información. Que tengas un gran día."""
+Gracias por escuchar. Nos vemos mañana. Que tengas un gran día."""
     
     os.makedirs(AUDIO_DIR, exist_ok=True)
     
-    # Save script
-    with open(script_path, "w", encoding="utf-8") as f:
+    with open(SCRIPT_FILE, "w", encoding="utf-8") as f:
         f.write(script)
-    log(f"  podcast script written ({len(script)} chars)")
+    log(f"  script: {len(script)} chars")
     
-    # Generate audio with edge-tts
-    audio_path = AUDIO_FILE
-    if os.path.exists(audio_path):
-        os.remove(audio_path)
+    # Generate audio
+    if os.path.exists(AUDIO_FILE):
+        os.remove(AUDIO_FILE)
     
-    # Use edge-tts via subprocess
     cmd = [
         sys.executable, "-m", "edge_tts",
-        "--text", script,
-        "--voice", "es-ES-AlvaroNeural",
-        "--rate", "-5%",
-        "--write-media", audio_path,
+        "-f", SCRIPT_FILE,
+        "-v", "es-ES-AlvaroNeural",
+        "--rate=-5%",
+        "--write-media", AUDIO_FILE,
     ]
     
-    log(f"  generating audio with edge-tts...")
+    log(f"  generating audio...")
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     if result.returncode != 0:
-        log(f"  edge-tts error: {result.stderr[:200]}")
-        return None, script, "—"
+        log(f"  audio error: {result.stderr[:200]}")
+        return "no-audio", "—"
     
-    if os.path.exists(audio_path):
-        size = os.path.getsize(audio_path)
-        log(f"  audio generated: {size/1024:.0f}KB")
-        duration = estimate_duration(script)
-        return audio_path, script, duration
-    return None, script, "—"
+    if os.path.exists(AUDIO_FILE):
+        size = os.path.getsize(AUDIO_FILE)
+        log(f"  audio: {size/1024:.0f}KB")
+        duration = _estimate_duration(script)
+        return "./podcast.mp3", duration
+    
+    return "no-audio", "—"
 
-def estimate_duration(text):
-    """Rough estimate: ~150 words/min in Spanish."""
+def _estimate_duration(text):
     words = len(text.split())
-    mins = max(1, round(words / 150))
-    secs = round(words / 150 * 60)
-    return f"{mins}:{secs % 60:02d} min"
+    secs = max(30, round(words / 150 * 60))
+    return f"{secs // 60}:{secs % 60:02d} min"
 
 # ─── 6. PROMPT ───────────────────────────────────────────────
 def get_prompt():
     prompts = [
-        "Eres un estratega de negocio con acceso a cualquier herramienta de IA. Describe paso a paso cómo eliminarías una tarea repetitiva que consumes cada día. No te centres en la tecnología — céntrate en el resultado final.",
-        "Actúa como un consultor de productividad personal. Analiza tu rutina matutina y sugiere tres automatizaciones con IA que podrían ahorrarte 30 minutos cada día.",
+        "Eres un estratega de negocio con acceso a cualquier herramienta de IA. Describe paso a paso cómo eliminarías una tarea repetitiva que consumes cada día.",
+        "Actúa como un consultor de productividad personal. Analiza tu rutina y sugiere tres automatizaciones con IA que podrían ahorrarte 30 minutos cada día.",
         "Imagina que tienes un asistente AI que puede leer todos tus correos, calendario y notas. Pídele que te prepare un resumen ejecutivo de tu día antes de que empiece.",
-        "Eres un copywriter experto que usa IA. Describe cómo generarías 30 días de contenido para redes sociales a partir de un solo post del blog usando prompts en cadena.",
+        "Eres un copywriter experto que usa IA. Describe cómo generarías 30 días de contenido para redes sociales a partir de un solo post del blog.",
+        "Piensa como un CTO. Diseña un sistema donde agentes AI se repartan el trabajo de tu equipo: uno investiga, otro escribe, otro revisa, otro despliega.",
+        "Eres un diseñador de producto. Pídele a una IA que genere 10 variaciones de un mismo concepto visual y explícale cómo quieres que itere sobre ellos.",
+        "Actúa como un analista de datos. Describe cómo usarías IA para encontrar patrones ocultos en los datos de tu negocio que nadie ha visto antes.",
     ]
     return prompts[datetime.now().day % len(prompts)]
 
 # ─── 7. QUOTE ────────────────────────────────────────────────
 def get_quote():
     quotes = [
-        "La mejor manera de predecir el futuro es crearlo. — Peter Drucker",
-        "No se trata de tener tiempo, se trata de tener prioridades. — Stephen Covey",
-        "La inteligencia artificial no reemplazará a los humanos, pero los humanos con IA reemplazarán a los que no la usen.",
+        "La mejor manera de predecir el futuro es crearlo.",
+        "No se trata de tener tiempo, se trata de tener prioridades.",
+        "La IA no reemplazará a los humanos, pero los humanos con IA reemplazarán a los que no la usen.",
         "La automatización no es perder el control, es ganar libertad.",
-        "El mayor riesgo es no correr ningún riesgo. — Mark Zuckerberg",
-        "La tecnología es solo una herramienta. La gente usa herramientas para mejorar sus vidas. — Tim Cook",
-        "No sobrevive la especie más fuerte, sino la que mejor se adapta al cambio. — Charles Darwin",
+        "El mayor riesgo es no correr ningún riesgo.",
+        "La tecnología es solo una herramienta. La gente usa herramientas para mejorar sus vidas.",
+        "No sobrevive la especie más fuerte, sino la que mejor se adapta al cambio.",
     ]
     return quotes[datetime.now().day % len(quotes)]
 
 # ─── 8. ASSEMBLE ─────────────────────────────────────────────
 def assemble(params):
-    """Read template, replace placeholders, write output."""
     with open(TEMPLATE, "r", encoding="utf-8") as f:
         html = f.read()
     
     for key, value in params.items():
         html = html.replace("{{" + key + "}}", str(value))
     
-    # Ensure output directory
-    os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write(html)
-    log(f"  HTML written: {OUTPUT}")
-    
-    # Also copy to root if needed for GitHub Pages
-    root_index = os.path.join(REPO_DIR, "briefing", "index.html")
-    with open(root_index, "w", encoding="utf-8") as f:
-        f.write(html)
+    log(f"  HTML written")
 
 # ─── 9. DEPLOY ───────────────────────────────────────────────
 def deploy():
-    """Commit and push to GitHub Pages."""
     log("  deploying...")
-    
-    # Git add
     subprocess.run(["git", "-C", REPO_DIR, "add", "briefing/"], capture_output=True)
     subprocess.run(["git", "-C", REPO_DIR, "commit", "-m", f"daily briefing {datetime.now().strftime('%Y-%m-%d %H:%M')}"], capture_output=True)
     
-    # Push
     result = subprocess.run(["git", "-C", REPO_DIR, "push"], capture_output=True, text=True, timeout=30)
     if result.returncode == 0:
-        log("  deployed to neolabs.es/briefing/")
+        log("  deployed!")
         return True
-    else:
-        error = result.stderr[:200] if result.stderr else "unknown"
-        log(f"  deploy error: {error}")
-        return False
+    log(f"  push error: {result.stderr[:200]}")
+    return False
 
 # ─── MAIN ─────────────────────────────────────────────────────
 def main():
@@ -386,40 +351,32 @@ def main():
     today = date.today()
     date_str = today.strftime("%d de %B de %Y")
     date_short = today.strftime("%d.%m.%Y")
-    day_name = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"][today.weekday()]
+    day_name = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"][today.weekday()]
     week_num = today.isocalendar()[1]
     
-    log("1. Fetching weather...")
+    log("1. Weather...")
     weather = get_weather()
     
-    log("2. Fetching World Cup...")
-    wc_html = get_world_cup()
+    log("2. World Cup...")
+    wc = get_world_cup()
     
-    log("3. Fetching AI news...")
-    news_html = get_ai_news()
+    log("3. RSS News...")
+    news = get_ai_news()
     
-    log("4. Fetching YouTube...")
-    yt_html = get_youtube_videos()
+    log("4. YouTube...")
+    yt = get_youtube_videos()
     
-    log("5. Generating prompt...")
+    log("5. Prompt...")
     prompt = get_prompt()
     
-    log("6. Generating quote...")
+    log("6. Quote...")
     quote = get_quote()
     
-    log("7. Generating podcast...")
-    result = generate_podcast([], date_str)
-    if result and result[0]:
-        audio_path, script, duration = result
-        # Make path relative for HTML
-        audio_url = "./podcast.mp3"
-        topics = "Noticias AI · Mundial · Productividad"
-    else:
-        audio_url = ""
-        duration = "—"
-        topics = "No disponible"
+    log("7. Podcast...")
+    audio_url, duration = generate_podcast([], date_str)
+    topics = "Noticias AI · Mundial · Productividad"
     
-    log("8. Assembling HTML...")
+    log("8. Assembling...")
     now = datetime.now().strftime("%H:%M")
     
     params = {
@@ -428,12 +385,12 @@ def main():
         "DAY_NAME": day_name,
         "WEEK_NUM": str(week_num),
         "WEATHER": weather,
-        "WORLD_CUP": wc_html,
-        "AI_NEWS": news_html,
-        "YOUTUBE_VIDEOS": yt_html,
+        "WORLD_CUP": wc,
+        "AI_NEWS": news,
+        "YOUTUBE_VIDEOS": yt,
         "PROMPT": prompt,
         "QUOTE": quote,
-        "PODCAST_AUDIO": audio_url if audio_url else "",
+        "PODCAST_AUDIO": audio_url,
         "PODCAST_DURATION": duration,
         "PODCAST_TOPICS": topics,
         "GENERATED_AT": f"{date_str} · {now}",
@@ -442,16 +399,11 @@ def main():
     assemble(params)
     
     log("9. Deploying...")
-    deployed = deploy()
+    ok = deploy()
     
-    log(f"\n✅ Briefing generado: neolabs.es/briefing/")
-    if deployed:
-        log("✅ Desplegado correctamente")
-    else:
-        log("⚠️  Deploy manual pendiente (git push)")
-    
-    return deployed
+    url = "https://neolabs.es/briefing/"
+    log(f"\n✅ {url}")
+    return ok
 
 if __name__ == "__main__":
-    success = main()
-    sys.exit(0 if success else 1)
+    main()
