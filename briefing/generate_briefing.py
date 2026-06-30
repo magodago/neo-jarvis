@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-NEO Daily Briefing Generator v2
-Briefing diario premium en HTML con noticias en español, mundial, videos del día y más.
+NEO Daily Briefing Generator v3
+Briefing diario premium con mundial completo (resultados, goleadores, clasificación, próximos).
 Ejecutar: python3 generate_briefing.py
 """
 
@@ -17,11 +17,36 @@ OUTPUT = os.path.join(REPO_DIR, "briefing", "index.html")
 AUDIO_FILE = os.path.join(AUDIO_DIR, "podcast.mp3")
 SCRIPT_FILE = os.path.join(AUDIO_DIR, "script.txt")
 
-# YouTube channels
 CHANNELS = [
     ("DotCSV", "UCOTko-zmnQTcOxSRdg5_uOQ"),
     ("Xavier Mitjana", "UCeu3sN4T72Fka1rhQFR447A"),
 ]
+
+# ─── SPANISH COUNTRY NAMES ───────────────────────────────────
+PAIS_ES = {
+    "Mexico":"México","South Africa":"Sudáfrica","South Korea":"Corea del Sur",
+    "Czech Republic":"República Checa","Switzerland":"Suiza","Canada":"Canadá",
+    "Bosnia and Herzegovina":"Bosnia","Qatar":"Catar","Brazil":"Brasil",
+    "Morocco":"Marruecos","Scotland":"Escocia","Haiti":"Haití",
+    "United States":"EE.UU.","Australia":"Australia","Paraguay":"Paraguay",
+    "Turkey":"Turquía","Germany":"Alemania","Ivory Coast":"Costa de Marfil",
+    "Ecuador":"Ecuador","Curaçao":"Curazao","Netherlands":"Países Bajos",
+    "Japan":"Japón","Sweden":"Suecia","Tunisia":"Túnez","Belgium":"Bélgica",
+    "Egypt":"Egipto","Iran":"Irán","New Zealand":"Nueva Zelanda",
+    "Spain":"España","Cape Verde":"Cabo Verde","Uruguay":"Uruguay",
+    "Saudi Arabia":"Arabia Saudí","France":"Francia","Norway":"Noruega",
+    "Senegal":"Senegal","Iraq":"Irak","Argentina":"Argentina","Austria":"Austria",
+    "Algeria":"Argelia","Jordan":"Jordania","Colombia":"Colombia",
+    "Portugal":"Portugal","Democratic Republic of the Congo":"R.D. Congo",
+    "Uzbekistan":"Uzbekistán","England":"Inglaterra","Croatia":"Croacia",
+    "Ghana":"Ghana","Panama":"Panamá","Italy":"Italia","Poland":"Polonia",
+    "Denmark":"Dinamarca","Ukraine":"Ucrania","Wales":"Gales",
+    "Serbia":"Serbia","Switzerland":"Suiza","Cameroon":"Camerún",
+    "Nigeria":"Nigeria","Mali":"Mali","Togo":"Togo",
+}
+
+def es(name):
+    return PAIS_ES.get(name, name)
 
 def log(m):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {m}")
@@ -38,13 +63,31 @@ def fetch(url, timeout=15):
             except: return data.decode('latin-1', errors='replace')
         except Exception as e:
             if attempt < 2: time.sleep(2)
-            else: log(f"  failed: {url[:50]}... {e}")
+            else: log(f"  fail: {url[:40]}.. {e}")
     return ""
+
+def fetch_json(url):
+    data = fetch(url)
+    if not data: return []
+    raw = json.loads(data)
+    if isinstance(raw, dict):
+        for v in raw.values():
+            if isinstance(v, list): return v
+    return raw if isinstance(raw, list) else []
 
 def strip_html(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     text = unescape(text)
     return ' '.join(text.split())[:300]
+
+def parse_scorers(s):
+    """Parse scorer strings like {\"Player 27'\",\"Player 75'\"}"""
+    if not s or s == 'null': return []
+    s = s.strip()
+    if s.startswith('{') and s.endswith('}'):
+        s = s[1:-1]
+    parts = re.findall(r'"([^"]*)"', s)
+    return parts if parts else [s.strip().strip('"')]
 
 # ─── 1. WEATHER ──────────────────────────────────────────────
 def get_weather():
@@ -53,142 +96,186 @@ def get_weather():
         if data:
             d = json.loads(data)
             cc = d['current_condition'][0]
-            temp = cc['temp_C']
-            desc = cc['weatherDesc'][0]['value']
-            hum = cc['humidity']
-            wind = cc['windspeedKmph']
-            return f"{temp}°C · {desc} · Hum {hum}%"
-    except Exception as e:
-        log(f"  weather: {e}")
+            return f"{cc['temp_C']}°C · {cc['weatherDesc'][0]['value']} · Hum {cc['humidity']}%"
+    except: pass
     return "—"
 
 # ─── 2. WORLD CUP ────────────────────────────────────────────
 def get_world_cup():
-    try:
-        data = fetch("https://worldcup26.ir/get/games")
-        if not data: return fallback_wc()
-        raw = json.loads(data)
-        
-        matches = []
-        if isinstance(raw, dict):
-            for v in raw.values():
-                if isinstance(v, list): matches = v; break
-        elif isinstance(raw, list): matches = raw
-        
-        if not matches: return fallback_wc()
-        
-        # Filter to matches with team names and recent/pending
-        valid = [m for m in matches if m.get("home_team_name_en") and m.get("away_team_name_en")]
-        if not valid: return fallback_wc()
-        
-        def sort_key(m):
-            elapsed = m.get("time_elapsed", "").lower()
-            finished = m.get("finished", "false").upper() == "TRUE"
-            # Live = elapsed is a number (minute like "45'")
-            is_live = bool(re.match(r"^\d+", elapsed))
-            if is_live: return (0, 0)
-            if finished: return (2, m.get("local_date", "zzz"))
-            return (1, m.get("local_date", "zzz"))
-        
-        valid.sort(key=sort_key)
-        
-        html = ""
-        count = 0
-        for m in valid:
-            if count >= 6: break
+    today = date.today()
+    yesterday = today - timedelta(days=1)
+    
+    matches = fetch_json("https://worldcup26.ir/get/games")
+    groups_data = fetch_json("https://worldcup26.ir/get/groups")
+    teams_data = fetch_json("https://worldcup26.ir/get/teams")
+    
+    team_map = {t["id"]: es(t["name_en"]) for t in teams_data} if teams_data else {}
+    if not matches: return fallback_wc()
+    
+    # Filter to matches with names
+    valid = [m for m in matches if m.get("home_team_name_en") and m.get("away_team_name_en")]
+    if not valid: return fallback_wc()
+    
+    html = ""
+    
+    # ── A. AYER (resultados) ──
+    ayer_match = [m for m in valid if m.get("local_date", "").startswith(yesterday.strftime("%m/%d/%Y")) or m.get("finished","FALSE").upper()=="TRUE"]
+    # Get most recent finished matches (up to 5)
+    ayer_match.sort(key=lambda m: m.get("local_date",""), reverse=True)
+    ayer_match = ayer_match[:5]
+    
+    if ayer_match:
+        html += '<div class="section-sub" style="margin-bottom:12px">Resultados</div>'
+        for m in ayer_match:
+            home = es(m.get("home_team_name_en","?"))
+            away = es(m.get("away_team_name_en","?"))
+            hs = m.get("home_score","")
+            as_ = m.get("away_score","")
+            h_scorers = parse_scorers(m.get("home_scorers",""))
+            a_scorers = parse_scorers(m.get("away_scorers",""))
             
-            home = m["home_team_name_en"]
-            away = m["away_team_name_en"]
-            hs = m.get("home_score", "")
-            as_ = m.get("away_score", "")
-            finished = m.get("finished", "false").upper() == "TRUE"
-            elapsed = m.get("time_elapsed", "").lower()
-            local_date = m.get("local_date", "")
+            # Parse date/time
+            local_date = m.get("local_date","")
+            time_str = ""
+            if local_date:
+                try:
+                    dt = datetime.strptime(local_date, "%m/%d/%Y %H:%M")
+                    time_str = dt.strftime("%d %b · %H:%M")
+                except: pass
             
-            is_live = bool(re.match(r"^\d+", elapsed))
-            
-            if is_live:
-                status_class = "live"
-                status_text = f"EN VIVO · {elapsed}"
-                score_html = f"<span class='live-dot'></span>{hs}–{as_}"
-            elif finished:
-                status_class = "finished"
-                status_text = "FINAL"
-                score_html = f"{hs}–{as_}"
-            else:
-                status_class = "pending"
-                status_text = "PRÓXIMO"
-                time_match = re.search(r'(\d{2}:\d{2})$', local_date)
-                score_html = f"<span class='vs'>{time_match.group(1) if time_match else '—'}</span>"
+            scorers_html = ""
+            if h_scorers or a_scorers:
+                h_s = ", ".join(h_scorers[:3]) if h_scorers else ""
+                a_s = ", ".join(a_scorers[:3]) if a_scorers else ""
+                if h_s: scorers_html += f'<div style="font-size:.65rem;color:var(--muted);margin-top:4px">⚽ {h_s}</div>'
+                if a_s: scorers_html += f'<div style="font-size:.65rem;color:var(--muted)">⚽ {a_s}</div>'
             
             html += f"""
 <div class="wc-card">
-  <div class="wc-status {status_class}">{status_text}</div>
+  <div class="wc-status finished">FINAL</div>
+  <div style="font-size:.6rem;color:var(--muted);margin-bottom:4px">{time_str}</div>
   <div class="wc-match">
     <div class="wc-team home"><span class="wc-team-name">{home}</span></div>
-    <div class="wc-score">{score_html}</div>
+    <div class="wc-score"><strong>{hs}–{as_}</strong></div>
+    <div class="wc-team away"><span class="wc-team-name">{away}</span></div>
+  </div>
+  {scorers_html}
+</div>"""
+    
+    # ── B. HOY / PRÓXIMOS ──
+    hoy_prox = [m for m in valid if m.get("finished","FALSE").upper()!="TRUE"]
+    hoy_prox.sort(key=lambda m: m.get("local_date",""))
+    
+    if hoy_prox:
+        html += '<div class="section-sub" style="margin-top:16px;margin-bottom:12px">Próximos partidos</div>'
+        count = 0
+        for m in hoy_prox:
+            if count >= 4: break
+            home = es(m.get("home_team_name_en","?"))
+            away = es(m.get("away_team_name_en","?"))
+            elapsed = m.get("time_elapsed","").lower()
+            is_live = bool(re.match(r"^\d+", elapsed))
+            local_date = m.get("local_date","")
+            
+            time_str = ""
+            if local_date:
+                try:
+                    dt = datetime.strptime(local_date, "%m/%d/%Y %H:%M")
+                    weekday = ["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"][dt.weekday()]
+                    time_str = f"{weekday} {dt.day} {dt.strftime('%b')} · {dt.strftime('%H:%M')}"
+                except: pass
+            
+            if is_live:
+                hs = m.get("home_score","0")
+                as_ = m.get("away_score","0")
+                status = f'<div class="wc-status live">EN VIVO · {elapsed}</div>'
+                score = f'<div class="wc-score"><span class="live-dot"></span>{hs}–{as_}</div>'
+            else:
+                status = f'<div class="wc-status pending">PRÓXIMO</div>'
+                score = f'<div class="wc-score"><span class="vs">{time_str}</span></div>'
+            
+            html += f"""
+<div class="wc-card">
+  {status}
+  <div class="wc-match">
+    <div class="wc-team home"><span class="wc-team-name">{home}</span></div>
+    {score}
     <div class="wc-team away"><span class="wc-team-name">{away}</span></div>
   </div>
 </div>"""
             count += 1
+    
+    # ── C. CLASIFICACIÓN ──
+    if groups_data:
+        html += '<div class="section-sub" style="margin-top:16px;margin-bottom:12px">Clasificación</div>'
         
-        html += '<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos →</a>'
-        return html
-    except Exception as e:
-        log(f"  wc: {e}")
-        return fallback_wc()
+        # Sort groups by name
+        groups_data.sort(key=lambda g: g.get("name",""))
+        
+        for g in groups_data[:6]:  # Show first 6 groups (compact)
+            gname = g.get("name","?")
+            sorted_teams = sorted(g["teams"], key=lambda t: (int(t.get("pts",0)), int(t.get("gd",0))), reverse=True)
+            
+            html += f'<div style="font-size:.7rem;font-family:Syne;color:var(--gold);font-weight:700;letter-spacing:1px;margin:8px 0 4px">Grupo {gname}</div>'
+            
+            # Determine qualifying cutoff (top 2 in 48-team format advance)
+            for i, t in enumerate(sorted_teams):
+                tid = t["team_id"]
+                tname = team_map.get(tid, f"#{tid}")
+                pts = t.get("pts","0")
+                gd = t.get("gd","0")
+                is_qualifying = i < 2  # Top 2 advance
+                qual_icon = "●" if is_qualifying else "○"
+                qual_color = "var(--gold)" if is_qualifying else "var(--muted)"
+                
+                html += f"""<div style="display:flex;align-items:center;gap:8px;padding:3px 0;font-size:.7rem">
+  <span style="color:{qual_color};font-size:.5rem">{qual_icon}</span>
+  <span style="flex:1;color:#fff;font-weight:{'600' if is_qualifying else '400'}">{tname}</span>
+  <span style="color:var(--muted);min-width:28px;text-align:center">{pts}pts</span>
+  <span style="color:var(--muted);min-width:28px;text-align:center">{gd}</span>
+</div>"""
+        
+        html += f'<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver clasificación completa →</a>'
+    
+    return html
 
 def fallback_wc():
     return '<div class="wc-card"><p style="color:var(--muted);font-size:.8rem">Mundial 2026 · 48 equipos · 16 sedes</p></div>'
 
-# ─── 3. AI NEWS (ESPAÑOL) ────────────────────────────────────
-def get_ai_news_es():
+# ─── 3. NEWS ES ──────────────────────────────────────────────
+def get_ai_news():
     feeds = [
         ("Hipertextual", "https://hipertextual.com/feed"),
         ("WWWhatsnew", "https://wwwhatsnew.com/feed"),
     ]
-    
-    items = []
-    seen_titles = set()
-    
+    items, seen = [], set()
     for source, url in feeds:
         data = fetch(url)
         if not data: continue
         try:
             root = ElementTree.fromstring(data)
             for item in root.iter("item"):
-                title = item.findtext("title", "").strip()
-                link = item.findtext("link", "").strip()
-                desc = strip_html(item.findtext("description", ""))
-                pubdate = item.findtext("pubDate", "")[:16]
-                
+                title = item.findtext("title","").strip()
+                link = item.findtext("link","").strip()
+                desc = strip_html(item.findtext("description",""))
+                pubdate = item.findtext("pubDate","")[:16]
                 if not title or not link: continue
-                # Dedup
                 key = title.lower()[:40]
-                if key in seen_titles: continue
-                seen_titles.add(key)
-                
-                # Only AI/tech relevant
-                items.append({
-                    "source": source, "title": title, "link": link,
-                    "desc": desc[:200], "pubdate": pubdate
-                })
-                if len(items) >= 10: break
-            if len(items) >= 10: break
+                if key in seen: continue
+                seen.add(key)
+                items.append({"source":source,"title":title,"link":link,"desc":desc[:200],"pubdate":pubdate})
+                if len(items)>=10: break
+            if len(items)>=10: break
         except Exception as e:
             log(f"  rss {source}: {e}")
-    
     return items[:8]
 
 def news_to_html(items):
-    if not items: return ""
-    
-    # Store summaries as data attributes for the modal
+    if not items: return "", []
     html = ""
     for i, item in enumerate(items):
-        summary = item["desc"].replace('"', "'")
-        html += f"""
-<div class="news-card" onclick="openNewsModal({i})" data-index="{i}">
+        s = item["desc"].replace('"',"'")
+        html += f"""<div class="news-card" onclick="openNewsModal({i})">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">{item['source']}</div>
@@ -196,211 +283,141 @@ def news_to_html(items):
     <div class="news-card-time">{item['pubdate']}</div>
   </div>
 </div>"""
-    return html, items
+    return html, [{"source":i["source"],"title":i["title"],"desc":i["desc"][:500],"link":i["link"]} for i in items]
 
-# ─── 4. YOUTUBE (SOLO HOY) ───────────────────────────────────
+# ─── 4. YOUTUBE ──────────────────────────────────────────────
 def get_youtube_today():
     today = date.today()
     html = ""
     seen = set()
-    
     for name, ch_id in CHANNELS:
         data = fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={ch_id}")
         if not data: continue
         try:
             root = ElementTree.fromstring(data)
             for entry in root.iter("{http://www.w3.org/2005/Atom}entry"):
-                title = entry.findtext("{http://www.w3.org/2005/Atom}title", "")[:80]
-                video_id = entry.findtext("{http://www.youtube.com/xml/schemas/2015}videoId", "")
-                published = entry.findtext("{http://www.w3.org/2005/Atom}published", "")[:10]
-                
-                if not video_id or video_id in seen: continue
-                seen.add(video_id)
-                
-                # Only today's videos
-                if published:
+                title = entry.findtext("{http://www.w3.org/2005/Atom}title","")[:80]
+                vid = entry.findtext("{http://www.youtube.com/xml/schemas/2015}videoId","")
+                pub = entry.findtext("{http://www.w3.org/2005/Atom}published","")[:10]
+                if not vid or vid in seen: continue
+                seen.add(vid)
+                if pub:
                     try:
-                        pub_date = datetime.strptime(published[:10], "%Y-%m-%d").date()
-                        if pub_date != today: continue
+                        if datetime.strptime(pub[:10],"%Y-%m-%d").date() != today: continue
                     except: continue
-                
-                html += f"""
-<a class="video-card" href="https://youtube.com/watch?v={video_id}" target="_blank" rel="noopener">
-  <div class="video-thumb">
-    <img src="https://img.youtube.com/vi/{video_id}/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-  </div>
+                html += f"""<a class="video-card" href="https://youtube.com/watch?v={vid}" target="_blank" rel="noopener">
+  <div class="video-thumb"><img src="https://img.youtube.com/vi/{vid}/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="video-info">
     <div class="video-title">{title}</div>
     <div class="video-channel">{name}</div>
     <div class="video-date">Hoy</div>
   </div>
 </a>"""
-        except Exception as e:
-            log(f"  yt {name}: {e}")
-    
+        except: pass
     if not html:
         html = '<p style="color:var(--muted);font-size:.8rem;padding:12px">No hay videos nuevos hoy de los canales seguidos</p>'
     return html
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
 def generate_podcast(news_items, date_str):
-    news_lines = "\n".join(f"- {item['title'][:60]}" for item in news_items[:4]) if news_items else "Hoy sin noticias destacadas."
-    
+    news_lines = "\n".join(f"- {i['title'][:60]}" for i in news_items[:4]) if news_items else "Hoy sin noticias destacadas."
     script = f"""Buenos días. Bienvenido al NEO Briefing de {date_str}.
 
 Hoy en inteligencia artificial:
 {news_lines}
 
-En el Mundial 2026, la competición continúa. Revisa los resultados en neolabs.es/briefing.
+En el Mundial 2026, resultados y clasificación en neolabs.es/briefing.
 
 Prompt del día: piensa en una tarea que haces cada día y que podrías delegar completamente a un agente de IA. Describe el resultado ideal, no el proceso.
 
-Gracias por escuchar. Que tengas un gran día."""
+Nos vemos mañana."""
     
     os.makedirs(AUDIO_DIR, exist_ok=True)
-    with open(SCRIPT_FILE, "w", encoding="utf-8") as f:
-        f.write(script)
+    with open(SCRIPT_FILE, "w", encoding="utf-8") as f: f.write(script)
     log(f"  script: {len(script)} chars")
-    
-    if os.path.exists(AUDIO_FILE):
-        os.remove(AUDIO_FILE)
+    if os.path.exists(AUDIO_FILE): os.remove(AUDIO_FILE)
     
     cmd = [sys.executable, "-m", "edge_tts", "-f", SCRIPT_FILE,
-           "-v", "es-ES-AlvaroNeural", "--rate=-5%",
-           "--write-media", AUDIO_FILE]
-    
+           "-v", "es-ES-AlvaroNeural", "--rate=-5%", "--write-media", AUDIO_FILE]
     log(f"  audio...")
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     if r.returncode != 0:
-        log(f"  audio error: {r.stderr[:200]}")
-        return "no-audio", "—"
+        log(f"  error: {r.stderr[:200]}")
+        return "no-audio","—"
     
     if os.path.exists(AUDIO_FILE):
         log(f"  audio: {os.path.getsize(AUDIO_FILE)/1024:.0f}KB")
-        secs = max(20, round(len(script.split()) / 150 * 60))
+        secs = max(20, round(len(script.split())/150*60))
         return "./podcast.mp3", f"{secs//60:02d}:{secs%60:02d}"
-    return "no-audio", "—"
+    return "no-audio","—"
 
 # ─── 6. PROMPT ───────────────────────────────────────────────
 def get_prompt():
-    prompts = [
-        "Diseña un flujo donde un agente AI investige un tema mientras otro escribe y un tercero revisa. Tres agentes, un solo resultado.",
-        "Describe cómo usarías IA para transformar una reunión de 1 hora en: notas, acciones, follow-ups y un resumen ejecutivo. Sin escribir nada tú.",
-        "Crea un sistema donde cada email que recibes es respondido automáticamente con el tono y conocimiento de tu negocio. ¿Cómo lo entrenarías?",
-        "Imagina un asistente AI que conoce tu calendario, tus correos y tus proyectos. Cada mañana te da 3 decisiones que debes tomar hoy. Nada más.",
-        "Diseña un pipeline donde una idea en voz se convierte en: tweet, hilo, artículo de blog y video corto. Todo automático, todo con IA.",
-    ]
-    return prompts[datetime.now().day % len(prompts)]
+    p = ["Diseña un flujo donde tres agentes AI trabajen en paralelo: uno investiga, otro escribe, otro revisa. Un solo resultado final.",
+         "Describe cómo usarías IA para transformar una reunión de 1h en notas, acciones y resumen ejecutivo. Sin escribir nada tú.",
+         "Crea un sistema donde cada email que recibes se responde automáticamente con el tono y conocimiento de tu negocio.",
+         "Imagina un asistente que conoce tu calendario, correos y proyectos. Cada mañana te da 3 decisiones que debes tomar. Nada más.",
+         "Diseña un pipeline donde una idea en voz se convierte en tweet, hilo, artículo y video. Todo automático, todo con IA."]
+    return p[datetime.now().day % len(p)]
 
-# ─── 7. QUOTE ────────────────────────────────────────────────
 def get_quote():
-    quotes = [
-        "La mejor manera de predecir el futuro es crearlo.",
-        "No se trata de tener tiempo, se trata de tener prioridades.",
-        "La IA no reemplazará a los humanos, pero los humanos con IA reemplazarán a los que no la usen.",
-        "La automatización no es perder el control, es ganar libertad.",
-        "El mayor riesgo es no correr ningún riesgo.",
-    ]
-    return quotes[datetime.now().day % len(quotes)]
+    q = ["La mejor manera de predecir el futuro es crearlo.",
+         "No se trata de tener tiempo, se trata de tener prioridades.",
+         "La IA no reemplazará a los humanos, pero los humanos con IA reemplazarán a los que no la usen.",
+         "La automatización no es perder el control, es ganar libertad."]
+    return q[datetime.now().day % len(q)]
 
-# ─── 8. ASSEMBLE ─────────────────────────────────────────────
+# ─── 7. ASSEMBLE ─────────────────────────────────────────────
 def assemble(params):
     with open(TEMPLATE, "r", encoding="utf-8") as f:
         html = f.read()
-    for key, value in params.items():
-        html = html.replace("{{" + key + "}}", str(value))
+    for k,v in params.items():
+        html = html.replace("{{"+k+"}}", str(v))
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write(html)
     log(f"  HTML: {len(html)} bytes")
 
-# ─── 9. DEPLOY ───────────────────────────────────────────────
 def deploy():
     log("  deploying...")
-    subprocess.run(["git", "-C", REPO_DIR, "add", "briefing/"], capture_output=True)
-    subprocess.run(["git", "-C", REPO_DIR, "commit", "-m", f"briefing {datetime.now().strftime('%Y-%m-%d')}"], capture_output=True)
-    r = subprocess.run(["git", "-C", REPO_DIR, "push"], capture_output=True, text=True, timeout=30)
-    if r.returncode == 0: return True
+    subprocess.run(["git","-C",REPO_DIR,"add","briefing/"], capture_output=True)
+    subprocess.run(["git","-C",REPO_DIR,"commit","-m",f"briefing {datetime.now().strftime('%Y-%m-%d')}"], capture_output=True)
+    r = subprocess.run(["git","-C",REPO_DIR,"push"], capture_output=True,text=True,timeout=30)
+    if r.returncode==0: return True
     log(f"  push: {r.stderr[:200]}")
     return False
 
-# ─── 10. MODAL HTML ──────────────────────────────────────────
-def news_modal_html(items):
-    if not items: return ""
-    html = '<div id="news-modal" class="news-modal" onclick="if(event.target===this)closeNewsModal()"><div class="news-modal-content" id="news-modal-content"></div></div>'
-    data = []
-    for item in items:
-        data.append({
-            "source": item["source"],
-            "title": item["title"],
-            "desc": item["desc"][:500],
-            "link": item["link"]
-        })
-    return html, data
-
 # ─── MAIN ─────────────────────────────────────────────────────
 def main():
-    log("=== NEO DAILY BRIEFING ===")
+    log("=== NEO DAILY BRIEFING v3 ===")
     today = date.today()
     date_str = today.strftime("%d de %B de %Y")
     date_short = today.strftime("%d.%m.%Y")
     day_name = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"][today.weekday()]
     week_num = today.isocalendar()[1]
     
-    log("1. Weather...")
-    weather = get_weather()
-    
-    log("2. World Cup...")
-    wc = get_world_cup()
-    
-    log("3. News (ES)...")
-    news_items = get_ai_news_es()
+    log("1. Weather..."); weather = get_weather()
+    log("2. World Cup..."); wc = get_world_cup()
+    log("3. News..."); news_items = get_ai_news(); log(f"   {len(news_items)} items")
     news_html, news_data = news_to_html(news_items)
-    log(f"   {len(news_items)} noticias")
+    log("4. YouTube..."); yt = get_youtube_today()
+    log("5. Prompt/Quote..."); prompt = get_prompt(); quote = get_quote()
+    log("6. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str)
     
-    log("4. YouTube today...")
-    yt = get_youtube_today()
-    
-    log("5. Prompt...")
-    prompt = get_prompt()
-    
-    log("6. Quote...")
-    quote = get_quote()
-    
-    log("7. Podcast...")
-    audio_url, duration = generate_podcast(news_items, date_str)
-    
-    log("8. Assembling...")
-    now = datetime.now().strftime("%H:%M")
-    
-    # Build news modal JS
-    modal = '<div id="news-modal" class="news-modal" onclick="if(event.target===this)closeNewsModal()"><div class="news-modal-content" id="news-content"></div></div>'
+    modal = '<div id="news-modal" class="news-modal" onclick="if(event.target===this)closeNewsModal()"><div class="news-modal-content"><div class="nm-drag"></div><button class="nm-close" onclick="closeNewsModal()">✕</button><div id="news-content"></div></div></div>'
     
     params = {
-        "DATE": date_str,
-        "DATE_SHORT": date_short,
-        "DAY_NAME": day_name,
-        "WEEK_NUM": str(week_num),
-        "WEATHER": weather,
-        "WORLD_CUP": wc,
-        "AI_NEWS": news_html,
-        "YOUTUBE_VIDEOS": yt,
-        "PROMPT": prompt,
-        "QUOTE": quote,
-        "PODCAST_AUDIO": audio_url,
-        "PODCAST_DURATION": duration,
+        "DATE": date_str, "DATE_SHORT": date_short, "DAY_NAME": day_name,
+        "WEEK_NUM": str(week_num), "WEATHER": weather, "WORLD_CUP": wc,
+        "AI_NEWS": news_html, "YOUTUBE_VIDEOS": yt, "PROMPT": prompt,
+        "QUOTE": quote, "PODCAST_AUDIO": audio_url, "PODCAST_DURATION": duration,
         "PODCAST_TOPICS": "Noticias IA · Mundial · Productividad",
-        "GENERATED_AT": f"{date_str} · {now}",
-        "NEWS_MODAL": modal,
-        "NEWS_DATA": json.dumps(news_data, ensure_ascii=False),
+        "GENERATED_AT": f"{date_str} · {datetime.now().strftime('%H:%M')}",
+        "NEWS_MODAL": modal, "NEWS_DATA": json.dumps(news_data, ensure_ascii=False),
     }
     
-    assemble(params)
-    
-    log("9. Deploying...")
-    ok = deploy()
-    
-    url = "https://magodago.github.io/neo-jarvis/briefing/"
-    log(f"\n✅ {url}")
+    log("7. Assembly..."); assemble(params)
+    log("8. Deploy..."); ok = deploy()
+    log(f"\n✅ https://magodago.github.io/neo-jarvis/briefing/")
     return ok
 
 if __name__ == "__main__":

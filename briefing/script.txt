@@ -6,8 +6,8 @@ Hoy en inteligencia artificial:
 - Anthropic lanza Claude Science, una IA que acelera el descub
 - Lo último de Google es una locura: su nueva IA genera imágen
 
-En el Mundial 2026, la competición continúa. Revisa los resultados en neolabs.es/briefing.
+En el Mundial 2026, resultados y clasificación en neolabs.es/briefing.
 
 Prompt del día: piensa en una tarea que haces cada día y que podrías delegar completamente a un agente de IA. Describe el resultado ideal, no el proceso.
 
-Gracias por escuchar. Que tengas un gran día.
+Nos vemos mañana.
