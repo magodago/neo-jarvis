@@ -1,0 +1,127 @@
+nombre,sector,ciudad,telefono,email,web,direccion,lat,lon
+Central Rambla,restaurantes,Barcelona,,,,La Rambla 26,41.3782716,2.1761732
+Ateneu de Sant Just Desvern,restaurantes,Barcelona,+34 934 73 41 28,,,,41.3816867,2.0766452
+El Parador de Sant Just,restaurantes,Barcelona,,,,,41.3824951,2.0740747
+Amaltea,restaurantes,Barcelona,,,,,41.3836428,2.1583028
+Hanibishi,restaurantes,Barcelona,,,,,41.3895184,2.1621769
+Moncho's House,restaurantes,Barcelona,,,,,41.3899967,2.1318367
+Taller de Tapas,restaurantes,Barcelona,+34 932 68 85 59,,https://tallerdetapas.com,Carrer de l'Argenteria 51 Barcelona,41.3836716,2.1806392
+El Jardí de l'Abadessa,restaurantes,Barcelona,,abadessa@jardiabadessa.com,https://www.jardiabadessa.com,,41.3942273,2.109899
+Bar Tomás,restaurantes,Barcelona,,,,,41.3975532,2.1230797
+La Tagliatella,restaurantes,Barcelona,+34 93 466 38 38,,https://www.latagliatella.es/ca,Carrer de Vistalegre 4,41.4523498,2.2087628
+Pizzeria Pulcinella,restaurantes,Barcelona,+34933921105,pulcinella@pizzeriapulcinella.com,https://www.pizzeriapulcinella.com/,Carrer del Doctor Ferran 2 Santa Coloma de Gramenet,41.4540651,2.2064721
+Can Paixano,restaurantes,Barcelona,+34 933 100 839,,https://www.canpaixano.com/,Carrer de la Reina Cristina 7,41.3817618,2.1834151
+Palacio de China,restaurantes,Barcelona,,,,,41.3934539,2.1881434
+Restaurant Can Valldaura,restaurantes,Barcelona,,,,,41.447858,2.1319638
+Restaurante Chino Peking - 北京酒楼,restaurantes,Barcelona,,,,,41.3210506,2.0998481
+La Moreneta,restaurantes,Barcelona,,,,,41.3231631,2.105161
+El Capitán Garfio,restaurantes,Barcelona,,,,,41.3224502,2.1038954
+Cal Boter,restaurantes,Barcelona,,,,Carrer de Tordera 62,41.4021663,2.1623411
+Fenicia,restaurantes,Barcelona,,,,,41.3767803,2.1365656
+Hoja Verde,restaurantes,Barcelona,,,,,41.3771427,2.1369905
+Frascati,restaurantes,Malaga,,,,Calle Rogelio Oliva 29,36.6657895,-4.4647566
+El Apartamento,restaurantes,Malaga,+34 951 437 976,,http://elapartamentogastrobar.com/,Calle Carretería 92,36.7241887,-4.4211164
+Beluga,restaurantes,Malaga,+34 952 214 253,reservas@belugamalaga.es,https://belugamalaga.es/,3,36.720385,-4.4219753
+El Vegetariano de Alcazabilla,restaurantes,Malaga,,,,Calle Pozo del Rey 5,36.7221131,-4.416876
+Restaurante Los Bravos,restaurantes,Malaga,+34 952239324,paco@restaurantelosbravos.com,http://restaurantelosbravos.es/,Calle Argonautas,36.6742292,-4.4843532
+Tick Tack Arrocería,restaurantes,Malaga,,,,Calle Rogelio Oliva 15 Málaga,36.6642406,-4.4614229
+Brunchit,restaurantes,Malaga,,,https://www.brunchit.es/brunch-en-m%C3%A1laga-alcazabilla,Calle Alcazabilla 15 Málaga,36.7225917,-4.4171596
+Pepa y Pepe,restaurantes,Malaga,,,,,36.7223073,-4.4206242
+Taberna Matahambre,restaurantes,Malaga,,teatinos@matahambre.com,https://www.matahambre.com/,,36.7221926,-4.42066
+El Beato,restaurantes,Malaga,,,,,36.7236525,-4.4203611
+Clandestino,restaurantes,Malaga,,,https://clandestinomalaga.com/,,36.7222345,-4.4192671
+La Plaza,restaurantes,Malaga,,,,Calle Alcazabilla 7 Málaga,36.7218492,-4.4172764
+Dehesa Santamaría,restaurantes,Malaga,,mark@bamboorocketapps.com,https://www.tabernasantamaria.es/,,36.678247,-4.4954349
+Bellavista Mare,restaurantes,Malaga,,,,Paseo Marítimo Antonio Banderas 28,36.6897788,-4.4423937
+Marisquería La Mayor,restaurantes,Malaga,,,,,36.6903106,-4.4452194
+MataHambre,restaurantes,Malaga,,,,,36.7172731,-4.4629871
+Café Pizzería La Capricho,restaurantes,Malaga,,,,Camino Nuevo 3,36.6697284,-4.5035612
+Amador,restaurantes,Malaga,,,,Calle Bandaneira 6,36.7361506,-4.4747962
+El Mesón de Cervantes,restaurantes,Malaga,+34952216274,info@elmesondecervantes.com,https://elmesondecervantes.com/,Calle Álamos 11,36.7240319,-4.4198565
+Centro de Especialidades José Marvá,clinicas,Madrid,,,,Calle de Bravo Murillo 317,40.4634507,-3.6967219
+Clínica Dental Dra. Ceballos,clinicas,Madrid,+34 917293254,,,,40.4856407,-3.6899996
+Centro de Salud Virgen Begoña,clinicas,Madrid,,,,,40.4841061,-3.6852867
+Centro de Salud Nuestra Señora de Fátima,clinicas,Madrid,,,,Avenida de Nuestra Señora de Fátima 93,40.3793395,-3.7487595
+Centro de Salud Adelfas,clinicas,Madrid,+34 914 340 348,centrojoven@madrid.es,https://www.madrid.es/portales/munimadrid/es/Inicio/Servicios-sociales-y-salud/Direcciones-y-telefonos/Centro-de-Salud-Adelfas?vgnextfmt=default&vgnextoid=5ce0ba61e681c010VgnVCM1000000b205a0aRCRD&vgnextchannel=2bc2c8eb248fe410VgnVCM1000000b205a0aRCRD,Avenida de la Ciudad de Barcelona 190 Madrid,40.400848,-3.6744662
+Centro de Salud Argüelles,clinicas,Madrid,+34 915 59 65 21,,,Calle de Quintana 11 Madrid,40.427828,-3.7172212
+Centro de Salud Guzmán el Bueno,clinicas,Madrid,,,,Calle de Guzmán el Bueno 11,40.4312348,-3.7135908
+Centro de Salud Las Cortes,clinicas,Madrid,,,,,40.4164906,-3.6989912
+Centro de Salud Bustarviejo,clinicas,Madrid,,,,,40.4623282,-3.6953969
+Centro Médico Estético Andrea Rodríguez,clinicas,Madrid,,,,,40.4044832,-3.7545186
+Centro de Salud Isla de Oza,clinicas,Madrid,,,,Calle San Martín de Porres 6,40.4679316,-3.7267958
+Centro de Salud Cáceres,clinicas,Madrid,,,,Calle de Cáceres 4 Madrid,40.3986111,-3.6949476
+Clínica Baviera,clinicas,Madrid,+34 917 82 03 60,info@clinicabaviera.com,https://www.clinicabaviera.com/,Paseo de la Castellana 20 Madrid,40.4290209,-3.6889198
+CMS Arganzuela,clinicas,Madrid,,,,,40.4055241,-3.7101753
+Centro de Salud Pacífico,clinicas,Madrid,,,,Calle Reyes Magos 21 Madrid,40.4079866,-3.6769916
+Centro Médico El Pilar,clinicas,Madrid,,,,,40.4773034,-3.7123581
+Dr Emilio Santos - Ginecología,clinicas,Madrid,,,http://www.doctorsantos.com,Calle de Goya 7 Madrid,40.4257079,-3.6887819
+Clínica Melisa,clinicas,Madrid,+34 917 060 570,,,Calle de Aldeanueva de la Vera 16 Madrid,40.3804038,-3.7777176
+Centro Médico Conde Duque,clinicas,Madrid,+34 902 102 400,,https://centromedicomilenium-condeduque.sanitas.es/,Calle del Conde Duque 21 Madrid,40.4295088,-3.7092051
+Centro Salud Palma Norte,clinicas,Madrid,,,,Calle de la Palma 59 Madrid,40.4265395,-3.7072908
+Centre d'Atenció Primària Drassanes,clinicas,Barcelona,,,,,41.3763769,2.1730515
+Centre d'Atenció Primària Gòtic,clinicas,Barcelona,,,,,41.3786145,2.1770799
+WM Hospitals,clinicas,Barcelona,,,,,41.4032692,2.1496013
+Centre d'Atenció Primària La Sagrera,clinicas,Barcelona,,,,,41.4223879,2.1908886
+Centre d'Atenció Primària Barceloneta,clinicas,Barcelona,,,,,41.3830246,2.1944826
+Centre d'Atenció Primària Florida,clinicas,Barcelona,+34 933 34 17 17,,,Parc dels Ocellets  L'Hospitalet de Llobregat,41.370873,2.1138193
+Atenció Primària Vallcarca-Sant Gervasi,clinicas,Barcelona,,contactar@ebavallcarca.cat,https://aprimariavsg.com/,,41.4160216,2.1416103
+Centre d'Atenció Primària Adrià,clinicas,Barcelona,,,,,41.4003041,2.1388295
+Hestia Palau,clinicas,Barcelona,+34 931171074,,,,41.4100812,2.1724036
+Centre d'Atenció Primària del Clot,clinicas,Barcelona,,,,,41.4116248,2.1928706
+Milenium Provença,clinicas,Barcelona,,,,,41.3928093,2.1577604
+Clínica Guadalupe,clinicas,Barcelona,,,,Esplugues de Llobregat,41.3731258,2.0838165
+Centre d'Atenció Primària Vila Olimpica,clinicas,Barcelona,,,,Joan Miro 17,41.3902381,2.1947063
+Centre d'Atenció Primària la Marina,clinicas,Barcelona,,,,Carrer de l'Amnistia Internacional 8 Barcelona,41.3618288,2.1364653
+CUAP Horta,clinicas,Barcelona,+34934289517,,,Carrer de Sant Gaudenci 21,41.434906,2.157321
+CUAP Pura Fernàndez,clinicas,Barcelona,+34 93 260 19 26,,,Carrer de Cobalt 133-137 l'Hospitalet de Llobregat,41.3564249,2.1043781
+Centre d'Atenció Primària Pare Claret,clinicas,Barcelona,,,http://sac.gencat.cat/sacgencat/AppJava/organisme_fitxa.jsp?codi=13475,Carrer de Sant Antoni Maria Claret 21,41.4041235,2.1647182
+ASCIRES CETIR Centre Mèdic,clinicas,Barcelona,+34 93 503 52 00,cetircit@cetir.es,https://www.cetir.com/red-de-centros/cetir-centre-medic/,Carrer de Londres 6 Barcelona,41.3878819,2.1435387
+Centre d'Atenció Primària (CAP) Just Oliveras,clinicas,Barcelona,,,http://www.gencat.cat/ics,Rambla de Just Oliveras 50,41.3625093,2.1009616
+Ok Salut,clinicas,Barcelona,,,,,41.3946279,2.1716102
+VAS Abogados,abogados,Madrid,,,,,40.4560673,-3.7038107
+Gesint Global,abogados,Madrid,,,,,40.3975238,-3.7045486
+Map Asociados,abogados,Madrid,,,https://www.map-asociados.es/,,40.4117521,-3.6555852
+F&J-Martín Abogados,abogados,Madrid,,,,Calle de Serrano 16 Madrid,40.4223918,-3.6879623
+Asesoría Gesben,abogados,Madrid,,,,Bulevar de Indalecio Prieto 30 Madrid,40.3995266,-3.6220962
+Iberlega,abogados,Madrid,,,,,40.4587543,-3.6741087
+Asesoría MMWT,abogados,Madrid,,,,,40.4497197,-3.7033634
+F&J Martín Abogados,abogados,Madrid,,,https://fj-martin.com/,Calle de Villanueva 16 Madrid,40.4226012,-3.6879966
+Tecasem,abogados,Madrid,,,,Cuesta de Santo Domingo 22 Madrid,40.4197638,-3.7083938
+Silva Abogados,abogados,Madrid,,,,Calle de Silva 12 Madrid,40.4212054,-3.7063896
+Aranzadi & Bendrihem Abogadas de familia,abogados,Madrid,,,,,40.4331596,-3.6875918
+Bufete Rosales,abogados,Madrid,+34 915 50 15 15,su@email.com,https://www.bufeterosales.es/,Paseo del Pintor Rosales 80 Madrid,40.4322433,-3.724584
+"Asesoría jurídica, Arquired",abogados,Madrid,,,,Calle de las Aguileñas 5 Madrid,40.4658988,-3.693975
+Miguel Ruiz,abogados,Madrid,,,,Calle de las Magnolias 4 Madrid,40.4672304,-3.6931381
+Dentons,abogados,Madrid,,,,Paseo de la Castellana 53 Madrid,40.438415,-3.6914944
+Axa Seguros,abogados,Madrid,+34 913510556,,,Plaza de la Coronación 3,40.4356292,-3.8162278
+Triviño Abogados,abogados,Madrid,+34 918318118,trivino@trivino.es,http://www.trivino.es/,Paseo del Pintor Rosales 4 Madrid,40.4254664,-3.7173142
+Grupo Jenasa,abogados,Madrid,+34 91 548 76 51,info@jenasa.com,http://www.jenasa.com/,Calle de Ferraz 28 Madrid,40.4254943,-3.7164871
+Generali Seguros,abogados,Madrid,+34 902343433,gerenciacomercial@generalipozuelo.com,http://generalipozuelo.com,,40.4355533,-3.8162948
+Agisa,abogados,Madrid,,,,,40.4757793,-3.7100808
+Abogados de Barcelona,abogados,Barcelona,,,,"Vía Laietana 36, 7-1",41.38578,2.176765
+LOG Advocats i Economistes Associats,abogados,Barcelona,+34934464436,,,,41.4056044,2.1758551
+Löbel & González,abogados,Barcelona,+34 93 5323975,info@loebelgonzalez.com,http://www.loebelgonzalez.com/,,41.3962314,2.1508595
+Assessoria Fiscal-Laboral J. Diego Martínez Romero,abogados,Barcelona,,,,,41.4018737,2.1705504
+Avinyò & Associats Advocats,abogados,Barcelona,+34 935 072 900,avinyo.rocio@avinyo-associats.com,http://www.avinyo-associats.com/,Carrer de Sardenya 173 Barcelona,41.3975784,2.1808436
+Barea & Zango,abogados,Barcelona,+34935013424,barea-zango@icab.cat,https://bareazango.com,Carrer d'Echegaray 25 Badalona,41.4416806,2.2269689
+Rousaud Costas Duran,abogados,Barcelona,+34 93 503 48 68,rcd@rcdslp.com,http://www.rousaudcostasduran.com/,Carrer de les Escoles Pies 102 Barcelona,41.4034443,2.1283789
+García Castro asesores,abogados,Barcelona,,,,Passeig de la Salut 62 Badalona,41.4413451,2.2267164
+Asesoría Palacios,abogados,Barcelona,,,,Carrer de l'Empordà  Cornellà de Llobregat,41.3596141,2.0795496
+Bufete Jurídico y Tributario Bailen,abogados,Barcelona,+34 93 285 80 94,info@bufetejuridico.com,https://www.bufetejuridico.com/,Carrer de Bailèn 211 Barcelona,41.4023502,2.1632571
+Gestió Administrativa Barcelona 48 SL,abogados,Barcelona,+34 652832174,barcelona48@gmail.com,,Carrer Barcelona 48,41.324235,2.0955603
+Moreno Quesada Advocats,abogados,Barcelona,+34934607236,mq@xp-mq.com,http://www.xp-mq.com,,41.4400811,2.2161494
+A. Ramírez & asociados,abogados,Barcelona,+34 677 84 01 48,asesorramirezbcn@gmail.com,,,41.4343455,2.2162424
+Col·lectiu Ronda,abogados,Barcelona,+34 932682199,,http://www.cronda.com/,Carrer de Trafalgar 50 Barcelona,41.3896089,2.1770091
+Canela Patentes y Marcas,abogados,Barcelona,,,,Carrer de Girona 148,41.3987226,2.1662108
+BDN Asesores,abogados,Barcelona,,,,Avinguda de Catalunya 102,41.4287961,2.2218858
+Pérez-Montes García & Partners Legal,abogados,Barcelona,+34 930 180 182,,http://www.estudiolegal.com/,Carrer de Sicília 121 Barcelona,41.3967034,2.1797929
+Contractualia.com,abogados,Barcelona,+34 930 180 182,jjperezmontes@icab.cat,https://estudiolegal-contrac.wixsite.com/contractualia-legal,Carrer de Sicília 121 Barcelona,41.3966783,2.1798291
+Gabinet d'Estudis Jurídics V&V,abogados,Barcelona,+34932372236,,,Carrer de Balmes 201,41.3975671,2.1513594
+GPC,abogados,Barcelona,,,,Carrer de la Miranda  Cornellà de Llobregat,41.3602359,2.0772255
+Fj Martín Abogados,abogados,Malaga,+34952222899,,https://fj-martin.com/,3 Málaga,36.7199166,-4.420312
+Civis Abogados,abogados,Malaga,,,,Calle Salitre 51,36.711486,-4.4292452
+Núñez y Riscos Abogados,abogados,Malaga,+34 952122434,,,Calle Panaderos 4,36.718132,-4.4231467
+"Gaona, Palacios y Rozados Abogados",abogados,Malaga,+34 952060007,,https://www.gprabogados.com,Avenida Pintor Joaquín Sorolla 6,36.7230551,-4.3969077
+Montón y Jurado,abogados,Malaga,,,,Calle San Patricio 7,36.7286959,-4.4139129
+Vinci Abogados,abogados,Malaga,,,,Calle Fernando el Católico 11,36.7291387,-4.4138782
+Maireles Abogados Asociados,abogados,Malaga,+34900908618;+34952226999,info@mairelesabogados.com,https://mairelesabogados.com/,Alameda de Colón 16,36.7149631,-4.4247564
