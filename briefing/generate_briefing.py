@@ -20,6 +20,10 @@ SCRIPT_FILE = os.path.join(AUDIO_DIR, "script.txt")
 CHANNELS = [
     ("DotCSV", "UCOTko-zmnQTcOxSRdg5_uOQ"),
     ("Xavier Mitjana", "UCeu3sN4T72Fka1rhQFR447A"),
+    ("Jon Hernández", "UCl5-lvQyfILb-l2abPk4Ntg"),
+    ("DotCSV Lab", "UCy5znSnfMsDwaLlROnZ7Qbg"),
+    ("Ringa Tech", "UCm9QZ70KuIVShztZ7HmE4NQ"),
+    ("Victor Robles", "UCv85NiROLKddHa0fBATwTzw"),
 ]
 
 # ─── SPANISH COUNTRY NAMES ───────────────────────────────────
