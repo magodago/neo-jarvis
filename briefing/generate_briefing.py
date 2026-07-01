@@ -309,10 +309,10 @@ def news_to_html(items):
     return html, [{"source":i["source"],"title":i["title"],"desc":i["desc"][:500],"link":i["link"]} for i in items]
 
 # ─── 4. YOUTUBE ──────────────────────────────────────────────
-def get_youtube_today():
+def get_youtube_yesterday():
+    """Only videos from yesterday, deduplicated by video ID."""
     today = date.today()
-    # Briefing es a las 9am, los videos suelen ser del día anterior
-    max_age = timedelta(days=2)
+    yesterday = today - timedelta(days=1)
     html = ""
     seen = set()
     for name, ch_id in CHANNELS:
@@ -326,27 +326,22 @@ def get_youtube_today():
                 pub = entry.findtext("{http://www.w3.org/2005/Atom}published","")[:10]
                 if not vid or vid in seen: continue
                 seen.add(vid)
-                age = "—"
                 if pub:
                     try:
                         pub_date = datetime.strptime(pub[:10],"%Y-%m-%d").date()
-                        diff = (today - pub_date).days
-                        if diff > 2: continue  # Solo últimos 2 días
-                        if diff == 0: age = "Hoy"
-                        elif diff == 1: age = "Ayer"
-                        else: age = f"Hace {diff} días"
+                        if pub_date != yesterday: continue
                     except: continue
                 html += f"""<a class="video-card" href="https://youtube.com/watch?v={vid}" target="_blank" rel="noopener">
   <div class="video-thumb"><img src="https://img.youtube.com/vi/{vid}/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="video-info">
     <div class="video-title">{title}</div>
     <div class="video-channel">{name}</div>
-    <div class="video-date">{age}</div>
+    <div class="video-date">Ayer</div>
   </div>
 </a>"""
         except: pass
     if not html:
-        html = '<p style="color:var(--muted);font-size:.8rem;padding:12px">No hay videos nuevos en los últimos 2 días de los canales seguidos</p>'
+        html = '<p style="color:var(--text-muted);font-size:.8rem;padding:12px">Ningún canal publicó video ayer</p>'
     return html
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
@@ -430,7 +425,7 @@ def main():
     log("2. World Cup..."); wc = get_world_cup()
     log("3. News..."); news_items = get_ai_news(); log(f"   {len(news_items)} items")
     news_html, news_data = news_to_html(news_items)
-    log("4. YouTube..."); yt = get_youtube_today()
+    log("4. YouTube..."); yt = get_youtube_yesterday()
     log("5. Prompt/Quote..."); prompt = get_prompt(); quote = get_quote()
     log("6. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str)
     

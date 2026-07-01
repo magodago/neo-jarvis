@@ -3,565 +3,378 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<title>NEO Briefing · 01 de July de 2026</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050508'/><text x='4' y='22' font-family='Syne, sans-serif' font-weight='800' font-size='17' fill='%23fff'>NE</text><text x='20' y='22' font-family='Syne, sans-serif' font-weight='800' font-size='17' fill='%23d4af37'>O</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Daily Briefing · 01 de July de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#030306;
-  --bg2:#08080f;
-  --card:rgba(255,255,255,.035);
-  --card-hover:rgba(255,255,255,.06);
-  --gold:#d4af37;
-  --gold-bright:#f0d68a;
-  --gold-dim:rgba(212,175,55,.12);
-  --gold-glow:rgba(212,175,55,.08);
-  --text:#f2f2f2;
-  --text-dim:rgba(255,255,255,.55);
-  --text-muted:rgba(255,255,255,.45);
-  --border:rgba(255,255,255,.07);
-  --border-glow:rgba(212,175,55,.15);
-  --font-display:'Syne',sans-serif;
-  --font-body:'Sora',sans-serif;
-  --radius:18px;
-  --radius-sm:12px;
+  --bg:#080c14;
+  --bg2:#0d1420;
+  --card:rgba(255,255,255,.04);
+  --card-hover:rgba(255,255,255,.07);
+  --accent:#3b82f6;
+  --accent-soft:rgba(59,130,246,.1);
+  --accent-glow:rgba(59,130,246,.15);
+  --text:#f0f2f5;
+  --text-dim:#b0b8c8;
+  --text-muted:#7a8499;
+  --border:rgba(255,255,255,.06);
+  --radius:16px;
+  --radius-sm:10px;
   --radius-pill:100px;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
 }
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:var(--font-body);
-  font-weight:300;
-  line-height:1.65;
+  font-weight:400;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-/* ===== UTILITY ===== */
-.gold-text{color:var(--gold)}
-.gradient-line{
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:.3;
-  margin:0 20px;
-}
+img{max-width:100%;display:block}
 /* ===== TOP BAR ===== */
 .top-bar{
-  position:fixed;top:0;left:0;right:0;
-  z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 22px;
-  padding-top:calc(14px + env(safe-area-inset-top,0px));
-  background:rgba(3,3,6,.8);
-  backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  padding:12px 20px;
+  padding-top:calc(12px + env(safe-area-inset-top,0px));
+  background:rgba(8,12,20,.85);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border);
 }
-.top-bar::after{
-  content:'';position:absolute;bottom:-1px;left:10%;right:10%;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold-glow),transparent);
-}
 .top-bar-brand{
-  font-family:var(--font-display);
-  font-size:.7rem;
-  font-weight:800;
-  letter-spacing:6px;
-  text-transform:uppercase;
-  color:#fff;
+  font-size:.7rem;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--text-dim);
 }
-.top-bar-brand span{color:var(--gold);text-shadow:0 0 12px var(--gold-glow)}
+.top-bar-brand strong{color:#fff;font-weight:700}
 .top-bar-weather{
-  display:flex;align-items:center;gap:8px;
-  font-size:.7rem;
+  display:flex;align-items:center;gap:6px;
+  font-size:.7rem;font-weight:500;
   color:var(--text-muted);
-  padding:4px 12px;
+  background:var(--card);padding:4px 12px;
   border-radius:var(--radius-pill);
-  background:var(--card);
   border:1px solid var(--border);
 }
 /* ===== HERO ===== */
 .hero{
-  min-height:92vh;
+  min-height:100vh;
   display:flex;flex-direction:column;justify-content:center;
   padding:120px 24px 60px;
   position:relative;
   overflow:hidden;
 }
-.hero::before{
-  content:'';
-  position:absolute;
-  top:-30%;left:-10%;
-  width:120%;height:70%;
-  background:radial-gradient(ellipse at 40% 50%,rgba(212,175,55,.05) 0%,transparent 60%),
-              radial-gradient(ellipse at 60% 30%,rgba(255,255,255,.015) 0%,transparent 50%);
-  pointer-events:none;
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80') center/cover no-repeat;
+  opacity:.08;
 }
-.hero::after{
-  content:'';
-  position:absolute;
-  bottom:0;left:0;right:0;
-  height:120px;
-  background:linear-gradient(0deg,var(--bg),transparent);
-  pointer-events:none;
+.hero-bg-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,12,20,.92) 0%,rgba(8,12,20,.6) 40%,rgba(8,12,20,.95) 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:60px 60px;
 }
 .hero-label{
-  font-family:var(--font-display);
-  font-size:.6rem;
-  font-weight:500;
-  letter-spacing:8px;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:20px;
-  opacity:0;
-  animation:fadeUp .7s ease .1s forwards;
+  font-size:.65rem;font-weight:600;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:16px;
+  position:relative;z-index:1;
+  opacity:0;animation:fadeUp .7s ease .1s forwards;
 }
 .hero-title{
-  font-family:var(--font-display);
-  font-size:clamp(2.6rem,11vw,4.6rem);
+  font-size:clamp(2.8rem,10vw,5rem);
   font-weight:800;
   line-height:1.02;
   color:#fff;
   letter-spacing:-2px;
-  margin-bottom:14px;
-  opacity:0;
-  animation:fadeUp .7s ease .2s forwards;
+  margin-bottom:12px;
+  position:relative;z-index:1;
+  opacity:0;animation:fadeUp .7s ease .2s forwards;
 }
-.hero-title span{
-  background:linear-gradient(135deg,var(--gold-bright),var(--gold),#b8952e);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
+.hero-title span{color:var(--accent)}
 .hero-date{
   font-size:.85rem;
   color:var(--text-dim);
-  opacity:0;
-  animation:fadeUp .7s ease .3s forwards;
+  position:relative;z-index:1;
+  opacity:0;animation:fadeUp .7s ease .3s forwards;
 }
-.hero-date strong{color:var(--text);font-weight:400}
+.hero-date strong{color:var(--text)}
 .hero-greeting{
   margin-top:24px;
   font-size:.8rem;
   color:var(--text-muted);
-  letter-spacing:.5px;
   line-height:1.6;
   font-style:italic;
-  max-width:320px;
-  opacity:0;
-  animation:fadeUp .7s ease .4s forwards;
+  max-width:360px;
+  position:relative;z-index:1;
+  opacity:0;animation:fadeUp .7s ease .4s forwards;
 }
-.hero-greeting::before{content:'\201C';color:var(--gold);font-size:1.2rem;margin-right:4px}
-.hero-greeting::after{content:'\201D';color:var(--gold);font-size:1.2rem;margin-left:4px}
-/* ===== SECTION ===== */
-.section{
-  padding:36px 20px 48px;
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1);
+.hero-greeting::before{content:'\201C';color:var(--accent);font-size:1.2rem}
+.hero-greeting::after{content:'\201D';color:var(--accent);font-size:1.2rem}
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  z-index:1;
+  width:24px;height:38px;
+  border:2px solid var(--text-muted);border-radius:12px;
+  opacity:.3;
 }
-.section.visible{opacity:1;transform:translateY(0)}
+.hero-scroll::after{
+  content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:3px;height:8px;
+  background:var(--text-muted);border-radius:2px;
+  animation:scrollBounce 2s infinite;
+}
+/* ===== SECTIONS ===== */
+.section-wrap{
+  padding:40px 20px 56px;
+  position:relative;
+}
+.section-wrap.alt{background:var(--bg2)}
 .section-header{
   display:flex;align-items:center;gap:12px;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .section-icon{
-  width:32px;height:32px;
+  width:32px;height:32px;border-radius:8px;
   display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--gold-dim),rgba(212,175,55,.05));
-  border-radius:10px;
-  font-size:.8rem;
-  color:var(--gold);
+  background:var(--accent-soft);
+  font-size:.8rem;color:var(--accent);
   flex-shrink:0;
 }
 .section-title{
-  font-family:var(--font-display);
-  font-size:1.1rem;
-  font-weight:700;
-  color:#fff;
-  letter-spacing:-.3px;
+  font-size:1.15rem;font-weight:700;
+  color:#fff;letter-spacing:-.3px;
 }
 .section-sub{
-  font-size:.72rem;
+  font-size:.72rem;font-weight:400;
   color:var(--text-muted);
-  margin-left:44px;
-  margin-top:-2px;
-  margin-bottom:16px;
+  margin-left:44px;margin-top:-2px;margin-bottom:20px;
 }
 /* ===== PODCAST ===== */
 .podcast-card{
   background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
   border:1px solid var(--border);
   border-radius:var(--radius);
-  padding:22px;
-  position:relative;
-  overflow:hidden;
-}
-.podcast-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  padding:20px;
 }
 .podcast-top{
-  display:flex;align-items:center;gap:14px;
-  margin-bottom:14px;
+  display:flex;align-items:center;gap:14px;margin-bottom:14px;
 }
 .podcast-avatar{
-  width:48px;height:48px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--gold-dim),rgba(212,175,55,.03));
+  width:44px;height:44px;border-radius:12px;
+  background:var(--accent-soft);
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
-  box-shadow:0 0 20px var(--gold-glow);
 }
-.podcast-avatar svg{width:22px;height:22px;fill:var(--gold)}
+.podcast-avatar svg{width:20px;height:20px;fill:var(--accent)}
 .podcast-info{flex:1;min-width:0}
-.podcast-title{
-  font-family:var(--font-display);
-  font-size:.9rem;
-  font-weight:700;
-  color:#fff;
-}
-.podcast-desc{
-  font-size:.7rem;
-  color:var(--text-muted);
-  margin-top:2px;
-}
-.podcast-player{
-  margin-top:8px;
-}
+.podcast-title{font-size:.85rem;font-weight:600;color:#fff}
+.podcast-desc{font-size:.68rem;color:var(--text-muted);margin-top:2px}
+.podcast-player{margin-top:6px}
 .podcast-player audio{
-  width:100%;
-  height:42px;
-  border-radius:var(--radius-sm);
-  outline:none;
+  width:100%;height:40px;border-radius:var(--radius-sm);outline:none;
 }
-.podcast-player audio::-webkit-media-controls-panel{
-  background:#0a0a14;
-}
+.podcast-player audio::-webkit-media-controls-panel{background:#0d1420}
 .podcast-waveform{
-  width:100%;
-  height:52px;
-  margin-top:10px;
-  border-radius:var(--radius-sm);
-  background:rgba(255,255,255,.015);
-  cursor:pointer;
+  width:100%;height:48px;margin-top:10px;
+  border-radius:var(--radius-sm);background:rgba(255,255,255,.015);
 }
 .podcast-waveform canvas{width:100%;height:100%;display:block;border-radius:var(--radius-sm)}
-.podcast-actions{
-  display:flex;gap:10px;
-  margin-top:14px;
-}
+.podcast-actions{display:flex;gap:10px;margin-top:12px}
 .podcast-btn{
-  flex:1;padding:10px 16px;
+  flex:1;padding:9px 14px;
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  background:transparent;
+  color:var(--text-dim);font-size:.7rem;
+  cursor:pointer;transition:all .2s;
+  text-align:center;text-decoration:none;font-weight:500;
+}
+.podcast-btn:active{background:var(--card)}
+.podcast-btn.primary{
+  background:var(--accent);color:#fff;border-color:var(--accent);
+  font-weight:600;
+}
+.podcast-btn.primary:active{opacity:.85}
+/* ===== NEWS ===== */
+.news-grid{display:flex;flex-direction:column;gap:8px}
+.news-card{
+  display:flex;gap:14px;
+  padding:14px 16px;
+  background:var(--card);
   border:1px solid var(--border);
   border-radius:var(--radius-sm);
-  background:transparent;
-  color:var(--text-dim);
-  font-family:var(--font-body);
-  font-size:.72rem;
-  cursor:pointer;
-  transition:all .25s;
-  text-align:center;
-  text-decoration:none;
+  transition:all .2s;cursor:pointer;
 }
-.podcast-btn:hover{border-color:var(--gold);color:var(--gold)}
-.podcast-btn.primary{
-  background:linear-gradient(135deg,var(--gold),#b8952e);
-  color:var(--bg);
-  border-color:var(--gold);
-  font-weight:600;
-  box-shadow:0 2px 12px rgba(212,175,55,.15);
+.news-card:active{background:var(--card-hover);transform:scale(.98)}
+.news-card-img{
+  width:38px;height:38px;border-radius:8px;
+  flex-shrink:0;
+  background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;
 }
-.podcast-btn.primary:active{transform:scale(.97)}
+.news-card-body{flex:1;min-width:0}
+.news-card-source{
+  font-size:.6rem;text-transform:uppercase;
+  letter-spacing:1.5px;color:var(--accent);
+  font-weight:600;margin-bottom:3px;
+}
+.news-card-title{
+  font-size:.82rem;font-weight:400;
+  color:#fff;line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.news-card-time{font-size:.6rem;color:var(--text-muted);margin-top:4px}
 /* ===== NEWS MODAL ===== */
 .news-modal{
-  display:none;position:fixed;inset:0;
-  z-index:200;
-  background:rgba(3,3,6,.88);
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(8,12,20,.88);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   align-items:flex-end;justify-content:center;
 }
 .news-modal.active{display:flex}
 .news-modal-content{
-  background:linear-gradient(180deg,#1a1a24,#0c0c14);
-  border-radius:24px 24px 0 0;
+  background:linear-gradient(180deg,#141c2a,#0a0f18);
+  border-radius:20px 20px 0 0;
   width:100%;max-width:520px;
   max-height:78vh;overflow-y:auto;
-  padding:20px 22px 36px;
+  padding:16px 20px 32px;
   transform:translateY(100%);
-  transition:transform .45s cubic-bezier(.22,1,.36,1);
-  position:relative;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
   border-top:1px solid var(--border);
 }
 .news-modal.active .news-modal-content{transform:translateY(0)}
 .nm-drag{
-  width:40px;height:4px;
-  border-radius:2px;
-  background:rgba(255,255,255,.12);
-  margin:0 auto 16px;
+  width:36px;height:4px;border-radius:2px;
+  background:rgba(255,255,255,.1);margin:0 auto 12px;
 }
 .nm-close{
-  position:absolute;top:16px;right:18px;
-  width:34px;height:34px;
-  border-radius:50%;
+  position:absolute;top:14px;right:16px;
+  width:32px;height:32px;border-radius:50%;
   border:1px solid var(--border);
   background:rgba(255,255,255,.04);
-  color:var(--text-dim);
-  font-size:.9rem;
-  cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .2s;
+  color:var(--text-dim);font-size:.85rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
 }
-.nm-close:active{background:rgba(255,255,255,.08)}
 .nm-source{
-  font-size:.65rem;
-  text-transform:uppercase;
-  letter-spacing:2.5px;
-  color:var(--gold);
-  font-weight:600;
-  margin-bottom:8px;
+  font-size:.6rem;text-transform:uppercase;
+  letter-spacing:2px;color:var(--accent);font-weight:600;margin-bottom:6px;
 }
 .nm-title{
-  font-family:var(--font-display);
-  font-size:1.15rem;
-  font-weight:700;
-  color:#fff;
-  line-height:1.35;
-  margin-bottom:14px;
-  padding-right:40px;
+  font-size:1.1rem;font-weight:700;
+  color:#fff;line-height:1.35;margin-bottom:12px;padding-right:36px;
 }
-.nm-desc{
-  font-size:.85rem;
-  line-height:1.75;
-  color:var(--text-dim);
-  margin-bottom:20px;
-}
+.nm-desc{font-size:.82rem;line-height:1.7;color:var(--text-dim);margin-bottom:16px}
 .nm-link{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:12px 22px;
-  background:linear-gradient(135deg,var(--gold),#b8952e);
-  color:var(--bg);
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 18px;
+  background:var(--accent);color:#fff;
   border-radius:var(--radius-sm);
-  font-size:.8rem;
-  font-weight:600;
-  text-decoration:none;
-  transition:all .2s;
+  font-size:.78rem;font-weight:600;
+  text-decoration:none;transition:all .2s;
 }
-.nm-link:active{transform:scale(.97)}
-/* ===== NEWS CARDS ===== */
-.news-grid{display:flex;flex-direction:column;gap:10px}
-.news-card{
-  display:flex;gap:14px;
-  padding:14px 16px;
-  background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  transition:all .25s;
-  cursor:pointer;
-}
-.news-card:active{transform:scale(.98);background:rgba(255,255,255,.06)}
-.news-card-img{
-  width:42px;height:42px;
-  border-radius:10px;
-  flex-shrink:0;
-  background:var(--gold-dim);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1rem;
-}
-.news-card-body{flex:1;min-width:0}
-.news-card-source{
-  font-size:.6rem;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  color:var(--gold);
-  font-weight:600;
-  margin-bottom:3px;
-}
-.news-card-title{
-  font-size:.82rem;
-  font-weight:400;
-  color:#fff;
-  line-height:1.4;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
-.news-card-time{
-  font-size:.6rem;
-  color:var(--text-muted);
-  margin-top:4px;
-}
-/* ===== WORLD CUP ===== */
-.wc-grid{display:flex;flex-direction:column;gap:10px}
+/* ===== WC ===== */
+.wc-grid{display:flex;flex-direction:column;gap:8px}
 .wc-card{
   padding:16px;
-  background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+  background:var(--card);
   border:1px solid var(--border);
   border-radius:var(--radius-sm);
-  transition:all .2s;
 }
-.wc-card:active{background:rgba(255,255,255,.06)}
 .wc-status{
-  font-size:.6rem;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-weight:600;
-  margin-bottom:6px;
+  font-size:.58rem;text-transform:uppercase;
+  letter-spacing:1.5px;font-weight:600;margin-bottom:6px;
 }
-.wc-status.live{color:#2ecc71;text-shadow:0 0 8px rgba(46,204,113,.3)}
+.wc-status.live{color:#10b981;text-shadow:0 0 8px rgba(16,185,129,.3)}
 .wc-status.finished{color:var(--text-muted)}
-.wc-status.pending{color:var(--gold)}
-.wc-match{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:8px;
-}
+.wc-status.pending{color:var(--accent)}
+.wc-match{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .wc-team{flex:1}
 .wc-team.away{text-align:right}
-.wc-team-name{
-  font-size:.82rem;
-  font-weight:500;
-  color:#fff;
-}
+.wc-team-name{font-size:.82rem;font-weight:500;color:#fff}
 .wc-score{
-  font-family:var(--font-display);
-  font-size:1.25rem;
-  font-weight:700;
-  color:#fff;
-  letter-spacing:-.5px;
-  min-width:60px;
-  text-align:center;
+  font-size:1.25rem;font-weight:700;
+  color:#fff;letter-spacing:-.5px;min-width:60px;text-align:center;
 }
 .wc-score .vs{font-size:.65rem;color:var(--text-muted)}
 .wc-score .live-dot{
-  display:inline-block;
-  width:6px;height:6px;
-  border-radius:50%;
-  background:#2ecc71;
-  margin-right:4px;
-  animation:pulse 1.2s infinite;
-}
-.wc-minute{
-  font-size:.6rem;color:#2ecc71;
-  text-align:center;
-  margin-top:4px;
+  display:inline-block;width:6px;height:6px;
+  border-radius:50%;background:#10b981;
+  margin-right:4px;animation:pulse 1.2s infinite;
 }
 .wc-more{
-  display:block;
-  text-align:center;
-  padding:14px;
-  font-size:.75rem;
-  color:var(--text-muted);
-  text-decoration:none;
-  border:1px dashed var(--border);
-  border-radius:var(--radius-sm);
-  margin-top:10px;
-  transition:all .2s;
+  display:block;text-align:center;
+  padding:12px;font-size:.72rem;
+  color:var(--text-muted);text-decoration:none;
+  border:1px dashed var(--border);border-radius:var(--radius-sm);
+  margin-top:8px;transition:all .2s;
 }
-.wc-more:active{background:var(--card);color:var(--gold)}
+.wc-more:active{background:var(--card);color:var(--accent)}
 /* ===== VIDEOS ===== */
-.video-grid{display:flex;flex-direction:column;gap:10px}
+.video-grid{display:flex;flex-direction:column;gap:8px}
 .video-card{
   display:flex;gap:12px;
   padding:10px 12px;
-  background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+  background:var(--card);
   border:1px solid var(--border);
   border-radius:var(--radius-sm);
-  text-decoration:none;
-  color:inherit;
-  transition:all .2s;
+  text-decoration:none;color:inherit;transition:all .2s;
 }
-.video-card:active{transform:scale(.98);background:rgba(255,255,255,.06)}
+.video-card:active{transform:scale(.98)}
 .video-thumb{
-  width:112px;height:63px;
-  border-radius:8px;
-  flex-shrink:0;
-  overflow:hidden;
-  position:relative;
-  background:var(--bg2);
+  width:110px;height:62px;border-radius:7px;
+  flex-shrink:0;overflow:hidden;position:relative;background:var(--bg2);
 }
 .video-thumb img{width:100%;height:100%;object-fit:cover}
 .video-thumb::after{
-  content:'▶';
-  position:absolute;
-  top:50%;left:50%;
+  content:'▶';position:absolute;top:50%;left:50%;
   transform:translate(-50%,-50%);
-  color:#fff;
-  font-size:.7rem;
-  opacity:.8;
-  text-shadow:0 1px 8px rgba(0,0,0,.8);
+  color:#fff;font-size:.65rem;opacity:.7;
+  text-shadow:0 1px 6px rgba(0,0,0,.8);
 }
 .video-info{flex:1;min-width:0}
 .video-title{
-  font-size:.8rem;
-  font-weight:400;
-  color:#fff;
+  font-size:.78rem;font-weight:400;color:#fff;
   line-height:1.35;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
-.video-channel{
-  font-size:.65rem;
-  color:var(--gold);
-  margin-top:4px;
-}
-.video-date{
-  font-size:.6rem;
-  color:var(--text-muted);
-  margin-top:2px;
-}
+.video-channel{font-size:.63rem;color:var(--accent);margin-top:3px}
+.video-date{font-size:.58rem;color:var(--text-muted);margin-top:2px}
 /* ===== PROMPT ===== */
 .prompt-card{
-  background:linear-gradient(135deg,rgba(212,175,55,.07),transparent 50%);
+  background:linear-gradient(135deg,rgba(59,130,246,.06),transparent 50%);
   border:1px solid var(--border);
-  border-left:3px solid var(--gold);
-  border-radius:var(--radius);
-  padding:22px;
-  margin-top:4px;
-  box-shadow:inset 0 0 40px rgba(212,175,55,.02);
+  border-left:3px solid var(--accent);
+  border-radius:var(--radius);padding:20px;
 }
 .prompt-label{
-  font-size:.6rem;
-  text-transform:uppercase;
-  letter-spacing:3.5px;
-  color:var(--gold);
-  font-weight:600;
-  margin-bottom:10px;
+  font-size:.58rem;text-transform:uppercase;
+  letter-spacing:2.5px;color:var(--accent);
+  font-weight:600;margin-bottom:8px;
 }
-.prompt-text{
-  font-size:.88rem;
-  line-height:1.7;
-  color:rgba(255,255,255,.88);
-  font-style:italic;
-}
-.prompt-text strong{color:var(--gold);font-style:normal}
+.prompt-text{font-size:.85rem;line-height:1.7;color:var(--text-dim);font-style:italic}
 /* ===== FOOTER ===== */
 .footer{
   text-align:center;
-  padding:48px 20px 70px;
-  padding-bottom:calc(48px + env(safe-area-inset-bottom,20px));
-  margin-top:10px;
-  position:relative;
+  padding:40px 20px 60px;
+  padding-bottom:calc(40px + env(safe-area-inset-bottom,20px));
 }
 .footer::before{
-  content:'';
-  position:absolute;
-  top:0;left:10%;right:10%;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--border),transparent);
+  content:'';display:block;width:40px;height:2px;
+  background:var(--accent);border-radius:2px;
+  margin:0 auto 20px;
 }
-.footer-brand{
-  font-family:var(--font-display);
-  font-size:.7rem;
-  font-weight:700;
-  letter-spacing:5px;
-  color:var(--text-muted);
-}
-.footer-brand span{color:var(--gold)}
-.footer-sub{
-  font-size:.6rem;
-  color:rgba(255,255,255,.18);
-  margin-top:8px;
-}
-/* ===== KEYFRAMES ===== */
+.footer-brand{font-size:.7rem;font-weight:600;color:var(--text-muted);letter-spacing:1px}
+.footer-sub{font-size:.6rem;color:rgba(255,255,255,.15);margin-top:6px}
+/* ===== ANIMATIONS ===== */
 @keyframes fadeUp{
   to{opacity:1;transform:translateY(0)}
 }
@@ -569,44 +382,50 @@ body{
   0%,100%{opacity:1}
   50%{opacity:.3}
 }
+@keyframes scrollBounce{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(6px)}
+}
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(212,175,55,.2);border-radius:10px}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:10px}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
-  <div class="top-bar-brand">NE<span>O</span></div>
+  <div class="top-bar-brand">daily <strong>briefing</strong></div>
   <div class="top-bar-weather">24°C · Soleado · Hum 54%</div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-label">Briefing Diario</div>
-  <h1 class="hero-title"><span>NEO</span> Briefing</h1>
-  <p class="hero-date"><strong>01 de July de 2026</strong> · Miércoles · Semana 27</p>
+  <div class="hero-bg"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-label">Daily Briefing</div>
+  <h1 class="hero-title">Buenos días, <span>01.07.2026</span></h1>
+  <p class="hero-date">Miércoles · Semana 27 del año</p>
   <p class="hero-greeting">No se trata de tener tiempo, se trata de tener prioridades.</p>
+  <div class="hero-scroll"></div>
 </div>
 
-<div class="gradient-line"></div>
-
 <!-- PODCAST -->
-<div class="section" id="section-podcast">
+<div class="section-wrap" id="section-podcast">
   <div class="section-header">
     <div class="section-icon">♪</div>
     <span class="section-title">Podcast del día</span>
   </div>
+  <div class="section-sub">00:44 · Noticias IA · Mundial · Productividad</div>
   <div class="podcast-card">
     <div class="podcast-top">
       <div class="podcast-avatar">
         <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
       </div>
       <div class="podcast-info">
-        <div class="podcast-title">NEO Daily · 01.07.2026</div>
-        <div class="podcast-desc">00:44 · Noticias IA · Mundial · Productividad</div>
+        <div class="podcast-title">Daily Briefing · 01.07.2026</div>
+        <div class="podcast-desc">Escucha el resumen del día</div>
       </div>
     </div>
     <div class="podcast-player">
@@ -618,20 +437,19 @@ body{
       <canvas id="waveform-canvas"></canvas>
     </div>
     <div class="podcast-actions">
-      <a href="./podcast.mp3" class="podcast-btn primary" download>⬇ Descargar</a>
+      <a href="./podcast.mp3" class="podcast-btn primary">⬇ Descargar</a>
     </div>
   </div>
 </div>
 
 <!-- WORLD CUP -->
-<div class="section" id="section-worldcup">
+<div class="section-wrap alt" id="section-worldcup">
   <div class="section-header">
     <div class="section-icon">⚽</div>
     <span class="section-title">Mundial 2026</span>
   </div>
-  <div class="section-sub">1/32 de final · horario español</div>
-  <div class="wc-grid" id="wc-grid">
-    <div class="section-sub" style="margin-bottom:10px">Resultados</div>
+  <div class="section-sub">1/32 de final · horario español (CEST)</div>
+  <div class="wc-grid"><div class="section-sub" style="margin-bottom:10px">Resultados</div>
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
@@ -767,19 +585,17 @@ body{
     </div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">Egipto</span></div>
   </div>
-</div><a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a>
-  </div>
+</div><a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a></div>
 </div>
 
-<!-- AI NEWS -->
-<div class="section" id="section-news">
+<!-- NEWS -->
+<div class="section-wrap" id="section-news">
   <div class="section-header">
     <div class="section-icon">📰</div>
     <span class="section-title">Noticias IA</span>
   </div>
   <div class="section-sub">Lo último en inteligencia artificial</div>
-  <div class="news-grid" id="news-grid">
-    <div class="news-card" onclick="openNewsModal(0)">
+  <div class="news-grid"><div class="news-card" onclick="openNewsModal(0)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
@@ -835,21 +651,19 @@ body{
     <div class="news-card-title">Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</div>
-  </div>
+</div></div>
 </div>
 
 <div id="news-modal" class="news-modal" onclick="if(event.target===this)closeNewsModal()"><div class="news-modal-content"><div class="nm-drag"></div><button class="nm-close" onclick="closeNewsModal()">✕</button><div id="news-content"></div></div></div>
 
 <!-- VIDEOS -->
-<div class="section" id="section-videos">
+<div class="section-wrap alt" id="section-videos">
   <div class="section-header">
     <div class="section-icon">▶</div>
-    <span class="section-title">Videos destacados</span>
+    <span class="section-title">Videos de ayer</span>
   </div>
   <div class="section-sub">De los mejores divulgadores de IA en español</div>
-  <div class="video-grid" id="video-grid">
-    <a class="video-card" href="https://youtube.com/watch?v=d6En1sKheg4" target="_blank" rel="noopener">
+  <div class="video-grid"><a class="video-card" href="https://youtube.com/watch?v=d6En1sKheg4" target="_blank" rel="noopener">
   <div class="video-thumb"><img src="https://img.youtube.com/vi/d6En1sKheg4/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="video-info">
     <div class="video-title">🤖 Hablamos de agentes que resuelven problemas complejos 🤖 #ia #chatgpt #agentes</div>
@@ -877,125 +691,31 @@ body{
     <div class="video-channel">Jon Hernández</div>
     <div class="video-date">Ayer</div>
   </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=p9UstbK7FOA" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/p9UstbK7FOA/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">NOTICIAS IA: Nuevo modelo de ChatGPT, Sol</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=RCa4oqlAfg4" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/RCa4oqlAfg4/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">🤖 Empresas china compiten fuertemente destruyendo su propio capital 🤖 #ia #china</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=aESBCULYY1o" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/aESBCULYY1o/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">🤖 Esperar el estándar tecnológico evita riesgos innecesarios 🤖 #ia #debate #inve</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=IJu9Jwx2RWw" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/IJu9Jwx2RWw/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=eVSqRBrQkTc" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/eVSqRBrQkTc/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=lu_BICoX00o" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/lu_BICoX00o/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=HmCQQEoCq-U" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/HmCQQEoCq-U/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">🤖 Mientras Estados Unidos tiene prisa, China lleva otra velocidad 🤖 #ia #china #</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=-8eFr-YoAUw" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/-8eFr-YoAUw/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=k5IlIukcuCY" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/k5IlIukcuCY/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=Ef3SwDxpdSM" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/Ef3SwDxpdSM/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=EdZYpWBUKoA" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/EdZYpWBUKoA/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=wElskA_-xRg" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/wElskA_-xRg/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">¿Cómo estoy después de programar 8 horas?  Yo: #programadores #ingenieros</div>
-    <div class="video-channel">Victor Robles</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=cDy5WkvFeBI" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/cDy5WkvFeBI/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">En 2027 se acabarán los despidos por IA</div>
-    <div class="video-channel">Victor Robles</div>
-    <div class="video-date">Hace 2 días</div>
-  </div>
-</a>
-  </div>
+</a></div>
 </div>
 
 <!-- PROMPT -->
-<div class="section" id="section-prompt">
+<div class="section-wrap" id="section-prompt">
   <div class="section-header">
     <div class="section-icon">✦</div>
     <span class="section-title">Prompt del día</span>
   </div>
   <div class="prompt-card">
-    <div class="prompt-label">✦ Prompt IA ✦</div>
+    <div class="prompt-label">✦ PROMPT ✦</div>
     <p class="prompt-text">Describe cómo usarías IA para transformar una reunión de 1h en notas, acciones y resumen ejecutivo. Sin escribir nada tú.</p>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  <div class="footer-brand">NE<span>O</span> LABS</div>
-  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 09:56</div>
+  <div class="footer-brand">daily briefing</div>
+  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 10:02</div>
 </div>
 
 <script>
 var NEWS_DATA = [{"source": "Hipertextual", "title": "One UI 9 y Android 17 llega hoy a los Galaxy más vendidos: ya son más de 40 móviles compatibles", "desc": "Samsung continúa avanzando a muy buen ritmo con sus actualizaciones de One UI 9 y Android 17. Desde hace unas semanas, no solo los móviles de gama alta están recibiendo esta nueva versión, sino que al", "link": "https://hipertextual.com/mobile/one-ui-9-y-android-17-llega-hoy-a-los-galaxy-mas-vendidos-ya-son-mas-de-40-moviles-compatibles/"}, {"source": "Hipertextual", "title": "‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel", "desc": "Disney+ acaba de estrenar por fin la temporada 2 de X-Men 97, la aclamada serie de animación de Marvel. La compañía devolvió a la vida el clásico de los 90 con una secuela aún más madura y espectacula", "link": "https://hipertextual.com/cine-television/x-men-97-temporada-2-critica/"}, {"source": "Hipertextual", "title": "Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google", "desc": "Si no puedes mandar GIFs desde tu aplicación de mensajería, no es tu móvil. Google decidió cerrar la API de Tenor, la biblioteca de GIF que utilizan WhatsApp, Discord y otras apps. El gigante tecnológ", "link": "https://hipertextual.com/mobile/google-cierra-api-tenor-gifs-apps/"}, {"source": "Hipertextual", "title": "Samsung ya no se esconde y comienza a dar pistas del nuevo diseño del Galaxy Z Fold 8", "desc": "En este último tiempo se han multiplicado los rumores y las especulaciones en torno a los nuevos plegables de Samsung. La marca coreana sabe que existe gran expectación por sus próximos modelos y ha d", "link": "https://hipertextual.com/mobile/samsung-revela-pistas-nuevo-diseno-galaxy-z-fold-8/"}, {"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico", "desc": "Anthropic ha presentado Claude Science, una nueva herramienta con la que busca ganarse a la comunidad científica. En lugar de diseñar un modelo dedicado, la compañía prefirió personalizar a Claude par", "link": "https://hipertextual.com/inteligencia-artificial/claude-science-ia-anthropic-cientificos/"}, {"source": "Hipertextual", "title": "Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos", "desc": "Google ha actualizado su oferta de IA con dos modelos que nos ayudarán a generar contenido multimedia de forma más rápida. A pocas horas de lanzar una función que ter permite obtener contexto de otros", "link": "https://hipertextual.com/inteligencia-artificial/nano-banana-2-lite-gemini-omni-flash-google/"}];
-
 function openNewsModal(i){
-  var d = NEWS_DATA[i];
-  if(!d) return;
+  var d = NEWS_DATA[i]; if(!d) return;
   var el = document.getElementById('news-content');
   if(!el) return;
   el.innerHTML = '<div class="nm-drag"></div><button class="nm-close" onclick="closeNewsModal()">✕</button><div class="nm-source">'+d.source+'</div><div class="nm-title">'+d.title+'</div><div class="nm-desc">'+d.desc+'</div><a class="nm-link" href="'+d.link+'" target="_blank" rel="noopener">Leer original →</a>';
@@ -1006,103 +726,42 @@ function closeNewsModal(){
   document.getElementById('news-modal').classList.remove('active');
   document.body.style.overflow = '';
 }
-
-// ===== SCROLL REVEAL =====
+// Scroll reveal
 (function(){
-  var sections = document.querySelectorAll('.section');
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-    });
+  var s = document.querySelectorAll('.section-wrap');
+  var o = new IntersectionObserver(function(e){
+    e.forEach(function(x){if(x.isIntersecting){x.style.opacity='1';x.style.transform='translateY(0)';o.unobserve(x.target)}});
   },{threshold:.08});
-  sections.forEach(function(s){obs.observe(s)});
+  s.forEach(function(x){x.style.opacity='0';x.style.transform='translateY(24px)';x.style.transition='opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)';o.observe(x)});
 })();
-
-// ===== WAVEFORM VISUALIZER =====
+// Waveform
 (function(){
-  var audio = document.getElementById('podcast-audio');
-  var canvas = document.getElementById('waveform-canvas');
-  var container = document.getElementById('waveform-container');
-  var audioCtx, src, analyser, animId;
-  var w, h;
-
-  function resize(){
-    if(!canvas||!container)return;
-    var rect = container.getBoundingClientRect();
-    canvas.width = rect.width * 2;
-    canvas.height = rect.height * 2;
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
-    w = canvas.width;
-    h = canvas.height;
+  var a=document.getElementById('podcast-audio'),c=document.getElementById('waveform-canvas'),ct=document.getElementById('waveform-container'),ac,s,an,ai,w,h;
+  function rs(){
+    if(!c||!ct)return;
+    var r=ct.getBoundingClientRect();
+    c.width=r.width*2;c.height=r.height*2;
+    c.style.width=r.width+'px';c.style.height=r.height+'px';
+    w=c.width;h=c.height;
   }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function drawStatic(){
-    if(!canvas)return;
-    var c = canvas.getContext('2d');
-    c.clearRect(0,0,w,h);
-    var bars = 64;
-    var gap = 2;
-    var bw = (w - gap * (bars + 1)) / bars;
-    for(var i=0;i<bars;i++){
-      var bh = 4 + Math.random() * (h * .3);
-      var x = gap + i * (bw + gap);
-      c.fillStyle = 'rgba(212,175,55,.05)';
-      c.fillRect(x,(h-bh)/2,bw,bh);
-    }
+  rs();window.addEventListener('resize',rs);
+  function ds(){
+    if(!c)return;var cx=c.getContext('2d');cx.clearRect(0,0,w,h);
+    var bars=64,gap=2,bw=(w-gap*(bars+1))/bars;
+    for(var i=0;i<bars;i++){var bh=4+Math.random()*h*.25;cx.fillStyle='rgba(59,130,246,.04)';cx.fillRect(gap+i*(bw+gap),(h-bh)/2,bw,bh)}
   }
-  drawStatic();
-
-  function initAudio(){
-    if(!audioCtx){
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      src = audioCtx.createMediaElementSource(audio);
-      analyser = audioCtx.createAnalyser();
-      analyser.fftSize = 128;
-      src.connect(analyser);
-      analyser.connect(audioCtx.destination);
-    }
+  ds();
+  function ia(){if(!ac){ac=new (window.AudioContext||webkitAudioContext)();s=ac.createMediaElementSource(a);an=ac.createAnalyser();an.fftSize=128;s.connect(an);an.connect(ac.destination)}}
+  function dw(){
+    var cx=c.getContext('2d'),d=new Uint8Array(an.frequencyBinCount);
+    an.getByteFrequencyData(d);var bars=d.length,gap=2,bw=(w-gap*(bars+1))/bars;
+    cx.clearRect(0,0,w,h);
+    for(var i=0;i<bars;i++){var p=d[i]/255,bh=Math.max(2,p*h*.85);cx.fillStyle='rgba(59,130,246,'+(.2+p*.6)+')';cx.fillRect(gap+i*(bw+gap),(h-bh)/2,bw,bh)}
+    ai=requestAnimationFrame(dw);
   }
-
-  function drawWave(){
-    var c = canvas.getContext('2d');
-    c.clearRect(0,0,w,h);
-    var data = new Uint8Array(analyser.frequencyBinCount);
-    analyser.getByteFrequencyData(data);
-    var bars = data.length;
-    var gap = 2;
-    var bw = (w - gap * (bars + 1)) / bars;
-    for(var i=0;i<bars;i++){
-      var pct = data[i] / 255;
-      var bh = Math.max(2, pct * h * .85);
-      var x = gap + i * (bw + gap);
-      var alpha = .25 + pct * .65;
-      var grad = c.createLinearGradient(x,(h-bh)/2,x,(h+bh)/2);
-      grad.addColorStop(0,'rgba(240,214,138,'+alpha+')');
-      grad.addColorStop(.5,'rgba(212,175,55,'+alpha+')');
-      grad.addColorStop(1,'rgba(184,149,46,'+alpha+')');
-      c.fillStyle = grad;
-      c.fillRect(x,(h-bh)/2,bw,bh);
-    }
-    animId = requestAnimationFrame(drawWave);
-  }
-
-  audio.addEventListener('play',function(){
-    initAudio();
-    if(audioCtx.state==='suspended') audioCtx.resume();
-    if(animId) cancelAnimationFrame(animId);
-    drawWave();
-  });
-  audio.addEventListener('pause',function(){
-    if(animId){cancelAnimationFrame(animId);animId=null}
-    drawStatic();
-  });
-  audio.addEventListener('ended',function(){
-    if(animId){cancelAnimationFrame(animId);animId=null}
-    drawStatic();
-  });
+  a.addEventListener('play',function(){ia();if(ac.state==='suspended')ac.resume();if(ai)cancelAnimationFrame(ai);dw()});
+  a.addEventListener('pause',function(){if(ai){cancelAnimationFrame(ai);ai=null}ds()});
+  a.addEventListener('ended',function(){if(ai){cancelAnimationFrame(ai);ai=null}ds()});
 })();
 </script>
 </body>
