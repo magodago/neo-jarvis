@@ -493,11 +493,13 @@ def generate_podcast(news_items, date_str, weather="", world_news=None, entertai
 
     today_dt = datetime.now()
     wd = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"][today_dt.weekday()]
-    prompt = f"""Eres la voz del podcast matutino 'Daily Pulse'. Genera un guión en español, natural y directo. Máximo 350 palabras.
+    prompt = f"""Eres la voz del podcast matutino 'Daily Pulse' que habla directamente a David. Genera un guión en español, natural y directo. Máximo 350 palabras.
 
 Hoy es {date_str} ({wd}). Clima: {weather or "temperatura agradable"}.
 
 ESTRUCTURA EXACTA - 4 secciones:
+
+SALUDO (obligatorio, 1 frase): Empieza siempre con "Buenos días David" o "Muy buenos días David" - el tono es cercano, como un amigo.
 
 SECCIÓN 1 - IA EXPRÉS (2-3 frases):
 Solo lo relevante de ayer en IA. Nombres concretos (OpenAI, Anthropic, Google, ChatGPT, Claude...).
@@ -512,11 +514,13 @@ Estrenos de cine y series. Títulos concretos.
 Datos: {ent_text if ent_text else "novedades de cine y series"}
 
 SECCIÓN 4 - ARRANQUE (1-2 frases):
-Cierre con energía para empezar el día. Una frase.
+Cierre con energía para empezar el día. Una frase corta.
+
+DESPEDIDA (obligatorio, 1 frase): Termina siempre con algo como "Que tengas un gran día, David", "A darle duro hoy, David", "Nos escuchamos mañana, David".
 
 Mundial: {results_text if results_text else "El Mundial 2026 sigue con los octavos de final."}
 
-REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo de la tecnología" ni "consulta nuestra web". Habla como si le contaras esto a un amigo mientras tomáis café."""
+REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo de la tecnología" ni "consulta nuestra web". Habla como si le contaras esto a David tomando un café."""
 
     script = None
     if ds_key:
