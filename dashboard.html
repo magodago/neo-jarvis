@@ -196,7 +196,7 @@ function animateBar(el, target) {
 
 async function loadData() {
   try {
-    const r = await fetch('data.json?' + Date.now());
+    const r = await fetch('landing/data.json?' + Date.now());
     const d = await r.json();
     const s = d.stats;
     
