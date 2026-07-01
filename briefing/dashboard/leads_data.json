@@ -1,10 +1,10 @@
 {
   "total": 126,
   "with_email": 25,
-  "sent": 0,
+  "sent": 25,
   "bounced": 0,
   "replied": 0,
-  "pending": 126,
+  "pending": 101,
   "sectors": [
     {
       "name": "abogados",
@@ -33,138 +33,23 @@
       "count": 26
     }
   ],
-  "timeline": [],
+  "timeline": [
+    {
+      "date": "2026-07-01",
+      "count": 25
+    }
+  ],
   "recent": [
     {
-      "nombre": "García Castro asesores",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Asesoría Palacios",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Bufete Jurídico y Tributario Bailen",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "info@bufetejuridico.com",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Gestió Administrativa Barcelona 48 SL",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "barcelona48@gmail.com",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Moreno Quesada Advocats",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "mq@xp-mq.com",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "A. Ramírez & asociados",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "asesorramirezbcn@gmail.com",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Col·lectiu Ronda",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Canela Patentes y Marcas",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "BDN Asesores",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Pérez-Montes García & Partners Legal",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Contractualia.com",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "jjperezmontes@icab.cat",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Gabinet d'Estudis Jurídics V&V",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "GPC",
-      "sector": "abogados",
-      "ciudad": "Barcelona",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Fj Martín Abogados",
+      "nombre": "Maireles Abogados Asociados",
       "sector": "abogados",
       "ciudad": "Malaga",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
+      "email": "info@mairelesabogados.com",
+      "estado": "sent",
+      "fecha": "2026-07-01"
     },
     {
-      "nombre": "Civis Abogados",
-      "sector": "abogados",
-      "ciudad": "Malaga",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Núñez y Riscos Abogados",
-      "sector": "abogados",
-      "ciudad": "Malaga",
-      "email": "",
-      "estado": "pending",
-      "fecha": ""
-    },
-    {
-      "nombre": "Gaona, Palacios y Rozados Abogados",
+      "nombre": "Vinci Abogados",
       "sector": "abogados",
       "ciudad": "Malaga",
       "email": "",
@@ -180,7 +65,7 @@
       "fecha": ""
     },
     {
-      "nombre": "Vinci Abogados",
+      "nombre": "Gaona, Palacios y Rozados Abogados",
       "sector": "abogados",
       "ciudad": "Malaga",
       "email": "",
@@ -188,13 +73,133 @@
       "fecha": ""
     },
     {
-      "nombre": "Maireles Abogados Asociados",
+      "nombre": "Núñez y Riscos Abogados",
       "sector": "abogados",
       "ciudad": "Malaga",
-      "email": "info@mairelesabogados.com",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "Civis Abogados",
+      "sector": "abogados",
+      "ciudad": "Malaga",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "Fj Martín Abogados",
+      "sector": "abogados",
+      "ciudad": "Malaga",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "GPC",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "Gabinet d'Estudis Jurídics V&V",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "Contractualia.com",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "jjperezmontes@icab.cat",
+      "estado": "sent",
+      "fecha": "2026-07-01"
+    },
+    {
+      "nombre": "Pérez-Montes García & Partners Legal",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "BDN Asesores",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "Canela Patentes y Marcas",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "Col·lectiu Ronda",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "A. Ramírez & asociados",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "asesorramirezbcn@gmail.com",
+      "estado": "sent",
+      "fecha": "2026-07-01"
+    },
+    {
+      "nombre": "Moreno Quesada Advocats",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "mq@xp-mq.com",
+      "estado": "sent",
+      "fecha": "2026-07-01"
+    },
+    {
+      "nombre": "Gestió Administrativa Barcelona 48 SL",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "barcelona48@gmail.com",
+      "estado": "sent",
+      "fecha": "2026-07-01"
+    },
+    {
+      "nombre": "Bufete Jurídico y Tributario Bailen",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "info@bufetejuridico.com",
+      "estado": "sent",
+      "fecha": "2026-07-01"
+    },
+    {
+      "nombre": "Asesoría Palacios",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
+      "estado": "pending",
+      "fecha": ""
+    },
+    {
+      "nombre": "García Castro asesores",
+      "sector": "abogados",
+      "ciudad": "Barcelona",
+      "email": "",
       "estado": "pending",
       "fecha": ""
     }
   ],
-  "updated": "2026-07-01 19:58:12"
+  "updated": "2026-07-01 20:01:30"
 }
