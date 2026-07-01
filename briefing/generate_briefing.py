@@ -528,7 +528,7 @@ def main():
         "WEEKDAY": day_name,
         "WEEK": str(week_num),
         "WEATHER": weather,
-        "HERO_IMG": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80",
+        "HERO_IMG": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=1400&q=80",
         "QUOTE": quote,
         "PODCAST_DURATION": duration,
         "WC_ROUND": wc_round or "Eliminatorias",
