@@ -352,6 +352,79 @@ def news_to_html(items):
 </div>"""
     return html, [{"source":i["source"],"title":i["title"],"desc":i["desc"][:500],"link":i["link"]} for i in items]
 
+# ─── 3b. GENERAL NEWS (internacional, España) ────────────────
+def get_world_news():
+    """Fetch top headlines from BBC Mundo and El Pais."""
+    feeds = [
+        ("BBC Mundo", "https://feeds.bbci.co.uk/mundo/rss.xml"),
+        ("El País", "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada"),
+    ]
+    items, seen = [], set()
+    today = date.today()
+    for source, url in feeds:
+        data = fetch(url)
+        if not data: continue
+        try:
+            root = ElementTree.fromstring(data)
+            for item in root.iter("item"):
+                title = item.findtext("title","").strip()
+                link = item.findtext("link","").strip()
+                desc = strip_html(item.findtext("description",""))
+                pubdate_raw = item.findtext("pubDate","")
+                if not title or not link: continue
+                key = title.lower()[:40]
+                if key in seen: continue
+                seen.add(key)
+                pub_date = None
+                if pubdate_raw:
+                    for fmt in ["%a, %d %b %Y %H:%M:%S %Z", "%a, %d %b %Y %H:%M:%S %z","%d %b %Y %H:%M:%S"]:
+                        try:
+                            pub_date = datetime.strptime(pubdate_raw.strip()[:25], fmt).date()
+                            break
+                        except: pass
+                if pub_date and (today - pub_date).days > 2: continue
+                items.append({"source":source,"title":title,"link":link,"desc":desc[:200]})
+                if len(items)>=4: break
+            if len(items)>=4: break
+        except: pass
+    return items[:4]
+
+# ─── 3c. ENTERTAINMENT (cine, series) ────────────────────────
+def get_entertainment():
+    """Fetch latest movie/series news."""
+    feeds = [
+        ("Fotogramas", "https://www.fotogramas.es/rss/news.xml"),
+        ("20 Minutos", "https://www.20minutos.es/rss/cine/"),
+    ]
+    items, seen = [], set()
+    today = date.today()
+    for source, url in feeds:
+        data = fetch(url)
+        if not data: continue
+        try:
+            root = ElementTree.fromstring(data)
+            for item in root.iter("item"):
+                title = item.findtext("title","").strip()
+                link = item.findtext("link","").strip()
+                if not title or not link: continue
+                key = title.lower()[:40]
+                if key in seen: continue
+                seen.add(key)
+                pubdate_raw = item.findtext("pubDate","")
+                pub_date = None
+                if pubdate_raw:
+                    for fmt in ["%a, %d %b %Y %H:%M:%S %Z", "%a, %d %b %Y %H:%M:%S %z","%d %b %Y %H:%M:%S"]:
+                        try:
+                            pub_date = datetime.strptime(pubdate_raw.strip()[:25], fmt).date()
+                            break
+                        except: pass
+                if pub_date and (today - pub_date).days > 3: continue
+                items.append({"source":source,"title":title,"link":link})
+                if len(items)>=3: break
+            if len(items)>=3: break
+        except: pass
+    return items[:3]
+
 # ─── 4. YOUTUBE ──────────────────────────────────────────────
 def get_youtube_yesterday():
     """Only videos from yesterday, deduplicated by video ID."""
@@ -389,7 +462,7 @@ def get_youtube_yesterday():
     return html
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
-def generate_podcast(news_items, date_str, weather=""):
+def generate_podcast(news_items, date_str, weather="", world_news=None, entertainment=None):
     """Generate podcast with actual content using DeepSeek Flash."""
     # Read API key from .env file
     ds_key = ""
@@ -415,17 +488,35 @@ def generate_podcast(news_items, date_str, weather=""):
     except: pass
     
     news_text = ". ".join(i['title'][:60] for i in news_items[:3]) if news_items else ""
-    
-    prompt = f"""Genera un guión de podcast matutino en español, dinámico y conversacional, máximo 200 palabras.
-Hoy es {date_str}.
-Incluye:
-1. Saludo breve y enérgico
-2. Noticias de IA: {news_text if news_text else "últimas novedades en inteligencia artificial"}
-3. {results_text if results_text else "El Mundial 2026 sigue en marcha"}
-4. Un tip rápido de productividad con IA
-5. Cierre motivacional breve
+    world_text = ". ".join(i['title'][:60] for i in (world_news or [])[:3]) if world_news else ""
+    ent_text = ". ".join(i['title'][:60] for i in (entertainment or [])[:3]) if entertainment else ""
 
-Tono natural, como si hablaras a un amante de la tecnología. No uses coletillas como 'en el mundo de'. Sé directo y concreto."""
+    today_dt = datetime.now()
+    wd = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"][today_dt.weekday()]
+    prompt = f"""Eres la voz del podcast matutino 'Daily Pulse'. Genera un guión en español, natural y directo. Máximo 350 palabras.
+
+Hoy es {date_str} ({wd}). Clima: {weather or "temperatura agradable"}.
+
+ESTRUCTURA EXACTA - 4 secciones:
+
+SECCIÓN 1 - IA EXPRÉS (2-3 frases):
+Solo lo relevante de ayer en IA. Nombres concretos (OpenAI, Anthropic, Google, ChatGPT, Claude...).
+Datos: {news_text if news_text else "últimas novedades en IA"}
+
+SECCIÓN 2 - EL MUNDO EN 60 SEGUNDOS (2-3 frases):
+Noticias internacionales y de España. Titulares concretos.
+Datos: {world_text if world_text else "actualidad internacional"}
+
+SECCIÓN 3 - CARTELERA (2-3 frases):
+Estrenos de cine y series. Títulos concretos.
+Datos: {ent_text if ent_text else "novedades de cine y series"}
+
+SECCIÓN 4 - ARRANQUE (1-2 frases):
+Cierre con energía para empezar el día. Una frase.
+
+Mundial: {results_text if results_text else "El Mundial 2026 sigue con los octavos de final."}
+
+REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo de la tecnología" ni "consulta nuestra web". Habla como si le contaras esto a un amigo mientras tomáis café."""
 
     script = None
     if ds_key:
@@ -520,7 +611,9 @@ def main():
     news_html, news_data = news_to_html(news_items)
     log("4. YouTube..."); yt = get_youtube_yesterday()
     log("5. Prompt/Quote..."); prompt = get_prompt(); quote = get_quote()
-    log("6. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str, weather)
+    log("6. World news..."); w_news = get_world_news()
+    log("7. Entertainment..."); ent = get_entertainment()
+    log("8. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str, weather, w_news, ent)
     
     params = {
         "DATE": date_str,
@@ -540,8 +633,8 @@ def main():
         "TIME": datetime.now().strftime("%H:%M"),
     }
     
-    log("7. Assembly..."); assemble(params)
-    log("8. Deploy..."); ok = deploy()
+    log("9. Assembly..."); assemble(params)
+    log("10. Deploy..."); ok = deploy()
     log(f"\n✅ https://magodago.github.io/neo-jarvis/briefing/")
     return ok
 
