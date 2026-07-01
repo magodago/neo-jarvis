@@ -148,6 +148,8 @@ def get_world_cup():
     if not ko_matches: return fallback_wc()
     
     html = ""
+    from random import randint as _ri
+    _ci = 0
     
     # ── A. YESTERDAY'S RESULTS ──
     ayer = [m for m in ko_matches if m.get('local_date','').startswith(yesterday_str) and m.get('finished','FALSE').upper()=='TRUE']
@@ -185,7 +187,7 @@ def get_world_cup():
             home_won = int(hs) > int(as_) if hs.isdigit() and as_.isdigit() else False
             
             html += f"""
-<div class="wc-card">
+<div class="wc-card" style="--i:{_ci};--float-dur:{_ri(35,55)/10}s">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
     <span style="font-size:.6rem;color:#f97316">{typ} · {dstr_short}</span>
@@ -197,6 +199,7 @@ def get_world_cup():
   </div>
   {scorers_html}
 </div>"""
+            _ci += 1
     
     # ── B. TODAY'S MATCHES ──
     hoy = [m for m in ko_matches if m.get('local_date','').startswith(today_str)]
@@ -224,7 +227,7 @@ def get_world_cup():
                 score = f'<div style="font-family:Syne;font-size:.8rem;font-weight:600;color:var(--muted);margin:0 12px">{typ}</div>'
             
             html += f"""
-<div class="wc-card">
+<div class="wc-card" style="--i:{_ci};--float-dur:{_ri(35,55)/10}s">
   <div class="wc-match">
     <div class="wc-team home"><span class="wc-team-name">{home}</span></div>
     {score}
@@ -232,6 +235,7 @@ def get_world_cup():
   </div>
   {status}
 </div>"""
+            _ci += 1
     
     # ── C. UPCOMING (next 4, not today) ──
     prox = [m for m in ko_matches if not m.get('local_date','').startswith(today_str) and not m.get('local_date','').startswith(yesterday_str) and m.get('finished','FALSE').upper()!='TRUE' and m.get('home_team_name_en') and m.get('away_team_name_en')]
@@ -249,7 +253,7 @@ def get_world_cup():
             dstr = to_es_time(ldate) if ldate else ""
             
             html += f"""
-<div class="wc-card">
+<div class="wc-card" style="--i:{_ci};--float-dur:{_ri(35,55)/10}s">
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">{home}</span></div>
     <div style="text-align:center;margin:0 10px">
@@ -259,12 +263,13 @@ def get_world_cup():
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">{away}</span></div>
   </div>
 </div>"""
+            _ci += 1
     
     html += f'<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a>'
     return html, current_round
 
 def fallback_wc():
-    return '<div class="wc-card"><p style="color:var(--muted);font-size:.8rem">Mundial 2026 · 48 equipos · 16 sedes</p></div>'
+    return '<div class="wc-card" style="--i:0;--float-dur:4s"><p style="color:#f97316;font-size:.8rem">Mundial 2026 · 48 equipos · 16 sedes</p></div>'
 
 # ─── 3. NEWS ES (solo IA, solo ayer/hoy) ────────────────────
 AI_KEYWORDS = ["inteligencia artificial","ia","chatgpt","openai","deepseek","claude","anthropic",
