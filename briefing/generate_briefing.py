@@ -138,7 +138,8 @@ def get_world_cup():
     yesterday = today - timedelta(days=1)
     today_str = today.strftime("%m/%d/%Y")
     yesterday_str = yesterday.strftime("%m/%d/%Y")
-    
+    current_round = ""
+
     matches = fetch_json("https://worldcup26.ir/get/games")
     if not matches: return fallback_wc()
     
@@ -260,7 +261,7 @@ def get_world_cup():
 </div>"""
     
     html += f'<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a>'
-    return html
+    return html, current_round
 
 def fallback_wc():
     return '<div class="wc-card"><p style="color:var(--muted);font-size:.8rem">Mundial 2026 · 48 equipos · 16 sedes</p></div>'
@@ -388,7 +389,7 @@ def get_youtube_yesterday():
     return html
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
-def generate_podcast(news_items, date_str):
+def generate_podcast(news_items, date_str, weather=""):
     """Generate podcast with actual content using DeepSeek Flash."""
     # Read API key from .env file
     ds_key = ""
@@ -448,8 +449,9 @@ Tono natural, como si hablaras a un amante de la tecnología. No uses coletillas
             log(f"  DeepSeek error: {e}")
     
     if not script:
-        news_fb = ". ".join(i['title'][:50] for i in news_items[:3]) if news_items else "últimas noticias de IA"
-        script = f"Buenos días. {news_fb}. {results_text if results_text else 'El Mundial sigue.'} Tip: usa un asistente AI para resumir tus correos cada mañana. Nos vemos mañana."
+        news_fb = ". ".join(i['title'][:50] for i in news_items[:5]) if news_items else "últimas noticias de IA"
+        w = f"El clima hoy: {weather}. " if weather else ""
+        script = f"Buenos días. {w}{news_fb}. {results_text if results_text else 'El Mundial 2026 sigue con los octavos de final.'} Tip del día: usa un asistente IA para resumir tus correos cada mañana y empieza sin saturación. Nos escuchamos mañana."
     
     os.makedirs(AUDIO_DIR, exist_ok=True)
     with open(SCRIPT_FILE, "w", encoding="utf-8") as f: f.write(script)
@@ -513,23 +515,29 @@ def main():
     week_num = today.isocalendar()[1]
     
     log("1. Weather..."); weather = get_weather()
-    log("2. World Cup..."); wc = get_world_cup()
-    log("3. News..."); news_items = get_ai_news(); log(f"   {len(news_items)} items")
+    log("2. World Cup..."); wc_html, wc_round = get_world_cup()
+    log("3. News..."); news_items = get_ai_news(); log(f"   {len(news_items)} items, wc round: {wc_round}")
     news_html, news_data = news_to_html(news_items)
     log("4. YouTube..."); yt = get_youtube_yesterday()
     log("5. Prompt/Quote..."); prompt = get_prompt(); quote = get_quote()
-    log("6. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str)
-    
-    modal = '<div id="news-modal" class="news-modal" onclick="if(event.target===this)closeNewsModal()"><div class="news-modal-content"><div class="nm-drag"></div><button class="nm-close" onclick="closeNewsModal()">✕</button><div id="news-content"></div></div></div>'
+    log("6. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str, weather)
     
     params = {
-        "DATE": date_str, "DATE_SHORT": date_short, "DAY_NAME": day_name,
-        "WEEK_NUM": str(week_num), "WEATHER": weather, "WORLD_CUP": wc,
-        "AI_NEWS": news_html, "YOUTUBE_VIDEOS": yt, "PROMPT": prompt,
-        "QUOTE": quote, "PODCAST_AUDIO": audio_url, "PODCAST_DURATION": duration,
-        "PODCAST_TOPICS": "Noticias IA · Mundial · Productividad",
-        "GENERATED_AT": f"{date_str} · {datetime.now().strftime('%H:%M')}",
-        "NEWS_MODAL": modal, "NEWS_DATA": json.dumps(news_data, ensure_ascii=False),
+        "DATE": date_str,
+        "DATE_SHORT": date_short,
+        "WEEKDAY": day_name,
+        "WEEK": str(week_num),
+        "WEATHER": weather,
+        "HERO_IMG": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80",
+        "QUOTE": quote,
+        "PODCAST_DURATION": duration,
+        "WC_ROUND": wc_round or "Eliminatorias",
+        "WC_CONTENT": wc_html,
+        "NEWS_CONTENT": news_html,
+        "NEWS_DATA": json.dumps(news_data, ensure_ascii=False),
+        "VIDEOS_CONTENT": yt,
+        "PROMPT": prompt,
+        "TIME": datetime.now().strftime("%H:%M"),
     }
     
     log("7. Assembly..."); assemble(params)
