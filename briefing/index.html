@@ -43,14 +43,50 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 /* ===== FLOATING EFFECTS ===== */
+/* Visible sparkles */
+.sparkle{
+  position:fixed;border-radius:50%;pointer-events:none;
+  z-index:0;opacity:.8;
+  mix-blend-mode:screen;
+}
+.s1{
+  width:6px;height:6px;background:#3b82f6;
+  top:25%;right:30%;
+  animation:sparkle1 4s ease-in-out infinite;
+  box-shadow:0 0 12px #3b82f6,0 0 30px rgba(59,130,246,.4);
+}
+.s2{
+  width:4px;height:4px;background:#a78bfa;
+  bottom:35%;left:25%;
+  animation:sparkle2 5s ease-in-out infinite;
+  box-shadow:0 0 10px #a78bfa,0 0 25px rgba(167,139,250,.3);
+}
+.s3{
+  width:5px;height:5px;background:#60a5fa;
+  top:60%;left:60%;
+  animation:sparkle3 6s ease-in-out infinite;
+  box-shadow:0 0 14px #60a5fa,0 0 35px rgba(96,165,250,.3);
+}
+@keyframes sparkle1{
+  0%,100%{opacity:.3;transform:scale(.8)}
+  50%{opacity:1;transform:scale(1.4)}
+}
+@keyframes sparkle2{
+  0%,100%{opacity:.4;transform:scale(.7)}
+  50%{opacity:1;transform:scale(1.8)}
+}
+@keyframes sparkle3{
+  0%,100%{opacity:.2;transform:scale(.6)}
+  50%{opacity:.9;transform:scale(1.5)}
+}
 #particles-canvas{
   position:fixed;inset:0;z-index:0;
   pointer-events:none;opacity:.7;
 }
 .glow-orb{
   position:fixed;border-radius:50%;
-  filter:blur(80px);pointer-events:none;
-  z-index:0;opacity:.5;
+  filter:blur(50px);pointer-events:none;
+  z-index:0;opacity:.65;
   animation:orbFloat 30s ease-in-out infinite;
 }
 .go-1{width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.7),transparent);top:-200px;right:-150px;}
@@ -503,6 +539,10 @@ a{color:inherit;text-decoration:none}
 <div class="glow-orb go-3"></div>
 <div class="glow-orb go-4"></div>
 <div class="glow-orb go-5"></div>
+<!-- Visible sparkle dots -->
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
 <canvas id="particles-canvas"></canvas>
 
 <div style="position:fixed;top:0;left:0;right:0;height:3px;z-index:999;background:linear-gradient(90deg,#3b82f6,#6366f1,#3b82f6);animation:testPulse 2s ease-in-out infinite;pointer-events:none;"></div>
@@ -534,7 +574,7 @@ a{color:inherit;text-decoration:none}
     <div class="section-icon">♪</div>
     <span class="section-title">Podcast del día</span>
   </div>
-  <div class="section-sub">00:52 · Noticias IA · Mundial · Productividad</div>
+  <div class="section-sub">00:44 · Noticias IA · Mundial · Productividad</div>
   <div class="podcast-card">
     <div class="podcast-top">
       <div class="podcast-avatar">
@@ -824,7 +864,7 @@ a{color:inherit;text-decoration:none}
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-brand">daily briefing</div>
-  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 10:45</div>
+  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 10:46</div>
 </div>
 
 <script>
