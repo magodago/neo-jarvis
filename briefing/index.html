@@ -34,25 +34,34 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  animation:bodyPulse 10s ease-in-out infinite;
+}
+@keyframes bodyPulse{
+  0%,100%{background:var(--bg)}
+  50%{background:#080e1a}
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 /* ===== FLOATING EFFECTS ===== */
 #particles-canvas{
   position:fixed;inset:0;z-index:0;
-  pointer-events:none;opacity:.5;
+  pointer-events:none;opacity:.7;
 }
 .glow-orb{
   position:fixed;border-radius:50%;
-  filter:blur(100px);pointer-events:none;
-  z-index:0;opacity:.35;
+  filter:blur(80px);pointer-events:none;
+  z-index:0;opacity:.5;
   animation:orbFloat 30s ease-in-out infinite;
 }
-.go-1{width:500px;height:500px;background:radial-gradient(circle,rgba(59,130,246,.5),transparent);top:-150px;right:-100px;}
-.go-2{width:400px;height:400px;background:radial-gradient(circle,rgba(99,102,241,.35),transparent);bottom:10%;left:-120px;}
-.go-3{width:350px;height:350px;background:radial-gradient(circle,rgba(59,130,246,.25),transparent);top:50%;left:50%;}
-.go-4{width:250px;height:250px;background:radial-gradient(circle,rgba(168,85,247,.2),transparent);top:20%;right:-50px;}
-.go-5{width:300px;height:300px;background:radial-gradient(circle,rgba(59,130,246,.15),transparent);bottom:-100px;right:20%;}
+.go-1{width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.7),transparent);top:-200px;right:-150px;}
+.go-2{width:500px;height:500px;background:radial-gradient(circle,rgba(99,102,241,.6),transparent);bottom:15%;left:-150px;}
+.go-3{width:450px;height:450px;background:radial-gradient(circle,rgba(59,130,246,.5),transparent);top:40%;left:40%;}
+.go-4{width:350px;height:350px;background:radial-gradient(circle,rgba(168,85,247,.5),transparent);top:20%;right:-80px;}
+.go-5{width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,.4),transparent);bottom:-120px;right:15%;}
+@keyframes testPulse{
+  0%,100%{opacity:.5}
+  50%{opacity:1}
+}
 @keyframes orbFloat{
   0%,100%{transform:translate(0,0) scale(1)}
   20%{transform:translate(-80px,50px) scale(1.08)}
@@ -63,7 +72,7 @@ a{color:inherit;text-decoration:none}
 /* Light rays */
 .light-rays{
   position:fixed;inset:0;z-index:0;pointer-events:none;
-  overflow:hidden;opacity:.08;
+  overflow:hidden;opacity:.15;
 }
 .light-ray{
   position:absolute;width:1px;height:200vh;
@@ -109,9 +118,9 @@ a{color:inherit;text-decoration:none}
 }
 /* ===== HERO ===== */
 .hero{
-  min-height:100vh;
+  min-height:80vh;
   display:flex;flex-direction:column;justify-content:center;
-  padding:120px 24px 60px;
+  padding:80px 24px 40px;
   position:relative;
   overflow:hidden;
 }
@@ -169,6 +178,7 @@ a{color:inherit;text-decoration:none}
 }
 .hero-greeting::before{content:'\201C';color:var(--accent);font-size:1.2rem}
 .hero-greeting::after{content:'\201D';color:var(--accent);font-size:1.2rem}
+.hero-subdate{font-size:.75rem;color:var(--text-dim);margin-top:4px;margin-bottom:8px;position:relative;z-index:1;opacity:0;animation:fadeUp .7s ease .25s forwards}
 .hero-scroll{
   position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
   z-index:1;
@@ -220,6 +230,7 @@ a{color:inherit;text-decoration:none}
 .section-title{
   font-size:1.15rem;font-weight:700;
   color:#fff;letter-spacing:-.3px;
+  text-shadow:0 0 30px rgba(59,130,246,.2);
 }
 .section-sub{
   font-size:.72rem;font-weight:400;
@@ -494,6 +505,7 @@ a{color:inherit;text-decoration:none}
 <div class="glow-orb go-5"></div>
 <canvas id="particles-canvas"></canvas>
 
+<div style="position:fixed;top:0;left:0;right:0;height:3px;z-index:999;background:linear-gradient(90deg,#3b82f6,#6366f1,#3b82f6);animation:testPulse 2s ease-in-out infinite;pointer-events:none;"></div>
 <div class="top-bar">
   <div class="top-bar-brand">daily <strong>briefing</strong></div>
   <div class="top-bar-weather">27°C · Soleado · Hum 42%</div>
@@ -505,8 +517,9 @@ a{color:inherit;text-decoration:none}
   <div class="hero-bg-overlay"></div>
   <div class="hero-grid"></div>
   <div class="hero-label">Daily Briefing</div>
-  <h1 class="hero-title">Buenos días, <span>01.07.2026</span></h1>
-  <p class="hero-date">Miércoles · Semana 27 del año</p>
+  <h1 class="hero-title">Buenos días, <span>David</span></h1>
+  <p class="hero-subdate">01.07.2026 · Semana 27 del año</p>
+
   <p class="hero-greeting">No se trata de tener tiempo, se trata de tener prioridades.</p>
   <div class="hero-scroll"></div>
 </div>
@@ -521,7 +534,7 @@ a{color:inherit;text-decoration:none}
     <div class="section-icon">♪</div>
     <span class="section-title">Podcast del día</span>
   </div>
-  <div class="section-sub">00:40 · Noticias IA · Mundial · Productividad</div>
+  <div class="section-sub">00:45 · Noticias IA · Mundial · Productividad</div>
   <div class="podcast-card">
     <div class="podcast-top">
       <div class="podcast-avatar">
@@ -711,42 +724,42 @@ a{color:inherit;text-decoration:none}
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel</div>
+    <div class="news-card-title">No te compres un Apple Watch este año: Apple tiene pensado cambiar el diseño y un aspecto </div>
     <div class="news-card-time">Wed, 01 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(1)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google</div>
-    <div class="news-card-time">Tue, 30 Jun 2026</div>
+    <div class="news-card-title">‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel</div>
+    <div class="news-card-time">Wed, 01 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(2)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok</div>
+    <div class="news-card-title">Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(3)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata</div>
+    <div class="news-card-title">NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(4)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico</div>
+    <div class="news-card-title">Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(5)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos</div>
+    <div class="news-card-title">Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
 </div></div>
@@ -811,11 +824,11 @@ a{color:inherit;text-decoration:none}
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-brand">daily briefing</div>
-  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 10:40</div>
+  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 10:45</div>
 </div>
 
 <script>
-var NEWS_DATA = [{"source": "Hipertextual", "title": "‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel", "desc": "Disney+ acaba de estrenar por fin la temporada 2 de X-Men 97, la aclamada serie de animación de Marvel. La compañía devolvió a la vida el clásico de los 90 con una secuela aún más madura y espectacula", "link": "https://hipertextual.com/cine-television/x-men-97-temporada-2-critica/"}, {"source": "Hipertextual", "title": "Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google", "desc": "Si no puedes mandar GIFs desde tu aplicación de mensajería, no es tu móvil. Google decidió cerrar la API de Tenor, la biblioteca de GIF que utilizan WhatsApp, Discord y otras apps. El gigante tecnológ", "link": "https://hipertextual.com/mobile/google-cierra-api-tenor-gifs-apps/"}, {"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico", "desc": "Anthropic ha presentado Claude Science, una nueva herramienta con la que busca ganarse a la comunidad científica. En lugar de diseñar un modelo dedicado, la compañía prefirió personalizar a Claude par", "link": "https://hipertextual.com/inteligencia-artificial/claude-science-ia-anthropic-cientificos/"}, {"source": "Hipertextual", "title": "Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos", "desc": "Google ha actualizado su oferta de IA con dos modelos que nos ayudarán a generar contenido multimedia de forma más rápida. A pocas horas de lanzar una función que ter permite obtener contexto de otros", "link": "https://hipertextual.com/inteligencia-artificial/nano-banana-2-lite-gemini-omni-flash-google/"}];
+var NEWS_DATA = [{"source": "Hipertextual", "title": "No te compres un Apple Watch este año: Apple tiene pensado cambiar el diseño y un aspecto clave", "desc": "¿Estabas pensando comprar un Apple Watch este año? Apple debería lanzar la Series 11, una actualización que, sobre el papel, no debería ofrecer grandes cambios. Los dispositivos que se ponen a la vent", "link": "https://hipertextual.com/apple/no-te-compres-un-apple-watch-este-ano-apple-tiene-pensado-cambiar-el-diseno-y-un-aspecto-clave/"}, {"source": "Hipertextual", "title": "‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel", "desc": "Disney+ acaba de estrenar por fin la temporada 2 de X-Men 97, la aclamada serie de animación de Marvel. La compañía devolvió a la vida el clásico de los 90 con una secuela aún más madura y espectacula", "link": "https://hipertextual.com/cine-television/x-men-97-temporada-2-critica/"}, {"source": "Hipertextual", "title": "Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google", "desc": "Si no puedes mandar GIFs desde tu aplicación de mensajería, no es tu móvil. Google decidió cerrar la API de Tenor, la biblioteca de GIF que utilizan WhatsApp, Discord y otras apps. El gigante tecnológ", "link": "https://hipertextual.com/mobile/google-cierra-api-tenor-gifs-apps/"}, {"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico", "desc": "Anthropic ha presentado Claude Science, una nueva herramienta con la que busca ganarse a la comunidad científica. En lugar de diseñar un modelo dedicado, la compañía prefirió personalizar a Claude par", "link": "https://hipertextual.com/inteligencia-artificial/claude-science-ia-anthropic-cientificos/"}];
 
 function openNewsModal(i){
   var d = NEWS_DATA[i]; if(!d) return;
@@ -849,8 +862,8 @@ function closeNewsModal(){
       x: Math.random() * w, y: Math.random() * h,
       vx: (Math.random() - 0.5) * 0.4,
       vy: (Math.random() - 0.5) * 0.4 - 0.1,
-      r: Math.random() * 2.5 + 0.5,
-      a: Math.random() * 0.25 + 0.03
+      r: Math.random() * 4 + 1,
+      a: Math.random() * 0.3 + 0.05
     });
   }
 
