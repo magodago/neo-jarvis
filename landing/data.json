@@ -1,34 +1,588 @@
 {
-  "timestamp": "2026-07-01 17:42 UTC",
+  "timestamp": "2026-07-01 18:30 UTC",
   "stats": {
-    "total": 126,
-    "enviados": 12,
+    "total": 257,
+    "enviados": 100,
     "rebotados": 0,
     "respondidos": 0,
-    "pendientes": 114
+    "pendientes": 157
   },
   "sectors": [
     {
-      "sector": "abogados",
-      "total": 47,
-      "enviados": 9,
-      "rebotes": 0,
-      "respuestas": 0
-    },
-    {
       "sector": "clinicas",
-      "total": 40,
-      "enviados": 0,
+      "total": 70,
+      "enviados": 28,
       "rebotes": 0,
       "respuestas": 0
     },
     {
       "sector": "restaurantes",
-      "total": 39,
-      "enviados": 3,
+      "total": 65,
+      "enviados": 16,
+      "rebotes": 0,
+      "respuestas": 0
+    },
+    {
+      "sector": "abogados",
+      "total": 62,
+      "enviados": 26,
+      "rebotes": 0,
+      "respuestas": 0
+    },
+    {
+      "sector": "talleres",
+      "total": 15,
+      "enviados": 9,
+      "rebotes": 0,
+      "respuestas": 0
+    },
+    {
+      "sector": "peluquerias",
+      "total": 15,
+      "enviados": 10,
+      "rebotes": 0,
+      "respuestas": 0
+    },
+    {
+      "sector": "inmobiliarias",
+      "total": 15,
+      "enviados": 0,
+      "rebotes": 0,
+      "respuestas": 0
+    },
+    {
+      "sector": "centros",
+      "total": 15,
+      "enviados": 11,
       "rebotes": 0,
       "respuestas": 0
     }
   ],
-  "sent_leads": []
+  "sent_leads": [
+    {
+      "name": "Ospina Abogados",
+      "email": "mentxu@gmail.com",
+      "subject": "Algo para Ospina Abogados",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Herrolex Despacho de Abogados",
+      "email": "consultas@herrolex.es",
+      "subject": "Propuesta para Herrolex Despacho de Abogados",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "MADRID ABOGADOS",
+      "email": "info@madridabogados.es",
+      "subject": "Algo práctico para Madrid Abogados",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Bufete G.Elías y Muñoz Abogados",
+      "email": "info@eliasymunozabogados.com",
+      "subject": "Propuesta para Bufete G.Elías y Muñoz Abogados",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "IG Abogados Extranjería Madrid",
+      "email": "info@igabogadosextranjeria.com",
+      "subject": "Ideas para mejorar la captación de clientes en IG Abogados Extranjería Madrid",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Administrativando Abogados en Madrid",
+      "email": "info@administrativando.es",
+      "subject": "Administrativando Abogados en Madrid - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Hispanidad Abogados y Asesores (Sede Madrid)",
+      "email": "danielgiron_tj@yahoo.com",
+      "subject": "Hispanidad Abogados y Asesores (Sede Madrid) - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Chabaneix Abogados",
+      "email": "info@chabaneix.es",
+      "subject": "Planes para Chabaneix Abogados",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Tolentino Abogados de Extranjería e Inmigración Madrid",
+      "email": "administracion@tolentinoabogados.com",
+      "subject": "Una idea para Tolentino Abogados",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "SIMÓ Abogados Penalistas",
+      "email": "despacho@simoabogados.com",
+      "subject": "Una idea para SIMÓ Abogados Penalistas",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Tráfico Ayuda | Abogado de Accidentes Madrid",
+      "email": "info@traficoayuda.es",
+      "subject": "Una idea para Tráfico Ayuda | Abogado de Accidentes Madrid",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "González Pulido Abogados · Abogados de extranjería Madrid",
+      "email": "info@gonzalezpulidoabogados.com",
+      "subject": "González Pulido Abogados · Abogados de extranjería Madrid - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dorsia Cirugía y Medicina Estética",
+      "email": "normacpp0513@hotmail.com",
+      "subject": "Ideas para Clínica Dorsia Cirugía y Medicina Estética",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Centro estético Madrid | INDIBA | KOAKAI",
+      "email": "hello@businessname.com",
+      "subject": "ideas para Centro estético Madrid | INDIBA | KOAKAI",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Eternal Beauty Clinic",
+      "email": "pv@patriciapv.com",
+      "subject": "Precios para Eternal Beauty Clinic",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Centro Médico Estético en Arganzuela",
+      "email": "centromedicoesteticoarganzuela@yahoo.es",
+      "subject": "Propuesta para Centro Médico Estético en Arganzuela",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Centro de belleza y estética Beldon Beauty",
+      "email": "info@beldonbeauty.com",
+      "subject": "Ideas para Beldon Beauty",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Wellness Beauty – Estética Legazpi INDIBA® – Star & Sun",
+      "email": "soportewellnessbeauty@gmail.com",
+      "subject": "Tres opciones para Wellness Beauty – Estética Legazpi INDIBA® – Star & Sun",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Estética Madrid Centro SAPPHIRA PRIVÉ",
+      "email": "%20info@clinicaesteticamadridcentro.com",
+      "subject": "Propuesta para SAPPHIRA PRIVÉ",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Estética Alhambra | Centro médico estético Madrid",
+      "email": "info@centromedicoalhambra.es",
+      "subject": "Una idea para Estética Alhambra",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Aleria Beauty Centro de Medicina Estética y Depilación Láser",
+      "email": "puertadetoledo@aleriabeauty.es",
+      "subject": "Propuesta para Aleria Beauty",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Centro Trébol Estética Avanzada",
+      "email": "centrotrebolrjc@gmail.com",
+      "subject": "Una idea para Centro Trébol Estética Avanzada",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Hera Beauty - Estética Avanzada",
+      "email": "info@herabeauty.es",
+      "subject": "Ideas para Hera Beauty – tres opciones",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Barcelona",
+      "email": "recepcio@cdb.cat",
+      "subject": "Un plan para Clínica Dental Barcelona",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Puyuelo: Dentistas en Barcelona",
+      "email": "info@clinicapuyuelo.es",
+      "subject": "Una idea para Clínica Dental Puyuelo",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental DEN Barcelona",
+      "email": "info@clinicasden.com",
+      "subject": "Mejora tu visibilidad online, Clínica Dental DEN Barcelona",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Nart Clínica Dental , Barcelona",
+      "email": "jose@nartperiodoncia.com",
+      "subject": "Algo para Nart Clínica Dental",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Montserrat, Barcelona",
+      "email": "info@clinicadentalmontserrat.com",
+      "subject": "Planes digitales para Clínica Dental Montserrat",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Gran Via | Eixample | CABECERAN",
+      "email": "eixample@cabeceran.com",
+      "subject": "idea para Clínica Dental Gran Via | Eixample | CABECERAN",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Diagonal Clinic Dental Barcelona | Carillas Dentales | Ortodoncia Invisible",
+      "email": "info@diagonalclinicdental.com",
+      "subject": "Propuesta para Diagonal Clinic Dental Barcelona",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "BLASI Clínica Dental Barcelona",
+      "email": "info@clinicablasi.com",
+      "subject": "Propuesta para BLASI Clínica Dental Barcelona",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Peyrí | Clínica Dental de Urgencias en Barcelona",
+      "email": "info@clinicadentalpeyri.com",
+      "subject": "Planes para Clínica Dental Peyrí en Barcelona",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Claris | Eixample | Ortodoncia Invisible",
+      "email": "info@dentalclaris.es",
+      "subject": "Clínica Dental Claris | Eixample | Ortodoncia Invisible - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Garriga - Dentista en Eixample Barcelona",
+      "email": "info@clinicadentalgarriga.es",
+      "subject": "Ideas para digitalizar la gestión de Clínica Dental Garriga",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Vitaldent",
+      "email": "oviedo2@vitaldent.com",
+      "subject": "Ideas para Clínica Dental Vitaldent",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica dental en Móstoles | Veracruz",
+      "email": "info@veracruzdental.es",
+      "subject": "Mejora la presencia digital de Clínica dental en Móstoles | Veracruz",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "CLÍNICA DENTAL MADRID",
+      "email": "info@madridclinicadental.es",
+      "subject": "Idea para CLÍNICA DENTAL MADRID",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Velazquez",
+      "email": "clinica@clinicadentalvelazquez.com",
+      "subject": "Una sugerencia para Clínica Dental Velazquez",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Puerta de Alcalá Madrid",
+      "email": "info@puertadealcalaclinicadental.com",
+      "subject": "¿Clínica Dental Puerta de Alcalá? Te voy al grano",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica dental Puerta de Toledo",
+      "email": "info@clinicapuertadetoledo.com",
+      "subject": "Clínica dental Puerta de Toledo - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Navarro Madrid - Dentistas - Implantes dentales",
+      "email": "gonzalo@dentalnavarro.com",
+      "subject": "Clínica Dental Navarro Madrid - Dentistas - Implantes dentales - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "CENTRO DENTAL LAVAPIÉS",
+      "email": "info@centrodentallavapies.com",
+      "subject": "Planes digitales para CENTRO DENTAL LAVAPIÉS",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clinica Ciro",
+      "email": "drsjimenez@clinicaciro.es",
+      "subject": "Ideas para Clinica Ciro",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Madrid | Klinik Dental®",
+      "email": "hola@klinik.dental",
+      "subject": "Ideas para Clínica Dental Madrid | Klinik Dental®",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Dental Madrid Sur | Vallecas",
+      "email": "clinicamadridsur@gmail.com",
+      "subject": "Una idea para Clínica Dental Madrid Sur | Vallecas",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínica Santamaría",
+      "email": "clinica19santamaria@hotmail.com",
+      "subject": "Propuesta para Clínica Santamaría",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Clínicas Turrión Monescillo",
+      "email": "info@clinicasturrionmonescillo.com",
+      "subject": "Algo para las clínicas Turrión Monescillo",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Blondie Madrid",
+      "email": "hello@blondiemadrid.com",
+      "subject": "Unas ideas para Blondie Madrid",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "My Beauty Golden: Peluquería y Belleza en el Barrio Salamanca",
+      "email": "info@mybeautygolden.com",
+      "subject": "Ideas para My Beauty Golden",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Blow Dry Bar - Daniele Sigigliano - Peluquería en Chueca",
+      "email": "citas@blowdrybar.es",
+      "subject": "Propuesta para Blow Dry Bar en Chueca",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Peluquería Carolina Moraga | Balayage, Color y Keratina en Madrid",
+      "email": "peluqueria@carolinamoraga.es",
+      "subject": "Propuesta para Peluquería Carolina Moraga",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Espacio Isaac Salido - Peluquería & Concept Store",
+      "email": "info@isaacsalido.es",
+      "subject": "Espacio Isaac Salido - Peluquería & Concept Store - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Espacio Q",
+      "email": "info@espacioq.es",
+      "subject": "Tu nueva web para Espacio Q",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Studio by 351 - Peluquería y barberia en Madrid",
+      "email": "studio351.ventas@gmail.com",
+      "subject": "Propuesta para Studio by 351",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "David Lorente",
+      "email": "davidlorente@davidlorente.com",
+      "subject": "Propuesta para David Lorente",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "The MadRoom | Peluquería de Lujo en Madrid",
+      "email": "villalar@themadroom.com",
+      "subject": "Un plan para The MadRoom que encaja con tu estilo",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "The Men's Hair Club",
+      "email": "themenshairclub@gmail.com",
+      "subject": "Propuesta para The Men's Hair Club",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Restaurante Villa Molero Illescas",
+      "email": "anibalmolero@gmail.com",
+      "subject": "Restaurante Villa Molero Illescas - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Bar OMA CAFÉ",
+      "email": "oma48bar@gmail.com",
+      "subject": "Una idea para Bar OMA CAFÉ",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Casa Lima Gastronomía Peruana",
+      "email": "casalimagastronomiaperuana@gmail.com",
+      "subject": "Ideas para Casa Lima Gastronomía Peruana",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Casa Castaña",
+      "email": "info@casacastana.com",
+      "subject": "Casa Castaña - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Neo Taberna",
+      "email": "neotabernaillescas@gmail.com",
+      "subject": "Ayuda con captación de clientes para Neo Taberna",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Restaurante Villa Molero Illescas",
+      "email": "info@villamoleroillescas.com",
+      "subject": "Propuesta para Villa Molero Illescas",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Cafetami SL",
+      "email": "cafetamisl.shop@gmail.com",
+      "subject": "Cafetami SL - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Big Bite Restaurante",
+      "email": "bigbiterestaurantegrupo@gmail.com",
+      "subject": "Propuesta para Big Bitte Restaurante",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "El Bohío",
+      "email": "contacto@elbohio.net",
+      "subject": "Propuesta para El Bohío",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Taller Dasercars",
+      "email": "info@taller-madrid.es",
+      "subject": "Propuesta para Taller Dasercars",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Midauto Car Service",
+      "email": "info@midauto.es",
+      "subject": "Una idea para Midauto Car Service",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Madrid Car",
+      "email": "info@madridcar.es",
+      "subject": "Ideas para Madrid Car, taller de confianza",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Talleres J J",
+      "email": "info@talleresjj.es",
+      "subject": "Talleres J J - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Taller RS 49",
+      "email": "info@tallerrs49.es",
+      "subject": "Algo para Taller RS 49",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "JFMotor Madrid",
+      "email": "jfmotormadrid@gmail.com",
+      "subject": "JFMotor Madrid - Tu web profesional desde 299EUR",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Taller Mecánico Lira Motors",
+      "email": "liramotors16@gmail.com",
+      "subject": "Planes para Taller Mecánico Lira Motors",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Talleres Santa Mónica",
+      "email": "talleressantamonica@gmail.com",
+      "subject": "Ayuda para Talleres Santa Mónica",
+      "status": "sent",
+      "date": ""
+    },
+    {
+      "name": "Pérez Illán Automoción",
+      "email": "perezillan@yahoo.es",
+      "subject": "Ideas para Pérez Illán Automoción",
+      "status": "sent",
+      "date": ""
+    }
+  ]
 }

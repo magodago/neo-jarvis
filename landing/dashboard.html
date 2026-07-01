@@ -5,111 +5,259 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEO Lead Dashboard</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#050505;color:#fff;padding:30px}
-h1{font-size:24px;margin-bottom:6px}
-h1 span{color:#ff00ff}
-.subtitle{color:#666;font-size:13px;margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;margin-bottom:30px}
-.card{background:linear-gradient(145deg,#111,#0a0a0a);border-radius:12px;padding:20px;border:1px solid #222}
-.card .num{font-size:32px;font-weight:800}
-.card .label{font-size:12px;color:#888;margin-top:4px}
-.card .num.total{color:#888}
-.card .num.sent{color:#00ffff}
-.card .num.bounce{color:#ff4444}
-.card .num.reply{color:#4ade80}
-.card .num.pending{color:#ff8800}
-.table-wrap{background:#111;border-radius:12px;border:1px solid #222;overflow:hidden;margin-bottom:30px}
+body{font-family:'Inter',sans-serif;background:#050505;color:#fff;min-height:100vh;overflow-x:hidden}
+
+/* Header */
+.header{padding:30px 30px 0;max-width:1200px;margin:0 auto}
+.header h1{font-size:28px;font-weight:800;letter-spacing:-0.5px}
+.header h1 span{background:linear-gradient(135deg,#ff00ff,#b300b3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:#555;font-size:13px;margin-top:4px;font-weight:300}
+
+/* Acciones */
+.actions{display:flex;gap:10px;flex-wrap:wrap;padding:20px 30px;max-width:1200px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border:none;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,#ff00ff,#cc00cc);color:#fff;box-shadow:0 4px 15px rgba(255,0,255,0.2)}
+.btn.primary:hover{box-shadow:0 8px 30px rgba(255,0,255,0.4);transform:translateY(-2px)}
+.btn.ghost{background:rgba(255,255,255,0.05);color:#aaa;border:1px solid #222}
+.btn.ghost:hover{border-color:#ff00ff;color:#fff;background:rgba(255,0,255,0.08)}
+.btn.green{background:linear-gradient(135deg,#166534,#15803d);color:#fff;box-shadow:0 4px 15px rgba(34,197,94,0.2)}
+.btn.green:hover{box-shadow:0 8px 30px rgba(34,197,94,0.4);transform:translateY(-2px)}
+
+/* Hero Stats */
+.hero{max-width:1200px;margin:0 auto;padding:10px 30px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-card{position:relative;background:linear-gradient(145deg,#0d0d0d,#080808);border-radius:14px;padding:22px 18px;border:1px solid #1a1a1a;overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+.stat-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,0,255,0.03) 0%,transparent 60%);opacity:0;transition:opacity 0.5s;pointer-events:none}
+.stat-card:hover::before{opacity:1}
+.stat-card:hover{transform:translateY(-4px);border-color:#333}
+.stat-card .num{font-size:34px;font-weight:900;letter-spacing:-1px;position:relative;display:inline-block}
+.stat-card .num.total{color:#888}
+.stat-card .num.sent{color:#00ffff;text-shadow:0 0 20px rgba(0,255,255,0.15)}
+.stat-card .num.bounce{color:#ff4444;text-shadow:0 0 20px rgba(255,68,68,0.1)}
+.stat-card .num.reply{color:#4ade80;text-shadow:0 0 20px rgba(74,222,128,0.15)}
+.stat-card .num.pending{color:#ff8800;text-shadow:0 0 20px rgba(255,136,0,0.1)}
+.stat-card .label{font-size:11px;color:#555;margin-top:6px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+
+/* Glow pulsante en sent */
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,0,255,0)}50%{box-shadow:0 0 20px 4px rgba(255,0,255,0.08)}}
+.stat-card:first-child{animation:pulse-glow 3s ease-in-out infinite}
+
+/* Progreso circular mini */
+.progress-mini{display:flex;align-items:center;gap:10px;margin-top:10px}
+.progress-bar{flex:1;height:4px;background:#1a1a1a;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;transition:width 1.5s cubic-bezier(0.4,0,0.2,1);width:0%}
+.progress-fill.sent-fill{background:linear-gradient(90deg,#00ffff,#0099ff)}
+.progress-fill.pending-fill{background:linear-gradient(90deg,#ff8800,#ff5500)}
+.progress-text{font-size:11px;color:#555;white-space:nowrap}
+
+/* Secciones */
+.section{max-width:1200px;margin:0 auto;padding:20px 30px}
+.section-title{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title .count{font-size:12px;color:#555;font-weight:400}
+
+/* Tablas premium */
+.table-wrap{background:#0d0d0d;border-radius:14px;border:1px solid #1a1a1a;overflow:hidden;transition:all 0.3s}
+.table-wrap:hover{border-color:#222}
 table{width:100%;border-collapse:collapse}
-th{text-align:left;padding:12px 16px;font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;background:#0a0a0a;border-bottom:1px solid #222}
-td{padding:10px 16px;font-size:13px;color:#ccc;border-bottom:1px solid #1a1a1a}
-tr:hover td{background:rgba(255,0,255,0.04)}
-.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600}
-.badge.sent{background:rgba(0,255,255,0.15);color:#00ffff}
-.badge.pending{background:rgba(255,136,0,0.15);color:#ff8800}
-.badge.bounce{background:rgba(255,0,0,0.15);color:#ff4444}
-.badge.replied{background:rgba(74,222,128,0.15);color:#4ade80}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
-.btn{display:inline-block;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.3s;border:none;cursor:pointer}
-.btn.primary{background:linear-gradient(135deg,#ff00ff,#cc00cc);color:#fff}
-.btn.primary:hover{box-shadow:0 0 20px rgba(255,0,255,0.3)}
-.btn.secondary{background:#1a1a1a;color:#fff;border:1px solid #333}
-.btn.secondary:hover{border-color:#ff00ff}
-.btn.green{background:#166534;color:#fff}
-.btn.green:hover{box-shadow:0 0 20px rgba(74,222,128,0.3)}
+th{text-align:left;padding:14px 18px;font-size:10px;color:#444;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;background:#080808;border-bottom:1px solid #1a1a1a}
+td{padding:12px 18px;font-size:13px;color:#aaa;border-bottom:1px solid #111;transition:all 0.2s}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,0,255,0.03);color:#ddd}
+
+/* Badges animados */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;position:relative}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%;display:inline-block}
+.badge.sent{background:rgba(0,255,255,0.08);color:#00ffff}
+.badge.sent::before{background:#00ffff;box-shadow:0 0 6px #00ffff;animation:pulse-dot 2s ease-in-out infinite}
+.badge.pending{background:rgba(255,136,0,0.08);color:#ff8800}
+.badge.pending::before{background:#ff8800;box-shadow:0 0 6px #ff8800}
+.badge.bounce{background:rgba(255,68,68,0.08);color:#ff4444}
+.badge.bounce::before{background:#ff4444;box-shadow:0 0 6px #ff4444}
+.badge.replied{background:rgba(74,222,128,0.08);color:#4ade80}
+.badge.replied::before{background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse-dot 2s ease-in-out infinite}
+.badge.error{background:rgba(255,68,68,0.08);color:#ff4444}
+.badge.error::before{background:#ff4444}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* Timeline */
+.timeline{position:relative;padding:0}
+.timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,#ff00ff,transparent)}
+.timeline-item{position:relative;padding:12px 0 12px 60px;border-bottom:1px solid #111}
+.timeline-item:last-child{border-bottom:none}
+.timeline-dot{position:absolute;left:17px;top:16px;width:14px;height:14px;border-radius:50%;border:2px solid #ff00ff;background:#050505}
+.timeline-dot.sent{border-color:#00ffff}
+.timeline-dot.sent::after{content:'';position:absolute;inset:3px;border-radius:50%;background:#00ffff;box-shadow:0 0 8px #00ffff}
+.timeline-item .name{font-size:13px;font-weight:600;color:#ddd}
+.timeline-item .email{font-size:11px;color:#555}
+.timeline-item .meta{font-size:10px;color:#444;margin-top:2px}
+
+/* Barras sector */
+.sector-bar-wrap{margin:4px 0}
+.sector-bar-bg{height:6px;background:#1a1a1a;border-radius:3px;overflow:hidden;margin-top:4px}
+.sector-bar-fill{height:100%;border-radius:3px;transition:width 1.5s cubic-bezier(0.4,0,0.2,1);width:0%}
+.sector-bar-fill.s0{background:linear-gradient(90deg,#ff00ff,#b300b3)}
+.sector-bar-fill.s1{background:linear-gradient(90deg,#00ffff,#0088ff)}
+.sector-bar-fill.s2{background:linear-gradient(90deg,#ff8800,#ff4400)}
+.sector-bar-fill.s3{background:linear-gradient(90deg,#4ade80,#16a34a)}
+.sector-bar-fill.s4{background:linear-gradient(90deg,#a855f7,#7c3aed)}
+.sector-bar-fill.s5{background:linear-gradient(90deg,#f43f5e,#e11d48)}
+.sector-bar-fill.s6{background:linear-gradient(90deg,#06b6d4,#0891b2)}
+
+/* Animacion entrada */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.stat-card{animation:fadeUp 0.6s ease both}
+.stat-card:nth-child(1){animation-delay:0.1s}
+.stat-card:nth-child(2){animation-delay:0.15s}
+.stat-card:nth-child(3){animation-delay:0.2s}
+.stat-card:nth-child(4){animation-delay:0.25s}
+.stat-card:nth-child(5){animation-delay:0.3s}
+.table-wrap{animation:fadeUp 0.6s ease 0.35s both}
+#sent-section{animation:fadeUp 0.6s ease 0.45s both}
+
+/* Stats bar */
+.stats-bar{display:flex;gap:20px;flex-wrap:wrap;padding:6px 0 0}
+.stats-bar .item{font-size:12px;color:#555}
+.stats-bar .item strong{color:#888}
+
+/* Footer */
+.footer{text-align:center;padding:30px;color:#333;font-size:11px}
 </style>
 </head>
 <body>
 
-<h1>NEO <span>Lead Dashboard</span></h1>
-<p class="subtitle" id="timestamp">Cargando...</p>
+<div class="header">
+  <h1>NEO <span>Lead Dashboard</span></h1>
+  <p class="subtitle" id="timestamp">Cargando...</p>
+</div>
 
 <div class="actions">
-  <a href="?refresh=1" class="btn primary">🔄 Actualizar</a>
-  <a href="/" class="btn secondary">Landing ventas</a>
-  <a href="mailto:dortizs76@gmail.com" class="btn green">📧 Responder leads</a>
+  <button class="btn primary" onclick="location.reload()">🔄 Actualizar</button>
+  <a href="./" class="btn ghost">🌐 Landing ventas</a>
+  <a href="mailto:dortizs76@gmail.com" class="btn green">📬 Buzón leads</a>
 </div>
 
-<div class="grid" id="stats">
-  <div class="card"><div class="num total" id="total">-</div><div class="label">Total Leads</div></div>
-  <div class="card"><div class="num sent" id="sent">-</div><div class="label">Enviados</div></div>
-  <div class="card"><div class="num bounce" id="bounce">-</div><div class="label">Rebotados</div></div>
-  <div class="card"><div class="num reply" id="reply">-</div><div class="label">Respondidos</div></div>
-  <div class="card"><div class="num pending" id="pending">-</div><div class="label">Pendientes</div></div>
+<div class="hero">
+  <div class="stats-grid" id="stats">
+    <div class="stat-card"><div class="num sent" id="total">0</div><div class="label">Total Leads</div><div class="progress-mini"><div class="progress-bar"><div class="progress-fill sent-fill" id="total-fill"></div></div><span class="progress-text" id="total-pct"></span></div></div>
+    <div class="stat-card"><div class="num sent" id="sent">0</div><div class="label">Enviados</div><div class="progress-mini"><div class="progress-bar"><div class="progress-fill sent-fill" id="sent-fill"></div></div><span class="progress-text" id="sent-pct"></span></div></div>
+    <div class="stat-card"><div class="num bounce" id="bounce">0</div><div class="label">Rebotados</div></div>
+    <div class="stat-card"><div class="num reply" id="reply">0</div><div class="label">Respondidos</div></div>
+    <div class="stat-card"><div class="num pending" id="pending">0</div><div class="label">Pendientes</div></div>
+  </div>
 </div>
 
-<h2 style="font-size:16px;margin-bottom:15px">📊 Por sector</h2>
-<div class="table-wrap">
-<table id="sector-table">
-<thead><tr><th>Sector</th><th>Total</th><th>Enviados</th><th>Rebotes</th><th>Respuestas</th><th>Conversion</th></tr></thead>
-<tbody id="sector-body"></tbody>
-</table>
+<div class="section">
+  <h2 class="section-title">📊 Por sector</h2>
+  <div class="table-wrap">
+    <table id="sector-table">
+      <thead><tr><th>Sector</th><th>Total</th><th>Enviados</th><th>Rebotes</th><th>Respuestas</th><th>Envío</th></tr></thead>
+      <tbody id="sector-body"></tbody>
+    </table>
+  </div>
 </div>
 
-<h2 style="font-size:16px;margin-bottom:15px">📋 Ultimos leads enviados</h2>
-<div class="table-wrap">
-<table id="sent-table">
-<thead><tr><th>Nombre</th><th>Email</th><th>Asunto</th><th>Estado</th><th>Fecha</th></tr></thead>
-<tbody id="sent-body"></tbody>
-</table>
+<div class="section" id="sent-section">
+  <h2 class="section-title">⏱️ Timeline de envíos <span class="count" id="sent-count"></span></h2>
+  <div class="table-wrap">
+    <div class="timeline" id="sent-timeline"></div>
+  </div>
+</div>
+
+<div class="footer">
+  NEO Labs · Powered by Hermes AI
 </div>
 
 <script>
-// Datos inline desde el backend
+// Animación de contador
+function animateNum(el, target, duration=1200) {
+  const isNum = !isNaN(parseFloat(target));
+  if (!isNum) { el.textContent = target; return; }
+  let start = 0, startTime = null;
+  function step(ts) {
+    if (!startTime) startTime = ts;
+    const progress = Math.min((ts - startTime) / duration, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    el.textContent = isNum ? current.toLocaleString() : target;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = isNum ? target.toLocaleString() : target;
+  }
+  requestAnimationFrame(step);
+}
+
+// Animación de barra
+function animateBar(el, target) {
+  setTimeout(() => { el.style.width = Math.min(target, 100) + '%'; }, 300);
+}
+
 async function loadData() {
   try {
     const r = await fetch('data.json?' + Date.now());
     const d = await r.json();
-    document.getElementById('total').textContent = d.stats.total;
-    document.getElementById('sent').textContent = d.stats.sent;
-    document.getElementById('bounce').textContent = d.stats.bounce;
-    document.getElementById('reply').textContent = d.stats.reply;
-    document.getElementById('pending').textContent = d.stats.pending;
-    document.getElementById('timestamp').textContent = 'Ultima actualizacion: ' + d.timestamp + ' · Total leads: ' + d.stats.total;
-
-    // Sector table
+    const s = d.stats;
+    
+    document.getElementById('timestamp').textContent = 'Última actualización: ' + d.timestamp;
+    
+    // Contadores animados
+    animateNum(document.getElementById('total'), s.total);
+    animateNum(document.getElementById('sent'), s.sent);
+    animateNum(document.getElementById('bounce'), s.bounce);
+    animateNum(document.getElementById('reply'), s.reply);
+    animateNum(document.getElementById('pending'), s.pending);
+    
+    // Barras de progreso
+    const totalLeads = s.total || 1;
+    animateBar(document.getElementById('total-fill'), (s.sent / totalLeads) * 100);
+    animateBar(document.getElementById('sent-fill'), (s.sent / totalLeads) * 100);
+    document.getElementById('total-pct').textContent = Math.round((s.sent / totalLeads) * 100) + '% enviado';
+    document.getElementById('sent-pct').textContent = s.sent + ' de ' + totalLeads;
+    
+    // Sector table con barras
     const sb = document.getElementById('sector-body');
     sb.innerHTML = '';
-    for (const s of d.sectors) {
-      const conv = s.sent > 0 ? ((s.replies / s.sent) * 100).toFixed(1) + '%' : '-';
-      sb.innerHTML += '<tr><td>' + s.sector + '</td><td>' + s.total + '</td><td>' + s.sent + '</td><td>' + s.bounces + '</td><td>' + s.replies + '</td><td>' + conv + '</td></tr>';
-    }
-
-    // Sent table
-    const tb = document.getElementById('sent-body');
-    tb.innerHTML = '';
+    const colors = ['s0','s1','s2','s3','s4','s5','s6'];
+    d.sectors.forEach((sec, i) => {
+      const pct = sec.total > 0 ? Math.round((sec.sent / sec.total) * 100) : 0;
+      sb.innerHTML += '<tr><td><strong>' + sec.sector + '</strong></td><td>' + sec.total + '</td><td>' + sec.sent + '</td><td>' + sec.bounces + '</td><td>' + sec.replies + '</td><td><div class="sector-bar-wrap"><div style="font-size:11px;color:#555">' + pct + '%</div><div class="sector-bar-bg"><div class="sector-bar-fill ' + (colors[i % colors.length]) + '" data-pct="' + pct + '"></div></div></div></td></tr>';
+    });
+    // Animar barras de sector
+    setTimeout(() => {
+      document.querySelectorAll('.sector-bar-fill').forEach(el => {
+        el.style.width = el.dataset.pct + '%';
+      });
+    }, 400);
+    
+    // Timeline de envíos
+    const tl = document.getElementById('sent-timeline');
     const leads = d.sent_leads || [];
-    for (const l of leads.slice(0, 20)) {
-      const badge = l.status === 'sent' ? 'sent' : l.status === 'bounced' ? 'bounce' : l.status === 'replied' ? 'replied' : 'pending';
-      tb.innerHTML += '<tr><td>' + l.name + '</td><td>' + l.email + '</td><td>' + l.subject.slice(0, 40) + '...</td><td><span class="badge ' + badge + '">' + l.status + '</span></td><td>' + (l.date || '-') + '</td></tr>';
-    }
+    document.getElementById('sent-count').textContent = '(' + leads.length + ' envíos)';
+    tl.innerHTML = '';
+    leads.slice(-15).reverse().forEach(l => {
+      const status = l.status === 'sent' ? 'sent' : l.status === 'bounced' ? 'bounce' : l.status === 'replied' ? 'replied' : 'pending';
+      tl.innerHTML += '<div class="timeline-item"><div class="timeline-dot ' + status + '"></div><div class="name">' + l.name + '</div><div class="email">' + l.email + '</div><div class="meta"><span class="badge ' + status + '">' + l.status + '</span></div></div>';
+    });
+    
   } catch(e) {
-    document.getElementById('timestamp').textContent = 'Error cargando datos: ' + e.message;
+    document.getElementById('timestamp').textContent = '❌ Error cargando datos: ' + e.message;
   }
 }
 loadData();
-</script>
 
+// Auto-refresh cada 60s
+setInterval(loadData, 60000);
+
+// Mouse parallax en stat-cards
+document.querySelectorAll('.stat-card').forEach(c => {
+  c.addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
+</script>
 </body>
 </html>
