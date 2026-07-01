@@ -1,16 +1,16 @@
 {
-  "generado": "2026-07-01 20:30:29",
+  "generado": "2026-07-01 21:00:25",
   "stats": {
     "total": 257,
-    "con_email": 100,
+    "con_email": 101,
     "con_telefono": 147,
     "con_web": 135,
     "enviados": 100,
     "rebotados": 0,
-    "respondidos": 0,
-    "tasa_respuesta": 0.0,
-    "tasa_email": 38.9,
-    "pendientes_envio": 0
+    "respondidos": 1,
+    "tasa_respuesta": 1.0,
+    "tasa_email": 39.3,
+    "pendientes_envio": 1
   },
   "sectores": [
     {
@@ -22,7 +22,7 @@
     {
       "nombre": "restaurantes",
       "total": 65,
-      "email": 16,
+      "email": 17,
       "enviados": 16
     },
     {
@@ -65,7 +65,7 @@
     {
       "nombre": "Barcelona",
       "total": 72,
-      "email": 16
+      "email": 17
     },
     {
       "nombre": "dentales",
