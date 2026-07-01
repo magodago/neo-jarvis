@@ -535,6 +535,14 @@ REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo
             resp = urllib.request.urlopen(req, timeout=30)
             result = json.loads(resp.read())
             script = result["choices"][0]["message"]["content"].strip()
+            # Strip markdown
+            import re as _re
+            script = _re.sub(r'\*\*(.+?)\*\*', r'\1', script)
+            script = _re.sub(r'\*(.+?)\*', r'\1', script)
+            script = _re.sub(r'^#+\s*', '', script, flags=_re.MULTILINE)
+            script = _re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', script)
+            script = _re.sub(r'_{2,}', '', script)
+            script = _re.sub(r'`([^`]+)`', r'\1', script)
             log(f"  script by DeepSeek ({len(script)} chars)")
         except Exception as e:
             log(f"  DeepSeek error: {e}")
