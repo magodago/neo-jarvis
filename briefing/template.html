@@ -506,14 +506,6 @@ function closeNewsModal(){
   document.getElementById('news-modal').classList.remove('active');
   document.body.style.overflow = '';
 }
-// Scroll reveal
-(function(){
-  var s = document.querySelectorAll('.section-wrap');
-  var o = new IntersectionObserver(function(e){
-    e.forEach(function(x){if(x.isIntersecting){x.style.opacity='1';x.style.transform='translateY(0)';o.unobserve(x.target)}});
-  },{threshold:.08});
-  s.forEach(function(x){x.style.opacity='0';x.style.transform='translateY(24px)';x.style.transition='opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)';o.observe(x)});
-})();
 // Waveform
 (function(){
   var a=document.getElementById('podcast-audio'),c=document.getElementById('waveform-canvas'),ct=document.getElementById('waveform-container'),ac,s,an,ai,w,h;
