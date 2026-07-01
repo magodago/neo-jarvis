@@ -177,9 +177,9 @@ def get_world_cup():
             
             scorers_html = ""
             if h_sc:
-                scorers_html += f'<div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ {home}: {", ".join(h_sc[:3])}</div>'
+                scorers_html += f'<div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ {home}: {", ".join(h_sc[:3])}</div>'
             if a_sc:
-                scorers_html += f'<div style="font-size:.62rem;color:var(--muted)">⚽ {away}: {", ".join(a_sc[:3])}</div>'
+                scorers_html += f'<div style="font-size:.62rem;color:#f97316">⚽ {away}: {", ".join(a_sc[:3])}</div>'
             
             # Determine winner for bold
             home_won = int(hs) > int(as_) if hs.isdigit() and as_.isdigit() else False
@@ -188,7 +188,7 @@ def get_world_cup():
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">{typ} · {dstr_short}</span>
+    <span style="font-size:.6rem;color:#f97316">{typ} · {dstr_short}</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">{home}</span></div>
@@ -253,8 +253,8 @@ def get_world_cup():
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">{home}</span></div>
     <div style="text-align:center;margin:0 10px">
-      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:var(--gold)">{typ}</div>
-      <div style="font-size:.6rem;color:var(--muted)">{dstr}</div>
+      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:#f97316">{typ}</div>
+      <div style="font-size:.6rem;color:#f97316">{dstr}</div>
     </div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">{away}</span></div>
   </div>
