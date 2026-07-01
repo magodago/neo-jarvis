@@ -1,47 +1,47 @@
 {
-  "generado": "2026-07-01 20:11:54",
+  "generado": "2026-07-01 20:30:29",
   "stats": {
     "total": 257,
     "con_email": 100,
     "con_telefono": 147,
     "con_web": 135,
-    "enviados": 25,
+    "enviados": 100,
     "rebotados": 0,
     "respondidos": 0,
     "tasa_respuesta": 0.0,
     "tasa_email": 38.9,
-    "pendientes_envio": 75
+    "pendientes_envio": 0
   },
   "sectores": [
     {
       "nombre": "clinicas",
       "total": 70,
       "email": 28,
-      "enviados": 4
+      "enviados": 28
     },
     {
       "nombre": "restaurantes",
       "total": 65,
       "email": 16,
-      "enviados": 7
+      "enviados": 16
     },
     {
       "nombre": "abogados",
       "total": 62,
       "email": 26,
-      "enviados": 14
+      "enviados": 26
     },
     {
       "nombre": "talleres",
       "total": 15,
       "email": 9,
-      "enviados": 0
+      "enviados": 9
     },
     {
       "nombre": "peluquerias",
       "total": 15,
       "email": 10,
-      "enviados": 0
+      "enviados": 10
     },
     {
       "nombre": "inmobiliarias",
@@ -53,7 +53,7 @@
       "nombre": "centros",
       "total": 15,
       "email": 11,
-      "enviados": 0
+      "enviados": 11
     }
   ],
   "ciudades": [
@@ -97,7 +97,7 @@
   "timeline_envio": [
     {
       "dia": "2026-07-01",
-      "enviados": 25
+      "enviados": 100
     }
   ],
   "recientes": [
@@ -127,9 +127,9 @@
       "sector": "talleres",
       "ciudad": "mecanicos",
       "email": "perezillan@yahoo.es",
-      "enviado": false,
+      "enviado": true,
       "respondido": false,
-      "fecha_envio": ""
+      "fecha_envio": "2026-07-01 20:27"
     },
     {
       "id": 254,
@@ -137,9 +137,9 @@
       "sector": "talleres",
       "ciudad": "mecanicos",
       "email": "talleressantamonica@gmail.com",
-      "enviado": false,
+      "enviado": true,
       "respondido": false,
-      "fecha_envio": ""
+      "fecha_envio": "2026-07-01 20:27"
     },
     {
       "id": 253,
