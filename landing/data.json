@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-07-01 17:42 UTC",
+  "stats": {
+    "total": 126,
+    "enviados": 12,
+    "rebotados": 0,
+    "respondidos": 0,
+    "pendientes": 114
+  },
+  "sectors": [
+    {
+      "sector": "abogados",
+      "total": 47,
+      "enviados": 9,
+      "rebotes": 0,
+      "respuestas": 0
+    },
+    {
+      "sector": "clinicas",
+      "total": 40,
+      "enviados": 0,
+      "rebotes": 0,
+      "respuestas": 0
+    },
+    {
+      "sector": "restaurantes",
+      "total": 39,
+      "enviados": 3,
+      "rebotes": 0,
+      "respuestas": 0
+    }
+  ],
+  "sent_leads": []
+}
