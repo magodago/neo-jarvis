@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-07-01 18:30 UTC",
+  "timestamp": "2026-07-01 19:00 UTC",
   "stats": {
     "total": 257,
     "enviados": 100,
     "rebotados": 0,
-    "respondidos": 0,
+    "respondidos": 1,
     "pendientes": 157
   },
   "sectors": [
@@ -27,7 +27,7 @@
       "total": 62,
       "enviados": 26,
       "rebotes": 0,
-      "respuestas": 0
+      "respuestas": 1
     },
     {
       "sector": "talleres",
