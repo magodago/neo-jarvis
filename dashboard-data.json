@@ -1,58 +1,97 @@
 {
-  "generado": "2026-07-01 20:04:33",
+  "generado": "2026-07-01 20:11:54",
   "stats": {
-    "total": 126,
-    "con_email": 25,
-    "con_telefono": 42,
-    "con_web": 39,
+    "total": 257,
+    "con_email": 100,
+    "con_telefono": 147,
+    "con_web": 135,
     "enviados": 25,
     "rebotados": 0,
     "respondidos": 0,
     "tasa_respuesta": 0.0,
-    "tasa_email": 19.8,
-    "pendientes_envio": 0
+    "tasa_email": 38.9,
+    "pendientes_envio": 75
   },
   "sectores": [
     {
-      "nombre": "abogados",
-      "total": 47,
-      "email": 14,
-      "enviados": 14
-    },
-    {
       "nombre": "clinicas",
-      "total": 40,
-      "email": 4,
+      "total": 70,
+      "email": 28,
       "enviados": 4
     },
     {
       "nombre": "restaurantes",
-      "total": 39,
-      "email": 7,
+      "total": 65,
+      "email": 16,
       "enviados": 7
+    },
+    {
+      "nombre": "abogados",
+      "total": 62,
+      "email": 26,
+      "enviados": 14
+    },
+    {
+      "nombre": "talleres",
+      "total": 15,
+      "email": 9,
+      "enviados": 0
+    },
+    {
+      "nombre": "peluquerias",
+      "total": 15,
+      "email": 10,
+      "enviados": 0
+    },
+    {
+      "nombre": "inmobiliarias",
+      "total": 15,
+      "email": 0,
+      "enviados": 0
+    },
+    {
+      "nombre": "centros",
+      "total": 15,
+      "email": 11,
+      "enviados": 0
     }
   ],
   "ciudades": [
     {
-      "nombre": "Barcelona",
-      "total": 60,
-      "email": 13
+      "nombre": "Madrid",
+      "total": 99,
+      "email": 34
     },
     {
-      "nombre": "Madrid",
-      "total": 40,
-      "email": 6
+      "nombre": "Barcelona",
+      "total": 72,
+      "email": 16
+    },
+    {
+      "nombre": "dentales",
+      "total": 30,
+      "email": 24
     },
     {
       "nombre": "Malaga",
       "total": 26,
       "email": 6
+    },
+    {
+      "nombre": "mecanicos",
+      "total": 15,
+      "email": 9
+    },
+    {
+      "nombre": "estetica",
+      "total": 15,
+      "email": 11
     }
   ],
   "timeline_scrapeo": [
     {
       "dia": "2026-07-01",
-      "nuevos": 126
+      "nuevos": 257
     }
   ],
   "timeline_envio": [
@@ -63,50 +102,50 @@
   ],
   "recientes": [
     {
-      "id": 126,
-      "nombre": "Maireles Abogados Asociados",
-      "sector": "abogados",
-      "ciudad": "Malaga",
-      "email": "info@mairelesabogados.com",
-      "enviado": true,
-      "respondido": false,
-      "fecha_envio": "2026-07-01 18:00:59"
-    },
-    {
-      "id": 125,
-      "nombre": "Vinci Abogados",
-      "sector": "abogados",
-      "ciudad": "Malaga",
+      "id": 257,
+      "nombre": "TALLER MECANICO FREJO",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
       "email": "",
       "enviado": false,
       "respondido": false,
       "fecha_envio": ""
     },
     {
-      "id": 124,
-      "nombre": "Montón y Jurado",
-      "sector": "abogados",
-      "ciudad": "Malaga",
+      "id": 256,
+      "nombre": "Samnauto",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
       "email": "",
       "enviado": false,
       "respondido": false,
       "fecha_envio": ""
     },
     {
-      "id": 123,
-      "nombre": "Gaona, Palacios y Rozados Abogados",
-      "sector": "abogados",
-      "ciudad": "Malaga",
-      "email": "",
+      "id": 255,
+      "nombre": "Pérez Illán Automoción",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
+      "email": "perezillan@yahoo.es",
       "enviado": false,
       "respondido": false,
       "fecha_envio": ""
     },
     {
-      "id": 122,
-      "nombre": "Núñez y Riscos Abogados",
-      "sector": "abogados",
-      "ciudad": "Malaga",
+      "id": 254,
+      "nombre": "Talleres Santa Mónica",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
+      "email": "talleressantamonica@gmail.com",
+      "enviado": false,
+      "respondido": false,
+      "fecha_envio": ""
+    },
+    {
+      "id": 253,
+      "nombre": "Taller 24H reparacion automovil",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
       "email": "",
       "enviado": false,
       "respondido": false,
