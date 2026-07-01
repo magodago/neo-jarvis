@@ -75,6 +75,18 @@ def fetch_json(url):
             if isinstance(v, list): return v
     return raw if isinstance(raw, list) else []
 
+def to_es_time(local_date_str):
+    """Convert venue local time (US/Mexico) to Spanish time (CEST UTC+2) by adding 6h."""
+    if not local_date_str: return ""
+    try:
+        dt = datetime.strptime(local_date_str, "%m/%d/%Y %H:%M")
+        from datetime import timedelta
+        dt_es = dt + timedelta(hours=6)
+        wd = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"][dt_es.weekday()]
+        return f"{wd} {dt_es.day}/{dt_es.month} · {dt_es.strftime('%H:%M')}"
+    except:
+        return local_date_str
+
 def strip_html(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     text = unescape(text)
@@ -91,12 +103,26 @@ def parse_scorers(s):
 
 # ─── 1. WEATHER ──────────────────────────────────────────────
 def get_weather():
+    """Fetch weather in Spanish."""
+    wd_es = {
+        "Clear": "Despejado", "Sunny": "Soleado", "Partly cloudy": "Parcialmente nublado",
+        "Cloudy": "Nublado", "Overcast": "Cubierto", "Mist": "Niebla", "Fog": "Niebla",
+        "Light rain": "Lluvia ligera", "Moderate rain": "Lluvia moderada",
+        "Heavy rain": "Lluvia fuerte", "Light rain shower": "Chubascos ligeros",
+        "Moderate or heavy rain shower": "Chubascos", "Patchy rain possible": "Posible lluvia",
+        "Thundery outbreaks possible": "Posibles tormentas", "Light rain with thunder": "Tormenta ligera",
+        "Moderate or heavy rain with thunder": "Tormenta fuerte",
+    }
     try:
         data = fetch("https://wttr.in/Illescas?format=j1")
         if data:
             d = json.loads(data)
             cc = d['current_condition'][0]
-            return f"{cc['temp_C']}°C · {cc['weatherDesc'][0]['value']} · Hum {cc['humidity']}%"
+            temp = cc['temp_C']
+            desc_en = cc['weatherDesc'][0]['value']
+            desc = wd_es.get(desc_en, desc_en)
+            hum = cc['humidity']
+            return f"{temp}°C · {desc} · Hum {hum}%"
     except: pass
     return "—"
 
@@ -140,12 +166,9 @@ def get_world_cup():
             a_sc = parse_scorers(m.get("away_scorers",""))
             ldate = m.get("local_date","")
             
-            # Format date
-            dstr = ""
-            try:
-                dt = datetime.strptime(ldate, "%m/%d/%Y %H:%M")
-                dstr = f"{dt.day}/{dt.month}"
-            except: pass
+            # Format date in Spanish time
+            dstr = to_es_time(ldate) if ldate else ""
+            dstr_short = dstr.split("·")[0].strip() if "·" in dstr else dstr
             
             scorers_html = ""
             if h_sc:
@@ -160,7 +183,7 @@ def get_world_cup():
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">{typ} · {dstr}</span>
+    <span style="font-size:.6rem;color:var(--muted)">{typ} · {dstr_short}</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">{home}</span></div>
@@ -184,17 +207,15 @@ def get_world_cup():
             elapsed = m.get("time_elapsed","").lower()
             is_live = bool(re.match(r"^\d+", elapsed))
             
-            time_str = ""
-            try:
-                dt = datetime.strptime(ldate, "%m/%d/%Y %H:%M")
-                time_str = dt.strftime("%H:%M")
-            except: pass
+            # Time in Spanish time
+            time_str = to_es_time(ldate) if ldate else ""
+            time_short = time_str.split("·")[-1].strip() if "·" in time_str else time_str
             
             if is_live:
                 status = f'<div class="wc-status live">EN VIVO · {elapsed}</div>'
                 score = f'<div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px"><span class="live-dot"></span>{hs}–{as_}</div>'
             else:
-                status = f'<div class="wc-status pending">{time_str}</div>'
+                status = f'<div class="wc-status pending">{time_short}</div>'
                 score = f'<div style="font-family:Syne;font-size:.8rem;font-weight:600;color:var(--muted);margin:0 12px">{typ}</div>'
             
             html += f"""
@@ -219,12 +240,8 @@ def get_world_cup():
             typ = ROUND_ES.get(m.get("type",""), m.get("type",""))
             ldate = m.get("local_date","")
             
-            dstr = ""
-            try:
-                dt = datetime.strptime(ldate, "%m/%d/%Y %H:%M")
-                wd = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"][dt.weekday()]
-                dstr = f"{wd} {dt.day}/{dt.month} · {dt.strftime('%H:%M')}"
-            except: pass
+            # Date in Spanish time
+            dstr = to_es_time(ldate) if ldate else ""
             
             html += f"""
 <div class="wc-card">
