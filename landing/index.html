@@ -1,504 +1,248 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>NEO Webs · Webs premium desde 299€</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEO Labs - Webs Profesionales desde 299€</title>
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#070b14;--bg2:#0c1320;--card:rgba(255,255,255,.04);
-  --accent:#06b6d4;--accent2:#22d3ee;--text:#f0f2f5;--text-dim:#94a3b8;
-  --text-muted:#64748b;--border:rgba(255,255,255,.06);--radius:16px;
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-
-/* ===== EFFECTS ===== */
-.glow-orb{
-  position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;
-  animation:orbFloat 30s ease-in-out infinite;
-}
-.go1{width:600px;height:600px;background:radial-gradient(circle,rgba(6,182,212,.15),transparent);top:-200px;right:-100px}
-.go2{width:500px;height:500px;background:radial-gradient(circle,rgba(217,70,239,.1),transparent);bottom:10%;left:-150px}
-.go3{width:400px;height:400px;background:radial-gradient(circle,rgba(6,182,212,.08),transparent);top:40%;left:30%}
-@keyframes orbFloat{
-  0%,100%{transform:translate(0,0) scale(1)}
-  25%{transform:translate(-40px,30px) scale(1.05)}
-  50%{transform:translate(20px,-40px) scale(.95)}
-  75%{transform:translate(-30px,20px) scale(1.02)}
-}
-.top-bar{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 24px;
-  background:rgba(7,11,20,.85);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-}
-.top-bar-brand{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim)}
-.top-bar-brand strong{color:#fff}
-.top-bar-cta{
-  padding:8px 20px;border-radius:100px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;font-size:.75rem;font-weight:600;border:none;cursor:pointer;
-  text-decoration:none;transition:all .2s;
-}
-.top-bar-cta:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(6,182,212,.3)}
-
-/* ===== HERO ===== */
-.hero{
-  min-height:90vh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;padding:100px 20px 60px;position:relative;z-index:1;
-}
-.hero-label{
-  font-size:.65rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;
-  color:var(--accent);margin-bottom:16px;
-  animation:fadeUp .6s ease .1s backwards;
-}
-.hero-title{
-  font-size:clamp(2.2rem,6vw,4.5rem);font-weight:900;
-  letter-spacing:-2px;line-height:1.08;margin-bottom:16px;
-  animation:fadeUp .6s ease .2s backwards;
-}
-.hero-title span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{
-  font-size:clamp(.95rem,1.8vw,1.2rem);color:var(--text-dim);
-  max-width:600px;margin-bottom:32px;line-height:1.5;
-  animation:fadeUp .6s ease .3s backwards;
-}
-.hero-price{
-  display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap;
-  animation:fadeUp .6s ease .35s backwards;
-}
-.hero-price-big{font-size:3.5rem;font-weight:900;color:#fff;letter-spacing:-2px}
-.hero-price-big small{font-size:1rem;font-weight:400;color:var(--text-dim)}
-.hero-price-old{font-size:1.2rem;color:var(--text-muted);text-decoration:line-through}
-.hero-cta{
-  display:inline-block;margin-top:40px;padding:18px 48px;
-  border-radius:100px;font-size:1rem;font-weight:700;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;border:none;cursor:pointer;text-decoration:none;
-  transition:all .3s;box-shadow:0 0 30px rgba(6,182,212,.2);
-  animation:fadeUp .6s ease .4s backwards;
-}
-.hero-cta:hover{transform:scale(1.06);box-shadow:0 0 50px rgba(6,182,212,.35)}
-.hero-trust{font-size:.7rem;color:var(--text-muted);margin-top:20px;animation:fadeUp .6s ease .45s backwards}
-
-/* ===== SECTIONS ===== */
-.section{padding:80px 20px;position:relative;z-index:1}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-tag{font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.section-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:12px;letter-spacing:-.5px}
-.section-sub{font-size:.95rem;color:var(--text-dim);max-width:600px;margin-bottom:48px}
-
-/* ===== PLANS ===== */
-.plans-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:20px;
-}
-.plan-card{
-  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
-  border:1px solid var(--border);border-radius:var(--radius);
-  padding:32px 24px;position:relative;overflow:hidden;
-  transition:all .3s;
-}
-.plan-card:hover{border-color:rgba(6,182,212,.2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-.plan-popular{border-color:rgba(6,182,212,.3)}
-.plan-popular::before{
-  content:'Más popular';position:absolute;top:12px;right:-28px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;font-size:.55rem;font-weight:700;letter-spacing:1px;
-  padding:4px 36px;transform:rotate(45deg);text-transform:uppercase;
-}
-.plan-name{font-size:.8rem;font-weight:600;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
-.plan-price{font-size:2.8rem;font-weight:900;letter-spacing:-2px;margin-bottom:4px}
-.plan-price small{font-size:.9rem;font-weight:400;color:var(--text-dim)}
-.plan-old{font-size:.8rem;color:var(--text-muted);text-decoration:line-through;margin-bottom:16px}
-.plan-desc{font-size:.85rem;color:var(--text-dim);margin-bottom:20px;line-height:1.5}
-.plan-features{list-style:none;margin-bottom:24px}
-.plan-features li{
-  padding:6px 0;font-size:.82rem;color:var(--text);
-  display:flex;align-items:center;gap:8px;
-}
-.plan-features li::before{content:'✓';color:var(--accent);font-weight:700}
-.plan-btn{
-  display:block;text-align:center;padding:14px;border-radius:100px;
-  font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;
-  border:1px solid rgba(255,255,255,.1);color:#fff;transition:all .2s;
-  background:transparent;
-}
-.plan-btn:hover{background:rgba(255,255,255,.05);border-color:var(--accent)}
-.plan-btn.primary{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  border:none;box-shadow:0 0 20px rgba(6,182,212,.15);
-}
-.plan-btn.primary:hover{box-shadow:0 0 35px rgba(6,182,212,.3)}
-
-/* ===== PALETTES ===== */
-.palette-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-.palette-card{
-  background:var(--card);border:1px solid var(--border);border-radius:12px;
-  padding:16px;text-align:center;cursor:pointer;transition:all .3s;
-}
-.palette-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.15)}
-.palette-dots{display:flex;gap:6px;justify-content:center;margin-bottom:10px}
-.palette-dot{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,.1)}
-.palette-name{font-size:.75rem;font-weight:600;color:var(--text-dim)}
-
-/* ===== STEPS ===== */
-.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.step-card{text-align:center;padding:32px 20px}
-.step-num{
-  width:48px;height:48px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;font-size:1.1rem;font-weight:800;color:#fff;
-}
-.step-title{font-size:1rem;font-weight:700;margin-bottom:8px}
-.step-desc{font-size:.82rem;color:var(--text-dim);line-height:1.5}
-
-/* ===== COMPARISON ===== */
+body{font-family:'Inter',sans-serif;background:#050505;color:#fff;overflow-x:hidden}
+.gradient-text{background:linear-gradient(135deg,#ff00ff,#00ffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glow{box-shadow:0 0 40px rgba(255,0,255,0.3),0 0 80px rgba(0,255,255,0.1)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#050505 0%,#1a0033 30%,#050505 70%);position:relative;overflow:hidden;padding:40px 20px}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(255,0,255,0.12) 0%,transparent 70%);top:-200px;right:-200px;animation:pulse 4s ease-in-out infinite}
+.hero::after{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(0,255,255,0.08) 0%,transparent 70%);bottom:-100px;left:-100px;animation:pulse 4s ease-in-out infinite 2s}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.1);opacity:1}}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-block;background:rgba(255,0,255,0.15);border:1px solid rgba(255,0,255,0.3);color:#ff00ff;padding:6px 16px;border-radius:20px;font-size:12px;letter-spacing:2px;margin-bottom:24px}
+.hero h1{font-size:clamp(36px,7vw,64px);font-weight:900;line-height:1.1;margin-bottom:16px}
+.hero h1 .highlight{background:linear-gradient(135deg,#ff00ff,#00ffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:clamp(16px,2vw,20px);color:#999;line-height:1.6;margin-bottom:32px;max-width:600px;margin:0 auto 32px}
+.pricing{max-width:1200px;margin:0 auto;padding:80px 20px}
+.pricing h2{text-align:center;font-size:clamp(28px,4vw,42px);font-weight:800;margin-bottom:12px}
+.pricing .subtitle{text-align:center;color:#888;font-size:16px;margin-bottom:48px}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;margin:auto}
+.card{background:linear-gradient(145deg,#111,#0a0a0a);border-radius:16px;padding:32px 28px;border:1px solid #222;position:relative;transition:all 0.3s ease}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,0,255,0.3);box-shadow:0 20px 60px rgba(255,0,255,0.1)}
+.card.popular{border:2px solid #ff00ff;background:linear-gradient(145deg,#1a0033,#111)}
+.card.popular::before{content:'MAS ELEGIDO';position:absolute;top:-12px;right:20px;background:linear-gradient(135deg,#ff00ff,#cc00cc);color:#fff;padding:3px 12px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:1px}
+.card .plan-name{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
+.card .plan-title{font-size:20px;font-weight:700;margin-bottom:12px}
+.card .price{font-size:42px;font-weight:900;margin-bottom:4px}
+.card .price span{font-size:16px;color:#888;font-weight:400}
+.card .price-desc{font-size:12px;color:#666;margin-bottom:20px}
+.card .features{list-style:none;margin-bottom:28px}
+.card .features li{padding:8px 0;font-size:14px;color:#bbb;border-bottom:1px solid #1a1a1a}
+.card .features li::before{content:'→ ';color:#ff00ff}
+.card .features li.green::before{content:'✓ ';color:#4ade80}
+.card .cta{display:block;text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s}
+.card .cta.primary{background:linear-gradient(135deg,#ff00ff,#cc00cc);color:#fff}
+.card .cta.primary:hover{box-shadow:0 0 30px rgba(255,0,255,0.4);transform:scale(1.02)}
+.card .cta.secondary{background:#1a1a1a;color:#fff;border:1px solid #333}
+.card .cta.secondary:hover{background:#222;border-color:#ff00ff}
+.compare{max-width:800px;margin:60px auto;padding:40px 28px;background:linear-gradient(145deg,#111,#0a0a0a);border-radius:16px;border:1px solid #222}
+.compare h3{text-align:center;font-size:22px;margin-bottom:24px}
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.compare-card{padding:28px;border-radius:var(--radius)}
-.compare-neo{background:linear-gradient(145deg,rgba(6,182,212,.06),transparent);border:1px solid rgba(6,182,212,.2)}
-.compare-agency{background:var(--card);border:1px solid var(--border);opacity:.7}
-.compare-name{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-.compare-neo .compare-name{color:var(--accent)}
-.compare-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:.82rem}
-.compare-item:last-child{border:none}
-.compare-label{color:var(--text-dim)}
-.compare-value{font-weight:600}
-.compare-value.check{color:#10b981}
-.compare-value.cross{color:#ef4444}
-
-/* ===== CTA ===== */
-.cta-section{
-  background:linear-gradient(135deg,rgba(6,182,212,.04),transparent);
-  border:1px solid rgba(6,182,212,.1);border-radius:var(--radius);
-  padding:48px 32px;text-align:center;
-}
-.cta-form{display:flex;flex-direction:column;gap:12px;max-width:480px;margin:32px auto 0}
-.cta-form input,.cta-form select,.cta-form textarea{
-  padding:14px 18px;border-radius:10px;background:rgba(255,255,255,.04);
-  border:1px solid var(--border);color:#fff;font-size:.85rem;font-family:inherit;
-  outline:none;transition:border-color .2s;
-}
-.cta-form input:focus,.cta-form select:focus,.cta-form textarea:focus{border-color:var(--accent)}
-.cta-form select option{background:#0c1320;color:#fff}
-.cta-form textarea{resize:vertical;min-height:80px}
-.cta-form button{
-  padding:16px;border-radius:100px;font-size:.95rem;font-weight:700;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;border:none;cursor:pointer;transition:all .3s;
-}
-.cta-form button:hover{box-shadow:0 0 35px rgba(6,182,212,.3);transform:scale(1.02)}
-
-/* ===== FOOTER ===== */
-.footer{text-align:center;padding:40px 20px 60px;position:relative;z-index:1}
-.footer::before{content:'';display:block;width:40px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin:0 auto 16px}
-.footer-brand{font-size:.7rem;font-weight:600;color:var(--text-muted);letter-spacing:1px}
-.footer-sub{font-size:.6rem;color:rgba(255,255,255,.12);margin-top:6px}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp{
-  0%{opacity:0;transform:translateY(20px)}
-  100%{opacity:1;transform:translateY(0)}
-}
-.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.fade-in.show{opacity:1;transform:translateY(0)}
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:10px}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:640px){
-  .hero-title{font-size:1.8rem}
-  .hero-price-big{font-size:2.5rem}
-  .compare-grid{grid-template-columns:1fr}
-  .plans-grid{grid-template-columns:1fr}
-  .plan-popular{order:-1}
-}
+.compare-col{padding:20px;border-radius:12px}
+.compare-col.old{background:rgba(255,0,0,0.08);border:1px solid rgba(255,0,0,0.2)}
+.compare-col.new{background:rgba(0,255,255,0.08);border:1px solid rgba(0,255,255,0.2)}
+.compare-col h4{font-size:14px;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.compare-col.old h4{color:#ff4444}
+.compare-col.new h4{color:#00ffff}
+.compare-col ul{list-style:none}
+.compare-col ul li{padding:6px 0;font-size:13px;color:#aaa}
+.compare-col.old ul li::before{content:'✗ ';color:#ff4444}
+.compare-col.new ul li::before{content:'✓ ';color:#4ade80}
+.compare-price{text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid #222}
+.compare-price .big{font-size:32px;font-weight:800;color:#ff00ff}
+.compare-price .big span{font-size:14px;color:#888;font-weight:400}
+.compare-price .small{font-size:12px;color:#666;margin-top:4px;text-decoration:line-through}
+.showcase{max-width:1200px;margin:0 auto;padding:80px 20px;text-align:center}
+.showcase h2{font-size:clamp(28px,4vw,42px);font-weight:800;margin-bottom:48px}
+.showcase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.showcase-item{background:#111;border-radius:12px;overflow:hidden;border:1px solid #222;transition:all 0.3s}
+.showcase-item:hover{border-color:rgba(255,0,255,0.3);transform:translateY(-2px)}
+.showcase-item .mockup{height:180px;background:linear-gradient(135deg,#1a0033,#0a0a0a);display:flex;align-items:center;justify-content:center;font-size:40px}
+.showcase-item .info{padding:20px}
+.showcase-item .info .tag{display:inline-block;background:rgba(255,0,255,0.15);color:#ff00ff;padding:2px 10px;border-radius:4px;font-size:10px;margin-bottom:8px}
+.showcase-item .info h4{font-size:16px;margin-bottom:6px}
+.showcase-item .info p{font-size:13px;color:#888}
+.cta-section{text-align:center;padding:80px 20px;background:linear-gradient(135deg,#050505,#1a0033,#050505)}
+.cta-section h2{font-size:clamp(28px,4vw,42px);font-weight:800;margin-bottom:16px}
+.cta-section p{color:#999;font-size:16px;margin-bottom:32px;max-width:500px;margin:0 auto 32px}
+.cta-button{display:inline-block;background:linear-gradient(135deg,#ff00ff,#cc00cc);color:#fff;padding:18px 48px;border-radius:10px;font-size:18px;font-weight:700;text-decoration:none;transition:all 0.3s}
+.cta-button:hover{transform:scale(1.05);box-shadow:0 0 50px rgba(255,0,255,0.4)}
+.cta-small{display:block;margin-top:12px;color:#666;font-size:13px}
+.faq{max-width:700px;margin:0 auto;padding:80px 20px}
+.faq h2{text-align:center;font-size:28px;font-weight:800;margin-bottom:40px}
+.faq-item{margin-bottom:12px;background:#111;border-radius:10px;overflow:hidden;border:1px solid #222}
+.faq-q{padding:16px 20px;font-size:14px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';color:#ff00ff;font-size:20px;font-weight:300}
+.faq-q.active::after{content:'−'}
+.faq-a{padding:0 20px 16px;font-size:13px;color:#888;line-height:1.6;display:none}
+footer{text-align:center;padding:40px;border-top:1px solid #111;color:#444;font-size:12px}
+footer a{color:#ff00ff;text-decoration:none}
+@media(max-width:600px){.pricing-grid,.compare-grid{grid-template-columns:1fr}.hero{padding:60px 16px}}
 </style>
 </head>
 <body>
 
-<div class="glow-orb go1"></div>
-<div class="glow-orb go2"></div>
-<div class="glow-orb go3"></div>
-
-<div class="top-bar">
-  <div class="top-bar-brand">neo <strong>webs</strong></div>
-  <a href="#cta" class="top-bar-cta">Solicitar</a>
-</div>
-
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-label">Diseño web premium</div>
-  <h1 class="hero-title">Webs que <span>venden</span>. Desde <span>299€</span></h1>
-  <p class="hero-sub">Webs cinematográficas con diseño único para tu negocio.<br>Sin plantillas genéricas, sin complicaciones. Lista en 48h.</p>
-  <div class="hero-price">
-    <div class="hero-price-big">299€ <small>desde</small></div>
-    <div class="hero-price-old">1.200€</div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ NEO LABS</div>
+    <h1>Tu web profesional.<br><span class="highlight">En 48 horas. Desde 299€.</span></h1>
+    <p>Disenamos y lanzamos tu pagina web con diseno premium, SEO local y hosting incluido. Sin cuotas mensuales. Sin complicaciones.</p>
+    <a href="#planes" class="cta-button glow">VER PLANES Y PRECIOS</a>
+    <span class="cta-small">Mas de 50 negocios locales ya confian en nosotros</span>
   </div>
-  <a href="#cta" class="hero-cta">Quiero mi web →</a>
-  <p class="hero-trust">✓ Hosting 1 año incluido ✓ Dominio .es ✓ Diseño responsive ✓ Sin cuotas mensuales</p>
 </section>
 
-<!-- PLANS -->
-<section class="section" id="planes">
-  <div class="section-inner">
-    <div class="section-tag">Planes</div>
-    <h2 class="section-title">Tu web al precio justo</h2>
-    <p class="section-sub">Precio único, sin sorpresas. Ni cuotas mensuales ni renovaciones ocultas.</p>
-    <div class="plans-grid">
-      <div class="plan-card fade-in">
-        <div class="plan-name">NEO Básica</div>
-        <div class="plan-price">299€ <small>/ único</small></div>
-        <div class="plan-old">Valor real 1.200€</div>
-        <div class="plan-desc">Perfecta para empezar. Tu negocio online en 48h.</div>
-        <ul class="plan-features">
-          <li>Diseño premium personalizado</li>
-          <li>Web 1 página con scroll</li>
-          <li>Hosting 1 año incluido</li>
-          <li>Dominio .es incluido</li>
-          <li>Diseño responsive (móvil)</li>
-          <li>Formulario de contacto</li>
-          <li>Optimización velocidad</li>
-        </ul>
-        <a href="#cta" class="plan-btn">Elegir plan</a>
-      </div>
-
-      <div class="plan-card plan-popular fade-in">
-        <div class="plan-name">NEO Premium</div>
-        <div class="plan-price">599€ <small>/ único</small></div>
-        <div class="plan-old">Valor real 2.500€</div>
-        <div class="plan-desc">La opción más completa. Todo lo que tu negocio necesita.</div>
-        <ul class="plan-features">
-          <li>Todo lo de Básica +</li>
-          <li>Web 5 páginas completas</li>
-          <li>SEO básico (Google)</li>
-          <li>Blog integrado</li>
-          <li>Galería de imágenes</li>
-          <li>Google Analytics</li>
-          <li>WhatsApp integrado</li>
-          <li>Mapa interactivo</li>
-          <li>Formulario avanzado</li>
-        </ul>
-        <a href="#cta" class="plan-btn primary">Elegir plan</a>
-      </div>
-
-      <div class="plan-card fade-in">
-        <div class="plan-name">NEO Full</div>
-        <div class="plan-price">899€ <small>/ único</small></div>
-        <div class="plan-old">Valor real 3.200€</div>
-        <div class="plan-desc">La transformación digital completa de tu negocio.</div>
-        <ul class="plan-features">
-          <li>Todo lo de Premium +</li>
-          <li>Curso IA Operativa (valor 197€)</li>
-          <li>5 prompts personalizados</li>
-          <li>Chatbot IA básico</li>
-          <li>Soporte prioritario 30 días</li>
-          <li>Video tutorial de tu web</li>
-          <li>Configuración email profesional</li>
-        </ul>
-        <a href="#cta" class="plan-btn">Elegir plan</a>
-      </div>
+<section class="pricing" id="planes">
+  <h2>Planes <span class="gradient-text">claros y sin sorpresas</span></h2>
+  <p class="subtitle">Pago unico. Sin cuotas mensuales. Hosting 1 ano incluido.</p>
+  <div class="pricing-grid">
+    <div class="card">
+      <div class="plan-name">Plan</div>
+      <div class="plan-title">BASICA</div>
+      <div class="price">299<span>€</span></div>
+      <div class="price-desc">pago unico · hosting incluido</div>
+      <ul class="features">
+        <li class="green">Web responsive (movil + tablet + pc)</li>
+        <li class="green">SEO basico (Google Maps)</li>
+        <li class="green">Formulario de contacto</li>
+        <li>Diseno premium</li>
+        <li>Blog / noticias</li>
+        <li>Panel administracion</li>
+        <li>Curso IA Operativa</li>
+      </ul>
+      <a href="mailto:dortizs76@gmail.com?subject=Quiero la BASICA 299" class="cta secondary">QUIERO ESTE PLAN</a>
+    </div>
+    <div class="card popular">
+      <div class="plan-name">Plan</div>
+      <div class="plan-title">PREMIUM</div>
+      <div class="price">599<span>€</span></div>
+      <div class="price-desc">pago unico · hosting incluido · <strong style="color:#ff00ff">el mas elegido</strong></div>
+      <ul class="features">
+        <li class="green">Web responsive premium</li>
+        <li class="green">SEO completo + Google Maps</li>
+        <li class="green">Blog + panel administracion</li>
+        <li class="green">WhatsApp integrado</li>
+        <li class="green">Formulario + mapa + redes</li>
+        <li>Curso IA Operativa</li>
+      </ul>
+      <a href="mailto:dortizs76@gmail.com?subject=Quiero el PREMIUM 599" class="cta primary">QUIERO ESTE PLAN →</a>
+    </div>
+    <div class="card">
+      <div class="plan-name">Plan</div>
+      <div class="plan-title">PREMIUM + CURSO</div>
+      <div class="price">699<span>€</span></div>
+      <div class="price-desc">pago unico · incluye curso IA (valor 297€)</div>
+      <ul class="features">
+        <li class="green">Todo el plan PREMIUM</li>
+        <li class="green">Curso IA Operativa (4 sesiones)</li>
+        <li class="green">Aprende a automatizar tu negocio</li>
+        <li class="green">Certificado de finalizacion</li>
+        <li class="green">Soporte prioritario</li>
+      </ul>
+      <a href="mailto:dortizs76@gmail.com?subject=Quiero el PREMIUM+CURSO 699" class="cta secondary">QUIERO ESTE PLAN</a>
     </div>
   </div>
-</section>
 
-<!-- PALETTES -->
-<section class="section" style="background:var(--bg2)">
-  <div class="section-inner">
-    <div class="section-tag">Personalización</div>
-    <h2 class="section-title">Cada negocio, su estilo</h2>
-    <p class="section-sub">Tu web con la paleta de colores ideal para tu sector. No hay dos iguales.</p>
-    <div class="palette-grid">
-      <div class="palette-card fade-in">
-        <div class="palette-dots">
-          <div class="palette-dot" style="background:#DC2626"></div>
-          <div class="palette-dot" style="background:#F97316"></div>
-          <div class="palette-dot" style="background:#1A1A1A"></div>
-        </div>
-        <div class="palette-name">Restaurantes</div>
-      </div>
-      <div class="palette-card fade-in">
-        <div class="palette-dots">
-          <div class="palette-dot" style="background:#06B6D4"></div>
-          <div class="palette-dot" style="background:#10B981"></div>
-          <div class="palette-dot" style="background:#0F172A"></div>
-        </div>
-        <div class="palette-name">Clínicas / Salud</div>
-      </div>
-      <div class="palette-card fade-in">
-        <div class="palette-dots">
-          <div class="palette-dot" style="background:#1E40AF"></div>
-          <div class="palette-dot" style="background:#64748B"></div>
-          <div class="palette-dot" style="background:#0F172A"></div>
-        </div>
-        <div class="palette-name">Abogados / Despachos</div>
-      </div>
-      <div class="palette-card fade-in">
-        <div class="palette-dots">
-          <div class="palette-dot" style="background:#EA580C"></div>
-          <div class="palette-dot" style="background:#6B7280"></div>
-          <div class="palette-dot" style="background:#111827"></div>
-        </div>
-        <div class="palette-name">Talleres / Industria</div>
-      </div>
-      <div class="palette-card fade-in">
-        <div class="palette-dots">
-          <div class="palette-dot" style="background:#DB2777"></div>
-          <div class="palette-dot" style="background:#D946EF"></div>
-          <div class="palette-dot" style="background:#1A0A1A"></div>
-        </div>
-        <div class="palette-name">Estética / Peluquería</div>
-      </div>
-      <div class="palette-card fade-in">
-        <div class="palette-dots">
-          <div class="palette-dot" style="background:#3B82F6"></div>
-          <div class="palette-dot" style="background:#8B5CF6"></div>
-          <div class="palette-dot" style="background:#070B14"></div>
-        </div>
-        <div class="palette-name">Tecnología</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STEPS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-tag">Cómo funciona</div>
-    <h2 class="section-title">De cero a online en 48h</h2>
-    <p class="section-sub">Tres pasos y tienes tu web profesional funcionando.</p>
-    <div class="steps-grid">
-      <div class="step-card fade-in">
-        <div class="step-num">1</div>
-        <div class="step-title">Cuéntanos tu negocio</div>
-        <div class="step-desc">Rellena el formulario con tu sector, colores preferidos y qué necesitas. Sin reuniones interminables.</div>
-      </div>
-      <div class="step-card fade-in">
-        <div class="step-num">2</div>
-        <div class="step-title">Diseñamos tu web</div>
-        <div class="step-desc">Seleccionamos la paleta perfecta para tu sector y montamos tu web con diseño cinematográfico premium.</div>
-      </div>
-      <div class="step-card fade-in">
-        <div class="step-num">3</div>
-        <div class="step-title">Recibes y vendes</div>
-        <div class="step-desc">Te enviamos tu web lista, con dominio y hosting. Empiezas a recibir clientes desde el primer día.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="section" style="background:var(--bg2)">
-  <div class="section-inner">
-    <div class="section-tag">¿Por qué NEO?</div>
-    <h2 class="section-title">Misma calidad, mitad de precio</h2>
-    <p class="section-sub">Comparamos para que veas lo que ofrecemos frente a una agencia tradicional.</p>
+  <div class="compare">
+    <h3>Por que <span class="gradient-text">NEO Labs</span> vs hacerlo por tu cuenta?</h3>
     <div class="compare-grid">
-      <div class="compare-card compare-neo fade-in">
-        <div class="compare-name">NEO Webs</div>
-        <div class="compare-item"><span class="compare-label">Precio</span><span class="compare-value check">299€ - 899€</span></div>
-        <div class="compare-item"><span class="compare-label">Tiempo entrega</span><span class="compare-value check">48 horas</span></div>
-        <div class="compare-item"><span class="compare-label">Diseño único</span><span class="compare-value check">Sí, por sector</span></div>
-        <div class="compare-item"><span class="compare-label">Hosting incluido</span><span class="compare-value check">1 año</span></div>
-        <div class="compare-item"><span class="compare-label">SEO básico</span><span class="compare-value check">Incluido</span></div>
-        <div class="compare-item"><span class="compare-label">Soporte</span><span class="compare-value check">Directo vía WhatsApp</span></div>
+      <div class="compare-col old">
+        <h4>HACERLO SOLO / AGENCIA TRADICIONAL</h4>
+        <ul>
+          <li>Coste inicial: 800€ - 3.000€</li>
+          <li>Cuotas mensuales hosting: 20-50€</li>
+          <li>Tiempo desarrollo: 2-6 semanas</li>
+          <li>Soporte tecnico facturable aparte</li>
+          <li>Sin SEO ni formacion incluida</li>
+        </ul>
       </div>
-      <div class="compare-card compare-agency fade-in">
-        <div class="compare-name">Agencia tradicional</div>
-        <div class="compare-item"><span class="compare-label">Precio</span><span class="compare-value cross">1.500€ - 3.000€</span></div>
-        <div class="compare-item"><span class="compare-label">Tiempo entrega</span><span class="compare-value cross">3 - 6 semanas</span></div>
-        <div class="compare-item"><span class="compare-label">Diseño único</span><span class="compare-value check">Sí</span></div>
-        <div class="compare-item"><span class="compare-label">Hosting incluido</span><span class="compare-value cross">No, aparte</span></div>
-        <div class="compare-item"><span class="compare-label">SEO básico</span><span class="compare-value cross">No incluido</span></div>
-        <div class="compare-item"><span class="compare-label">Soporte</span><span class="compare-value cross">Email / teléfono</span></div>
+      <div class="compare-col new">
+        <h4>CON NEO LABS</h4>
+        <ul>
+          <li>Desde 299€ pago unico</li>
+          <li>Hosting 1 ano incluido (0€/mes)</li>
+          <li>Listo en 48 horas</li>
+          <li>Soporte incluido 30 dias</li>
+          <li>SEO + formacion incluida</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-price">
+      <div class="big">Ahorra hasta <span>2.700€</span></div>
+      <div class="small">vs agencia tradicional en el primer ano</div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <h2>Ejemplos de <span class="gradient-text">trabajos reales</span></h2>
+  <div class="showcase-grid">
+    <div class="showcase-item">
+      <div class="mockup">🍕</div>
+      <div class="info">
+        <span class="tag">Restaurante</span>
+        <h4>Pizzeria Los Bravos</h4>
+        <p>Web completa con menu online, reservas y WhatsApp integrado.</p>
+      </div>
+    </div>
+    <div class="showcase-item">
+      <div class="mockup">⚖️</div>
+      <div class="info">
+        <span class="tag">Abogados</span>
+        <h4>Bufete Ramirez</h4>
+        <p>Web profesional con blog de articulos juridicos y panel de gestion.</p>
+      </div>
+    </div>
+    <div class="showcase-item">
+      <div class="mockup">🏥</div>
+      <div class="info">
+        <span class="tag">Clinica</span>
+        <h4>Centro Medico Nova</h4>
+        <p>Web con booking online, perfiles de doctores y SEO local.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section" id="cta">
-  <div class="section-inner">
-    <div class="cta-section fade-in">
-      <div style="font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Empieza hoy</div>
-      <h2 style="font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:800;margin-bottom:8px">Solicita tu web premium</h2>
-      <p style="font-size:.88rem;color:var(--text-dim);max-width:500px;margin:0 auto">Cuéntanos tu negocio y te enviamos una propuesta personalizada en menos de 24h. Sin compromiso.</p>
-      <form class="cta-form" id="lead-form">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu email" required>
-        <input type="tel" name="telefono" placeholder="Tu teléfono">
-        <select name="tipo">
-          <option value="">¿Qué tipo de negocio?</option>
-          <option>Restaurante / Bar</option>
-          <option>Clínica / Salud</option>
-          <option>Abogado / Despacho</option>
-          <option>Taller / Industria</option>
-          <option>Estética / Peluquería</option>
-          <option>Tienda / E-commerce</option>
-          <option>Tecnología</option>
-          <option>Otro</option>
-        </select>
-        <select name="plan">
-          <option value="">¿Qué plan te interesa?</option>
-          <option>NEO Básica (299€)</option>
-          <option>NEO Premium (599€) - Recomendado</option>
-          <option>NEO Full (899€)</option>
-          <option>No lo sé aún</option>
-        </select>
-        <textarea name="mensaje" placeholder="Cuéntanos qué necesitas... (opcional)"></textarea>
-        <button type="submit">Enviar solicitud →</button>
-      </form>
-      <p style="font-size:.65rem;color:var(--text-muted);margin-top:16px">Te respondemos en menos de 24h · Sin compromiso</p>
-    </div>
-  </div>
+<section class="cta-section">
+  <h2>Preparado para <span class="gradient-text">digitalizar tu negocio</span>?</h2>
+  <p>Respondemos en menos de 1 hora en horario laboral. Sin compromiso.</p>
+  <a href="mailto:dortizs76@gmail.com?subject=Quiero mi web NEO" class="cta-button glow">HABLAR CON DAVID →</a>
+  <span class="cta-small">Tambien por WhatsApp: 658 237 988</span>
 </section>
 
-<footer class="footer">
-  <div class="footer-brand">NEO Labs</div>
-  <div class="footer-sub">© 2026 NEO Webs · Diseño web premium con IA</div>
+<section class="faq">
+  <h2>Preguntas <span class="gradient-text">frecuentes</span></h2>
+  <div class="faq-item"><div class="faq-q">Cuanto tarda en estar lista mi web?</div><div class="faq-a">Entre 48 y 72 horas desde que nos das el contenido y las fotos. En el plan Premium incluimos una sesion de 30 min para definir todo.</div></div>
+  <div class="faq-item"><div class="faq-q">Tengo que pagar algo mas despues?</div><div class="faq-a">No. El precio incluye hosting y dominio el primer ano. Despues son 60€/ano de hosting (renovacion opcional, puedes llevarte la web a donde quieras).</div></div>
+  <div class="faq-item"><div class="faq-q">Necesito saber de tecnologia?</div><div class="faq-a">Para nada. Tu solo pones el texto y las fotos. Nosotros nos encargamos de todo.</div></div>
+  <div class="faq-item"><div class="faq-q">Que pasa si no me gusta?</div><div class="faq-a">Te hacemos los cambios que necesites hasta que quede como quieres. Sin coste adicional durante los primeros 30 dias.</div></div>
+</section>
+
+<footer>
+  <p>NEO Labs · Madrid, Espana</p>
+  <p><a href="mailto:dortizs76@gmail.com">dortizs76@gmail.com</a> · <a href="tel:+34658237988">658 237 988</a></p>
+  <p style="margin-top:8px">© 2026 NEO Labs · Soluciones Digitales</p>
 </footer>
 
 <script>
-// Intersection Observer for fade-in
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}})
-},{threshold:.1})
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el))
-
-// Form handler
-document.getElementById('lead-form').addEventListener('submit', async function(e){
-  e.preventDefault()
-  const btn = this.querySelector('button')
-  btn.textContent = 'Enviando...'
-  btn.disabled = true
-  
-  const data = new FormData(this)
-  const obj = Object.fromEntries(data)
-  
-  // Save to local file via POST (placeholder - will connect to n8n)
-  try {
-    // For now, save to console
-    console.log('Lead:', obj)
-    btn.textContent = '✓ Solicitud enviada'
-    btn.style.background = '#10B981'
-    setTimeout(()=>{
-      btn.textContent = 'Enviar solicitud →'
-      btn.style.background = ''
-      btn.disabled = false
-    },3000)
-  } catch(e){
-    btn.textContent = 'Error, intenta de nuevo'
-    btn.disabled = false
-  }
-})
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const a = q.nextElementSibling;
+    const isOpen = a.style.display === 'block';
+    document.querySelectorAll('.faq-a').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.faq-q').forEach(el => el.classList.remove('active'));
+    if (!isOpen) { a.style.display = 'block'; q.classList.add('active'); }
+  });
+});
 </script>
+
 </body>
 </html>
