@@ -265,13 +265,29 @@ def get_world_cup():
 def fallback_wc():
     return '<div class="wc-card"><p style="color:var(--muted);font-size:.8rem">Mundial 2026 · 48 equipos · 16 sedes</p></div>'
 
-# ─── 3. NEWS ES ──────────────────────────────────────────────
+# ─── 3. NEWS ES (solo IA, solo ayer/hoy) ────────────────────
+AI_KEYWORDS = ["inteligencia artificial","ia","chatgpt","openai","deepseek","claude","anthropic",
+               "gemini","google ai","meta ai","machine learning","aprendizaje automático",
+               "neural","red neuronal","llm","modelo de lenguaje","gpt","ai agent",
+               "agente","automatización","robótica","algoritmo","open source ai",
+               "hugging face","notebooklm","veo","sora","midjourney","stable diffusion",
+               "copilot","asistente","prompt","token","entrenar"]
+
+def es_noticia_ia(title, desc):
+    text = (title + " " + desc).lower()
+    for kw in AI_KEYWORDS:
+        if kw in text:
+            return True
+    return False
+
 def get_ai_news():
     feeds = [
         ("Hipertextual", "https://hipertextual.com/feed"),
         ("WWWhatsnew", "https://wwwhatsnew.com/feed"),
     ]
     items, seen = [], set()
+    today = date.today()
+    
     for source, url in feeds:
         data = fetch(url)
         if not data: continue
@@ -281,17 +297,44 @@ def get_ai_news():
                 title = item.findtext("title","").strip()
                 link = item.findtext("link","").strip()
                 desc = strip_html(item.findtext("description",""))
-                pubdate = item.findtext("pubDate","")[:16]
+                pubdate_raw = item.findtext("pubDate","")
+                
                 if not title or not link: continue
                 key = title.lower()[:40]
                 if key in seen: continue
                 seen.add(key)
-                items.append({"source":source,"title":title,"link":link,"desc":desc[:200],"pubdate":pubdate})
-                if len(items)>=10: break
-            if len(items)>=10: break
+                
+                # Filter by AI keywords
+                if not es_noticia_ia(title, desc): continue
+                
+                # Filter by date (yesterday or today)
+                pub_date = None
+                if pubdate_raw:
+                    try:
+                        # RSS date format: "Tue, 30 Jun 2026 12:00:00 GMT"
+                        for fmt in ["%a, %d %b %Y %H:%M:%S %Z", "%a, %d %b %Y %H:%M:%S %z",
+                                    "%d %b %Y %H:%M:%S", "%Y-%m-%dT%H:%M:%S"]:
+                            try:
+                                pub_date = datetime.strptime(pubdate_raw.strip()[:25], fmt).date()
+                                break
+                            except: pass
+                    except: pass
+                
+                age_ok = True
+                if pub_date:
+                    diff = (today - pub_date).days
+                    if diff > 1: age_ok = False  # Solo ayer o hoy
+                
+                if not age_ok: continue
+                
+                pubdate_short = pubdate_raw[:16] if pubdate_raw else ""
+                items.append({"source":source,"title":title,"link":link,"desc":desc[:200],"pubdate":pubdate_short})
+                if len(items)>=6: break
+            if len(items)>=6: break
         except Exception as e:
             log(f"  rss {source}: {e}")
-    return items[:8]
+    
+    return items[:6]
 
 def news_to_html(items):
     if not items: return "", []
@@ -346,34 +389,74 @@ def get_youtube_yesterday():
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
 def generate_podcast(news_items, date_str):
-    news_lines = "\n".join(f"- {i['title'][:60]}" for i in news_items[:4]) if news_items else "Hoy sin noticias destacadas."
-    script = f"""Buenos días. Bienvenido al NEO Briefing de {date_str}.
+    """Generate podcast with actual content using DeepSeek Flash."""
+    ds_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    
+    # Collect yesterday's WC results for the script
+    results_text = ""
+    try:
+        matches = fetch_json("https://worldcup26.ir/get/games")
+        ko = [m for m in matches if m.get('type') != 'group' and m.get('finished','FALSE').upper()=='TRUE' and m.get('home_team_name_en')]
+        ko.sort(key=lambda m: m.get('local_date',''), reverse=True)
+        lines = []
+        for m in ko[:4]:
+            h, a = es(m["home_team_name_en"]), es(m["away_team_name_en"])
+            lines.append(f"{h} {m.get('home_score','?')}–{m.get('away_score','?')} {a}")
+        if lines: results_text = "Mundial: " + ". ".join(lines) + "."
+    except: pass
+    
+    news_text = ". ".join(i['title'][:60] for i in news_items[:3]) if news_items else ""
+    
+    prompt = f"""Genera un guión de podcast matutino en español, dinámico y conversacional, máximo 200 palabras.
+Hoy es {date_str}.
+Incluye:
+1. Saludo breve y enérgico
+2. Noticias de IA: {news_text if news_text else "últimas novedades en inteligencia artificial"}
+3. {results_text if results_text else "El Mundial 2026 sigue en marcha"}
+4. Un tip rápido de productividad con IA
+5. Cierre motivacional breve
 
-Hoy en inteligencia artificial:
-{news_lines}
+Tono natural, como si hablaras a un amante de la tecnología. No uses coletillas como 'en el mundo de'. Sé directo y concreto."""
 
-En el Mundial 2026, resultados y clasificación en neolabs.es/briefing.
-
-Prompt del día: piensa en una tarea que haces cada día y que podrías delegar completamente a un agente de IA. Describe el resultado ideal, no el proceso.
-
-Nos vemos mañana."""
+    script = None
+    if ds_key:
+        try:
+            data = json.dumps({
+                "model": "deepseek-chat",
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 350,
+                "temperature": 0.7,
+            }).encode()
+            req = urllib.request.Request(
+                "https://api.deepseek.com/v1/chat/completions",
+                data=data,
+                headers={"Content-Type": "application/json", "Authorization": f"Bearer {ds_key}"}
+            )
+            resp = urllib.request.urlopen(req, timeout=30)
+            result = json.loads(resp.read())
+            script = result["choices"][0]["message"]["content"].strip()
+            log(f"  script by DeepSeek ({len(script)} chars)")
+        except Exception as e:
+            log(f"  DeepSeek error: {e}")
+    
+    if not script:
+        news_fb = ". ".join(i['title'][:50] for i in news_items[:3]) if news_items else "últimas noticias de IA"
+        script = f"Buenos días. {news_fb}. {results_text if results_text else 'El Mundial sigue.'} Tip: usa un asistente AI para resumir tus correos cada mañana. Nos vemos mañana."
     
     os.makedirs(AUDIO_DIR, exist_ok=True)
     with open(SCRIPT_FILE, "w", encoding="utf-8") as f: f.write(script)
-    log(f"  script: {len(script)} chars")
-    if os.path.exists(AUDIO_FILE): os.remove(AUDIO_FILE)
     
+    if os.path.exists(AUDIO_FILE): os.remove(AUDIO_FILE)
     cmd = [sys.executable, "-m", "edge_tts", "-f", SCRIPT_FILE,
            "-v", "es-ES-AlvaroNeural", "--rate=-5%", "--write-media", AUDIO_FILE]
     log(f"  audio...")
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     if r.returncode != 0:
-        log(f"  error: {r.stderr[:200]}")
+        log(f"  audio error: {r.stderr[:200]}")
         return "no-audio","—"
-    
     if os.path.exists(AUDIO_FILE):
         log(f"  audio: {os.path.getsize(AUDIO_FILE)/1024:.0f}KB")
-        secs = max(20, round(len(script.split())/150*60))
+        secs = max(15, round(len(script.split())/150*60))
         return "./podcast.mp3", f"{secs//60:02d}:{secs%60:02d}"
     return "no-audio","—"
 

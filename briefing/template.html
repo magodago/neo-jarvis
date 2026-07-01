@@ -34,6 +34,7 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
+.section-wrap{position:relative;z-index:1}
 img{max-width:100%;display:block}
 /* ===== TOP BAR ===== */
 .top-bar{
@@ -318,6 +319,52 @@ img{max-width:100%;display:block}
   margin-top:8px;transition:all .2s;
 }
 .wc-more:active{background:var(--card);color:var(--accent)}
+/* ===== FLOATING ORBS ===== */
+.orb{
+  position:fixed;border-radius:50%;
+  filter:blur(80px);pointer-events:none;
+  z-index:0;opacity:.15;
+}
+.orb-1{
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(59,130,246,.4),transparent);
+  top:-100px;right:-100px;
+  animation:drift1 20s ease-in-out infinite;
+}
+.orb-2{
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(99,102,241,.3),transparent);
+  bottom:200px;left:-80px;
+  animation:drift2 25s ease-in-out infinite;
+}
+.orb-3{
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(59,130,246,.2),transparent);
+  top:50%;left:50%;
+  animation:drift3 30s ease-in-out infinite;
+}
+@keyframes drift1{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(-60px,40px) scale(1.1)}
+  66%{transform:translate(30px,-50px) scale(.9)}
+}
+@keyframes drift2{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(50px,-30px) scale(1.15)}
+  66%{transform:translate(-40px,60px) scale(.85)}
+}
+@keyframes drift3{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(80px,40px) scale(1.1)}
+  50%{transform:translate(-30px,-60px) scale(.9)}
+  75%{transform:translate(-60px,30px) scale(1.05)}
+}
+/* ===== PARTICLES ===== */
+#particles-canvas{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;
+  opacity:.3;
+}
 /* ===== VIDEOS ===== */
 .video-grid{display:flex;flex-direction:column;gap:8px}
 .video-card{
@@ -393,6 +440,11 @@ img{max-width:100%;display:block}
 </style>
 </head>
 <body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<canvas id="particles-canvas"></canvas>
 
 <div class="top-bar">
   <div class="top-bar-brand">daily <strong>briefing</strong></div>
@@ -506,6 +558,47 @@ function closeNewsModal(){
   document.getElementById('news-modal').classList.remove('active');
   document.body.style.overflow = '';
 }
+// Floating particles
+(function(){
+  var c = document.getElementById('particles-canvas'), cx, w, h, particles = [], anim;
+  if(!c) return;
+  function resize(){
+    w = window.innerWidth; h = window.innerHeight;
+    c.width = w * 2; c.height = h * 2;
+    c.style.width = w + 'px'; c.style.height = h + 'px';
+    cx = c.getContext('2d');
+    cx.scale(2,2);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  
+  for(var i = 0; i < 35; i++){
+    particles.push({
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5 - 0.15,
+      r: Math.random() * 2.5 + 0.5,
+      a: Math.random() * 0.3 + 0.05
+    });
+  }
+  
+  function draw(){
+    cx.clearRect(0,0,w,h);
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0 || p.x > w) p.vx *= -1;
+      if(p.y < 0 || p.y > h) p.vy *= -1;
+      cx.beginPath();
+      cx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      cx.fillStyle = 'rgba(147, 197, 253, ' + p.a + ')';
+      cx.fill();
+    }
+    anim = requestAnimationFrame(draw);
+  }
+  draw();
+})();
 // Waveform
 (function(){
   var a=document.getElementById('podcast-audio'),c=document.getElementById('waveform-canvas'),ct=document.getElementById('waveform-container'),ac,s,an,ai,w,h;

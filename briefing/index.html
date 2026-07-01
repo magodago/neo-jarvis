@@ -34,6 +34,7 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
+.section-wrap{position:relative;z-index:1}
 img{max-width:100%;display:block}
 /* ===== TOP BAR ===== */
 .top-bar{
@@ -318,6 +319,52 @@ img{max-width:100%;display:block}
   margin-top:8px;transition:all .2s;
 }
 .wc-more:active{background:var(--card);color:var(--accent)}
+/* ===== FLOATING ORBS ===== */
+.orb{
+  position:fixed;border-radius:50%;
+  filter:blur(80px);pointer-events:none;
+  z-index:0;opacity:.15;
+}
+.orb-1{
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(59,130,246,.4),transparent);
+  top:-100px;right:-100px;
+  animation:drift1 20s ease-in-out infinite;
+}
+.orb-2{
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(99,102,241,.3),transparent);
+  bottom:200px;left:-80px;
+  animation:drift2 25s ease-in-out infinite;
+}
+.orb-3{
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(59,130,246,.2),transparent);
+  top:50%;left:50%;
+  animation:drift3 30s ease-in-out infinite;
+}
+@keyframes drift1{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(-60px,40px) scale(1.1)}
+  66%{transform:translate(30px,-50px) scale(.9)}
+}
+@keyframes drift2{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(50px,-30px) scale(1.15)}
+  66%{transform:translate(-40px,60px) scale(.85)}
+}
+@keyframes drift3{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(80px,40px) scale(1.1)}
+  50%{transform:translate(-30px,-60px) scale(.9)}
+  75%{transform:translate(-60px,30px) scale(1.05)}
+}
+/* ===== PARTICLES ===== */
+#particles-canvas{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;
+  opacity:.3;
+}
 /* ===== VIDEOS ===== */
 .video-grid{display:flex;flex-direction:column;gap:8px}
 .video-card{
@@ -394,6 +441,11 @@ img{max-width:100%;display:block}
 </head>
 <body>
 
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<canvas id="particles-canvas"></canvas>
+
 <div class="top-bar">
   <div class="top-bar-brand">daily <strong>briefing</strong></div>
   <div class="top-bar-weather">24°C · Soleado · Hum 54%</div>
@@ -417,7 +469,7 @@ img{max-width:100%;display:block}
     <div class="section-icon">♪</div>
     <span class="section-title">Podcast del día</span>
   </div>
-  <div class="section-sub">00:44 · Noticias IA · Mundial · Productividad</div>
+  <div class="section-sub">00:24 · Noticias IA · Mundial · Productividad</div>
   <div class="podcast-card">
     <div class="podcast-top">
       <div class="podcast-avatar">
@@ -599,52 +651,38 @@ img{max-width:100%;display:block}
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">One UI 9 y Android 17 llega hoy a los Galaxy más vendidos: ya son más de 40 móviles compat</div>
+    <div class="news-card-title">‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel</div>
     <div class="news-card-time">Wed, 01 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(1)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel</div>
-    <div class="news-card-time">Wed, 01 Jul 2026</div>
-  </div>
-</div><div class="news-card" onclick="openNewsModal(2)">
-  <div class="news-card-img">📰</div>
-  <div class="news-card-body">
-    <div class="news-card-source">Hipertextual</div>
     <div class="news-card-title">Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</div><div class="news-card" onclick="openNewsModal(3)">
-  <div class="news-card-img">📰</div>
-  <div class="news-card-body">
-    <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Samsung ya no se esconde y comienza a dar pistas del nuevo diseño del Galaxy Z Fold 8</div>
-    <div class="news-card-time">Tue, 30 Jun 2026</div>
-  </div>
-</div><div class="news-card" onclick="openNewsModal(4)">
+</div><div class="news-card" onclick="openNewsModal(2)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
     <div class="news-card-title">NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</div><div class="news-card" onclick="openNewsModal(5)">
+</div><div class="news-card" onclick="openNewsModal(3)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
     <div class="news-card-title">Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</div><div class="news-card" onclick="openNewsModal(6)">
+</div><div class="news-card" onclick="openNewsModal(4)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
     <div class="news-card-title">Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
-</div><div class="news-card" onclick="openNewsModal(7)">
+</div><div class="news-card" onclick="openNewsModal(5)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
@@ -709,11 +747,11 @@ img{max-width:100%;display:block}
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-brand">daily briefing</div>
-  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 10:07</div>
+  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 10:14</div>
 </div>
 
 <script>
-var NEWS_DATA = [{"source": "Hipertextual", "title": "One UI 9 y Android 17 llega hoy a los Galaxy más vendidos: ya son más de 40 móviles compatibles", "desc": "Samsung continúa avanzando a muy buen ritmo con sus actualizaciones de One UI 9 y Android 17. Desde hace unas semanas, no solo los móviles de gama alta están recibiendo esta nueva versión, sino que al", "link": "https://hipertextual.com/mobile/one-ui-9-y-android-17-llega-hoy-a-los-galaxy-mas-vendidos-ya-son-mas-de-40-moviles-compatibles/"}, {"source": "Hipertextual", "title": "‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel", "desc": "Disney+ acaba de estrenar por fin la temporada 2 de X-Men 97, la aclamada serie de animación de Marvel. La compañía devolvió a la vida el clásico de los 90 con una secuela aún más madura y espectacula", "link": "https://hipertextual.com/cine-television/x-men-97-temporada-2-critica/"}, {"source": "Hipertextual", "title": "Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google", "desc": "Si no puedes mandar GIFs desde tu aplicación de mensajería, no es tu móvil. Google decidió cerrar la API de Tenor, la biblioteca de GIF que utilizan WhatsApp, Discord y otras apps. El gigante tecnológ", "link": "https://hipertextual.com/mobile/google-cierra-api-tenor-gifs-apps/"}, {"source": "Hipertextual", "title": "Samsung ya no se esconde y comienza a dar pistas del nuevo diseño del Galaxy Z Fold 8", "desc": "En este último tiempo se han multiplicado los rumores y las especulaciones en torno a los nuevos plegables de Samsung. La marca coreana sabe que existe gran expectación por sus próximos modelos y ha d", "link": "https://hipertextual.com/mobile/samsung-revela-pistas-nuevo-diseno-galaxy-z-fold-8/"}, {"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico", "desc": "Anthropic ha presentado Claude Science, una nueva herramienta con la que busca ganarse a la comunidad científica. En lugar de diseñar un modelo dedicado, la compañía prefirió personalizar a Claude par", "link": "https://hipertextual.com/inteligencia-artificial/claude-science-ia-anthropic-cientificos/"}, {"source": "Hipertextual", "title": "Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos", "desc": "Google ha actualizado su oferta de IA con dos modelos que nos ayudarán a generar contenido multimedia de forma más rápida. A pocas horas de lanzar una función que ter permite obtener contexto de otros", "link": "https://hipertextual.com/inteligencia-artificial/nano-banana-2-lite-gemini-omni-flash-google/"}];
+var NEWS_DATA = [{"source": "Hipertextual", "title": "‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel", "desc": "Disney+ acaba de estrenar por fin la temporada 2 de X-Men 97, la aclamada serie de animación de Marvel. La compañía devolvió a la vida el clásico de los 90 con una secuela aún más madura y espectacula", "link": "https://hipertextual.com/cine-television/x-men-97-temporada-2-critica/"}, {"source": "Hipertextual", "title": "Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google", "desc": "Si no puedes mandar GIFs desde tu aplicación de mensajería, no es tu móvil. Google decidió cerrar la API de Tenor, la biblioteca de GIF que utilizan WhatsApp, Discord y otras apps. El gigante tecnológ", "link": "https://hipertextual.com/mobile/google-cierra-api-tenor-gifs-apps/"}, {"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico", "desc": "Anthropic ha presentado Claude Science, una nueva herramienta con la que busca ganarse a la comunidad científica. En lugar de diseñar un modelo dedicado, la compañía prefirió personalizar a Claude par", "link": "https://hipertextual.com/inteligencia-artificial/claude-science-ia-anthropic-cientificos/"}, {"source": "Hipertextual", "title": "Lo último de Google es una locura: su nueva IA genera imágenes en solo 4 segundos", "desc": "Google ha actualizado su oferta de IA con dos modelos que nos ayudarán a generar contenido multimedia de forma más rápida. A pocas horas de lanzar una función que ter permite obtener contexto de otros", "link": "https://hipertextual.com/inteligencia-artificial/nano-banana-2-lite-gemini-omni-flash-google/"}];
 function openNewsModal(i){
   var d = NEWS_DATA[i]; if(!d) return;
   var el = document.getElementById('news-content');
@@ -726,6 +764,47 @@ function closeNewsModal(){
   document.getElementById('news-modal').classList.remove('active');
   document.body.style.overflow = '';
 }
+// Floating particles
+(function(){
+  var c = document.getElementById('particles-canvas'), cx, w, h, particles = [], anim;
+  if(!c) return;
+  function resize(){
+    w = window.innerWidth; h = window.innerHeight;
+    c.width = w * 2; c.height = h * 2;
+    c.style.width = w + 'px'; c.style.height = h + 'px';
+    cx = c.getContext('2d');
+    cx.scale(2,2);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  
+  for(var i = 0; i < 35; i++){
+    particles.push({
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5 - 0.15,
+      r: Math.random() * 2.5 + 0.5,
+      a: Math.random() * 0.3 + 0.05
+    });
+  }
+  
+  function draw(){
+    cx.clearRect(0,0,w,h);
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0 || p.x > w) p.vx *= -1;
+      if(p.y < 0 || p.y > h) p.vy *= -1;
+      cx.beginPath();
+      cx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      cx.fillStyle = 'rgba(147, 197, 253, ' + p.a + ')';
+      cx.fill();
+    }
+    anim = requestAnimationFrame(draw);
+  }
+  draw();
+})();
 // Waveform
 (function(){
   var a=document.getElementById('podcast-audio'),c=document.getElementById('waveform-canvas'),ct=document.getElementById('waveform-container'),ac,s,an,ai,w,h;
