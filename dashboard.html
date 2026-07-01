@@ -2,359 +2,192 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>Panel NEO — Business Dashboard</title>
-<meta name="description" content="Panel de control NEO Labs. Monitoriza ventas, tráfico web, rendimiento de productos digitales y estadísticas de negocio.">
-<meta name="robots" content="noindex, nofollow">
-<link rel="canonical" href="https://magodago.github.io/neo-jarvis/dashboard.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="favicon-neo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-neo.png">
-<link rel="shortcut icon" href="favicon-neo.svg">
-<link rel="apple-touch-icon" href="neo-labs-icon.png">
-<meta name="google-site-verification" content="c_28XEsyfUVcGVbPpfkhujKtsO_XkyMJRjLwjhitFzQ" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEO Leads Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#d4a853;--gold-light:#e8c97a;--gold-dark:#b8922f;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--bg4:#1a1a28;--text:#ede8e0;--text-muted:#9a9588;--green:#4caf50;--red:#ef5350;--blue:#42a5f5;--purple:#ab47bc;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif;--font-mono:'JetBrains Mono',monospace}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,8,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,.08)}
-.nav-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff}
-.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;gap:20px;list-style:none;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase}
-.nav-links a{color:var(--text-muted);transition:color .3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-status{font-size:.65rem;letter-spacing:1px;color:var(--green);display:flex;align-items:center;gap:6px}
-.nav-status .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%{opacity:.4}50%{opacity:1}100%{opacity:.4}}
-
-.wrap{max-width:1300px;margin:0 auto;padding:80px 24px 40px}
-
-/* HEADER */
-.dash-header{margin-bottom:32px}
-.dash-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;letter-spacing:-1px}
-.dash-header h1 span{color:var(--gold)}
-.dash-header .sub{color:var(--text-muted);font-size:.85rem;margin-top:4px}
-.dash-header .sub span{color:var(--gold)}
-
-/* GRID */
-.grid{display:grid;gap:16px;margin-bottom:28px}
-.grid-4{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
-.grid-2{grid-template-columns:repeat(auto-fill,minmax(380px,1fr))}
-.grid-3{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-
-/* CARDS */
-.card{background:linear-gradient(145deg,var(--bg3),var(--bg2));border:1px solid rgba(255,255,255,.04);border-radius:14px;padding:20px;transition:all .3s}
-.card:hover{border-color:rgba(212,168,83,.12)}
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
-.card-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:600}
-.card-icon{font-size:1.2rem;opacity:.6}
-.card-value{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1;margin-bottom:4px}
-.card-value.gold{color:var(--gold)}
-.card-value.green{color:var(--green)}
-.card-value.blue{color:var(--blue)}
-.card-value.purple{color:var(--purple)}
-.card-value.red{color:var(--red)}
-.card-desc{font-size:.75rem;color:var(--text-muted)}
-.card-sub{font-size:.72rem;color:#6a6558;margin-top:2px}
-
-/* PROGRESS BAR */
-.progress{height:4px;background:var(--bg4);border-radius:4px;margin-top:10px;overflow:hidden}
-.progress-bar{height:100%;border-radius:4px;transition:width 1s}
-.progress-bar.gold{background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light))}
-.progress-bar.green{background:linear-gradient(90deg,#2e7d32,var(--green),#81c784)}
-.progress-bar.blue{background:linear-gradient(90deg,#1565c0,var(--blue),#64b5f6)}
-
-/* TABLE */
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:.82rem}
-th{text-align:left;padding:10px 14px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);font-weight:600;border-bottom:1px solid rgba(255,255,255,.04)}
-td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--text)}
-tr:hover td{background:rgba(212,168,83,.03)}
-td .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:600}
-.tag.gold{background:rgba(212,168,83,.12);color:var(--gold)}
-.tag.green{background:rgba(76,175,80,.12);color:var(--green)}
-.tag.blue{background:rgba(66,165,245,.12);color:var(--blue)}
-.tag.purple{background:rgba(171,71,188,.12);color:var(--purple)}
-td a{color:var(--gold);text-decoration:none}
-td a:hover{text-decoration:underline}
-
-/* SECTION HEADERS */
-.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;margin-top:8px}
-.section-header h2{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:-.3px}
-.section-header .badge{font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);padding:4px 12px;border:1px solid rgba(255,255,255,.06);border-radius:100px}
-
-/* EMPTY STATE */
-.empty-state{text-align:center;padding:32px 20px;color:var(--text-muted)}
-.empty-state .icon{font-size:2rem;margin-bottom:8px;opacity:.4}
-.empty-state p{font-size:.85rem}
-.empty-state .hint{font-size:.72rem;color:#6a6558;margin-top:4px}
-
-/* PAGES LIST */
-.page-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
-.page-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,.02);border-radius:8px;font-size:.78rem;transition:all .2s}
-.page-item:hover{background:rgba(212,168,83,.05)}
-.page-item .emoji{font-size:.9rem;flex-shrink:0}
-.page-item a{color:var(--text-muted);text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.page-item a:hover{color:var(--gold)}
-
-/* FOOTER */
-footer{margin-top:40px;padding:24px 0;border-top:1px solid rgba(255,255,255,.04);text-align:center}
-footer p{font-size:.72rem;color:#4a4538}
-footer .links{display:flex;gap:16px;justify-content:center;margin-bottom:6px}
-footer .links a{font-size:.72rem;color:#6a6558}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .wrap{padding:70px 16px 24px}
-  .grid-2{grid-template-columns:1fr}
-  .nav-links{display:none}
-  nav{padding:12px 16px}
-  .page-list{grid-template-columns:1fr}
+:root{--bg:#0a0a0f;--card:#12121a;--border:#1e1e30;--magenta:#d946ef;--cyan:#06b6d4;--orange:#f97316;--green:#10b981;--text:#e2e8f0;--dim:#94a3b8}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;padding:20px;min-height:100vh}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+.header h1{font-size:28px;background:linear-gradient(135deg,var(--magenta),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .date{color:var(--dim);font-size:14px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:30px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:transform .2s,box-shadow .2s}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(217,70,239,.15)}
+.stat-value{font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--magenta),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{color:var(--dim);font-size:12px;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.stat-card.danger .stat-value{-webkit-text-fill-color:var(--orange);background:none;color:var(--orange)}
+.stat-card.success .stat-value{-webkit-text-fill-color:var(--green);background:none;color:var(--green)}
+.stat-card.warning .stat-value{-webkit-text-fill-color:var(--orange);background:none;color:var(--orange);font-size:22px}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:16px;margin-bottom:30px}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.chart-card h3{font-size:14px;color:var(--dim);margin-bottom:15px;text-transform:uppercase;letter-spacing:1px}
+.chart-card canvas{max-height:300px}
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;overflow-x:auto}
+.table-wrap h3{font-size:14px;color:var(--dim);margin-bottom:15px;text-transform:uppercase;letter-spacing:1px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:8px 12px;color:var(--dim);border-bottom:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:8px 12px;border-bottom:1px solid rgba(30,30,48,.5)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.badge.sent{background:rgba(6,182,212,.15);color:var(--cyan)}
+.badge.pending{background:rgba(217,70,239,.15);color:var(--magenta)}
+.badge.responded{background:rgba(16,185,129,.15);color:var(--green)}
+.badge.bounced{background:rgba(249,115,22,.15);color:var(--orange)}
+.last-update{text-align:center;color:var(--dim);font-size:12px;margin-top:30px;padding:20px}
+@media(max-width:600px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .charts-grid{grid-template-columns:1fr}
+  .header h1{font-size:20px}
 }
 </style>
 </head>
 <body>
-<nav>
- <a href="neo-labs.html" class="nav-logo">NE<span>O</span> LABS</a>
- <ul class="nav-links">
-  <li><a href="neo-labs.html">Inicio</a></li>
-  <li><a href="catalogo.html">Catálogo</a></li>
-  <li><a href="blog/index.html">Blog</a></li>
-  <li><a href="dashboard.html" style="color:var(--gold)">Dashboard</a></li>
- </ul>
- <div class="nav-status"><span class="dot"></span>LIVE</div>
-</nav>
-
-<div class="wrap">
- <div class="dash-header">
-  <h1>📊 Panel <span>NEO</span></h1>
-  <div class="sub">Dashboard de negocio — datos actualizados en tiempo real · <span id="fecha-hoy"></span></div>
- </div>
-
- <!-- CARDS PRINCIPALES -->
- <div class="grid grid-4" id="stats-cards">
-  <div class="card"><div class="card-header"><span class="card-label">Artículos</span><span class="card-icon">📝</span></div><div class="card-value gold" id="stat-articulos">—</div><div class="card-desc">En 6 nichos de contenido</div><div class="progress"><div class="progress-bar gold" style="width:100%"></div></div></div>
-
-  <div class="card"><div class="card-header"><span class="card-label">Podcasts</span><span class="card-icon">🎙️</span></div><div class="card-value gold" id="stat-podcasts">—</div><div class="card-desc">Ana & Carlos · ~3 min c/u</div><div class="progress"><div class="progress-bar gold" style="width:100%"></div></div></div>
-
-  <div class="card"><div class="card-header"><span class="card-label">Pines Publicados</span><span class="card-icon">📌</span></div><div class="card-value purple" id="stat-pines">—</div><div class="card-desc">Cuenta: formulasia76</div><div class="progress"><div class="progress-bar gold" style="width:70%"></div></div></div>
-
-  <div class="card"><div class="card-header"><span class="card-label">Páginas Indexadas</span><span class="card-icon">🌐</span></div><div class="card-value gold" id="stat-paginas">—</div><div class="card-desc">Sitemap · GSC verificado</div><div class="progress"><div class="progress-bar gold" style="width:100%"></div></div></div>
- </div>
-
- <!-- GOATCOUNTER + PINTEREST -->
- <div class="grid grid-2">
-  <div class="card">
-   <div class="card-header"><span class="card-label">📈 Analytics (GoatCounter)</span><span class="card-icon">📊</span></div>
-   <div class="card-value gold">Visitas hoy</div>
-   <div class="card-value green" id="gc-hoy" style="font-size:2.8rem">0</div>
-   <div style="display:flex;gap:24px;margin:12px 0 8px;font-size:.8rem">
-    <div><span style="color:var(--text-muted)">7 días</span><br><span class="card-value green" id="gc-semana" style="font-size:1.2rem">0</span></div>
-    <div><span style="color:var(--text-muted)">Total</span><br><span class="card-value green" id="gc-total" style="font-size:1.2rem">0</span></div>
-    <div><span style="color:var(--text-muted)">Top página</span><br><span id="gc-top" style="font-size:.8rem;color:var(--text-muted)">—</span></div>
-   </div>
-   <div class="card-desc" style="color:#6a6558">📊 Tracking activo en <code style="color:var(--gold)">davidformulas.goatcounter.com</code></div>
-  </div>
-
-  <div class="card">
-   <div class="card-header"><span class="card-label">📌 Pinterest</span><span class="card-icon">📌</span></div>
-   <div class="card-value gold" id="pin-total">139</div>
-   <div class="card-desc">Pines publicados · 4 rondas/día</div>
-   <div style="display:flex;gap:16px;margin-top:10px;flex-wrap:wrap">
-    <span style="font-size:.72rem;color:var(--text-muted)">⏰ Próxima: <span id="pin-proxima">18:00</span></span>
-    <span style="font-size:.72rem;color:var(--green)">● Activo</span>
-    <span style="font-size:.72rem;color:var(--text-muted)">📋 Board: NEO Prompts</span>
-   </div>
-  </div>
- </div>
-
- <!-- ACCESOS RÁPIDOS -->
- <div class="card" style="margin-bottom:28px">
-  <div class="section-header"><h2>🗺️ Acceso a todas las páginas</h2><span class="badge" id="total-paginas">— páginas</span></div>
-  <div class="page-list" id="page-list"></div>
- </div>
-
- <!-- ARTÍCULOS POR NICHO -->
- <div class="card" style="margin-bottom:28px">
-  <div class="section-header"><h2>📚 Contenido por nicho</h2><span class="badge" id="total-articulos">— artículos</span></div>
-  <div class="table-wrap">
-   <table>
-    <thead><tr><th>Nicho</th><th>Artículos</th><th>Podcasts</th><th>Último</th><th>Estado</th></tr></thead>
-    <tbody id="niche-table"></tbody>
-   </table>
-  </div>
- </div>
-
- <!-- ÚLTIMOS ARTÍCULOS -->
- <div class="card">
-  <div class="section-header"><h2>📄 Últimos artículos</h2><span class="badge">con podcast</span></div>
-  <div class="table-wrap">
-   <table>
-    <thead><tr><th>Título</th><th>Nicho</th><th>Palabras</th><th>Podcast</th></tr></thead>
-    <tbody id="article-table"></tbody>
-   </table>
-  </div>
- </div>
-
+<div class="header">
+  <h1>⬡ NEO LEADS DASHBOARD</h1>
+  <div class="date" id="lastUpdate"></div>
 </div>
 
-<footer>
- <div class="links"><a href="neo-labs.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="blog/index.html">Blog</a><a href="dashboard.html">Dashboard</a></div>
- <p>© 2026 NEO Labs · Panel de negocio</p>
-</footer>
+<div class="stats-grid" id="statsGrid"></div>
+
+<div class="charts-grid">
+  <div class="chart-card"><h3>📈 Crecimiento de leads</h3><canvas id="chartGrowth"></canvas></div>
+  <div class="chart-card"><h3>📊 Por sector</h3><canvas id="chartSector"></canvas></div>
+  <div class="chart-card"><h3>🗺️ Top ciudades</h3><canvas id="chartCities"></canvas></div>
+  <div class="chart-card"><h3>📬 Envíos diarios</h3><canvas id="chartSends"></canvas></div>
+</div>
+
+<div class="table-wrap">
+  <h3>📋 Últimos leads</h3>
+  <table><thead><tr><th>ID</th><th>Nombre</th><th>Sector</th><th>Ciudad</th><th>Email</th><th>Estado</th></tr></thead><tbody id="recentTable"></tbody></table>
+</div>
+
+<div class="last-update" id="footerUpdate"></div>
 
 <script>
-// ─── DATA FROM FILESYSTEM (injected at build time by Python) ───
-const DATA = {
-  "articulos": 36,
-  "podcasts": 36,
-  "pines": 139,
-  "paginas": 46,
-  "goatcounter": null,
-  "niches": {
-    "Productividad": {articulos: 4, podcasts: 4, ultimo: "2026-06-08", color: "#d4a853"},
-    "Finanzas": {articulos: 5, podcasts: 5, ultimo: "2026-06-08", color: "#66bb6a"},
-    "Marketing": {articulos: 5, podcasts: 5, ultimo: "2026-06-08", color: "#42a5f5"},
-    "Programación": {articulos: 6, podcasts: 6, ultimo: "2026-06-08", color: "#ab47bc"},
-    "Estudiantes": {articulos: 5, podcasts: 5, ultimo: "2026-06-08", color: "#ffa726"},
-    "RRHH": {articulos: 5, podcasts: 5, ultimo: "2026-06-08", color: "#ec407a"}
-  },
-  "articulos_lista": []
-};
+const COLORS = {magenta:'#d946ef',cyan:'#06b6d4',orange:'#f97316',green:'#10b981',purple:'#a855f7',pink:'#ec4899',yellow:'#eab308',red:'#ef4444'}
 
-// ─── RENDER ───
-function init() {
-  document.getElementById('fecha-hoy').textContent = new Date().toLocaleDateString('es-ES', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
-  
-  // Stats cards
-  document.getElementById('stat-articulos').textContent = DATA.articulos;
-  document.getElementById('stat-podcasts').textContent = DATA.podcasts;
-  document.getElementById('stat-pines').textContent = DATA.pines;
-  document.getElementById('stat-paginas').textContent = DATA.paginas;
-  
-  // Niche table
-  let nicheHtml = '';
-  let totalArts = 0;
-  Object.entries(DATA.niches).forEach(([name, n]) => {
-    totalArts += n.articulos;
-    const podcastPct = n.podcasts > 0 ? Math.round(n.podcasts / n.articulos * 100) : 0;
-    nicheHtml += `<tr>
-      <td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${n.color};margin-right:8px"></span>${name}</td>
-      <td>${n.articulos}</td>
-      <td>${n.podcasts} <span style="color:#6a6558;font-size:.7rem">(${podcastPct}%)</span></td>
-      <td style="color:#6a6558;font-size:.75rem">${n.ultimo}</td>
-      <td><span class="tag green">● Activo</span></td>
-    </tr>`;
-  });
-  document.getElementById('niche-table').innerHTML = nicheHtml;
-  document.getElementById('total-articulos').textContent = totalArts + ' artículos';
-  
-  // Try GoatCounter API
-  fetch('https://davidformulas.goatcounter.com/counter/visits.json')
-    .then(r => r.json())
-    .then(d => {
-      if (d && d.count) {
-        document.getElementById('gc-hoy').textContent = d.count_today || d.count || 0;
-        document.getElementById('gc-semana').textContent = d.count_weekly || 0;
-        document.getElementById('gc-total').textContent = d.count_total || d.count || 0;
-      }
-    })
-    .catch(() => {}); // Not set up yet - that's ok
-  
-  // Generate page list from all links on the site
-  const pages = [
-    {name:'NEO Labs — Inicio', url:'neo-labs.html', icon:'🏠'},
-    {name:'Catálogo de productos', url:'catalogo.html', icon:'🛒'},
-    {name:'Blog principal', url:'blog/index.html', icon:'📰'},
-    {name:'Dashboard de negocio', url:'dashboard.html', icon:'📊'},
-    {name:'Productividad', url:'blog/productividad/index.html', icon:'⚡'},
-    {name:'Finanzas', url:'blog/finanzas/index.html', icon:'💰'},
-    {name:'Marketing', url:'blog/marketing/index.html', icon:'📢'},
-    {name:'Programación', url:'blog/programacion/index.html', icon:'💻'},
-    {name:'Estudiantes', url:'blog/estudiantes/index.html', icon:'🎓'},
-    {name:'RRHH', url:'blog/rrhh/index.html', icon:'👥'},
-    {name:'Plantilla productividad', url:'blog/plantilla-productividad-semanal-ia.html', icon:'📋'},
-    {name:'Prompts programación', url:'blog/prompts-ia-programacion.html', icon:'🤖'},
-    {name:'Prompts marketing', url:'blog/prompts-ia-marketing-digital.html', icon:'📈'},
-    {name:'Prompts finanzas', url:'blog/prompts-ia-finanzas-personales.html', icon:'💵'},
-    {name:'Prompts estudiantes', url:'blog/prompts-ia-estudiantes.html', icon:'📚'},
-    {name:'Prompts productividad', url:'blog/prompts-ia-productividad-2026.html', icon:'🚀'},
-    {name:'Prompts RRHH', url:'blog/prompts-ia-recursos-humanos.html', icon:'🤝'},
-  ];
-  
-  const listEl = document.getElementById('page-list');
-  pages.forEach(p => {
-    const item = document.createElement('div');
-    item.className = 'page-item';
-    item.innerHTML = `<span class="emoji">${p.icon}</span><a href="${p.url}">${p.name}</a>`;
-    listEl.appendChild(item);
-  });
-  document.getElementById('total-paginas').textContent = pages.length + ' páginas';
-  
-  // Fetch article list - try to read from a JSON endpoint
-  // For now, generate from known articles
-  const articles = [
-    {title:'Sistema de productividad con IA en 5 pasos', niche:'Productividad', podcast:true, words:735},
-    {title:'Automatiza tu bandeja de entrada con prompts', niche:'Productividad', podcast:true, words:502},
-    {title:'ChatGPT en modo productividad: calendario', niche:'Productividad', podcast:true, words:624},
-    {title:'Reduce tu carga de trabajo un 50%', niche:'Productividad', podcast:true, words:719},
-    {title:'Crea tu presupuesto automático con IA', niche:'Finanzas', podcast:true, words:527},
-    {title:'Analizar inversiones con ChatGPT', niche:'Finanzas', podcast:true, words:255},
-    {title:'Comparativa Claude vs ChatGPT vs Gemini', niche:'Finanzas', podcast:true, words:612},
-    {title:'IA en banca online: novedades 2026', niche:'Finanzas', podcast:true, words:691},
-    {title:'Ahorra más cada mes con prompts', niche:'Finanzas', podcast:true, words:238},
-    {title:'Google Ads optimizados con IA', niche:'Marketing', podcast:true, words:860},
-    {title:'Nuevas herramientas IA para marketers', niche:'Marketing', podcast:true, words:849},
-    {title:'Automatiza email marketing con IA', niche:'Marketing', podcast:true, words:228},
-    {title:'Copywriting persuasivo con ChatGPT', niche:'Marketing', podcast:true, words:212},
-    {title:'Estrategia SEO con IA', niche:'Marketing', podcast:true, words:446},
-    {title:'Code review automático con IA', niche:'Programación', podcast:true, words:914},
-    {title:'Debuggear código con ChatGPT', niche:'Programación', podcast:true, words:426},
-    {title:'Generar tests automáticos con un prompt', niche:'Programación', podcast:true, words:781},
-    {title:'ChatGPT vs Claude para programar', niche:'Programación', podcast:true, words:4240},
-    {title:'Refactorizar código legacy con IA', niche:'Programación', podcast:true, words:3612},
-    {title:'Comparativa herramientas seguridad', niche:'Programación', podcast:true, words:209},
-    {title:'Preparar exámenes con ChatGPT', niche:'Estudiantes', podcast:true, words:938},
-    {title:'Organiza tu semestre con prompts', niche:'Estudiantes', podcast:true, words:3975},
-    {title:'Nuevas herramientas IA para estudiantes', niche:'Estudiantes', podcast:true, words:4298},
-    {title:'Escribir ensayos académicos con IA', niche:'Estudiantes', podcast:true, words:4150},
-    {title:'Resumir textos académicos con IA', niche:'Estudiantes', podcast:true, words:348},
-    {title:'Seleccionar candidatos con IA', niche:'RRHH', podcast:true, words:475},
-    {title:'Onboarding automatizado con IA', niche:'RRHH', podcast:true, words:882},
-    {title:'Nuevas tendencias IA en RRHH', niche:'RRHH', podcast:true, words:869},
-    {title:'Evaluaciones de desempeño con ChatGPT', niche:'RRHH', podcast:true, words:4275},
-    {title:'Clima laboral analizado con IA', niche:'RRHH', podcast:true, words:3887},
-  ];
-  
-  const articleTable = document.getElementById('article-table');
-  articles.slice(-10).reverse().forEach(a => {
-    const podcastBadge = a.podcast ? '<span class="tag green">🎧</span>' : '<span class="tag" style="background:rgba(100,100,100,.1);color:#6a6558">—</span>';
-    articleTable.innerHTML += `<tr>
-      <td style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.title}</td>
-      <td><span class="tag gold">${a.niche}</span></td>
-      <td style="color:var(--text-muted)">${a.words}</td>
-      <td>${podcastBadge}</td>
-    </tr>`;
-  });
+async function loadData(){
+  try{
+    const res=await fetch('data.json?_t='+Date.now())
+    const data=await res.json()
+    renderStats(data)
+    renderGrowth(data.timeline_scrapeo)
+    renderSector(data.sectores)
+    renderCities(data.ciudades)
+    renderSends(data.timeline_envio)
+    renderRecent(data.recientes)
+    document.getElementById('lastUpdate').textContent='Actualizado: '+data.generado
+    document.getElementById('footerUpdate').textContent='⬡ NEO Labs · Última actualización: '+data.generado
+  }catch(e){
+    document.getElementById('statsGrid').innerHTML='<div style="color:var(--orange);text-align:center;padding:40px;">⚠️ Error cargando datos. Asegúrate de que data.json existe.</div>'
+  }
 }
 
-// Pinterest next run
-const now = new Date();
-const hours = [0, 6, 12, 18];
-let next = hours.find(h => h > now.getHours()) || hours[0];
-document.getElementById('pin-proxima').textContent = String(next).padStart(2,'0') + ':00';
+function renderStats(data){
+  const s=data.stats
+  const grid=document.getElementById('statsGrid')
+  grid.innerHTML=`
+    <div class="stat-card"><div class="stat-value">${s.total}</div><div class="stat-label">Total Leads</div></div>
+    <div class="stat-card"><div class="stat-value">${s.con_email}</div><div class="stat-label">Con Email</div></div>
+    <div class="stat-card"><div class="stat-value">${s.con_telefono}</div><div class="stat-label">Con Teléfono</div></div>
+    <div class="stat-card success"><div class="stat-value">${s.enviados}</div><div class="stat-label">Enviados</div></div>
+    <div class="stat-card danger"><div class="stat-value">${s.rebotados}</div><div class="stat-label">Rebotados</div></div>
+    <div class="stat-card success"><div class="stat-value">${s.respondidos}</div><div class="stat-label">Respondidos</div></div>
+    <div class="stat-card warning"><div class="stat-value">${s.tasa_respuesta}%</div><div class="stat-label">Tasa Respuesta</div></div>
+    <div class="stat-card"><div class="stat-value">${s.pendientes_envio}</div><div class="stat-label">Pendientes Envío</div></div>
+  `
+}
 
-// Auto-refresh every 60s
-document.addEventListener('DOMContentLoaded', init);
-setInterval(init, 60000);
+function renderGrowth(timeline){
+  if(!timeline||timeline.length===0)return
+  const labels=timeline.map(t=>t.dia.slice(5))
+  const vals=timeline.map(t=>t.nuevos)
+  const total=[],cum=0
+  let running=0
+  vals.forEach(v=>{running+=v;total.push(running)})
+  new Chart(document.getElementById('chartGrowth'),{
+    type:'line',data:{
+      labels,
+      datasets:[
+        {label:'Nuevos/día',data:total,backgroundColor:'rgba(217,70,239,.1)',borderColor:COLORS.magenta,fill:true,tension:.3},
+      ]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#94a3b8'}}},
+      scales:{x:{ticks:{color:'#94a3b8'}},y:{ticks:{color:'#94a3b8'}}}
+    }
+  })
+}
+
+function renderSector(sectores){
+  if(!sectores||sectores.length===0)return
+  const labels=sectores.map(s=>s.nombre)
+  const total=sectores.map(s=>s.total)
+  const email=sectores.map(s=>s.email)
+  const palette=[COLORS.magenta,COLORS.cyan,COLORS.orange,COLORS.green,COLORS.purple,COLORS.pink,COLORS.yellow,COLORS.red]
+  new Chart(document.getElementById('chartSector'),{
+    type:'bar',data:{
+      labels,
+      datasets:[
+        {label:'Total',data:total,backgroundColor:palette.slice(0,labels.length),borderRadius:4},
+        {label:'Con email',data:email,backgroundColor:'rgba(6,182,212,.5)',borderRadius:4},
+      ]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#94a3b8'}}},
+      scales:{x:{ticks:{color:'#94a3b8'}},y:{ticks:{color:'#94a3b8'}}}
+    }
+  })
+}
+
+function renderCities(ciudades){
+  if(!ciudades||ciudades.length===0)return
+  new Chart(document.getElementById('chartCities'),{
+    type:'doughnut',data:{
+      labels:ciudades.map(c=>c.nombre),
+      datasets:[{
+        data:ciudades.map(c=>c.total),
+        backgroundColor:[COLORS.magenta,COLORS.cyan,COLORS.orange,COLORS.green,COLORS.purple,COLORS.pink,COLORS.yellow,COLORS.red,'#6366f1','#14b8a6','#f43f5e','#8b5cf6','#0ea5e9','#84cc16','#a1a1aa']
+      }]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'right',labels:{color:'#94a3b8',font:{size:11}}}}
+    }
+  })
+}
+
+function renderSends(timeline){
+  if(!timeline||timeline.length===0)return
+  new Chart(document.getElementById('chartSends'),{
+    type:'bar',data:{
+      labels:timeline.map(t=>t.dia.slice(5)),
+      datasets:[{
+        label:'Envíos',data:timeline.map(t=>t.enviados),
+        backgroundColor:COLORS.cyan,borderRadius:4
+      }]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#94a3b8'}}},
+      scales:{x:{ticks:{color:'#94a3b8'}},y:{ticks:{color:'#94a3b8',stepSize:1}}}
+    }
+  })
+}
+
+function renderRecent(leads){
+  const tbody=document.getElementById('recentTable')
+  if(!leads||leads.length===0){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--dim);padding:20px;">No hay leads aún</td></tr>';return}
+  tbody.innerHTML=leads.map(l=>{
+    let badge='<span class="badge pending">Pendiente</span>'
+    if(l.respondido)badge='<span class="badge responded">Respondido</span>'
+    else if(l.enviado)badge='<span class="badge sent">Enviado</span>'
+    return `<tr><td>#${l.id}</td><td>${l.nombre}</td><td>${l.sector}</td><td>${l.ciudad}</td><td style="color:var(--cyan)">${l.email||'—'}</td><td>${badge}</td></tr>`
+  }).join('')
+}
+
+loadData()
+// Auto refresh every 60 seconds
+setInterval(loadData,60000)
 </script>
-
-<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<noscript><img src="https://davidformulas.goatcounter.com/count?p=/dashboard"></noscript>
 </body>
 </html>
