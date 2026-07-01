@@ -390,7 +390,15 @@ def get_youtube_yesterday():
 # ─── 5. PODCAST ──────────────────────────────────────────────
 def generate_podcast(news_items, date_str):
     """Generate podcast with actual content using DeepSeek Flash."""
-    ds_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    # Read API key from .env file
+    ds_key = ""
+    env_path = os.path.expanduser("~/.hermes/.env")
+    if os.path.exists(env_path):
+        with open(env_path) as f:
+            for line in f:
+                if line.startswith("DEEPSEEK_API_KEY="):
+                    ds_key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                    break
     
     # Collect yesterday's WC results for the script
     results_text = ""
