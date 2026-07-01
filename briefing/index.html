@@ -502,37 +502,51 @@ a{color:inherit;text-decoration:none}
   background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
   border:1px solid rgba(255,255,255,.08);
   border-radius:var(--radius-sm);
-  box-shadow:0 0 20px rgba(59,130,246,.06);
+  box-shadow:0 0 20px rgba(249,115,22,.04);
   position:relative;
   overflow:hidden;
   transition:all .3s;
 }
 .wc-card::before{
   content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(59,130,246,.03),transparent);
-  animation:wcShine 6s ease-in-out infinite;
+  background:linear-gradient(90deg,transparent,rgba(249,115,22,.04),transparent);
+  animation:wcShine 4s ease-in-out infinite;
 }
+.wc-card::after{
+  content:'';position:absolute;inset:0;border-radius:var(--radius-sm);
+  padding:1px;
+  background:linear-gradient(135deg,rgba(249,115,22,.12),transparent 50%,rgba(59,130,246,.08));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:0;transition:opacity .3s;
+}
+.wc-card:active::after{opacity:1}
+@keyframes scorePulse{0%,100%{text-shadow:0 0 20px rgba(255,255,255,.1),0 0 40px rgba(249,115,22,.08)}50%{text-shadow:0 0 25px rgba(255,255,255,.15),0 0 60px rgba(249,115,22,.12)}}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.98)}}
 @keyframes wcShine{
-  0%,100%{left:-100%}
-  50%{left:100%}
+  0%,100%{left:-120%;transform:rotate(10deg)}
+  50%{left:120%;transform:rotate(-10deg)}
 }
 .wc-status{
   font-size:.58rem;text-transform:uppercase;
   letter-spacing:1.5px;font-weight:600;margin-bottom:6px;
 }
-.wc-status.live{color:#10b981;text-shadow:0 0 8px rgba(16,185,129,.3)}
-.wc-status.finished{color:#7a8499;letter-spacing:1.5px}
-.wc-status.pending{color:#3b82f6;text-shadow:0 0 10px rgba(59,130,246,.2)}
+.wc-status.live{color:#10b981;text-shadow:0 0 12px rgba(16,185,129,.4);animation:livePulse 1.5s ease-in-out infinite}
+.wc-status.finished{color:#f97316;letter-spacing:1.5px;text-shadow:0 0 8px rgba(249,115,22,.15)}
+.wc-status.pending{color:#f97316;text-shadow:0 0 12px rgba(249,115,22,.25)}
 .wc-match{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .wc-team{flex:1}
 .wc-team.away{text-align:right}
-.wc-team-name{font-size:.85rem;font-weight:600;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.05)}
+.wc-team-name{font-size:.88rem;font-weight:600;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.05);transition:all .2s}
 .wc-score{
-  font-size:1.4rem;font-weight:800;
+  font-size:1.5rem;font-weight:900;
   color:#fff;letter-spacing:-.5px;min-width:60px;text-align:center;
-  text-shadow:0 0 15px rgba(255,255,255,.1);
+  text-shadow:0 0 20px rgba(255,255,255,.1),0 0 40px rgba(249,115,22,.08);
+  animation:scorePulse 3s ease-in-out infinite;
 }
-.wc-score .vs{font-size:.65rem;color:var(--text-muted)}
+.wc-score .vs{font-size:.65rem;color:#f97316;text-shadow:0 0 6px rgba(249,115,22,.1)}
 .wc-score .live-dot{
   display:inline-block;width:8px;height:8px;
   border-radius:50%;background:#10b981;
@@ -678,7 +692,7 @@ a{color:inherit;text-decoration:none}
     <div class="section-icon">♪</div>
     <span class="section-title">Daily Pulse</span>
   </div>
-  <div class="section-sub">01:18 · IA · Mundo · Cine · Arranque</div>
+  <div class="section-sub">01:26 · IA · Mundo · Cine · Arranque</div>
   <div class="podcast-card">
     <div class="podcast-top">
       <div class="podcast-vinyl" id="vinyl-record">
@@ -737,74 +751,74 @@ a{color:inherit;text-decoration:none}
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">1/32 · Mar 1/7</span>
+    <span style="font-size:.6rem;color:#f97316">1/32 · Mar 1/7</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">México</span></div>
     <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">2–0</div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Ecuador</span></div>
   </div>
-  <div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ México: Jvlian Kviinvnz 22', Raúl Jiménez 31'</div>
+  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ México: Jvlian Kviinvnz 22', Raúl Jiménez 31'</div>
 </div>
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">1/32 · Lun 30/6</span>
+    <span style="font-size:.6rem;color:#f97316">1/32 · Lun 30/6</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Francia</span></div>
     <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">3–0</div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Suecia</span></div>
   </div>
-  <div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ Francia: Kylian Mbappé 45', Bradley Barcola 53', Kylian Mbappé 74'</div>
+  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Francia: Kylian Mbappé 45', Bradley Barcola 53', Kylian Mbappé 74'</div>
 </div>
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">1/32 · Lun 30/6</span>
+    <span style="font-size:.6rem;color:#f97316">1/32 · Lun 30/6</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Costa de Marfil</span></div>
     <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">1–2</div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Noruega</span></div>
   </div>
-  <div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ Costa de Marfil: Amad Diallo 74'</div><div style="font-size:.62rem;color:var(--muted)">⚽ Noruega: Antonio Nusa 39', Erling Haaland 86'</div>
+  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Costa de Marfil: Amad Diallo 74'</div><div style="font-size:.62rem;color:#f97316">⚽ Noruega: Antonio Nusa 39', Erling Haaland 86'</div>
 </div>
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">1/32 · Lun 30/6</span>
+    <span style="font-size:.6rem;color:#f97316">1/32 · Lun 30/6</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Países Bajos</span></div>
     <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">1–1</div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Marruecos</span></div>
   </div>
-  <div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ Países Bajos: Kvdi Khakpv 72'</div><div style="font-size:.62rem;color:var(--muted)">⚽ Marruecos: Issa Diop 90+1'</div>
+  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Países Bajos: Kvdi Khakpv 72'</div><div style="font-size:.62rem;color:#f97316">⚽ Marruecos: Issa Diop 90+1'</div>
 </div>
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">1/32 · Dom 29/6</span>
+    <span style="font-size:.6rem;color:#f97316">1/32 · Dom 29/6</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Alemania</span></div>
     <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">1–1</div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Paraguay</span></div>
   </div>
-  <div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ Alemania: Kai Havertz 54'</div><div style="font-size:.62rem;color:var(--muted)">⚽ Paraguay: Khvliv Ansisv 42'</div>
+  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Alemania: Kai Havertz 54'</div><div style="font-size:.62rem;color:#f97316">⚽ Paraguay: Khvliv Ansisv 42'</div>
 </div>
 <div class="wc-card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
     <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:var(--muted)">1/32 · Dom 29/6</span>
+    <span style="font-size:.6rem;color:#f97316">1/32 · Dom 29/6</span>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Brasil</span></div>
     <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">2–1</div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Japón</span></div>
   </div>
-  <div style="font-size:.62rem;color:var(--muted);margin-top:3px">⚽ Brasil: Casemiro 56', Gabriel Martinelli 90+5'</div><div style="font-size:.62rem;color:var(--muted)">⚽ Japón: Kaishū Sano 29'</div>
+  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Brasil: Casemiro 56', Gabriel Martinelli 90+5'</div><div style="font-size:.62rem;color:#f97316">⚽ Japón: Kaishū Sano 29'</div>
 </div><div class="section-sub" style="margin-top:14px;margin-bottom:10px">Partidos de hoy</div>
 <div class="wc-card">
   <div class="wc-match">
@@ -834,8 +848,8 @@ a{color:inherit;text-decoration:none}
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">España</span></div>
     <div style="text-align:center;margin:0 10px">
-      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:var(--gold)">1/32</div>
-      <div style="font-size:.6rem;color:var(--muted)">Mié 2/7 · 18:00</div>
+      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:#f97316">1/32</div>
+      <div style="font-size:.6rem;color:#f97316">Mié 2/7 · 18:00</div>
     </div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">Austria</span></div>
   </div>
@@ -844,8 +858,8 @@ a{color:inherit;text-decoration:none}
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">Portugal</span></div>
     <div style="text-align:center;margin:0 10px">
-      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:var(--gold)">1/32</div>
-      <div style="font-size:.6rem;color:var(--muted)">Jue 3/7 · 01:00</div>
+      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:#f97316">1/32</div>
+      <div style="font-size:.6rem;color:#f97316">Jue 3/7 · 01:00</div>
     </div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">Croacia</span></div>
   </div>
@@ -854,8 +868,8 @@ a{color:inherit;text-decoration:none}
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">Suiza</span></div>
     <div style="text-align:center;margin:0 10px">
-      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:var(--gold)">1/32</div>
-      <div style="font-size:.6rem;color:var(--muted)">Jue 3/7 · 02:00</div>
+      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:#f97316">1/32</div>
+      <div style="font-size:.6rem;color:#f97316">Jue 3/7 · 02:00</div>
     </div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">Argelia</span></div>
   </div>
@@ -864,8 +878,8 @@ a{color:inherit;text-decoration:none}
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">Australia</span></div>
     <div style="text-align:center;margin:0 10px">
-      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:var(--gold)">1/32</div>
-      <div style="font-size:.6rem;color:var(--muted)">Jue 3/7 · 19:00</div>
+      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:#f97316">1/32</div>
+      <div style="font-size:.6rem;color:#f97316">Jue 3/7 · 19:00</div>
     </div>
     <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">Egipto</span></div>
   </div>
@@ -887,42 +901,42 @@ a{color:inherit;text-decoration:none}
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">No te compres un Apple Watch este año: Apple tiene pensado cambiar el diseño y un aspecto </div>
+    <div class="news-card-title">Estas vacaciones no te quedes sin Internet: dos opciones para todo tipo de alojamientos, i</div>
     <div class="news-card-time">Wed, 01 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(1)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel</div>
+    <div class="news-card-title">No te compres un Apple Watch este año: Apple tiene pensado cambiar el diseño y un aspecto </div>
     <div class="news-card-time">Wed, 01 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(2)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google</div>
-    <div class="news-card-time">Tue, 30 Jun 2026</div>
+    <div class="news-card-title">‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel</div>
+    <div class="news-card-time">Wed, 01 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(3)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok</div>
+    <div class="news-card-title">Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(4)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata</div>
+    <div class="news-card-title">NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(5)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico</div>
+    <div class="news-card-title">Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata</div>
     <div class="news-card-time">Tue, 30 Jun 2026</div>
   </div>
 </div></div>
@@ -987,11 +1001,11 @@ a{color:inherit;text-decoration:none}
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-brand">daily briefing</div>
-  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 11:17</div>
+  <div class="footer-sub">Generado con IA · 01 de July de 2026 · 11:44</div>
 </div>
 
 <script>
-var NEWS_DATA = [{"source": "Hipertextual", "title": "No te compres un Apple Watch este año: Apple tiene pensado cambiar el diseño y un aspecto clave", "desc": "¿Estabas pensando comprar un Apple Watch este año? Apple debería lanzar la Series 11, una actualización que, sobre el papel, no debería ofrecer grandes cambios. Los dispositivos que se ponen a la vent", "link": "https://hipertextual.com/apple/no-te-compres-un-apple-watch-este-ano-apple-tiene-pensado-cambiar-el-diseno-y-un-aspecto-clave/"}, {"source": "Hipertextual", "title": "‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel", "desc": "Disney+ acaba de estrenar por fin la temporada 2 de X-Men 97, la aclamada serie de animación de Marvel. La compañía devolvió a la vida el clásico de los 90 con una secuela aún más madura y espectacula", "link": "https://hipertextual.com/cine-television/x-men-97-temporada-2-critica/"}, {"source": "Hipertextual", "title": "Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google", "desc": "Si no puedes mandar GIFs desde tu aplicación de mensajería, no es tu móvil. Google decidió cerrar la API de Tenor, la biblioteca de GIF que utilizan WhatsApp, Discord y otras apps. El gigante tecnológ", "link": "https://hipertextual.com/mobile/google-cierra-api-tenor-gifs-apps/"}, {"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Science, una IA que acelera el descubrimiento científico", "desc": "Anthropic ha presentado Claude Science, una nueva herramienta con la que busca ganarse a la comunidad científica. En lugar de diseñar un modelo dedicado, la compañía prefirió personalizar a Claude par", "link": "https://hipertextual.com/inteligencia-artificial/claude-science-ia-anthropic-cientificos/"}];
+var NEWS_DATA = [{"source": "Hipertextual", "title": "Estas vacaciones no te quedes sin Internet: dos opciones para todo tipo de alojamientos, incluso al aire libre", "desc": "Las vacaciones son para desconectar… pero no necesariamente de Internet. Ya sea para teletrabajar unos días, ver una película por la noche, mantener conectadas las cámaras de una segunda residencia o ", "link": "https://hipertextual.com/brands/internet-vacaciones/"}, {"source": "Hipertextual", "title": "No te compres un Apple Watch este año: Apple tiene pensado cambiar el diseño y un aspecto clave", "desc": "¿Estabas pensando comprar un Apple Watch este año? Apple debería lanzar la Series 11, una actualización que, sobre el papel, no debería ofrecer grandes cambios. Los dispositivos que se ponen a la vent", "link": "https://hipertextual.com/apple/no-te-compres-un-apple-watch-este-ano-apple-tiene-pensado-cambiar-el-diseno-y-un-aspecto-clave/"}, {"source": "Hipertextual", "title": "‘X-Men 97’ temporada 2 (★★★★½), la animación es el salvavidas de Marvel", "desc": "Disney+ acaba de estrenar por fin la temporada 2 de X-Men 97, la aclamada serie de animación de Marvel. La compañía devolvió a la vida el clásico de los 90 con una secuela aún más madura y espectacula", "link": "https://hipertextual.com/cine-television/x-men-97-temporada-2-critica/"}, {"source": "Hipertextual", "title": "Tus GIFs en WhatsApp van a cambiar desde hoy, gracias a Google", "desc": "Si no puedes mandar GIFs desde tu aplicación de mensajería, no es tu móvil. Google decidió cerrar la API de Tenor, la biblioteca de GIF que utilizan WhatsApp, Discord y otras apps. El gigante tecnológ", "link": "https://hipertextual.com/mobile/google-cierra-api-tenor-gifs-apps/"}, {"source": "Hipertextual", "title": "NotebookLM ahora convierte tus apuntes en vídeos cortos al estilo TikTok", "desc": "NotebookLM se prepara para sumar una manera completamente distinta de repasar tus apuntes. La herramienta de Google incorporará vídeos cortos generados con IA, al estilo de los que vemos en TikTok o I", "link": "https://hipertextual.com/inteligencia-artificial/notebooklm-videos-cortos-estilo-tiktok-ia/"}, {"source": "Hipertextual", "title": "Anthropic lanza Claude Sonnet 5, una IA casi tan buena como Opus 4.8, pero más barata", "desc": "Anthropic acaba de actualizar su catálogo con Claude Sonnet 5, una nueva IA que destaca por ser casi tan buena como Opus 4.8, pero con un precio más bajo. El modelo ya se encuentra disponible tanto en", "link": "https://hipertextual.com/inteligencia-artificial/anthropic-lanza-claude-sonnet-5/"}];
 
 function openNewsModal(i){
   var d = NEWS_DATA[i]; if(!d) return;
