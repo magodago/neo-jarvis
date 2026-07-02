@@ -533,7 +533,7 @@ REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo
             data = json.dumps({
                 "model": "deepseek-chat",
                 "messages": [{"role": "user", "content": prompt}],
-                "max_tokens": 350,
+                "max_tokens": 600,
                 "temperature": 0.7,
             }).encode()
             req = urllib.request.Request(
@@ -553,6 +553,16 @@ REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo
             script = _re.sub(r'_{2,}', '', script)
             script = _re.sub(r'`([^`]+)`', r'\1', script)
             log(f"  script by DeepSeek ({len(script)} chars)")
+            
+            # Forzar cierre si se cortó antes de la despedida
+            despedidas = ["que tengas un gran día", "a darle duro", "nos escuchamos mañana", 
+                         "que pases un buen día", "hasta mañana", "un abrazo"]
+            if not any(d in script.lower() for d in despedidas):
+                script = script.rstrip().rstrip(',').rstrip('.').rstrip('…')
+                if not script.endswith('.'):
+                    script += '.'
+                script += "\n\nQue tengas un gran día, David. Nos escuchamos mañana."
+                log(f"  cierre forzado añadido")
         except Exception as e:
             log(f"  DeepSeek error: {e}")
     
