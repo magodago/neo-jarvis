@@ -1,0 +1,155 @@
+{
+  "generado": "2026-07-01 21:00:25",
+  "stats": {
+    "total": 257,
+    "con_email": 101,
+    "con_telefono": 147,
+    "con_web": 135,
+    "enviados": 100,
+    "rebotados": 0,
+    "respondidos": 1,
+    "tasa_respuesta": 1.0,
+    "tasa_email": 39.3,
+    "pendientes_envio": 1
+  },
+  "sectores": [
+    {
+      "nombre": "clinicas",
+      "total": 70,
+      "email": 28,
+      "enviados": 28
+    },
+    {
+      "nombre": "restaurantes",
+      "total": 65,
+      "email": 17,
+      "enviados": 16
+    },
+    {
+      "nombre": "abogados",
+      "total": 62,
+      "email": 26,
+      "enviados": 26
+    },
+    {
+      "nombre": "talleres",
+      "total": 15,
+      "email": 9,
+      "enviados": 9
+    },
+    {
+      "nombre": "peluquerias",
+      "total": 15,
+      "email": 10,
+      "enviados": 10
+    },
+    {
+      "nombre": "inmobiliarias",
+      "total": 15,
+      "email": 0,
+      "enviados": 0
+    },
+    {
+      "nombre": "centros",
+      "total": 15,
+      "email": 11,
+      "enviados": 11
+    }
+  ],
+  "ciudades": [
+    {
+      "nombre": "Madrid",
+      "total": 99,
+      "email": 34
+    },
+    {
+      "nombre": "Barcelona",
+      "total": 72,
+      "email": 17
+    },
+    {
+      "nombre": "dentales",
+      "total": 30,
+      "email": 24
+    },
+    {
+      "nombre": "Malaga",
+      "total": 26,
+      "email": 6
+    },
+    {
+      "nombre": "mecanicos",
+      "total": 15,
+      "email": 9
+    },
+    {
+      "nombre": "estetica",
+      "total": 15,
+      "email": 11
+    }
+  ],
+  "timeline_scrapeo": [
+    {
+      "dia": "2026-07-01",
+      "nuevos": 257
+    }
+  ],
+  "timeline_envio": [
+    {
+      "dia": "2026-07-01",
+      "enviados": 100
+    }
+  ],
+  "recientes": [
+    {
+      "id": 257,
+      "nombre": "TALLER MECANICO FREJO",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
+      "email": "",
+      "enviado": false,
+      "respondido": false,
+      "fecha_envio": ""
+    },
+    {
+      "id": 256,
+      "nombre": "Samnauto",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
+      "email": "",
+      "enviado": false,
+      "respondido": false,
+      "fecha_envio": ""
+    },
+    {
+      "id": 255,
+      "nombre": "Pérez Illán Automoción",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
+      "email": "perezillan@yahoo.es",
+      "enviado": true,
+      "respondido": false,
+      "fecha_envio": "2026-07-01 20:27"
+    },
+    {
+      "id": 254,
+      "nombre": "Talleres Santa Mónica",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
+      "email": "talleressantamonica@gmail.com",
+      "enviado": true,
+      "respondido": false,
+      "fecha_envio": "2026-07-01 20:27"
+    },
+    {
+      "id": 253,
+      "nombre": "Taller 24H reparacion automovil",
+      "sector": "talleres",
+      "ciudad": "mecanicos",
+      "email": "",
+      "enviado": false,
+      "respondido": false,
+      "fecha_envio": ""
+    }
+  ]
+}

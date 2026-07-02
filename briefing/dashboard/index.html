@@ -2,129 +2,192 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEO Leads Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
-header{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:20px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #e91e63}
-header h1{font-size:1.5rem;color:#fff}
-header h1 span{color:#e91e63}
-#lastUpdate{color:#888;font-size:.8rem}
-.container{max-width:1400px;margin:0 auto;padding:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
-.card{background:#1a1a2e;border-radius:12px;padding:20px;border:1px solid #333;position:relative;overflow:hidden}
-.card::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%}
-.card h3{color:#888;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.card .big{font-size:2.2rem;font-weight:700;color:#fff}
-.card .label{font-size:.75rem;color:#aaa;margin-top:4px}
-.card.total::after{background:#4caf50}
-.card.email::after{background:#2196f3}
-.card.sent::after{background:#ff9800}
-.card.rate::after{background:#e91e63}
-.card.revenue::after{background:#9c27b0}
-.card.bounce::after{background:#f44336}
-.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
-@media(max-width:768px){.charts-row{grid-template-columns:1fr}}
-.chart-box{background:#1a1a2e;border-radius:12px;padding:20px;border:1px solid #333}
-.chart-box h3{color:#e91e63;margin-bottom:12px;font-size:.9rem}
-.leads-table{background:#1a1a2e;border-radius:12px;padding:20px;border:1px solid #333;overflow-x:auto}
-.leads-table h3{color:#e91e63;margin-bottom:12px;font-size:.9rem}
-table{width:100%;border-collapse:collapse;font-size:.82rem}
-th{text-align:left;padding:10px 8px;border-bottom:2px solid #e91e63;color:#e91e63;font-weight:600;white-space:nowrap}
-td{padding:8px;border-bottom:1px solid #333;color:#ccc}
-tr:hover{background:#16213e}
-.badge{padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:600}
-.badge.ok{background:#1b5e20;color:#4caf50}
-.badge.pending{background:#e65100;color:#ff9800}
-.badge.fail{background:#b71c1c;color:#f44336}
-.badge.info{background:#0d47a1;color:#2196f3}
-.loading{text-align:center;padding:80px 20px;color:#e91e63}
-.loading .spin{display:inline-block;width:40px;height:40px;border:3px solid #333;border-top:3px solid #e91e63;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px}
-@keyframes spin{to{transform:rotate(360deg)}}
+:root{--bg:#0a0a0f;--card:#12121a;--border:#1e1e30;--magenta:#d946ef;--cyan:#06b6d4;--orange:#f97316;--green:#10b981;--text:#e2e8f0;--dim:#94a3b8}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;padding:20px;min-height:100vh}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+.header h1{font-size:28px;background:linear-gradient(135deg,var(--magenta),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .date{color:var(--dim);font-size:14px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:30px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:transform .2s,box-shadow .2s}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(217,70,239,.15)}
+.stat-value{font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--magenta),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{color:var(--dim);font-size:12px;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.stat-card.danger .stat-value{-webkit-text-fill-color:var(--orange);background:none;color:var(--orange)}
+.stat-card.success .stat-value{-webkit-text-fill-color:var(--green);background:none;color:var(--green)}
+.stat-card.warning .stat-value{-webkit-text-fill-color:var(--orange);background:none;color:var(--orange);font-size:22px}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:16px;margin-bottom:30px}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.chart-card h3{font-size:14px;color:var(--dim);margin-bottom:15px;text-transform:uppercase;letter-spacing:1px}
+.chart-card canvas{max-height:300px}
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;overflow-x:auto}
+.table-wrap h3{font-size:14px;color:var(--dim);margin-bottom:15px;text-transform:uppercase;letter-spacing:1px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:8px 12px;color:var(--dim);border-bottom:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:8px 12px;border-bottom:1px solid rgba(30,30,48,.5)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.badge.sent{background:rgba(6,182,212,.15);color:var(--cyan)}
+.badge.pending{background:rgba(217,70,239,.15);color:var(--magenta)}
+.badge.responded{background:rgba(16,185,129,.15);color:var(--green)}
+.badge.bounced{background:rgba(249,115,22,.15);color:var(--orange)}
+.last-update{text-align:center;color:var(--dim);font-size:12px;margin-top:30px;padding:20px}
+@media(max-width:600px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .charts-grid{grid-template-columns:1fr}
+  .header h1{font-size:20px}
+}
 </style>
 </head>
 <body>
-<header>
-<h1>NEO <span>Leads</span> Dashboard</h1>
-<span id="lastUpdate">—</span>
-</header>
-<div class="container">
-<div class="loading" id="loading"><div class="spin"></div>Cargando datos...</div>
-<div id="content" style="display:none">
-<div class="grid" id="statsGrid"></div>
-<div class="charts-row">
-  <div class="chart-box"><h3>📊 Leads por sector</h3><canvas id="sectorChart"></canvas></div>
-  <div class="chart-box"><h3>📈 Estado de envíos</h3><canvas id="statusChart"></canvas></div>
+<div class="header">
+  <h1>⬡ NEO LEADS DASHBOARD</h1>
+  <div class="date" id="lastUpdate"></div>
 </div>
-<div class="charts-row">
-  <div class="chart-box"><h3>📍 Top ciudades</h3><canvas id="cityChart"></canvas></div>
-  <div class="chart-box"><h3>📅 Envíos por día</h3><canvas id="timelineChart"></canvas></div>
+
+<div class="stats-grid" id="statsGrid"></div>
+
+<div class="charts-grid">
+  <div class="chart-card"><h3>📈 Crecimiento de leads</h3><canvas id="chartGrowth"></canvas></div>
+  <div class="chart-card"><h3>📊 Por sector</h3><canvas id="chartSector"></canvas></div>
+  <div class="chart-card"><h3>🗺️ Top ciudades</h3><canvas id="chartCities"></canvas></div>
+  <div class="chart-card"><h3>📬 Envíos diarios</h3><canvas id="chartSends"></canvas></div>
 </div>
-<div class="leads-table"><h3>📋 Últimos leads</h3><table><thead><tr><th>Empresa</th><th>Sector</th><th>Ciudad</th><th>Email</th><th>Estado</th><th>Fecha</th></tr></thead><tbody id="leadsTable"></tbody></table></div>
+
+<div class="table-wrap">
+  <h3>📋 Últimos leads</h3>
+  <table><thead><tr><th>ID</th><th>Nombre</th><th>Sector</th><th>Ciudad</th><th>Email</th><th>Estado</th></tr></thead><tbody id="recentTable"></tbody></table>
 </div>
-</div>
+
+<div class="last-update" id="footerUpdate"></div>
+
 <script>
-let charts={};
-async function load(){
-try{
-const r=await fetch('leads_data.json?v='+Date.now());
-if(!r.ok)throw new Error('HTTP '+r.status);
-const d=await r.json();
-document.getElementById('loading').style.display='none';
-document.getElementById('content').style.display='block';
-document.getElementById('lastUpdate').textContent='📡 '+d.updated;
-renderStats(d);renderSectorChart(d);renderStatusChart(d);renderCityChart(d);renderTimeline(d);renderTable(d);
-}catch(e){
-document.getElementById('loading').innerHTML='<div class="spin"></div>Esperando datos...<br><small>'+e.message+'</small>';
-setTimeout(load,5000);
-}}
-function renderStats(d){
-document.getElementById('statsGrid').innerHTML=
-`<div class="card total"><h3>Total leads</h3><div class="big">${d.total}</div><div class="label">en base de datos</div></div>
-<div class="card email"><h3>Con email</h3><div class="big">${d.with_email}</div><div class="label">${Math.round(d.with_email/d.total*100)}% del total</div></div>
-<div class="card sent"><h3>Enviados</h3><div class="big">${d.sent}</div><div class="label">${d.with_email>0?Math.round(d.sent/d.with_email*100):0}% de con email</div></div>
-<div class="card bounce"><h3>Rebotados</h3><div class="big">${d.bounced}</div><div class="label">${d.sent>0?Math.round(d.bounced/d.sent*100):0}% tasa de rebote</div></div>
-<div class="card rate"><h3>Respuestas</h3><div class="big">${d.replied}</div><div class="label">${d.sent>0?(d.replied/d.sent*100).toFixed(1):0}% conversión</div></div>
-<div class="card revenue"><h3>Ingresos est.</h3><div class="big">${(d.replied*299).toLocaleString()}€</div><div class="label">si cada lead compra básica</div></div>`;
+const COLORS = {magenta:'#d946ef',cyan:'#06b6d4',orange:'#f97316',green:'#10b981',purple:'#a855f7',pink:'#ec4899',yellow:'#eab308',red:'#ef4444'}
+
+async function loadData(){
+  try{
+    const res=await fetch('data.json?_t='+Date.now())
+    const data=await res.json()
+    renderStats(data)
+    renderGrowth(data.timeline_scrapeo)
+    renderSector(data.sectores)
+    renderCities(data.ciudades)
+    renderSends(data.timeline_envio)
+    renderRecent(data.recientes)
+    document.getElementById('lastUpdate').textContent='Actualizado: '+data.generado
+    document.getElementById('footerUpdate').textContent='⬡ NEO Labs · Última actualización: '+data.generado
+  }catch(e){
+    document.getElementById('statsGrid').innerHTML='<div style="color:var(--orange);text-align:center;padding:40px;">⚠️ Error cargando datos. Asegúrate de que data.json existe.</div>'
+  }
 }
-function renderSectorChart(d){
-if(charts.sector)charts.sector.destroy();
-charts.sector=new Chart(document.getElementById('sectorChart'),{
-type:'bar',
-data:{labels:d.sectors.map(s=>s.name),datasets:[{label:'Leads',data:d.sectors.map(s=>s.count),backgroundColor:['#e91e63','#2196f3','#ff9800','#4caf50','#9c27b0','#00bcd4'],borderRadius:6}]},
-options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#222'}},x:{grid:{display:false}}}}});
+
+function renderStats(data){
+  const s=data.stats
+  const grid=document.getElementById('statsGrid')
+  grid.innerHTML=`
+    <div class="stat-card"><div class="stat-value">${s.total}</div><div class="stat-label">Total Leads</div></div>
+    <div class="stat-card"><div class="stat-value">${s.con_email}</div><div class="stat-label">Con Email</div></div>
+    <div class="stat-card"><div class="stat-value">${s.con_telefono}</div><div class="stat-label">Con Teléfono</div></div>
+    <div class="stat-card success"><div class="stat-value">${s.enviados}</div><div class="stat-label">Enviados</div></div>
+    <div class="stat-card danger"><div class="stat-value">${s.rebotados}</div><div class="stat-label">Rebotados</div></div>
+    <div class="stat-card success"><div class="stat-value">${s.respondidos}</div><div class="stat-label">Respondidos</div></div>
+    <div class="stat-card warning"><div class="stat-value">${s.tasa_respuesta}%</div><div class="stat-label">Tasa Respuesta</div></div>
+    <div class="stat-card"><div class="stat-value">${s.pendientes_envio}</div><div class="stat-label">Pendientes Envío</div></div>
+  `
 }
-function renderStatusChart(d){
-if(charts.status)charts.status.destroy();
-charts.status=new Chart(document.getElementById('statusChart'),{
-type:'doughnut',
-data:{labels:['Pendiente','Enviado','Respondido','Rebotado'],datasets:[{data:[d.pending,d.sent,d.replied,d.bounced],backgroundColor:['#ff9800','#4caf50','#2196f3','#f44336'],borderWidth:0}]},
-options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#ccc',padding:12}}}}});
+
+function renderGrowth(timeline){
+  if(!timeline||timeline.length===0)return
+  const labels=timeline.map(t=>t.dia.slice(5))
+  const vals=timeline.map(t=>t.nuevos)
+  const total=[],cum=0
+  let running=0
+  vals.forEach(v=>{running+=v;total.push(running)})
+  new Chart(document.getElementById('chartGrowth'),{
+    type:'line',data:{
+      labels,
+      datasets:[
+        {label:'Nuevos/día',data:total,backgroundColor:'rgba(217,70,239,.1)',borderColor:COLORS.magenta,fill:true,tension:.3},
+      ]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#94a3b8'}}},
+      scales:{x:{ticks:{color:'#94a3b8'}},y:{ticks:{color:'#94a3b8'}}}
+    }
+  })
 }
-function renderCityChart(d){
-if(charts.city)charts.city.destroy();
-charts.city=new Chart(document.getElementById('cityChart'),{
-type:'pie',
-data:{labels:d.cities.map(c=>c.name),datasets:[{data:d.cities.map(c=>c.count),backgroundColor:['#e91e63','#2196f3','#ff9800','#4caf50','#9c27b0','#00bcd4','#f44336'],borderWidth:0}]},
-options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#ccc',font:{size:10},padding:8}}}}});
+
+function renderSector(sectores){
+  if(!sectores||sectores.length===0)return
+  const labels=sectores.map(s=>s.nombre)
+  const total=sectores.map(s=>s.total)
+  const email=sectores.map(s=>s.email)
+  const palette=[COLORS.magenta,COLORS.cyan,COLORS.orange,COLORS.green,COLORS.purple,COLORS.pink,COLORS.yellow,COLORS.red]
+  new Chart(document.getElementById('chartSector'),{
+    type:'bar',data:{
+      labels,
+      datasets:[
+        {label:'Total',data:total,backgroundColor:palette.slice(0,labels.length),borderRadius:4},
+        {label:'Con email',data:email,backgroundColor:'rgba(6,182,212,.5)',borderRadius:4},
+      ]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#94a3b8'}}},
+      scales:{x:{ticks:{color:'#94a3b8'}},y:{ticks:{color:'#94a3b8'}}}
+    }
+  })
 }
-function renderTimeline(d){
-const el=document.getElementById('timelineChart');
-if(charts.timeline)charts.timeline.destroy();
-if(!d.timeline||d.timeline.length===0){el.parentNode.innerHTML='<div class="chart-box"><h3>📅 Envíos por día</h3><p style="color:#666;padding:40px;text-align:center">Aún no hay datos. Los envíos aparecerán aquí.</p></div>';return}
-charts.timeline=new Chart(el,{type:'line',
-data:{labels:d.timeline.map(t=>t.date),datasets:[{label:'Envíos',data:d.timeline.map(t=>t.count),borderColor:'#4caf50',backgroundColor:'#4caf5033',fill:true,tension:.3,pointRadius:4}]},
-options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#222'}},x:{grid:{display:false}}}}});
+
+function renderCities(ciudades){
+  if(!ciudades||ciudades.length===0)return
+  new Chart(document.getElementById('chartCities'),{
+    type:'doughnut',data:{
+      labels:ciudades.map(c=>c.nombre),
+      datasets:[{
+        data:ciudades.map(c=>c.total),
+        backgroundColor:[COLORS.magenta,COLORS.cyan,COLORS.orange,COLORS.green,COLORS.purple,COLORS.pink,COLORS.yellow,COLORS.red,'#6366f1','#14b8a6','#f43f5e','#8b5cf6','#0ea5e9','#84cc16','#a1a1aa']
+      }]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'right',labels:{color:'#94a3b8',font:{size:11}}}}
+    }
+  })
 }
-function renderTable(d){
-document.getElementById('leadsTable').innerHTML=d.recent.map(l=>
-`<tr><td>${l.nombre}</td><td>${l.sector}</td><td>${l.ciudad}</td><td style="color:#888;font-size:.7rem">${l.email||'—'}</td><td><span class="badge ${l.estado==='sent'?'ok':l.estado==='pending'?'pending':'info'}">${l.estado}</span></td><td style="color:#666;font-size:.7rem">${l.fecha||'—'}</td></tr>`
-).join('');
-};
-load();
-setInterval(load,30000);
+
+function renderSends(timeline){
+  if(!timeline||timeline.length===0)return
+  new Chart(document.getElementById('chartSends'),{
+    type:'bar',data:{
+      labels:timeline.map(t=>t.dia.slice(5)),
+      datasets:[{
+        label:'Envíos',data:timeline.map(t=>t.enviados),
+        backgroundColor:COLORS.cyan,borderRadius:4
+      }]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#94a3b8'}}},
+      scales:{x:{ticks:{color:'#94a3b8'}},y:{ticks:{color:'#94a3b8',stepSize:1}}}
+    }
+  })
+}
+
+function renderRecent(leads){
+  const tbody=document.getElementById('recentTable')
+  if(!leads||leads.length===0){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--dim);padding:20px;">No hay leads aún</td></tr>';return}
+  tbody.innerHTML=leads.map(l=>{
+    let badge='<span class="badge pending">Pendiente</span>'
+    if(l.respondido)badge='<span class="badge responded">Respondido</span>'
+    else if(l.enviado)badge='<span class="badge sent">Enviado</span>'
+    return `<tr><td>#${l.id}</td><td>${l.nombre}</td><td>${l.sector}</td><td>${l.ciudad}</td><td style="color:var(--cyan)">${l.email||'—'}</td><td>${badge}</td></tr>`
+  }).join('')
+}
+
+loadData()
+// Auto refresh every 60 seconds
+setInterval(loadData,60000)
 </script>
 </body>
 </html>
