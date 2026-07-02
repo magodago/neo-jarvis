@@ -146,7 +146,14 @@ section{position:relative;z-index:1;padding:100px 40px}
 .cta-section p{color:#888;font-size:16px;max-width:500px;margin:0 auto 36px}
 .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-/* ── FOOTER ── */
+/* ── WHATSAPP FLOATING ── */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;
+  background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:all 0.3s;cursor:pointer}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,0.4)}
+.whatsapp-float svg{width:28px;height:28px;fill:#fff}
+@media(max-width:800px){.whatsapp-float{bottom:16px;right:16px;width:50px;height:50px}}
+
 footer{text-align:center;padding:40px;color:#444;font-size:12px;border-top:1px solid rgba(255,255,255,0.04)}
 
 /* ── ANIMATIONS ── */
@@ -181,27 +188,15 @@ footer{text-align:center;padding:40px;color:#444;font-size:12px;border-top:1px s
     </div>
     <div class="hero-visual">
       <div class="graph-bg">
-        <div class="graph-row">
-          <span class="label">Restaurantes</span>
-          <div class="bar-wrap"><div class="bar" style="width:100%"></div></div>
-          <span class="pct">434</span>
+        <div style="text-align:center;padding:20px 0">
+          <div style="font-size:48px;font-weight:700;color:#b8860b;margin-bottom:8px">1.272+</div>
+          <div style="font-size:13px;color:#888">empresas prospectadas en toda España</div>
+          <div style="margin-top:20px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap">
+            <div style="font-size:11px;color:#666;padding:8px 16px;background:rgba(255,255,255,0.02);border-radius:8px;border:1px solid rgba(184,134,11,0.08)">🔐 Seguridad</div>
+            <div style="font-size:11px;color:#666;padding:8px 16px;background:rgba(255,255,255,0.02);border-radius:8px;border:1px solid rgba(184,134,11,0.08)">💳 TPV</div>
+            <div style="font-size:11px;color:#666;padding:8px 16px;background:rgba(255,255,255,0.02);border-radius:8px;border:1px solid rgba(184,134,11,0.08)">🖥️ Software clínico</div>
+          </div>
         </div>
-        <div class="graph-row">
-          <span class="label">Clínicas dentales</span>
-          <div class="bar-wrap"><div class="bar" style="width:48%"></div></div>
-          <span class="pct">117</span>
-        </div>
-        <div class="graph-row">
-          <span class="label">Talleres</span>
-          <div class="bar-wrap"><div class="bar" style="width:27%"></div></div>
-          <span class="pct">64</span>
-        </div>
-        <div class="graph-row">
-          <span class="label">Peluquerías</span>
-          <div class="bar-wrap"><div class="bar" style="width:53%"></div></div>
-          <span class="pct">125</span>
-        </div>
-        <p style="font-size:11px;color:#555;margin-top:16px;text-align:center;letter-spacing:1px">DATOS REALES · MADRID 2026</p>
       </div>
     </div>
   </div>
@@ -217,8 +212,8 @@ footer{text-align:center;padding:40px;color:#444;font-size:12px;border-top:1px s
       <div class="step-card reveal">
         <div class="step-icon">🎯</div>
         <div class="step-num">01</div>
-        <h3>Seleccionas sector y zona</h3>
-        <p>Eliges qué tipo de negocio quieres captar como cliente (restaurantes, clínicas dentales, talleres...) y el área geográfica.</p>
+        <h3>Seleccionas el sector objetivo</h3>
+        <p>Eliges qué tipo de negocio quieres captar como cliente (restaurantes, clínicas dentales, talleres...). Nosotros lo hacemos llegar a toda España.</p>
       </div>
       <div class="step-card reveal">
         <div class="step-icon">✉️</div>
@@ -246,62 +241,32 @@ footer{text-align:center;padding:40px;color:#444;font-size:12px;border-top:1px s
       <div class="sector-card reveal">
         <div class="sector-icon">🍽️</div>
         <h3>Restaurantes</h3>
-        <div class="sector-desc">El sector con más datos. Ideal para TPV, delivery, bebidas, seguros, limpieza, extinción de incendios.</div>
-        <div class="sector-stat">
-          <div><strong>434</strong>contactos</div>
-          <div><strong>196</strong>con email</div>
-          <div><strong>45%</strong>tasa email</div>
-        </div>
+        <div class="sector-desc">El sector con más volumen. Ideal para TPV, delivery, bebidas, seguros, limpieza, extinción de incendios. Cobertura nacional.</div>
       </div>
       <div class="sector-card reveal">
         <div class="sector-icon">🦷</div>
         <h3>Clínicas dentales</h3>
-        <div class="sector-desc">Alta tasa de email. Perfecto para software clínico, seguridad, formación, material odontológico.</div>
-        <div class="sector-stat">
-          <div><strong>117</strong>contactos</div>
-          <div><strong>78</strong>con email</div>
-          <div><strong>66%</strong>tasa email</div>
-        </div>
+        <div class="sector-desc">Alta tasa de respuesta. Perfecto para software clínico, seguridad, formación, material odontológico. Gran cobertura nacional.</div>
       </div>
       <div class="sector-card reveal">
         <div class="sector-icon">🔧</div>
         <h3>Talleres mecánicos</h3>
-        <div class="sector-desc">Alto valor por cliente. Ideales para alarmas, recambios, seguros, formación, herramientas.</div>
-        <div class="sector-stat">
-          <div><strong>64</strong>contactos</div>
-          <div><strong>28</strong>con email</div>
-          <div><strong>44%</strong>tasa email</div>
-        </div>
+        <div class="sector-desc">Alto valor por cliente. Ideales para alarmas, recambios, seguros, formación, herramientas. Cobertura en principales capitales.</div>
       </div>
       <div class="sector-card reveal">
         <div class="sector-icon">💇</div>
         <h3>Peluquerías y estética</h3>
-        <div class="sector-desc">Gran volumen. Para marcas de cosmética, formación, TPV, seguros, limpieza.</div>
-        <div class="sector-stat">
-          <div><strong>125</strong>contactos</div>
-          <div><strong>52</strong>con email</div>
-          <div><strong>42%</strong>tasa email</div>
-        </div>
+        <div class="sector-desc">Gran volumen nacional. Para marcas de cosmética, formación, TPV, seguros, limpieza profesional.</div>
       </div>
       <div class="sector-card reveal">
         <div class="sector-icon">🏘️</div>
         <h3>Inmobiliarias</h3>
-        <div class="sector-desc">Datos limitados por ahora, pero alta disposición a comprar leads. Para software, formación, fotografía.</div>
-        <div class="sector-stat">
-          <div><strong>15</strong>contactos</div>
-          <div><strong>0</strong>con email</div>
-          <div><strong>0%</strong>sin email aún</div>
-        </div>
+        <div class="sector-desc">Datos en expansión. Para software CRM, formación, fotografía profesional, servicios de reformas.</div>
       </div>
       <div class="sector-card reveal">
         <div class="sector-icon">🏥</div>
         <h3>Clínicas médicas</h3>
-        <div class="sector-desc">Incluye centros médicos, clínicas de fisioterapia, podología. Para software, material sanitario.</div>
-        <div class="sector-stat">
-          <div><strong>70</strong>contactos</div>
-          <div><strong>28</strong>con email</div>
-          <div><strong>40%</strong>tasa email</div>
-        </div>
+        <div class="sector-desc">Incluye fisioterapia, podología, centros médicos. Ideal para software sanitario, material clínico, formación.</div>
       </div>
     </div>
   </div>
@@ -399,10 +364,15 @@ footer{text-align:center;padding:40px;color:#444;font-size:12px;border-top:1px s
   <h2 class="reveal">¿Listo para conseguir clientes sin anuncios?</h2>
   <p class="reveal">Cuéntanos a quién quieres venderle y te preparamos una campaña personalizada para tu sector.</p>
   <div class="cta-buttons reveal">
-    <a href="mailto:dortizs76@gmail.com?subject=Quiero%20informacion%20de%20NEO%20Campaigns" class="btn-primary">HABLAR CON NEO LABS</a>
+    <a href="mailto:david@neolabs.me?subject=Quiero%20informacion%20de%20NEO%20Campaigns" class="btn-primary">HABLAR CON NEO LABS</a>
     <a href="#inicio" class="btn-secondary">Más información</a>
   </div>
 </section>
+
+<!-- WHATSAPP FLOATING -->
+<a href="https://wa.me/34658237988" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.607.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <footer>
   <p>NEO Campaigns · Parte de NEO Labs · Madrid 2026</p>
