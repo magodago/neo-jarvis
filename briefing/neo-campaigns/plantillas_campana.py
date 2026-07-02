@@ -12,7 +12,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # ── CONFIG ──
-LANDING = "https://magodago.github.io/neo-jarvis/briefing/neo-campaigns/"
+LANDING = "https://neo.neolabs.me/briefing/neo-campaigns/"
 TOKEN_FILE = os.path.expanduser("~/.hermes/google_token.json")
 SCOPES = ["https://www.googleapis.com/auth/gmail.send",
           "https://www.googleapis.com/auth/gmail.modify"]
@@ -21,7 +21,7 @@ SCOPES = ["https://www.googleapis.com/auth/gmail.send",
 # 1. EMAIL DE VENTA — para captar clientes de NEO Campaigns
 # ═══════════════════════════════════════════════
 
-SALES_EMAIL_SUBJECT = "[EMPRESA], ¿quieres llegar a {sector} de {zona} sin pagar anuncios?"
+SALES_EMAIL_SUBJECT = "[EMPRESA], ¿quieres llegar a {sector} sin pagar anuncios?"
 
 SALES_EMAIL_TEXTO = """Hola,
 
@@ -36,17 +36,16 @@ Nosotros hacemos una cosa sencilla:
 
 Resultado: tu campaña llega a {num_leads} {sector} de {zona}, sin que muevas un dedo.
 
-Ejemplo real — sector restaurantes en Madrid:
-  434 restaurantes identificados | 196 con email | coste 0€ en captación
+Ejemplo real: más de 1.000 restaurantes prospectados solo en Madrid capital.
 
 Te paso los negocios que responden interesados. Tú solo cierras.
 
 Precios desde 97€/mes. Sin permanencia.
 
-¿Te interesa? Respondeme y te preparo una muestra gratis de los leads de tu sector.
+¿Te interesa? Respondeme y te cuento cómo empezamos.
 
 David | NEO Labs
-neolabs.es
+neo.neolabs.me
 """
 
 # ═══════════════════════════════════════════════
@@ -171,7 +170,7 @@ def generar_html_campana(texto_plano, landing=None):
     texto_plano_final = texto_plano.replace("[LANDING]", landing or LANDING)
     return texto_plano_final, html
 
-def construir_email(destinatario, asunto, texto_plano, html, remitente="dortizs76@gmail.com"):
+def construir_email(destinatario, asunto, texto_plano, html, remitente="david@neolabs.me"):
     """Construye el MIMEMultipart listo para enviar"""
     msg = MIMEMultipart("alternative")
     msg["Subject"] = asunto
@@ -182,7 +181,7 @@ def construir_email(destinatario, asunto, texto_plano, html, remitente="dortizs7
     msg.attach(MIMEText(html, "html", "utf-8"))
     return msg
 
-def enviar_email(service, destinatario, asunto, texto_plano, html, remitente="dortizs76@gmail.com"):
+def enviar_email(service, destinatario, asunto, texto_plano, html, remitente="david@neolabs.me"):
     """Envía un email via Gmail API, espera 3s entre envíos por rate limit"""
     msg = construir_email(destinatario, asunto, texto_plano, html, remitente)
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
