@@ -1,2 +1,9 @@
+# NEO Labs — GitHub Pages config
+# Explicitly disables Jekyll processing (we serve static HTML)
 include: ["*"]
-exclude: []
+exclude:
+  - scripts/
+  - README.md
+  - CNAME
+markdown: none
+permalink: none
