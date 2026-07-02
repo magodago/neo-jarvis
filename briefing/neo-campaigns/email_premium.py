@@ -38,13 +38,11 @@ Nosotros hacemos tres cosas:
 
 Sin permanencia. Sin riesgos.
 
-  Starter   50 contactos/mes    97€   →  prueba un mes
+  Starter   50 contactos/mes    97€
   Pro      150 contactos/mes   197€  →  recomendado
   Enterprise 500 contactos/mes 397€  →  3 sectores
 
-Quiero que veas la calidad antes de pagar. Te preparo una muestra GRATIS de tu zona para que compruebes por ti mismo.
-
-¿Te interesa? Responde "sí" y te la envío.
+Si te interesa, responde a este correo y te explico cómo funciona.
 
 David
 NEO Labs — neolabs.me
@@ -72,9 +70,7 @@ Sin permanencia. Sin riesgos.
   Pro      150 contactos/mes   197€  →  más vendido
   Enterprise 500 contactos/mes 397€  →  3 sectores
 
-Antes de pagar, te envío una muestra GRATIS de tu zona.
-
-Responde "sí" y te la preparo.
+Si te interesa, responde a este correo y te explico cómo funciona.
 
 David
 NEO Labs — neolabs.me
@@ -105,9 +101,7 @@ Sin permanencia. Sin riesgos.
   Pro      150 contactos/mes   197€  →  recomendado
   Enterprise 500 contactos/mes 397€  →  hasta 3 sectores
 
-Quiero que veas la calidad antes de pagar. Te envío una muestra GRATIS de tu zona.
-
-Responde "sí" y te la preparo.
+Si te interesa, responde a este correo y te explico cómo funciona.
 
 David
 NEO Labs — neolabs.me
