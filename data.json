@@ -1,0 +1,106 @@
+{
+  "timestamp": "2026-07-02 19:00 UTC",
+  "stats": {
+    "total": 1084,
+    "con_email": 551,
+    "con_telefono": 962,
+    "con_web": 922,
+    "sent": 291,
+    "bounce": 1,
+    "reply": 5,
+    "pending": 260,
+    "tasa_respuesta": 1.7
+  },
+  "sectors": [
+    {
+      "sector": "restaurantes",
+      "total": 434,
+      "sent": 160,
+      "bounces": 0,
+      "replies": 2
+    },
+    {
+      "sector": "abogados",
+      "total": 244,
+      "sent": 125,
+      "bounces": 0,
+      "replies": 1
+    },
+    {
+      "sector": "clínicas dentales",
+      "total": 117,
+      "sent": 0,
+      "bounces": 0,
+      "replies": 1
+    },
+    {
+      "sector": "peluquerías",
+      "total": 110,
+      "sent": 2,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "clinicas",
+      "total": 70,
+      "sent": 4,
+      "bounces": 1,
+      "replies": 1
+    },
+    {
+      "sector": "talleres mecánicos",
+      "total": 49,
+      "sent": 0,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "talleres",
+      "total": 15,
+      "sent": 0,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "peluquerias",
+      "total": 15,
+      "sent": 0,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "inmobiliarias",
+      "total": 15,
+      "sent": 0,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "centros",
+      "total": 15,
+      "sent": 0,
+      "bounces": 0,
+      "replies": 0
+    }
+  ],
+  "timeline_scrapeo": [
+    {
+      "dia": "2026-07-01",
+      "nuevos": 257
+    },
+    {
+      "dia": "2026-07-02",
+      "nuevos": 827
+    }
+  ],
+  "timeline_envio": [
+    {
+      "dia": "2026-07-01",
+      "enviados": 25
+    },
+    {
+      "dia": "2026-07-02",
+      "enviados": 363
+    }
+  ]
+}
