@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-07-01 21:03 UTC",
+  "timestamp": "2026-07-02 10:00 UTC",
   "stats": {
     "total": 257,
     "con_email": 101,
     "con_telefono": 147,
     "con_web": 135,
-    "sent": 100,
+    "sent": 101,
     "bounce": 0,
     "reply": 1,
-    "pending": 1,
+    "pending": 0,
     "tasa_respuesta": 1.0
   },
   "sectors": [
@@ -22,7 +22,7 @@
     {
       "sector": "restaurantes",
       "total": 65,
-      "sent": 16,
+      "sent": 17,
       "bounces": 0,
       "replies": 0
     },
@@ -72,6 +72,10 @@
     {
       "dia": "2026-07-01",
       "enviados": 100
+    },
+    {
+      "dia": "2026-07-02",
+      "enviados": 1
     }
   ]
 }
