@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEO Campaigns — Captación B2B para tu empresa</title>
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#050505;color:#d0d0d0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;overflow-x:hidden;line-height:1.6}
+
+/* ── GRADIENT BG ── */
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(ellipse at 30% 20%,rgba(180,120,0,0.03) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 80%,rgba(100,60,0,0.02) 0%,transparent 60%);
+  pointer-events:none;z-index:0}
+
+/* ── TYPO ── */
+h1,h2,h3{font-weight:600;letter-spacing:-0.02em;color:#fff}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(180,140,0,0.3);color:#fff}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,5,5,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(180,140,0,0.08)}
+nav .logo{font-size:22px;font-weight:700;letter-spacing:3px}
+nav .logo span.gold{color:#b8860b}
+nav .logo span.white{color:#fff}
+nav .nav-links{display:flex;gap:32px;font-size:13px;color:#888}
+nav .nav-links a{transition:color 0.3s}
+nav .nav-links a:hover{color:#b8860b}
+
+/* ── SECTIONS COMMON ── */
+section{position:relative;z-index:1;padding:100px 40px}
+.section-inner{max-width:1100px;margin:0 auto}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:80px}
+.hero .section-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-left h1{font-size:clamp(36px,5vw,64px);line-height:1.1;margin-bottom:24px}
+.hero-left h1 .gold{color:#b8860b}
+.hero-left p{font-size:18px;color:#999;max-width:480px;margin-bottom:40px;line-height:1.7}
+.hero-stats{display:flex;gap:40px;margin-bottom:40px}
+.hero-stat h3{font-size:36px;color:#b8860b;line-height:1}
+.hero-stat p{font-size:13px;color:#666;margin-top:4px}
+.btn-primary{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#b8860b,#8b6508);color:#fff;
+  border-radius:8px;font-weight:600;font-size:14px;letter-spacing:0.5px;transition:all 0.3s;border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(184,134,11,0.25)}
+.btn-secondary{display:inline-block;padding:14px 36px;border:1px solid rgba(184,134,11,0.3);color:#b8860b;
+  border-radius:8px;font-weight:500;font-size:14px;transition:all 0.3s;margin-left:16px}
+.btn-secondary:hover{border-color:#b8860b;background:rgba(184,134,11,0.05)}
+.hero-visual{position:relative}
+.hero-visual .graph-bg{background:linear-gradient(135deg,#0d0d0d,#1a1a0a);border-radius:16px;
+  padding:40px;border:1px solid rgba(184,134,11,0.1);position:relative;overflow:hidden}
+.hero-visual .graph-bg::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,#b8860b,transparent)}
+.graph-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;
+  animation:fadeInUp 0.6s ease both}
+.graph-row:nth-child(2){animation-delay:0.2s}
+.graph-row:nth-child(3){animation-delay:0.4s}
+.graph-row .label{font-size:13px;color:#888;width:100px;flex-shrink:0}
+.graph-row .bar-wrap{flex:1;height:28px;background:rgba(255,255,255,0.03);border-radius:14px;overflow:hidden}
+.graph-row .bar{height:100%;border-radius:14px;
+  background:linear-gradient(90deg,#b8860b,#d4a017);transition:width 1.5s ease}
+.graph-row .pct{font-size:13px;color:#b8860b;width:44px;text-align:right;font-weight:600}
+@media(max-width:800px){
+  .hero .section-inner{grid-template-columns:1fr;gap:40px}
+  .hero{min-height:auto;padding:120px 20px 60px}
+  .hero-stats{gap:24px;flex-wrap:wrap}
+  nav{padding:12px 20px}
+  nav .nav-links{display:none}
+  section{padding:60px 20px}
+}
+
+/* ── HOW IT WORKS ── */
+.how{background:linear-gradient(180deg,#050505 0%,#0a0a05 100%)}
+.section-label{font-size:12px;color:#b8860b;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-size:clamp(28px,3.5vw,44px);margin-bottom:16px}
+.section-sub{color:#777;font-size:16px;max-width:600px;margin-bottom:60px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.step-card{background:rgba(255,255,255,0.02);border:1px solid rgba(180,140,0,0.08);border-radius:12px;
+  padding:36px 28px;transition:all 0.4s;position:relative;overflow:hidden}
+.step-card:hover{background:rgba(255,255,255,0.04);border-color:rgba(180,140,0,0.2);transform:translateY(-4px)}
+.step-card .step-num{font-size:48px;font-weight:700;color:rgba(184,134,11,0.06);position:absolute;top:16px;right:20px;line-height:1}
+.step-card h3{font-size:18px;margin-bottom:12px;margin-top:0}
+.step-card p{font-size:14px;color:#888;line-height:1.7}
+.step-icon{width:48px;height:48px;background:rgba(184,134,11,0.1);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+
+/* ── SECTORS ── */
+.sectors{background:#080804}
+.sector-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sector-card{background:rgba(255,255,255,0.02);border:1px solid rgba(180,140,0,0.06);border-radius:12px;
+  padding:32px 24px;transition:all 0.4s}
+.sector-card:hover{background:rgba(255,255,255,0.04);border-color:rgba(180,140,0,0.15);transform:translateY(-3px)}
+.sector-card .sector-icon{font-size:32px;margin-bottom:16px}
+.sector-card h3{font-size:17px;margin-bottom:8px}
+.sector-card .sector-desc{font-size:13px;color:#888;margin-bottom:16px;line-height:1.6}
+.sector-stat{display:flex;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.04)}
+.sector-stat div{font-size:12px;color:#666}
+.sector-stat strong{color:#b8860b;display:block;font-size:16px;margin-bottom:2px}
+@media(max-width:800px){.sector-grid{grid-template-columns:1fr}}
+
+/* ── PRICING ── */
+.pricing{background:linear-gradient(180deg,#0a0a05 0%,#050505 100%)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.price-card{background:rgba(255,255,255,0.02);border:1px solid rgba(180,140,0,0.08);border-radius:16px;
+  padding:40px 28px;text-align:center;transition:all 0.4s;position:relative}
+.price-card.featured{background:rgba(184,134,11,0.04);border-color:#b8860b;transform:scale(1.04)}
+.price-card.featured .featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:#b8860b;color:#000;font-size:11px;font-weight:700;padding:4px 16px;border-radius:20px;
+  letter-spacing:1px;text-transform:uppercase}
+.price-card:hover{transform:translateY(-6px);border-color:rgba(184,134,11,0.25)}
+.price-card.featured:hover{transform:scale(1.04) translateY(-6px)}
+.price-card .plan-name{font-size:14px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.price-card .price{font-size:48px;font-weight:700;color:#fff;margin-bottom:4px}
+.price-card .price-period{font-size:14px;color:#666;margin-bottom:24px}
+.price-card .price-old{font-size:16px;color:#555;text-decoration:line-through;margin-bottom:4px}
+.price-card ul{list-style:none;padding:0;margin:0 0 32px;text-align:left}
+.price-card ul li{padding:10px 0;font-size:14px;color:#aaa;border-bottom:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;gap:10px}
+.price-card ul li::before{content:'✓';color:#b8860b;font-weight:700}
+.price-card .btn-primary{width:100%;text-align:center}
+.price-card.featured .btn-primary{background:linear-gradient(135deg,#d4a017,#b8860b)}
+@media(max-width:800px){.price-grid{grid-template-columns:1fr;gap:20px}
+  .price-card.featured{transform:none}
+  .price-card.featured:hover{transform:translateY(-6px)}}
+
+/* ── WHY ── */
+.why{background:#080804}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.why-item{background:rgba(255,255,255,0.02);border:1px solid rgba(180,140,0,0.06);border-radius:12px;
+  padding:28px 24px;transition:all 0.3s}
+.why-item:hover{border-color:rgba(180,140,0,0.15)}
+.why-item h3{font-size:15px;margin-bottom:8px}
+.why-item p{font-size:13px;color:#888;line-height:1.6}
+@media(max-width:800px){.why-grid{grid-template-columns:1fr}}
+
+/* ── CTA ── */
+.cta-section{text-align:center;padding:100px 40px;
+  background:linear-gradient(180deg,#0a0a05,transparent)}
+.cta-section h2{font-size:clamp(28px,3.5vw,44px);margin-bottom:16px}
+.cta-section p{color:#888;font-size:16px;max-width:500px;margin:0 auto 36px}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:40px;color:#444;font-size:12px;border-top:1px solid rgba(255,255,255,0.04)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><span class="gold">NEO</span> <span class="white">CAMPAIGNS</span></div>
+  <div class="nav-links">
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#sectores">Sectores</a>
+    <a href="#precios">Precios</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="section-inner">
+    <div class="hero-left">
+      <h1>Llega a <span class="gold">cientos de negocios</span> de tu sector objetivo cada mes</h1>
+      <p>Te enviamos tu campaña de email personalizada a los negocios que quieres captar como clientes. Sin invertir en anuncios. Sin perder tiempo buscando contactos.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <h3>1.084+</h3>
+          <p>negocios en base de datos</p>
+        </div>
+        <div class="hero-stat">
+          <h3>551</h3>
+          <p>con email validado</p>
+        </div>
+        <div class="hero-stat">
+          <h3>0€</h3>
+          <p>coste de captación</p>
+        </div>
+      </div>
+      <div>
+        <a href="#precios" class="btn-primary">VER PLANES</a>
+        <a href="#como-funciona" class="btn-secondary">Cómo funciona</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="graph-bg">
+        <div class="graph-row">
+          <span class="label">Restaurantes</span>
+          <div class="bar-wrap"><div class="bar" style="width:100%"></div></div>
+          <span class="pct">434</span>
+        </div>
+        <div class="graph-row">
+          <span class="label">Clínicas dentales</span>
+          <div class="bar-wrap"><div class="bar" style="width:48%"></div></div>
+          <span class="pct">117</span>
+        </div>
+        <div class="graph-row">
+          <span class="label">Talleres</span>
+          <div class="bar-wrap"><div class="bar" style="width:27%"></div></div>
+          <span class="pct">64</span>
+        </div>
+        <div class="graph-row">
+          <span class="label">Peluquerías</span>
+          <div class="bar-wrap"><div class="bar" style="width:53%"></div></div>
+          <span class="pct">125</span>
+        </div>
+        <p style="font-size:11px;color:#555;margin-top:16px;text-align:center;letter-spacing:1px">DATOS REALES · MADRID 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="como-funciona">
+  <div class="section-inner">
+    <div class="section-label">Proceso</div>
+    <h2 class="section-title">Cómo funciona</h2>
+    <p class="section-sub">Tú nos dices a quién quieres llegar. Nosotros hacemos el resto.</p>
+    <div class="steps">
+      <div class="step-card reveal">
+        <div class="step-icon">🎯</div>
+        <div class="step-num">01</div>
+        <h3>Seleccionas sector y zona</h3>
+        <p>Eliges qué tipo de negocio quieres captar como cliente (restaurantes, clínicas dentales, talleres...) y el área geográfica.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-icon">✉️</div>
+        <div class="step-num">02</div>
+        <h3>Nosotros lanzamos la campaña</h3>
+        <p>Redactamos el email, lo personalizamos con IA y lo enviamos desde nuestra infraestructura a todos los contactos del sector seleccionado.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-icon">📥</div>
+        <div class="step-num">03</div>
+        <h3>Recibes los leads interesados</h3>
+        <p>Te pasamos todos los negocios que responden interesados. Tú solo tienes que cerrar la venta. Sin permanencia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sectors" id="sectores">
+  <div class="section-inner">
+    <div class="section-label">Sectores</div>
+    <h2 class="section-title">¿A quién quieres venderle?</h2>
+    <p class="section-sub">Tenemos datos sectoriales de todos estos tipos de negocio. Datos reales de Google Places, actualizados.</p>
+    <div class="sector-grid">
+      <div class="sector-card reveal">
+        <div class="sector-icon">🍽️</div>
+        <h3>Restaurantes</h3>
+        <div class="sector-desc">El sector con más datos. Ideal para TPV, delivery, bebidas, seguros, limpieza, extinción de incendios.</div>
+        <div class="sector-stat">
+          <div><strong>434</strong>contactos</div>
+          <div><strong>196</strong>con email</div>
+          <div><strong>45%</strong>tasa email</div>
+        </div>
+      </div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🦷</div>
+        <h3>Clínicas dentales</h3>
+        <div class="sector-desc">Alta tasa de email. Perfecto para software clínico, seguridad, formación, material odontológico.</div>
+        <div class="sector-stat">
+          <div><strong>117</strong>contactos</div>
+          <div><strong>78</strong>con email</div>
+          <div><strong>66%</strong>tasa email</div>
+        </div>
+      </div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🔧</div>
+        <h3>Talleres mecánicos</h3>
+        <div class="sector-desc">Alto valor por cliente. Ideales para alarmas, recambios, seguros, formación, herramientas.</div>
+        <div class="sector-stat">
+          <div><strong>64</strong>contactos</div>
+          <div><strong>28</strong>con email</div>
+          <div><strong>44%</strong>tasa email</div>
+        </div>
+      </div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">💇</div>
+        <h3>Peluquerías y estética</h3>
+        <div class="sector-desc">Gran volumen. Para marcas de cosmética, formación, TPV, seguros, limpieza.</div>
+        <div class="sector-stat">
+          <div><strong>125</strong>contactos</div>
+          <div><strong>52</strong>con email</div>
+          <div><strong>42%</strong>tasa email</div>
+        </div>
+      </div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🏘️</div>
+        <h3>Inmobiliarias</h3>
+        <div class="sector-desc">Datos limitados por ahora, pero alta disposición a comprar leads. Para software, formación, fotografía.</div>
+        <div class="sector-stat">
+          <div><strong>15</strong>contactos</div>
+          <div><strong>0</strong>con email</div>
+          <div><strong>0%</strong>sin email aún</div>
+        </div>
+      </div>
+      <div class="sector-card reveal">
+        <div class="sector-icon">🏥</div>
+        <h3>Clínicas médicas</h3>
+        <div class="sector-desc">Incluye centros médicos, clínicas de fisioterapia, podología. Para software, material sanitario.</div>
+        <div class="sector-stat">
+          <div><strong>70</strong>contactos</div>
+          <div><strong>28</strong>con email</div>
+          <div><strong>40%</strong>tasa email</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="precios">
+  <div class="section-inner">
+    <div class="section-label" style="text-align:center">Planes</div>
+    <h2 class="section-title" style="text-align:center">Precios de lanzamiento</h2>
+    <p class="section-sub" style="text-align:center">Sin permanencia. Sin costes ocultos. Resultados medibles.</p>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="plan-name">Starter</div>
+        <div class="price-old">147€</div>
+        <div class="price">97€</div>
+        <div class="price-period">/mes</div>
+        <ul>
+          <li>1 sector a elegir</li>
+          <li>Hasta 50 contactos/mes</li>
+          <li>Email personalizado con IA</li>
+          <li>Tú eliges sector y zona</li>
+          <li>Informe semanal de resultados</li>
+        </ul>
+        <a href="#contacto" class="btn-primary">EMPEZAR</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="featured-badge">MÁS VENDIDO</div>
+        <div class="plan-name">Pro</div>
+        <div class="price-old">297€</div>
+        <div class="price">197€</div>
+        <div class="price-period">/mes</div>
+        <ul>
+          <li>1 sector a elegir</li>
+          <li>Hasta 150 contactos/mes</li>
+          <li>Email personalizado con IA</li>
+          <li>Seguimiento de respuestas en tiempo real</li>
+          <li>Diseño de campaña profesional</li>
+          <li>Informe semanal de resultados</li>
+        </ul>
+        <a href="#contacto" class="btn-primary">EMPEZAR</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="plan-name">Enterprise</div>
+        <div class="price-old">597€</div>
+        <div class="price">397€</div>
+        <div class="price-period">/mes</div>
+        <ul>
+          <li>Hasta 3 sectores</li>
+          <li>Hasta 500 contactos/mes</li>
+          <li>Email personalizado con IA</li>
+          <li>Seguimiento de respuestas en tiempo real</li>
+          <li>Lead scoring (prioridad por interés)</li>
+          <li>Informe semanal de resultados</li>
+          <li>Prioridad máxima en envíos</li>
+        </ul>
+        <a href="#contacto" class="btn-primary">EMPEZAR</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NEO -->
+<section class="why" id="por-que">
+  <div class="section-inner">
+    <div class="section-label">Ventajas</div>
+    <h2 class="section-title">Por qué NEO Campaigns</h2>
+    <p class="section-sub">No somos una agencia de marketing. Somos una máquina de generar contactos comerciales.</p>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <h3>Coste cero en captación</h3>
+        <p>No pagamos por listas de datos. Scrapeamos negocios reales de Google Places. Tú solo pagas por el servicio.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Datos frescos y reales</h3>
+        <p>Cada contacto es un negocio que existe hoy en Google Maps. No son listas compradas de dudosa procedencia.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Personalización por IA</h3>
+        <p>Cada email se redacta con IA adaptándolo al negocio concreto. No son plantillas genéricas que parecen spam.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Sin permanencia</h3>
+        <p>Prueba un mes. Si no te genera contactos, lo cancelas. Sin ataduras ni penalizaciones.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Muestra gratis</h3>
+        <p>Antes de pagar, te enviamos una muestra de los contactos de tu zona para que veas la calidad de los datos.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Escalable</h3>
+        <p>Si un sector funciona, ampliamos a más zonas o más sectores. Tú controlas el ritmo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contacto">
+  <h2 class="reveal">¿Listo para conseguir clientes sin anuncios?</h2>
+  <p class="reveal">Cuéntanos a quién quieres venderle y te preparamos una muestra gratuita de leads de tu sector.</p>
+  <div class="cta-buttons reveal">
+    <a href="mailto:dortizs76@gmail.com?subject=Quiero%20leads%20de%20[mi%20sector]" class="btn-primary">SOLICITAR MUESTRA</a>
+    <a href="#inicio" class="btn-secondary">Más información</a>
+  </div>
+</section>
+
+<footer>
+  <p>NEO Campaigns · Parte de NEO Labs · Madrid 2026</p>
+  <p style="margin-top:4px">Datos obtenidos de fuentes públicas. No almacenamos datos personales sin consentimiento.</p>
+</footer>
+
+<script>
+// ── Intersection Observer for reveals ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible')
+  })
+}, {threshold:0.15})
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+</script>
+
+</body>
+</html>
