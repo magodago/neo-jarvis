@@ -158,7 +158,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple
   <p>Nosotros encontramos empresas y profesionales interesados en tu servicio, los contactamos con emails personalizados, y te pasamos los que responden. Tu solo cierras.</p>
   <div class="btn-group">
     <a href="#planes" class="btn">VER PLANES Y PRECIOS</a>
-    <a href="#form" class="btn btn-secondary">HABLAR CON DAVID</a>
+    <a href="#form" class="btn btn-secondary">HABLAR CON EL EQUIPO DE NEO LABS</a>
   </div>
   <div class="scroll-down">Desplazate para ver mas</div>
 </section>
@@ -192,8 +192,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple
   <div class="steps reveal">
     <div class="step-card">
       <div class="step-num">01</div>
-      <h4>Analizamos tu negocio</h4>
-      <p>Estudiamos tu sector, tu zona geografica y tu cliente ideal. Definimos el perfil exacto de lead que necesitas.</p>
+      <h4>Seleccionamos tu sector y zona</h4>
+      <p>Eliges el tipo de negocio y la ciudad donde quieres conseguir clientes. Nosotros extraemos los datos de Google Places con email verificable.</p>
     </div>
     <div class="step-card">
       <div class="step-num">02</div>
@@ -207,8 +207,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple
     </div>
     <div class="step-card">
       <div class="step-num">04</div>
-      <h4>Recibes los resultados</h4>
-      <p>Cada semana recibes un informe con los leads generados, quienes respondieron y el estado de cada conversacion.</p>
+      <h4>Recibes los contactos</h4>
+      <p>Te enviamos los leads con email y telefono en un archivo CSV. Tu decides a quien contactas y cuando. Sin sistemas complejos.</p>
     </div>
   </div>
 
@@ -418,15 +418,30 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple
 
 <!-- ====== FORM TIMER HANDLER ====== -->
 <script>
-// Timer de urgencia — 2 horas desde que carga la pagina
+// Timer de urgencia — cuenta atras desde 2 horas
 (function(){
-  const start = new Date();
-  const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+  const end = new Date(Date.now() + 2 * 60 * 60 * 1000);
   const bar = document.querySelector('.urgency');
-  if(bar) {
-    bar.textContent = 'Oferta lanzamiento — Contrata en las proximas 2 horas y el primer mes a mitad de precio';
+  if(!bar) return;
+
+  function updateTimer(){
+    const now = Date.now();
+    const diff = end - now;
+    if(diff <= 0){
+      bar.style.display = 'none';
+      return;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    bar.innerHTML = 'Oferta lanzamiento — Contrata en las proximas <strong>' +
+      h.toString().padStart(2,'0') + ':' +
+      m.toString().padStart(2,'0') + ':' +
+      s.toString().padStart(2,'0') +
+      '</strong> y el primer mes a mitad de precio';
   }
-  // Actualizar timer en la barra de urgencia (opcional)
+  updateTimer();
+  setInterval(updateTimer, 1000);
 })();
 
 // Reveal on scroll
