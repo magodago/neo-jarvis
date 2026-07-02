@@ -1,0 +1,8 @@
+# NEO Labs
+include:
+  - "/*"
+  - "*/**"
+exclude:
+  - scripts
+  - Gemfile
+  - Gemfile.lock
