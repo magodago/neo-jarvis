@@ -23,7 +23,7 @@ SEGURIDAD_ASUNTO = "{nombre}, ¿cómo llegar a decenas de talleres en 24h sin ll
 
 SEGURIDAD_TEXTO = """Hola {nombre},
 
-Imagina que mañana por la mañana decenas de talleres de {zona} reciben un email personalizado ofreciéndoles tu sistema de alarmas.
+Imagina que mañana por la mañana decenas de talleres reciben un email personalizado ofreciéndoles tu sistema de alarmas.
 
 Sin llamadas en frío. Sin perder horas buscando contactos. Sin depender de Google Ads que cada vez sale más caro.
 
@@ -32,7 +32,7 @@ De esos talleres, varios te responderán interesados. Tú solo los llamas y cier
 Eso es NEO Campaigns.
 
 Nosotros hacemos tres cosas:
-  1. Buscamos talleres de {zona} con datos reales (Google Places)
+  1. Buscamos talleres con datos reales (Google Places)
   2. Personalizamos un email comercial para cada uno con IA
   3. Lo enviamos y te pasamos los que responden interesados
 
@@ -52,17 +52,17 @@ NEO Labs — neolabs.me
 # VERSIÓN 2 — TPV (target: restaurantes)
 # ═══════════════════════════════════════════════
 
-TPV_ASUNTO = "{nombre}, restaurantes de {zona} esperando tu oferta de TPV"
+TPV_ASUNTO = "{nombre}, restaurantes esperando tu oferta de TPV"
 
 TPV_TEXTO = """Hola {nombre},
 
-Hay cientos de restaurantes en {zona} con email público. Y cada uno de ellos necesita un TPV.
+Hay cientos de restaurantes con email público. Y cada uno de ellos necesita un TPV.
 
 El problema es llegar a ellos antes que tu competencia. Llamar en frío es ineficiente. Google Ads cada vez más caro. Y los directorios online están saturados de ofertas.
 
 Nosotros te ponemos delante de ellos en 24 horas.
 
-NEO Campaigns busca restaurantes de la zona que elijas, personaliza un email para cada uno con IA, y lo envía desde nuestra infraestructura. Los que responden interesados te los pasamos.
+NEO Campaigns busca restaurantes, personaliza un email para cada uno con IA, y lo envía desde nuestra infraestructura. Los que responden interesados te los pasamos.
 
 Sin permanencia. Sin riesgos.
 
@@ -80,18 +80,18 @@ NEO Labs — neolabs.me
 # VERSIÓN 3 — SOFTWARE CLÍNICO (target: clínicas dentales)
 # ═══════════════════════════════════════════════
 
-SOFTWARE_ASUNTO = "{nombre}, clínicas dentales en {zona} esperando tu software"
+SOFTWARE_ASUNTO = "{nombre}, clínicas dentales esperando tu software"
 
 SOFTWARE_TEXTO = """Hola {nombre},
 
-Hay decenas de clínicas dentales en {zona} con email. Y muchas de ellas siguen gestionando pacientes con papel y Excel.
+Hay decenas de clínicas dentales con email público. Y muchas de ellas siguen gestionando pacientes con papel y Excel.
 
 El reto no es tener el mejor software. Es llegar al director de la clínica antes de que tu competencia lo haga.
 
-NEO Campaigns te da acceso directo a esas clínicas en {zona} con un email personalizado para cada una.
+NEO Campaigns te da acceso directo a esas clínicas con un email personalizado para cada una.
 
 Cómo funciona:
-  1. Buscamos clínicas dentales de {zona} (datos reales de Google Places)
+  1. Buscamos clínicas dentales (datos reales de Google Places)
   2. Personalizamos un email comercial para cada una con IA
   3. Lo enviamos y te pasamos las que responden interesadas
 

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Star NEO</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;background:#0a0a0a;overflow:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif
+}
+.container{
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:30px
+}
+.star-wrap{
+  position:relative;width:260px;height:260px;
+  animation:float 2.5s ease-in-out infinite
+}
+/* Halo exterior */
+.halo{
+  position:absolute;inset:-25px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,200,0,0.3) 0%,rgba(255,200,0,0.08) 40%,transparent 70%);
+  animation:pulse-halo 1.8s ease-in-out infinite
+}
+/* Brillos orbitantes */
+.sparkle{
+  position:absolute;width:6px;height:6px;border-radius:50%;
+  background:#fff;box-shadow:0 0 8px #ff0,0 0 16px #fa0;
+  animation:orbit 2.5s linear infinite
+}
+.sparkle:nth-child(2){animation-delay:-0.5s;width:4px;height:4px}
+.sparkle:nth-child(3){animation-delay:-1s;width:5px;height:5px}
+.sparkle:nth-child(4){animation-delay:-1.5s;width:3px;height:3px}
+.sparkle:nth-child(5){animation-delay:-2s;width:7px;height:7px}
+.sparkle:nth-child(6){animation-delay:-0.3s;width:4px;height:4px}
+.sparkle:nth-child(7){animation-delay:-0.8s;width:5px;height:5px}
+.sparkle:nth-child(8){animation-delay:-1.3s;width:3px;height:3px}
+
+svg{display:block;width:100%;height:100%;filter:drop-shadow(0 0 30px rgba(255,200,0,0.5))}
+
+/* Texto */
+.label{color:#444;font-size:13px;letter-spacing:3px;text-transform:uppercase}
+.label span{color:rgba(255,200,0,0.6)}
+
+.credits{color:#333;font-size:10px;margin-top:10px;letter-spacing:1px}
+
+@keyframes spin{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+@keyframes pulse-halo{
+  0%,100%{opacity:0.6;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.12)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+@keyframes orbit{
+  0%{transform:rotate(0deg) translateX(160px) rotate(0deg);opacity:1}
+  50%{opacity:0.4}
+  100%{transform:rotate(360deg) translateX(160px) rotate(-360deg);opacity:1}
+}
+@keyframes wobble{
+  0%,100%{transform:rotate(var(--r,0deg)) scale(1)}
+  25%{transform:rotate(calc(var(--r,0deg) + 90deg)) scale(1.08)}
+  50%{transform:rotate(calc(var(--r,0deg) + 180deg)) scale(0.95)}
+  75%{transform:rotate(calc(var(--r,0deg) + 270deg)) scale(1.06)}
+}
+/* glow particles */
+.particle{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:#ff0;box-shadow:0 0 6px #fa0,0 0 12px #f80;
+  animation:particle-float 2s ease-in-out infinite
+}
+.particle:nth-child(9){top:10%;left:5%;animation-delay:0s}
+.particle:nth-child(10){top:80%;right:8%;animation-delay:0.3s}
+.particle:nth-child(11){top:20%;right:3%;animation-delay:0.7s}
+.particle:nth-child(12){bottom:15%;left:10%;animation-delay:1.1s}
+.particle:nth-child(13){top:5%;left:50%;animation-delay:1.5s}
+.particle:nth-child(14){bottom:5%;right:30%;animation-delay:0.5s}
+@keyframes particle-float{
+  0%,100%{opacity:0;transform:translateY(0) scale(0)}
+  50%{opacity:1;transform:translateY(-30px) scale(1.5)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="star-wrap" id="starContainer">
+    <!-- Halo -->
+    <div class="halo"></div>
+    
+    <!-- Partículas orbitantes -->
+    <div class="sparkle" style="top:50%;left:50%;margin:-3px 0 0 -3px"></div>
+    <div class="sparkle" style="top:50%;left:50%;margin:-2px 0 0 -2px"></div>
+    <div class="sparkle" style="top:50%;left:50%;margin:-2.5px 0 0 -2.5px"></div>
+    <div class="sparkle" style="top:50%;left:50%;margin:-1.5px 0 0 -1.5px"></div>
+    <div class="sparkle" style="top:50%;left:50%;margin:-3.5px 0 0 -3.5px"></div>
+    <div class="sparkle" style="top:50%;left:50%;margin:-2px 0 0 -2px"></div>
+    <div class="sparkle" style="top:50%;left:50%;margin:-2.5px 0 0 -2.5px"></div>
+    <div class="sparkle" style="top:50%;left:50%;margin:-1.5px 0 0 -1.5px"></div>
+    
+    <!-- Partículas flotantes -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- SVG Super Star -->
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Gradiente principal - amarillo neón -->
+        <radialGradient id="starGrad" cx="40%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#fff8b0"/>
+          <stop offset="25%" stop-color="#ffe44d"/>
+          <stop offset="55%" stop-color="#ffc800"/>
+          <stop offset="80%" stop-color="#e6a800"/>
+          <stop offset="100%" stop-color="#b38000"/>
+        </radialGradient>
+        
+        <!-- Gradiente glow -->
+        <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(255,200,0,0.4)"/>
+          <stop offset="60%" stop-color="rgba(255,150,0,0.15)"/>
+          <stop offset="100%" stop-color="rgba(255,100,0,0)"/>
+        </radialGradient>
+        
+        <!-- Brillo especular -->
+        <radialGradient id="shineGrad" cx="35%" cy="30%" r="40%">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.7)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </radialGradient>
+        
+        <!-- Sombra interior -->
+        <radialGradient id="innerShadow" cx="50%" cy="60%" r="55%">
+          <stop offset="50%" stop-color="rgba(0,0,0,0)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0.25)"/>
+        </radialGradient>
+
+        <!-- Filtro glow -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        
+        <filter id="glowStrong" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="8" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      
+      <!-- Grupo rotatorio -->
+      <g style="transform-origin:100px 100px;animation:spin 3s linear infinite">
+        
+        <!-- Sombra exterior glow -->
+        <path d="M100 12 L118 72 L182 72 L130 108 L148 168 L100 132 L52 168 L70 108 L18 72 L82 72 Z"
+              fill="none" stroke="#ffaa00" stroke-width="3" opacity="0.3"
+              filter="url(#glowStrong)"
+              style="animation:pulse-glow-svg 1.8s ease-in-out infinite"/>
+        
+        <!-- Estrella principal -->
+        <path d="M100 12 L118 72 L182 72 L130 108 L148 168 L100 132 L52 168 L70 108 L18 72 L82 72 Z"
+              fill="url(#starGrad)" stroke="#8b6500" stroke-width="2.5"
+              filter="url(#glow)"
+              style="animation:wobble 3s linear infinite"/>
+        
+        <!-- Capa de brillo especular -->
+        <path d="M100 12 L118 72 L182 72 L130 108 L148 168 L100 132 L52 168 L70 108 L18 72 L82 72 Z"
+              fill="url(#shineGrad)" opacity="0.6"/>
+        
+        <!-- Sombra interior -->
+        <path d="M100 12 L118 72 L182 72 L130 108 L148 168 L100 132 L52 168 L70 108 L18 72 L82 72 Z"
+              fill="url(#innerShadow)" opacity="0.4"/>
+        
+        <!-- Ojos -->
+        <!-- Ojo izquierdo -->
+        <ellipse cx="84" cy="90" rx="10" ry="12" fill="#222"/>
+        <ellipse cx="84" cy="90" rx="8" ry="10" fill="#111"/>
+        <ellipse cx="86" cy="87" rx="4" ry="5" fill="#fff"/>
+        <ellipse cx="84" cy="88" rx="2" ry="2.5" fill="#fff" opacity="0.8"/>
+        
+        <!-- Ojo derecho -->
+        <ellipse cx="116" cy="90" rx="10" ry="12" fill="#222"/>
+        <ellipse cx="116" cy="90" rx="8" ry="10" fill="#111"/>
+        <ellipse cx="118" cy="87" rx="4" ry="5" fill="#fff"/>
+        <ellipse cx="116" cy="88" rx="2" ry="2.5" fill="#fff" opacity="0.8"/>
+        
+        <!-- Sonrisa -->
+        <path d="M80 112 Q100 132 120 112" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+        
+        <!-- Cachetes sonrosados -->
+        <ellipse cx="72" cy="105" rx="7" ry="4" fill="#e85" opacity="0.25"/>
+        <ellipse cx="128" cy="105" rx="7" ry="4" fill="#e85" opacity="0.25"/>
+        
+        <!-- Contorno negro grueso (estilo Mario) -->
+        <path d="M100 12 L118 72 L182 72 L130 108 L148 168 L100 132 L52 168 L70 108 L18 72 L82 72 Z"
+              fill="none" stroke="#5a3d00" stroke-width="2"
+              stroke-linejoin="round"/>
+        
+      </g>
+      
+      <!-- Puntas de luz exteriores (estáticas) -->
+      <g opacity="0.4" filter="url(#glow)">
+        <line x1="100" y1="0" x2="100" y2="8" stroke="#ffe44d" stroke-width="2" stroke-linecap="round"/>
+        <line x1="195" y1="72" x2="185" y2="74" stroke="#ffe44d" stroke-width="2" stroke-linecap="round"/>
+        <line x1="5" y1="72" x2="15" y2="74" stroke="#ffe44d" stroke-width="2" stroke-linecap="round"/>
+        <line x1="155" y1="175" x2="148" y2="167" stroke="#ffe44d" stroke-width="2" stroke-linecap="round"/>
+        <line x1="45" y1="175" x2="52" y2="167" stroke="#ffe44d" stroke-width="2" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="label">✧ <span>SUPER ★ NEO</span> ✧</div>
+  <div class="credits">★ Mario styled · CSS + SVG animations ★</div>
+</div>
+
+<script>
+// Mouse parallax sutil
+document.getElementById('starContainer').addEventListener('mousemove', (e) => {
+  const r = e.currentTarget.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width - 0.5;
+  const y = (e.clientY - r.top) / r.height - 0.5;
+  e.currentTarget.style.transform = `translateY(${-12 + y * -8}px)`;
+});
+</script>
+</body>
+</html>
