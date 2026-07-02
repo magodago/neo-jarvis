@@ -1,9 +1,0 @@
-# NEO Labs — GitHub Pages config
-# Disables Jekyll processing (we serve static HTML)
-include:
-  - "*"
-exclude:
-  - scripts/
-  - README.md
-plugins: []
-markdown: kramdown
