@@ -13,8 +13,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
-TOKEN_PATH = os.path.expanduser('~/.credentials/gmail-token.json')
-CREDS_PATH = os.path.expanduser('~/.credentials/gmail-credentials.json')
+TOKEN_PATH = os.path.expanduser('~/.hermes/google_token.json')
+CREDS_PATH = os.path.expanduser('~/.hermes/gmail-credentials.json')
 
 def get_service():
     """Get authenticated Gmail service."""
