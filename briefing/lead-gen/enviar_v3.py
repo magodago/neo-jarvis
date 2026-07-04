@@ -21,6 +21,11 @@ LANDING = "https://magodago.github.io/neo-jarvis/landing/"
 # ── Sectores EXCLUIDOS ──
 EXCLUIR = ["abogado", "bufete", "legal", "extranjeria"]
 
+# ── BLACKLIST: emails que nunca enviar ──
+BLACKLIST = [
+    'carmen.blancopico@gmail.com',
+]
+
 # ── Plantilla con PACKS incluidos ──
 EMAIL_TEXTO = """Hola,
 
@@ -84,15 +89,19 @@ def get_pendientes():
     
     pendientes = []
     excluidos = 0
+    blacklisted = 0
     for r in todos:
         if es_sector_excluido(r[3]):
             excluidos += 1
             continue
         if r[1] in sent:
             continue
+        if r[1].lower() in [b.lower() for b in BLACKLIST]:
+            blacklisted += 1
+            continue
         pendientes.append(r)
     
-    print(f"   Pendientes: {len(pendientes)} | Excluidos: {excluidos}")
+    print(f"   Pendientes: {len(pendientes)} | Excluidos: {excluidos} | Blacklist: {blacklisted}")
     return pendientes
 
 def generar_email(lead):
@@ -159,7 +168,11 @@ def main():
         except Exception as e:
             sent_log.append({"email_destino": email, "nombre": nombre, "asunto": subj,
                            "message_id": "", "status": f"error: {e}"})
-            print(f"  [{i+1}/{len(pendientes)}] ❌ {nombre[:28]:28s}: {str(e)[:60]}")
+            err_str = str(e)
+            print(f"  [{i+1}/{len(pendientes)}] ❌ {nombre[:28]:28s}: {err_str[:80]}")
+            if "429" in err_str or "rateLimitExceeded" in err_str:
+                print(f"  ⛔ Rate limit alcanzado. Deteniendo envío.")
+                break
         
         time.sleep(3)  # 3 segundos entre emails para no rate-limitar
     

@@ -25,6 +25,11 @@ TOKEN_PATH = os.path.expanduser('~/.hermes/google_token.json')
 DB_PATH = os.path.join(DATA_DIR, 'leads.db')
 LANDING = 'https://magodago.github.io/neo-jarvis/landing/'
 
+# ── BLACKLIST: emails que nunca enviar ni responder ──
+BLACKLIST = [
+    'carmen.blancopico@gmail.com',
+]
+
 # Palabras clave que indican interés REAL
 INTERES_KEYWORDS = [
     'quiero', 'me interesa', 'presupuesto', 'precio', 'cuanto cuesta',
@@ -169,6 +174,11 @@ def monitor():
         
         # Saltar si lo envié yo
         if 'dortizs76' in frm_email:
+            continue
+        
+        # Saltar si está en BLACKLIST
+        if frm_email.lower() in [b.lower() for b in BLACKLIST]:
+            print(f'      🚫 BLACKLIST — ignorado')
             continue
         
         # Saltar si ya respondí (check en DB)
