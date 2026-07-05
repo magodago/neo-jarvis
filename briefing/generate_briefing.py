@@ -618,9 +618,14 @@ def deploy():
     log("  deploying...")
     subprocess.run(["git","-C",REPO_DIR,"add","briefing/"], capture_output=True)
     subprocess.run(["git","-C",REPO_DIR,"commit","-m",f"briefing {datetime.now().strftime('%Y-%m-%d')}"], capture_output=True)
-    r = subprocess.run(["git","-C",REPO_DIR,"push"], capture_output=True,text=True,timeout=30)
-    if r.returncode==0: return True
-    log(f"  push: {r.stderr[:200]}")
+    # Intentar push con timeout más largo + reintento
+    for attempt in range(2):
+        try:
+            r = subprocess.run(["git","-C",REPO_DIR,"push"], capture_output=True,text=True,timeout=60)
+            if r.returncode==0: return True
+            log(f"  push attempt {attempt+1}: {r.stderr[:100]}")
+        except subprocess.TimeoutExpired:
+            log(f"  push attempt {attempt+1}: timeout")
     return False
 
 # ─── MAIN ─────────────────────────────────────────────────────
