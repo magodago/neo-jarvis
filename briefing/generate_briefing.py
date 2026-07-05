@@ -290,6 +290,7 @@ def get_ai_news():
     feeds = [
         ("Hipertextual", "https://hipertextual.com/feed"),
         ("WWWhatsnew", "https://wwwhatsnew.com/feed"),
+        ("Xataka", "https://www.xataka.com/feed"),
     ]
     items, seen = [], set()
     today = date.today()
@@ -334,7 +335,7 @@ def get_ai_news():
                 if not age_ok: continue
                 
                 pubdate_short = pubdate_raw[:16] if pubdate_raw else ""
-                items.append({"source":source,"title":title,"link":link,"desc":desc[:200],"pubdate":pubdate_short})
+                items.append({"source":source,"title":title,"link":link,"desc":desc[:500],"pubdate":pubdate_short})
                 if len(items)>=6: break
             if len(items)>=6: break
         except Exception as e:
@@ -355,7 +356,7 @@ def news_to_html(items):
     <div class="news-card-time">{item['pubdate']}</div>
   </div>
 </div>"""
-    return html, [{"source":i["source"],"title":i["title"],"desc":i["desc"][:500],"link":i["link"]} for i in items]
+    return html, [{"source": i["source"],"title": i["title"],"desc": i["desc"][:800],"link": i["link"]} for i in items]
 
 # ─── 3b. GENERAL NEWS (internacional, España) ────────────────
 def get_world_news():
@@ -467,7 +468,7 @@ def get_youtube_yesterday():
     return html
 
 # ─── 5. PODCAST ──────────────────────────────────────────────
-def generate_podcast(news_items, date_str, weather="", world_news=None, entertainment=None):
+def generate_podcast(news_items, date_str, weather="", world_news=None):
     """Generate podcast with actual content using DeepSeek Flash."""
     # Read API key from .env file
     ds_key = ""
@@ -492,9 +493,24 @@ def generate_podcast(news_items, date_str, weather="", world_news=None, entertai
         if lines: results_text = "Mundial: " + ". ".join(lines) + "."
     except: pass
     
-    news_text = ". ".join(i['title'][:60] for i in news_items[:3]) if news_items else ""
-    world_text = ". ".join(i['title'][:60] for i in (world_news or [])[:3]) if world_news else ""
-    ent_text = ". ".join(i['title'][:60] for i in (entertainment or [])[:3]) if entertainment else ""
+    # Incluir título + descripción de cada noticia IA
+    news_text = ""
+    for i in news_items[:3]:
+        t = i.get('title','')
+        d = i.get('desc','')
+        news_text += f"- {t}"
+        if d:
+            news_text += f": {d[:200]}"
+        news_text += "\n"
+    
+    world_text = ""
+    for i in (world_news or [])[:3]:
+        t = i.get('title','')
+        d = i.get('desc','')
+        world_text += f"- {t}"
+        if d:
+            world_text += f": {d[:200]}"
+        world_text += "\n"
 
     today_dt = datetime.now()
     wd = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"][today_dt.weekday()]
@@ -502,30 +518,27 @@ def generate_podcast(news_items, date_str, weather="", world_news=None, entertai
 
 Hoy es {date_str} ({wd}). Clima: {weather or "temperatura agradable"}.
 
-ESTRUCTURA EXACTA - 4 secciones:
+ESTRUCTURA EXACTA - 3 secciones:
 
 SALUDO (obligatorio, 1 frase): Empieza siempre con "Buenos días David" o "Muy buenos días David" - el tono es cercano, como un amigo.
 
-SECCIÓN 1 - IA EXPRÉS (2-3 frases):
-Solo lo relevante de ayer en IA. Nombres concretos (OpenAI, Anthropic, Google, ChatGPT, Claude...).
-Datos: {news_text if news_text else "últimas novedades en IA"}
+SECCIÓN 1 - IA (3-4 frases):
+Explica las noticias de IA con un breve resumen, no solo el titular. Qué ha pasado y por qué importa.
+Noticias y datos:
+{news_text if news_text else "últimas novedades en IA"}
 
-SECCIÓN 2 - EL MUNDO EN 60 SEGUNDOS (2-3 frases):
-Noticias internacionales y de España. Titulares concretos.
-Datos: {world_text if world_text else "actualidad internacional"}
+SECCIÓN 2 - ACTUALIDAD (2-3 frases):
+Noticias internacionales y de España. Explica cada una con contexto breve.
+Datos:
+{world_text if world_text else "actualidad internacional"}
 
-SECCIÓN 3 - CARTELERA (2-3 frases):
-Estrenos de cine y series. Títulos concretos.
-Datos: {ent_text if ent_text else "novedades de cine y series"}
-
-SECCIÓN 4 - ARRANQUE (1-2 frases):
-Cierre con energía para empezar el día. Una frase corta.
+SECCIÓN 3 - MUNDIAL (2 frases):
+Resultados de ayer y partidos de hoy.
+{results_text if results_text else "El Mundial 2026 sigue con los octavos de final."}
 
 DESPEDIDA (obligatorio, 1 frase): Termina siempre con algo como "Que tengas un gran día, David", "A darle duro hoy, David", "Nos escuchamos mañana, David".
 
-Mundial: {results_text if results_text else "El Mundial 2026 sigue con los octavos de final."}
-
-REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo de la tecnología" ni "consulta nuestra web". Habla como si le contaras esto a David tomando un café."""
+REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo de la tecnología". Habla como si le contaras esto a David tomando un café. Explica el contexto de cada noticia, no te limites a leer titulares."""
 
     script = None
     if ds_key:
@@ -644,8 +657,8 @@ def main():
     log("4. YouTube..."); yt = get_youtube_yesterday()
     log("5. Prompt/Quote..."); prompt = get_prompt(); quote = get_quote()
     log("6. World news..."); w_news = get_world_news()
-    log("7. Entertainment..."); ent = get_entertainment()
-    log("8. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str, weather, w_news, ent)
+    log("6. World news..."); w_news = get_world_news()
+    log("7. Podcast..."); audio_url, duration = generate_podcast(news_items, date_str, weather, w_news)
     
     params = {
         "DATE": date_str,
