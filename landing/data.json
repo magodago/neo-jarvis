@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-07-06 10:02 UTC",
+  "timestamp": "2026-07-07 10:02 UTC",
   "stats": {
-    "total": 1926,
-    "con_email": 1022,
-    "con_telefono": 1799,
-    "con_web": 1719,
-    "sent": 291,
+    "total": 1949,
+    "con_email": 1034,
+    "con_telefono": 1822,
+    "con_web": 1742,
+    "sent": 670,
     "bounce": 1,
-    "reply": 5,
-    "pending": 731,
-    "tasa_respuesta": 1.7
+    "reply": 11,
+    "pending": 364,
+    "tasa_respuesta": 1.6
   },
   "sectors": [
     {
       "sector": "restaurantes",
-      "total": 651,
-      "sent": 160,
+      "total": 665,
+      "sent": 254,
       "bounces": 0,
-      "replies": 2
+      "replies": 3
     },
     {
       "sector": "abogados",
-      "total": 358,
+      "total": 367,
       "sent": 125,
       "bounces": 0,
       "replies": 1
@@ -29,28 +29,28 @@
     {
       "sector": "clínicas dentales",
       "total": 243,
-      "sent": 0,
+      "sent": 78,
       "bounces": 0,
-      "replies": 1
+      "replies": 2
     },
     {
       "sector": "peluquerías",
       "total": 136,
-      "sent": 2,
+      "sent": 9,
       "bounces": 0,
       "replies": 0
     },
     {
       "sector": "inmobiliarias",
       "total": 127,
-      "sent": 0,
+      "sent": 78,
       "bounces": 0,
-      "replies": 0
+      "replies": 1
     },
     {
       "sector": "talleres",
       "total": 73,
-      "sent": 0,
+      "sent": 25,
       "bounces": 0,
       "replies": 0
     },
@@ -64,30 +64,30 @@
     {
       "sector": "centros de estética",
       "total": 68,
-      "sent": 0,
+      "sent": 29,
       "bounces": 0,
       "replies": 0
     },
     {
       "sector": "talleres mecánicos",
       "total": 67,
-      "sent": 0,
+      "sent": 7,
       "bounces": 0,
       "replies": 0
     },
     {
       "sector": "clínicas estética",
       "total": 63,
-      "sent": 0,
+      "sent": 39,
       "bounces": 0,
-      "replies": 0
+      "replies": 1
     },
     {
       "sector": "odontólogos",
       "total": 40,
-      "sent": 0,
+      "sent": 22,
       "bounces": 0,
-      "replies": 0
+      "replies": 2
     },
     {
       "sector": "peluquerias",
@@ -120,16 +120,28 @@
     {
       "dia": "2026-07-06",
       "nuevos": 201
+    },
+    {
+      "dia": "2026-07-07",
+      "nuevos": 23
     }
   ],
   "timeline_envio": [
     {
       "dia": "2026-07-01",
-      "enviados": 25
+      "enviados": 24
     },
     {
       "dia": "2026-07-02",
       "enviados": 363
+    },
+    {
+      "dia": "2026-07-06",
+      "enviados": 374
+    },
+    {
+      "dia": "2026-07-07",
+      "enviados": 6
     }
   ]
 }
