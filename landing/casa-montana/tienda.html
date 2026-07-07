@@ -4,31 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <title>Tienda — Casa Montaña</title>
-<meta name="description" content="Productos Casa Montaña: vinos, licores, aceites y merchandising. Compra online o visítanos en Valencia.">
+<meta name="description" content="Compra productos Casa Montaña: vinos, vermut, brandy, aceite, mistela y más. Envíos en Valencia.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23A3191A'/><text x='4' y='24' font-family='serif' font-weight='700' font-size='18' fill='white'>CM</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.page-header{background-image:linear-gradient(180deg,rgba(10,10,10,.2),rgba(10,10,10,.7),var(--black)),url('https://www.emilianobodega.com/wp-content/uploads/2026/06/tienda-casamon_resultado.webp')}
+.page-header{background-image:linear-gradient(180deg,rgba(10,10,10,.2),rgba(10,10,10,.7),var(--black)),url('https://www.emilianobodega.com/wp-content/uploads/2026/06/cartacomida-1.jpg')}
 .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.shop-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;text-decoration:none;color:#fff;display:block}
+.shop-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;color:#fff}
 .shop-card:hover{border-color:var(--red);transform:translateY(-4px)}
-.shop-card .sc-img{width:100%;height:180px;object-fit:cover;display:block}
+.shop-card .sc-img{width:100%;height:200px;object-fit:cover;display:block}
 .shop-card .sc-body{padding:16px}
 .shop-card .sc-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:3px}
-.shop-card .sc-name{font-size:15px;font-weight:700;margin-bottom:2px;line-height:1.3}
-.shop-card .sc-desc{font-size:12px;color:var(--text-muted);line-height:1.4;margin-bottom:8px}
+.shop-card .sc-name{font-size:15px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.shop-card .sc-price-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
 .shop-card .sc-price{font-size:18px;font-weight:700;color:var(--red)}
-.shop-card .sc-vol{font-size:11px;color:var(--text-muted);margin-top:2px}
-.shop-cats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:36px}
-.shop-cats a{padding:8px 18px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;color:var(--text-dim);border:1px solid var(--border);transition:all .2s}
-.shop-cats a:hover,.shop-cats a.active{border-color:var(--red);color:var(--red);background:var(--red-soft)}
+.shop-card .sc-vol{font-size:11px;color:var(--text-muted)}
+.shop-card .sc-add{background:var(--red);color:#fff;border:none;border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s}
+.shop-card .sc-add:hover{background:var(--red-hover)}
+.shop-card .sc-add.added{background:#2ECC71}
+
+/* CART SIDEBAR */
+.cart-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6)}
+.cart-overlay.open{display:block}
+.cart-sidebar{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:90vw;z-index:2001;background:var(--black2);border-left:1px solid var(--border);padding:0;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s ease}
+.cart-sidebar.open{transform:translateX(0)}
+.cart-sidebar .cs-header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--border)}
+.cart-sidebar .cs-header h3{font-size:16px;font-weight:700}
+.cart-sidebar .cs-close{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;font-family:inherit}
+.cart-sidebar .cs-items{flex:1;overflow-y:auto;padding:12px 20px}
+.cart-sidebar .cs-empty{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:14px}
+.cs-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.cs-item .csi-img{width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.cs-item .csi-info{flex:1}
+.cs-item .csi-name{font-size:13px;font-weight:700;margin-bottom:2px}
+.cs-item .csi-price{font-size:12px;color:var(--text-dim)}
+.cs-item .csi-qty{display:flex;align-items:center;gap:6px;margin-top:4px}
+.cs-item .csi-qty button{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.cs-item .csi-qty span{font-size:13px;font-weight:700;min-width:20px;text-align:center}
+.cs-item .csi-del{background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:14px;padding:4px;font-family:inherit}
+.cart-sidebar .cs-footer{border-top:1px solid var(--border);padding:16px 20px}
+.cart-sidebar .cs-total{display:flex;justify-content:space-between;font-size:16px;font-weight:700;margin-bottom:12px}
+.cart-sidebar .cs-checkout{background:var(--red);color:#fff;border:none;border-radius:100px;padding:12px;width:100%;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:background .2s}
+.cart-sidebar .cs-checkout:hover{background:var(--red-hover)}
+
+/* Cart icon in nav */
+.cart-icon-wrap{position:relative;cursor:pointer;padding:6px;color:var(--text-dim);transition:color .2s}
+.cart-icon-wrap:hover{color:var(--red)}
+.cart-icon-wrap .ci-count{position:absolute;top:-2px;right:-4px;width:16px;height:16px;border-radius:50%;background:var(--red);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;display:none}
+.cart-icon-wrap .ci-count.show{display:flex}
+
+/* Toast notification */
+.toast{position:fixed;bottom:80px;right:20px;z-index:3000;background:var(--red);color:#fff;padding:10px 18px;border-radius:100px;font-size:13px;font-weight:700;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+
 @media(max-width:900px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.shop-grid{grid-template-columns:1fr 1fr;gap:10px}.shop-card .sc-body{padding:10px}.shop-card .sc-name{font-size:13px}}
+@media(max-width:480px){.shop-grid{grid-template-columns:1fr 1fr;gap:10px}.shop-card .sc-body{padding:10px}.shop-card .sc-name{font-size:13px}.shop-card .sc-img{height:140px}}
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="nav-logo">
     <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/logo-prueba-home-1024x1024.png" alt="Casa Montaña">
@@ -44,197 +79,184 @@
     <li><a href="contacto.html">Contacto</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px">
-    <a href="../#contacto-home" class="nav-btn">Contacto</a>
+    <div class="cart-icon-wrap" onclick="toggleCart()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="ci-count" id="cartCount">0</span>
+    </div>
+    <a href="reservar.html" class="nav-btn">Reservar</a>
     <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Men&uacute;">☰</button>
   </div>
 </nav>
 
-<header class="page-header">
-  <div class="ph-content">
-    <h1>Tienda</h1>
-    <p>Vinos, licores, aceites y productos exclusivos Casa Monta&ntilde;a</p>
-  </div>
-</header>
+<header class="page-header"><div class="ph-content"><h1>Tienda</h1><p>Vinos, licores, aceites y productos exclusivos Casa Monta&ntilde;a</p></div></header>
 
 <section class="section-wrap">
-  <div class="section-inner">
-    <div class="section-label st-centered">Nuestros productos</div>
-    <h2 class="section-title st-centered">Selecci&oacute;n de vinos y delicatessen</h2>
-    <div class="shop-cats">
-      <a href="#todos" class="active">Todos</a>
-      <a href="#vinos">Vinos</a>
-      <a href="#licores">Licores</a>
-      <a href="#aceite">Aceite</a>
-      <a href="#merchandising">Merchandising</a>
-    </div>
-    <div class="shop-grid">
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9686_resultado.webp" alt="Vermut Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Licor</div>
-          <div class="sc-name">Vermut Casa Monta&ntilde;a</div>
-          <div class="sc-desc">Nuestro vermut artesano, elaborado con vinos de la casa y bot&aacute;nicos seleccionados.</div>
-          <div class="sc-price">18,50&euro;</div>
-          <div class="sc-vol">75 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9504_resultado.webp" alt="AOVE Virgulilla" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Aceite</div>
-          <div class="sc-name">AOVE Virgulilla N&ordm;1 Grossal</div>
-          <div class="sc-desc">Aceite de oliva virgen extra de producci&oacute;n local, variedad grossal.</div>
-          <div class="sc-price">22,00&euro;</div>
-          <div class="sc-vol">50 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9915-1_resultado.webp" alt="Brandy Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Licor</div>
-          <div class="sc-name">Brandy Reserva Casa Monta&ntilde;a</div>
-          <div class="sc-desc">Brandy de reserva envejecido en barricas de roble, con aroma intenso y sabor aterciopelado.</div>
-          <div class="sc-price">32,00&euro;</div>
-          <div class="sc-vol">70 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9743_resultado.webp" alt="Mistela Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Vino</div>
-          <div class="sc-name">Mistela Casa Monta&ntilde;a</div>
-          <div class="sc-desc">Vino dulce de licor, tradicional de la Comunitat Valenciana, elaborado con uvas Moscatel.</div>
-          <div class="sc-price">15,00&euro;</div>
-          <div class="sc-vol">75 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9542_resultado.webp" alt="Ron Negro Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Licor</div>
-          <div class="sc-name">Ron Negro Casa Monta&ntilde;a</div>
-          <div class="sc-desc">Ron oscuro de elaboraci&oacute;n propia, con matices de caramelo y especias.</div>
-          <div class="sc-price">28,00&euro;</div>
-          <div class="sc-vol">70 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9686_resultado.webp" alt="Montaña Selección" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Vino</div>
-          <div class="sc-name">Monta&ntilde;a Selecci&oacute;n</div>
-          <div class="sc-desc">Vino tinto de edici&oacute;n especial, selecci&oacute;n de la casa con uvas de la regi&oacute;n.</div>
-          <div class="sc-price">19,00&euro;</div>
-          <div class="sc-vol">75 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9504_resultado.webp" alt="Virgulilla Blanco" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Vino</div>
-          <div class="sc-name">Virgulilla Blanco</div>
-          <div class="sc-desc">Vino blanco joven y fresco, con aromas frutales y un paso ligero en boca.</div>
-          <div class="sc-price">14,50&euro;</div>
-          <div class="sc-vol">75 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9542_resultado.webp" alt="Virgulilla Eco Tinto" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Vino</div>
-          <div class="sc-name">Virgulilla Eco Tinto</div>
-          <div class="sc-desc">Vino tinto ecol&oacute;gico, de producci&oacute;n sostenible y sabor equilibrado.</div>
-          <div class="sc-price">16,00&euro;</div>
-          <div class="sc-vol">75 cl</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9864_resultado.webp" alt="Camiseta Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Merchandising</div>
-          <div class="sc-name">Camiseta Casa Monta&ntilde;a</div>
-          <div class="sc-desc">Camiseta de algod&oacute;n con el logo de Casa Monta&ntilde;a. Disponible en varias tallas.</div>
-          <div class="sc-price">25,00&euro;</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0077_resultado.webp" alt="Taza Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Merchandising</div>
-          <div class="sc-name">Taza Casa Monta&ntilde;a</div>
-          <div class="sc-desc">Taza de cer&aacute;mica con el distintivo de la casa. Ideal para regalo.</div>
-          <div class="sc-price">12,00&euro;</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9987_resultado.webp" alt="Enomaníacos Guía" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Libro</div>
-          <div class="sc-name">Enoman&iacute;acos. Gu&iacute;a de escapadas en torno al vino</div>
-          <div class="sc-desc">Gu&iacute;a de viajes y escapadas enotur&iacute;sticas por la Comunitat Valenciana.</div>
-          <div class="sc-price">24,95&euro;</div>
-        </div>
-      </div>
-      <div class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9504_resultado.webp" alt="Cata Madrazo" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-tag">Experiencia</div>
-          <div class="sc-name">Cata-seminario con Jes&uacute;s Madrazo</div>
-          <div class="sc-desc">Experiencia &uacute;nica de cata dirigida por el reconocido sumiller Jes&uacute;s Madrazo.</div>
-          <div class="sc-price">45,00&euro;</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-label st-centered">Productos</div>
+<h2 class="section-title st-centered">Nuestra selecci&oacute;n</h2>
+<div class="shop-grid" id="shopGrid"></div>
+</div>
 </section>
 
-<section class="section-wrap alt">
-  <div class="section-inner" style="text-align:center">
-    <div class="section-label st-centered">Compra</div>
-    <h2 class="section-title st-centered">&iquest;C&oacute;mo comprar?</h2>
-    <div style="max-width:600px;margin:0 auto">
-      <p style="font-size:15px;color:var(--text-dim);line-height:1.7">Puedes adquirir nuestros productos directamente en nuestra tienda f&iacute;sica en el Cabanyal o contactarnos para pedidos especiales. Tambi&eacute;n realizamos env&iacute;os a domicilio en Valencia capital.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px">
-        <a href="contacto.html" class="btn-red">Contactar para comprar</a>
-        <a href="../" class="btn-ghost">Volver a inicio</a>
-      </div>
-    </div>
-  </div>
+<section class="section-wrap alt" style="text-align:center">
+<div class="section-inner">
+<div class="section-label st-centered">Env&iacute;o</div>
+<h2 class="section-title st-centered">Recoge en tienda o recibe en casa</h2>
+<p style="font-size:15px;color:var(--text-dim);max-width:550px;margin:0 auto;line-height:1.7">Realizamos env&iacute;os a domicilio en Valencia capital. Para pedidos fuera de Valencia, cons&uacute;ltanos. La recogida en tienda es gratuita y puedes pagar al recoger.</p>
+</div>
 </section>
+
+<!-- CART OVERLAY + SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cs-header">
+    <h3>Carrito</h3>
+    <button class="cs-close" onclick="toggleCart()">X</button>
+  </div>
+  <div class="cs-items" id="cartItems">
+    <div class="cs-empty">Tu carrito est&aacute; vac&iacute;o</div>
+  </div>
+  <div class="cs-footer" id="cartFooter" style="display:none">
+    <div class="cs-total"><span>Total</span><span id="cartTotal">0,00&euro;</span></div>
+    <a href="contacto.html" class="cs-checkout" style="display:block;text-align:center;text-decoration:none">Solicitar pedido</a>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <footer>
-  <div class="f-logos">
-    <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-1.png" alt="" loading="lazy">
-    <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-3.png" alt="" loading="lazy">
-    <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-4.png" alt="" loading="lazy">
-    <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-5.png" alt="" loading="lazy">
-    <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-6.png" alt="" loading="lazy">
-  </div>
-  <div class="f-links">
-    <a href="historia.html">Historia</a>
-    <a href="alojamiento.html">Alojamiento</a>
-    <a href="regala.html">Regala</a>
-    <a href="tienda.html">Tienda</a>
-    <a href="galeria.html">Galer&iacute;a</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="aviso-legal.html">Aviso Legal</a>
-    <a href="politica-de-privacidad.html">Privacidad</a>
-    <a href="politica-de-cookies.html">Cookies</a>
-  </div>
-  <p>&copy; 2026 Casa Monta&ntilde;a</p>
-  <p style="margin-top:6px;font-size:10px;color:rgba(245,240,235,.18)">Dise&ntilde;ado por <a href="https://neolabs.me" style="color:var(--red)">NEO Labs</a></p>
+<div class="f-logos"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-1.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-3.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-4.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-5.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-6.png" alt="" loading="lazy"></div>
+<div class="f-links"><a href="historia.html">Historia</a><a href="alojamiento.html">Alojamiento</a><a href="regala.html">Regala</a><a href="tienda.html">Tienda</a><a href="galeria.html">Galer&iacute;a</a><a href="contacto.html">Contacto</a><a href="aviso-legal.html">Aviso Legal</a><a href="politica-de-privacidad.html">Privacidad</a><a href="politica-de-cookies.html">Cookies</a></div>
+<p>&copy; 2026 Casa Monta&ntilde;a</p>
+<p style="margin-top:6px;font-size:10px;color:rgba(245,240,235,.18)">Dise&ntilde;ado por <a href="https://neolabs.me" style="color:var(--red)">NEO Labs</a></p>
 </footer>
 
-<a href="https://wa.me/34963672314" class="whatsapp" aria-label="WhatsApp" target="_blank">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<a href="https://wa.me/34963672314" class="whatsapp" aria-label="WhatsApp" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382"/></svg></a>
 
 <script>
-const ro = new IntersectionObserver((e) => {e.forEach(en => {if(en.isIntersecting) en.target.classList.add('v')})}, {threshold:.1, rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-let ls = 0; const nv = document.querySelector('nav');
-window.addEventListener('scroll', () => {const c = window.scrollY; nv.style.transform = c > ls && c > 80 ? 'translateY(-100%)' : 'translateY(0)'; ls = c;});
-document.querySelectorAll('.nav-links a').forEach(a => {a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));});
+const PRODUCTS = [
+  {id:1,name:"Vermut Casa Monta&ntilde;a",tag:"Licor",price:18.50,vol:"75 cl",img:"vermut-1.jpg",desc:"Nuestro vermut artesano con bot&aacute;nicos seleccionados."},
+  {id:2,name:"AOVE Virgulilla N&ordm;1 Grossal",tag:"Aceite",price:22.00,vol:"50 cl",img:"aceite-2.jpg",desc:"Aceite de oliva virgen extra, variedad grossal."},
+  {id:3,name:"Brandy Reserva Casa Monta&ntilde;a",tag:"Licor",price:32.00,vol:"70 cl",img:"brandy-1.jpg",desc:"Brandy envejecido en barricas de roble."},
+  {id:4,name:"Mistela Casa Monta&ntilde;a",tag:"Vino",price:15.00,vol:"75 cl",img:"mistela-1.jpg",desc:"Vino dulce de licor, uvas Moscatel."},
+  {id:5,name:"Ron Negro Casa Monta&ntilde;a",tag:"Licor",price:28.00,vol:"70 cl",img:"ron-1.jpg",desc:"Ron oscuro con matices de caramelo."},
+  {id:6,name:"Monta&ntilde;a Selecci&oacute;n",tag:"Vino",price:19.00,vol:"75 cl",img:"MontanaSeleccion.jpg",desc:"Vino tinto de edici&oacute;n especial."},
+  {id:7,name:"Virgulilla Blanco",tag:"Vino",price:14.50,vol:"75 cl",img:"VirgulillaBlanc.jpg",desc:"Vino blanco joven y fresco."},
+  {id:8,name:"Virgulilla Eco Tinto",tag:"Vino",price:16.00,vol:"75 cl",img:"VirgulillaNegre.jpg",desc:"Vino tinto ecol&oacute;gico."},
+  {id:9,name:"Camiseta Casa Monta&ntilde;a",tag:"Merchandising",price:25.00,vol:"",img:"camiseta.jpg",desc:"Algod&oacute;n con logo Casa Monta&ntilde;a."},
+  {id:10,name:"Taza Casa Monta&ntilde;a",tag:"Merchandising",price:12.00,vol:"",img:"taza-1.jpg",desc:"Cer&aacute;mica con distintivo de la casa."},
+  {id:11,name:"Enoman&iacute;acos. Gu&iacute;a de escapadas",tag:"Libro",price:24.95,vol:"",img:"enomaniacos.jpg",desc:"Gu&iacute;a de escapadas enotur&iacute;sticas."},
+  {id:12,name:"Cata-seminario con Jes&uacute;s Madrazo",tag:"Experiencia",price:45.00,vol:"",img:"cartavinos-1.jpg",desc:"Cata dirigida por el sumiller Jes&uacute;s Madrazo."}
+];
+const CDN = "https://www.emilianobodega.com/wp-content/uploads/2026/06/";
+
+let cart = JSON.parse(localStorage.getItem('cm_cart') || '[]');
+
+function renderShop(){
+  const g = document.getElementById('shopGrid');
+  g.innerHTML = PRODUCTS.map(p => `
+    <div class="shop-card">
+      <img class="sc-img" src="${CDN}${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='${CDN}vermut-1.jpg'">
+      <div class="sc-body">
+        <div class="sc-tag">${p.tag}</div>
+        <div class="sc-name">${p.name}</div>
+        <div class="sc-vol" style="font-size:12px;color:var(--text-muted);margin-bottom:4px">${p.vol||'&nbsp;'}</div>
+        <div class="sc-price-row">
+          <span class="sc-price">${p.price.toFixed(2).replace('.',',')}&euro;</span>
+          <button class="sc-add" onclick="addToCart(${p.id})" id="btn-${p.id}">A&ntilde;adir</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addToCart(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  const ex = cart.find(x=>x.id===id);
+  if(ex) ex.qty++;
+  else cart.push({...p,qty:1});
+  saveCart();
+  const btn = document.getElementById('btn-'+id);
+  btn.textContent='A&ntilde;adido'; btn.classList.add('added');
+  setTimeout(()=>{btn.textContent='A&ntilde;adir'; btn.classList.remove('added')},1500);
+  showToast(p.name+' a&ntilde;adido al carrito');
+}
+
+function removeFromCart(id){
+  cart = cart.filter(x=>x.id!==id);
+  saveCart();
+}
+
+function changeQty(id,delta){
+  const item = cart.find(x=>x.id===id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0) cart = cart.filter(x=>x.id!==id);
+  saveCart();
+}
+
+function saveCart(){
+  localStorage.setItem('cm_cart', JSON.stringify(cart));
+  renderCart();
+}
+
+function renderCart(){
+  const el = document.getElementById('cartItems');
+  const foot = document.getElementById('cartFooter');
+  const count = document.getElementById('cartCount');
+  const totalEl = document.getElementById('cartTotal');
+  
+  if(!cart.length){
+    el.innerHTML = '<div class="cs-empty">Tu carrito est&aacute; vac&iacute;o</div>';
+    foot.style.display = 'none';
+    count.classList.remove('show');
+    return;
+  }
+  
+  count.textContent = cart.reduce((s,i)=>s+i.qty,0);
+  count.classList.add('show');
+  
+  el.innerHTML = cart.map(i => `
+    <div class="cs-item">
+      <img class="csi-img" src="${CDN}${i.img}" alt="${i.name}">
+      <div class="csi-info">
+        <div class="csi-name">${i.name}</div>
+        <div class="csi-price">${i.price.toFixed(2).replace('.',',')}&euro;</div>
+        <div class="csi-qty">
+          <button onclick="changeQty(${i.id},-1)">-</button>
+          <span>${i.qty}</span>
+          <button onclick="changeQty(${i.id},1)">+</button>
+        </div>
+      </div>
+      <button class="csi-del" onclick="removeFromCart(${i.id})">X</button>
+    </div>
+  `).join('');
+  
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  totalEl.textContent = total.toFixed(2).replace('.',',')+'&euro;';
+  foot.style.display = 'block';
+}
+
+function toggleCart(){
+  document.getElementById('cartOverlay').classList.toggle('open');
+  document.getElementById('cartSidebar').classList.toggle('open');
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+renderShop();
+renderCart();
+
+// Scroll reveal & nav
+const ro = new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+let ls=0;const nv=document.querySelector('nav');window.addEventListener('scroll',()=>{const c=window.scrollY;nv.style.transform=c>ls&&c>80?'translateY(-100%)':'translateY(0)';ls=c;});
+document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));});
 </script>
 </body>
 </html>
