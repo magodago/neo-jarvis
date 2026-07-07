@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<title>Reservar — Casa Montaña</title>
+<meta name="description" content="Reserva tu mesa en Casa Montaña. Bodega y restaurante en el Cabanyal, Valencia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23A3191A'/><text x='4' y='24' font-family='serif' font-weight='700' font-size='18' fill='white'>CM</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-header{background-image:linear-gradient(180deg,rgba(10,10,10,.2),rgba(10,10,10,.7),var(--black)),url('https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9987_resultado.webp')}
+.reserv-frame{width:100%;max-width:800px;margin:0 auto;min-height:600px;border-radius:14px;overflow:hidden;border:none;display:block}
+.reserv-frame iframe{width:100%;min-height:600px;border:none;display:block}
+@media(max-width:768px){.reserv-frame iframe{min-height:500px}}
+</style>
+</head>
+<body>
+<nav><a href="/" class="nav-logo"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/logo-prueba-home-1024x1024.png" alt="Casa Montaña"><span>Casa Montaña</span></a>
+<ul class="nav-links" id="navLinks">
+<li><a href="historia.html">Historia</a></li><li><a href="../#carta-online">Carta</a></li><li><a href="alojamiento.html">Alojamiento</a></li><li><a href="regala.html">Regala</a></li><li><a href="tienda.html">Tienda</a></li><li><a href="galeria.html">Galer&iacute;a</a></li><li><a href="contacto.html">Contacto</a></li>
+</ul>
+<div style="display:flex;align-items:center;gap:8px"><a href="reservar.html" class="nav-btn" style="background:var(--red)">Reservar</a><button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Men&uacute;">☰</button></div>
+</nav>
+<header class="page-header"><div class="ph-content"><h1>Reservar mesa</h1><p>Solicita tu reserva en Casa Monta&ntilde;a</p></div></header>
+<section class="section-wrap">
+<div class="section-inner">
+<div class="section-label st-centered">Reserva</div>
+<h2 class="section-title st-centered">Selecciona fecha, hora y comensales</h2>
+<p style="text-align:center;color:var(--text-dim);font-size:14px;margin-top:-20px;margin-bottom:28px">Sistema de reservas gestionado por CoverManager</p>
+<div class="reserv-frame">
+<iframe src="https://www.covermanager.com/reservation/module_restaurant/restaurante-casamontana/spanish" title="Reserva Casa Montaña" loading="lazy" allowtransparency="true"></iframe>
+</div>
+</div>
+</section>
+<section class="section-wrap alt" style="text-align:center">
+<div class="section-inner">
+<div class="section-label st-centered">Tambi&eacute;n puedes</div>
+<h2 class="section-title st-centered" style="margin-bottom:16px">Ll&aacute;manos o escr&iacute;benos</h2>
+<p style="font-size:15px;color:var(--text-dim);margin-bottom:20px;line-height:1.7">Si prefieres, puedes hacer tu reserva por tel&eacute;fono o WhatsApp.</p>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+<a href="tel:+34963672314" class="btn-red">+34 963 672 314</a>
+<a href="https://wa.me/34963672314" class="btn-ghost" target="_blank">WhatsApp</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="f-logos"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-1.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-3.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-4.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-5.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-6.png" alt="" loading="lazy"></div>
+<div class="f-links"><a href="historia.html">Historia</a><a href="alojamiento.html">Alojamiento</a><a href="regala.html">Regala</a><a href="tienda.html">Tienda</a><a href="galeria.html">Galer&iacute;a</a><a href="contacto.html">Contacto</a><a href="aviso-legal.html">Aviso Legal</a><a href="politica-de-privacidad.html">Privacidad</a><a href="politica-de-cookies.html">Cookies</a></div>
+<p>&copy; 2026 Casa Monta&ntilde;a</p><p style="margin-top:6px;font-size:10px;color:rgba(245,240,235,.18)">Dise&ntilde;ado por <a href="https://neolabs.me" style="color:var(--red)">NEO Labs</a></p>
+</footer>
+<a href="https://wa.me/34963672314" class="whatsapp" aria-label="WhatsApp" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382"/></svg></a>
+<script>
+const ro=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+let ls=0;const nv=document.querySelector('nav');window.addEventListener('scroll',()=>{const c=window.scrollY;nv.style.transform=c>ls&&c>80?'translateY(-100%)':'translateY(0)';ls=c;});
+document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));});
+</script>
+</body>
+</html>
