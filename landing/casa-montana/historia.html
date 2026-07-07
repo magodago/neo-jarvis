@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Historia — Casa Montaña</title>
+<meta name="description" content="Historia de Casa Montaña, bodega fundada en 1836 en el Cabanyal de Valencia. Tradición vinícola, cultura y hospitalidad desde hace más de un siglo.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23A3191A'/><text x='4' y='24' font-family='serif' font-weight='700' font-size='18' fill='white'>CM</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-header{background-image:linear-gradient(180deg,rgba(10,10,10,.2),rgba(10,10,10,.7),var(--black)),url('https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0156-1_resultado.webp')}
+.hist-main{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.hist-text p{font-size:16px;line-height:1.75;color:var(--text-dim);margin-bottom:14px}
+.hist-img{border-radius:14px;overflow:hidden}
+.hist-img img{width:100%;height:auto;display:block;border-radius:14px}
+.hist-stats{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap}
+.hist-stats div{text-align:center}
+.hist-stats .num{font-size:28px;font-weight:700;color:var(--red);line-height:1}
+.hist-stats .lbl{font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+.timeline{position:relative;padding-left:32px;margin-top:40px}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--red),transparent)}
+.tl-item{position:relative;padding-bottom:32px}
+.tl-item::before{content:'';position:absolute;left:-25px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid var(--black);box-shadow:0 0 0 2px var(--red)}
+.tl-item .tl-year{font-size:13px;font-weight:700;color:var(--red);letter-spacing:2px;margin-bottom:2px}
+.tl-item .tl-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:2px}
+.tl-item .tl-desc{font-size:13px;color:var(--text-dim);line-height:1.6}
+@media(max-width:768px){.hist-main{grid-template-columns:1fr;gap:24px}}
+</style>
+</head>
+<body>
+<nav><a href="/" class="nav-logo"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/logo-prueba-home-1024x1024.png" alt="Casa Montaña"><span>Casa Montaña</span></a>
+<ul class="nav-links" id="navLinks">
+<li><a href="historia.html" class="active">Historia</a></li><li><a href="../#carta-online">Carta</a></li><li><a href="alojamiento.html">Alojamiento</a></li><li><a href="regala.html">Regala</a></li><li><a href="tienda.html">Tienda</a></li><li><a href="galeria.html">Galer&iacute;a</a></li><li><a href="contacto.html">Contacto</a></li>
+</ul>
+<div style="display:flex;align-items:center;gap:8px"><a href="contacto.html" class="nav-btn">Contacto</a><button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Men&uacute;">☰</button></div>
+</nav>
+<header class="page-header"><div class="ph-content"><h1>Historia</h1><p>M&aacute;s de un siglo de tradici&oacute;n vin&iacute;cola en Valencia</p></div></header>
+
+<section class="section-wrap">
+<div class="section-inner">
+<div class="hist-main">
+<div class="hist-text reveal">
+<div class="section-label">Nuestra historia</div>
+<h2 class="section-title">Desde 1836, el vino corre por nuestras venas</h2>
+<p>Casa Monta&ntilde;a nace del amor por el vino y la tierra valenciana. Desde nuestros or&iacute;genes en el Cabanyal, hemos construido una bodega que es referente en la ciudad, combinando la tradici&oacute;n heredada con una visi&oacute;n contempor&aacute;nea de la hospitalidad.</p>
+<p>Nuestra bodega alberga una de las selecciones de vinos m&aacute;s completas de Valencia, con especial atenci&oacute;n a los productores locales y las denominaciones de origen de la Comunitat Valenciana. Cada botella cuenta una historia, y cada visita a Casa Monta&ntilde;a es una oportunidad para descubrirla.</p>
+<p>El barrio del Cabanyal, con su car&aacute;cter marinero y su riqueza cultural, ha sido el escenario perfecto para el crecimiento de nuestra bodega. Un lugar donde la tradici&oacute;n y la modernidad conviven en armon&iacute;a, igual que en nuestros vinos.</p>
+<div class="hist-stats">
+<div><div class="num">1836</div><div class="lbl">Fundaci&oacute;n</div></div>
+<div><div class="num">300+</div><div class="lbl">Vinos seleccionados</div></div>
+<div><div class="num">ES / CA / EN</div><div class="lbl">Idiomas</div></div>
+</div>
+</div>
+<div class="hist-img reveal">
+<img src="https://www.emilianobodega.com/wp-content/uploads/2026/07/FYT_9744_resultado-scaled.webp" alt="Equipo Casa Montaña" loading="lazy">
+</div>
+</div>
+
+<div class="reveal" style="margin-top:48px">
+<div class="section-label">Hitos</div>
+<h2 class="section-title">Nuestro camino</h2>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1836</div><div class="tl-title">Fundaci&oacute;n de Casa Monta&ntilde;a</div><div class="tl-desc">Nace nuestra bodega en el coraz&oacute;n del Cabanyal, con la vocaci&oacute;n de seleccionar los mejores vinos para Valencia.</div></div>
+<div class="tl-item"><div class="tl-year">2024</div><div class="tl-title">Reconocimiento Michelin</div><div class="tl-desc">Obtenemos la certificaci&oacute;n de la Gu&iacute;a Michelin, reconociendo nuestra dedicaci&oacute;n a la calidad y la excelencia gastron&oacute;mica.</div></div>
+<div class="tl-item"><div class="tl-year">2025</div><div class="tl-title">Certificaciones de calidad</div><div class="tl-desc">Logramos las certificaciones Compromiso Calidad Tur&iacute;stica, S de Sostenibilidad Tur&iacute;stica y Qualitur, reafirmando nuestro compromiso con la excelencia.</div></div>
+<div class="tl-item"><div class="tl-year">2026</div><div class="tl-title">Proyecto NextGeneration EU</div><div class="tl-desc">Somos beneficiarios de ayudas para la eficiencia energ&eacute;tica y econom&iacute;a circular dentro del Plan de Recuperaci&oacute;n de la Uni&oacute;n Europea.</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="f-logos"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-1.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-3.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-4.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-5.png" alt="" loading="lazy"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-6.png" alt="" loading="lazy"></div>
+<div class="f-links"><a href="historia.html">Historia</a><a href="alojamiento.html">Alojamiento</a><a href="regala.html">Regala</a><a href="tienda.html">Tienda</a><a href="galeria.html">Galer&iacute;a</a><a href="contacto.html">Contacto</a><a href="aviso-legal.html">Aviso Legal</a><a href="politica-de-privacidad.html">Privacidad</a><a href="politica-de-cookies.html">Cookies</a></div>
+<p>&copy; 2026 Casa Monta&ntilde;a</p><p style="margin-top:6px;font-size:10px;color:rgba(245,240,235,.18)">Dise&ntilde;ado por <a href="https://neolabs.me" style="color:var(--red)">NEO Labs</a></p>
+</footer>
+<a href="https://wa.me/34963672314" class="whatsapp" aria-label="WhatsApp" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+const ro=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+let ls=0;const nv=document.querySelector('nav');window.addEventListener('scroll',()=>{const c=window.scrollY;nv.style.transform=c>ls&&c>80?'translateY(-100%)':'translateY(0)';ls=c;});
+document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));});
+</script>
+</body>
+</html>
