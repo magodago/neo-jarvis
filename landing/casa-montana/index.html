@@ -3,354 +3,262 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-<title>Casa Montaña — Vino y producto en Valencia</title>
+<title>Casa Montaña — Vino, historia y hospitalidad en Valencia</title>
+<meta name="description" content="Casa Montaña es la casa del buen vino y del buen producto en Valencia. Bodega, restaurante, alojamiento, tienda y experiencias gastronómicas únicas.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23A3191A'/><text x='4' y='24' font-family='serif' font-weight='700' font-size='18' fill='white'>CM</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --red:#A3191A;
-  --red-hover:#C71F1F;
-  --red-soft:rgba(163,25,26,.12);
-  --red-glow:rgba(163,25,26,.2);
-  --black:#0a0a0a;
-  --black2:#111111;
-  --card:rgba(255,255,255,.04);
-  --border:rgba(255,255,255,.08);
-  --text:#f5f0eb;
-  --text-dim:rgba(245,240,235,.6);
-  --text-muted:rgba(245,240,235,.4);
-  font-family:'PT Serif',Georgia,serif;
-  scroll-behavior:smooth;
-}
-body{background:var(--black);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(10,10,10,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--border);
-  padding:0 24px;height:56px;
-  display:flex;align-items:center;justify-content:space-between;
-  transition:transform .35s ease;
-}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo img{width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0}
-.nav-logo span{font-weight:700;font-size:17px;letter-spacing:.5px;color:#fff;white-space:nowrap}
-.nav-links{display:flex;gap:6px;list-style:none}
-.nav-links a{
-  color:var(--text-dim);text-decoration:none;font-size:13px;padding:6px 12px;
-  border-radius:6px;transition:all .2s;white-space:nowrap;
-}
-.nav-links a:hover{color:var(--red);background:var(--red-soft)}
-.nav-btn{
-  background:var(--red);color:#fff;text-decoration:none;
-  padding:7px 18px;border-radius:100px;font-size:13px;font-weight:700;
-  transition:background .2s;white-space:nowrap;
-}
-.nav-btn:hover{background:var(--red-hover)}
-.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px;line-height:1}
-
-/* ── HERO ── */
-.hero{
+/* ── HOME SPECIFIC ── */
+.hero-home{
   position:relative;min-height:100vh;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   padding:80px 24px 48px;text-align:center;overflow:hidden;
 }
-.hero-bg{
+.hero-home-bg{
   position:absolute;inset:0;z-index:0;
   background:
-    linear-gradient(180deg,rgba(10,10,10,.1) 0%,rgba(10,10,10,.5) 55%,var(--black) 100%),
-    url('https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0077_resultado.webp') center 35%/cover no-repeat;
+    linear-gradient(180deg,rgba(10,10,10,.15) 0%,rgba(10,10,10,.55) 55%,var(--black) 100%),
+    url('https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0156-1_resultado.webp') center 30%/cover no-repeat;
 }
-.hero-glow{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 25%,rgba(163,25,26,.1) 0%,transparent 65%);
-}
-.hero-content{position:relative;z-index:1;max-width:700px}
+.hero-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 25%,rgba(163,25,26,.08) 0%,transparent 65%)}
+.hero-home .hc{position:relative;z-index:1;max-width:700px}
 .hero-logo{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:28px;border:2px solid rgba(163,25,26,.25);box-shadow:0 0 50px rgba(163,25,26,.12)}
-.hero h1{font-size:clamp(34px,6.5vw,60px);font-weight:700;line-height:1.08;margin-bottom:12px;color:#fff}
-.hero h1 span{color:var(--red)}
-.hero-desc{font-size:clamp(15px,2.2vw,20px);color:var(--text-dim);line-height:1.65;max-width:540px;margin:0 auto 8px}
-.hero-quote{font-style:italic;font-size:clamp(12px,1.6vw,15px);color:var(--text-muted);max-width:450px;margin:0 auto 32px;line-height:1.7}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-red{background:var(--red);color:#fff;text-decoration:none;padding:13px 30px;border-radius:100px;font-weight:700;font-size:15px;transition:all .2s;min-width:165px;display:inline-block}
-.btn-red:hover{background:var(--red-hover);transform:translateY(-1px)}
-.btn-ghost{background:transparent;color:var(--text);text-decoration:none;padding:13px 30px;border-radius:100px;font-weight:700;font-size:15px;border:1px solid var(--border);min-width:165px;display:inline-block;transition:all .2s}
-.btn-ghost:hover{border-color:var(--red);color:var(--red)}
+.hero-home h1{font-size:clamp(34px,6.5vw,60px);font-weight:700;line-height:1.08;margin-bottom:12px;color:#fff}
+.hero-home h1 span{color:var(--red)}
+.hero-home .hd{font-size:clamp(15px,2.2vw,20px);color:var(--text-dim);line-height:1.65;max-width:540px;margin:0 auto 8px}
+.hero-home .hq{font-style:italic;font-size:clamp(12px,1.6vw,15px);color:var(--text-muted);max-width:450px;margin:0 auto 32px;line-height:1.7}
+.hero-home .hb{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-/* HERO PAGE LINKS */
+/* Hero page quick links */
 .hero-pages{display:flex;gap:10px;margin:36px auto 0;flex-wrap:wrap;justify-content:center}
-.hero-page-link{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  padding:14px 10px;border-radius:12px;text-decoration:none;color:#fff;
+.hero-plink{
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  padding:14px 12px;border-radius:12px;text-decoration:none;color:#fff;
   background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden;
-  transition:all .3s;cursor:pointer;flex:1;min-width:90px;max-width:130px;
+  transition:all .3s;cursor:pointer;flex:1;min-width:100px;max-width:140px;
 }
-.hero-page-link::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(163,25,26,.08),transparent);opacity:0;transition:opacity .3s}
-.hero-page-link:hover::before{opacity:1}
-.hero-page-link:hover{border-color:rgba(163,25,26,.3);transform:translateY(-3px)}
-.hero-page-link .pl-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;position:relative;z-index:1;color:var(--text-dim)}
-.hero-page-link .pl-sub{font-size:9px;color:var(--text-muted);position:relative;z-index:1;letter-spacing:1px}
+.hero-plink::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(163,25,26,.08),transparent);opacity:0;transition:opacity .3s}
+.hero-plink:hover::before{opacity:1}
+.hero-plink:hover{border-color:rgba(163,25,26,.3);transform:translateY(-3px)}
+.hero-plink svg{position:relative;z-index:1;opacity:.55;width:24px;height:24px}
+.hero-plink .pl-lbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;position:relative;z-index:1;color:var(--text-dim)}
+.hero-plink .pl-sub{font-size:9px;color:var(--text-muted);position:relative;z-index:1;letter-spacing:1px}
 
-/* ── SECTION COMMON ── */
-.section-wrap{padding:80px 24px;position:relative}
-.section-wrap.alt{background:var(--black2)}
-.section-inner{max-width:1120px;margin:0 auto}
-.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:6px}
-.section-title{font-size:clamp(26px,3.8vw,42px);font-weight:700;line-height:1.12;margin-bottom:36px}
-.st-centered{text-align:center;max-width:640px;margin-left:auto;margin-right:auto}
+/* TEAM PHOTO — fully visible */
+.team-section{padding:0;background:var(--black)}
+.team-section .team-img-wrap{
+  width:100%;display:flex;justify-content:center;align-items:center;
+  background:var(--black);padding:0;
+}
+.team-section .team-img-wrap img{
+  width:100%;height:auto;max-height:80vh;object-fit:contain;
+  display:block;margin:0 auto;
+}
+.team-section .team-caption{
+  text-align:center;padding:16px 24px 24px;max-width:600px;margin:0 auto;
+}
+.team-section .team-caption .tc-title{font-size:13px;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.team-section .team-caption p{font-size:14px;color:var(--text-dim);line-height:1.6}
 
-/* ── HISTORIA ── */
-.historia-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
-.historia-text p{font-size:16px;line-height:1.75;color:var(--text-dim);margin-bottom:14px}
-.historia-img{border-radius:14px;overflow:hidden;position:relative}
-.historia-img img{width:100%;height:auto;display:block;border-radius:14px}
-.historia-meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap}
-.historia-meta div{text-align:center}
-.historia-meta .num{font-size:28px;font-weight:700;color:var(--red);line-height:1}
-.historia-meta .lbl{font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+/* ABOUT home */
+.about-home{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-home-text p{font-size:16px;line-height:1.75;color:var(--text-dim);margin-bottom:14px}
+.about-home-img{border-radius:14px;overflow:hidden}
+.about-home-img img{width:100%;height:auto;display:block;border-radius:14px}
+.about-home-meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap}
+.about-home-meta div{text-align:center}
+.about-home-meta .num{font-size:28px;font-weight:700;color:var(--red);line-height:1}
+.about-home-meta .lbl{font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
 
-/* ── GALLERY STRIP ── */
-.gallery-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:36px}
-.gallery-strip img{width:100%;height:200px;object-fit:cover;border-radius:10px;transition:transform .4s}
-.gallery-strip img:hover{transform:scale(1.03)}
+/* Services grid home preview */
+.serv-home{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.serv-card{position:relative;min-height:260px;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:24px;cursor:pointer;text-decoration:none}
+.serv-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.serv-card:hover img{transform:scale(1.07)}
+.serv-card .ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,.88) 0%,rgba(10,10,10,.1) 65%,transparent 100%)}
+.serv-card .ct{position:relative;z-index:1}
+.serv-card .ct h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:2px}
+.serv-card .ct p{font-size:12px;color:var(--text-muted)}
+.serv-card .arr{position:absolute;top:16px;right:16px;z-index:2;color:#fff;font-size:16px;opacity:0;transform:translateX(-4px);transition:all .3s}
+.serv-card:hover .arr{opacity:1;transform:translateX(0)}
 
-/* ── SERVICES CARDS ── */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.service-card{position:relative;min-height:260px;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:24px;cursor:pointer;text-decoration:none}
-.service-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.service-card:hover img{transform:scale(1.07)}
-.service-card .ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,.88) 0%,rgba(10,10,10,.1) 65%,transparent 100%)}
-.service-card .ct{position:relative;z-index:1}
-.service-card .ct h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:2px}
-.service-card .ct p{font-size:12px;color:var(--text-muted)}
-.service-card .arr{position:absolute;top:16px;right:16px;z-index:2;color:#fff;font-size:16px;opacity:0;transform:translateX(-4px);transition:all .3s}
-.service-card:hover .arr{opacity:1;transform:translateX(0)}
+/* Home preview grids */
+.preview-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.preview-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;text-decoration:none;color:#fff;display:block}
+.preview-card:hover{border-color:var(--red);transform:translateY(-3px)}
+.preview-card .pc-img{width:100%;height:150px;object-fit:cover;display:block}
+.preview-card .pc-body{padding:14px 16px 16px}
+.preview-card .pc-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:2px}
+.preview-card .pc-name{font-size:14px;font-weight:700;margin-bottom:2px}
+.preview-card .pc-price{font-size:15px;font-weight:700;color:var(--red)}
+.preview-card .pc-desc{font-size:12px;color:var(--text-muted);line-height:1.4;margin-top:4px}
 
-/* ── ALOJAMIENTO ── */
-.aloj-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.aloj-text p{font-size:16px;line-height:1.75;color:var(--text-dim);margin-bottom:14px}
-.aloj-img{border-radius:14px;overflow:hidden}
-.aloj-img img{width:100%;height:auto;display:block;border-radius:14px}
-.aloj-features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-.aloj-ft{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--text-dim)}
-.aloj-ft .ft-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
+/* Gallery home */
+.gal-home{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gal-home img{width:100%;height:180px;object-fit:cover;border-radius:10px;transition:transform .4s}
+.gal-home img:hover{transform:scale(1.03)}
 
-/* ── REGALO / GIFT CARDS ── */
-.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.gift-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 20px;text-align:center;transition:all .3s;text-decoration:none;color:#fff;display:block}
-.gift-card:hover{background:rgba(255,255,255,.07);border-color:var(--red);transform:translateY(-3px)}
-.gift-card .gc-title{font-size:16px;font-weight:700;margin-bottom:4px}
-.gift-card .gc-desc{font-size:12px;color:var(--text-muted);margin-bottom:12px;line-height:1.5}
-.gift-card .gc-price{font-size:20px;font-weight:700;color:var(--red)}
-.gift-card .gc-tag{font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-
-/* ── TIENDA (products grid) ── */
-.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.shop-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;text-decoration:none;color:#fff;display:block}
-.shop-card:hover{border-color:var(--red);transform:translateY(-3px)}
-.shop-card .sc-img{width:100%;height:160px;object-fit:cover;display:block}
-.shop-card .sc-body{padding:14px 16px 16px}
-.shop-card .sc-cat{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:2px}
-.shop-card .sc-name{font-size:14px;font-weight:700;margin-bottom:2px}
-.shop-card .sc-price{font-size:16px;font-weight:700;color:var(--red)}
-.shop-card .sc-quant{font-size:11px;color:var(--text-muted);margin-top:2px}
-
-/* ── CONTACT GRID ── */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.contact-info p{font-size:15px;color:var(--text-dim);line-height:1.75;margin-bottom:6px}
-.contact-info strong{color:#fff}
-.contact-info a{color:var(--red);text-decoration:none;transition:color .2s}
-.contact-info a:hover{color:var(--red-hover)}
-.contact-sched{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;max-width:280px}
-.contact-sched .day{font-size:13px;font-weight:700;color:#fff}
-.contact-sched .hour{font-size:13px;color:var(--text-dim);text-align:right}
-.contact-socials{display:flex;gap:10px;margin-top:20px}
-.contact-socials a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none;font-size:13px;letter-spacing:0;font-weight:700;transition:all .2s}
-.contact-socials a:hover{background:var(--red);border-color:var(--red);color:#fff}
-
-/* ── NEWSLETTER ── */
-.nl-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:30px;text-align:center}
-.nl-box h3{font-size:18px;font-weight:700;margin-bottom:4px}
-.nl-box p{font-size:13px;color:var(--text-muted);margin-bottom:18px}
-.nl-form{display:flex;gap:10px;max-width:380px;margin:0 auto}
-.nl-form input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:100px;padding:11px 16px;color:#fff;font-size:13px;font-family:inherit;outline:none}
-.nl-form input:focus{border-color:var(--red)}
-.nl-form button{background:var(--red);color:#fff;border:none;border-radius:100px;padding:11px 20px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background .2s;white-space:nowrap}
-.nl-form button:hover{background:var(--red-hover)}
-
-/* ── CERT BADGES ── */
-.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:500px;margin:24px auto 0}
+/* Certifications */
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:500px;margin:0 auto}
 .cert-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;align-items:center;justify-content:center}
 .cert-item img{max-width:65px;max-height:65px;opacity:.6;transition:opacity .3s}
 .cert-item:hover img{opacity:1}
 
-/* ── MAP ── */
+/* Map */
 .map-sec{padding:0}
 .map-sec iframe{width:100%;height:380px;border:none;display:block}
 
-/* ── FOOTER ── */
-footer{border-top:1px solid var(--border);padding:36px 24px 24px;text-align:center}
-footer .f-logos{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:20px}
-footer .f-logos img{height:34px;opacity:.4;transition:opacity .3s}
-footer .f-logos img:hover{opacity:.7}
-footer p{font-size:11px;color:var(--text-muted);line-height:1.6}
-footer a{color:var(--text-muted);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--red)}
+/* Contact home */
+.contact-home{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-home .ci p{font-size:15px;color:var(--text-dim);line-height:1.75;margin-bottom:6px}
+.contact-home .ci strong{color:#fff}
+.contact-home .ci a{color:var(--red);text-decoration:none}
+.contact-home .ci a:hover{color:var(--red-hover)}
+.contact-sched{display:grid;grid-template-columns:1fr 1fr;gap:4px;max-width:280px;margin-top:10px}
+.contact-sched .day{font-size:13px;font-weight:700;color:#fff}
+.contact-sched .hour{font-size:13px;color:var(--text-dim);text-align:right}
+.contact-socials{display:flex;gap:10px;margin-top:18px}
+.contact-socials a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none;font-size:12px;font-weight:700;transition:all .2s}
+.contact-socials a:hover{background:var(--red);border-color:var(--red);color:#fff}
+.nl-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;text-align:center}
+.nl-box h3{font-size:17px;font-weight:700;margin-bottom:4px}
+.nl-box p{font-size:13px;color:var(--text-muted);margin-bottom:16px}
+.nl-form{display:flex;gap:10px;max-width:360px;margin:0 auto}
+.nl-form input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:100px;padding:10px 16px;color:#fff;font-size:13px;font-family:inherit;outline:none}
+.nl-form input:focus{border-color:var(--red)}
+.nl-form button{background:var(--red);color:#fff;border:none;border-radius:100px;padding:10px 18px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background .2s;white-space:nowrap}
+.nl-form button:hover{background:var(--red-hover)}
 
-/* ── WHATSAPP ── */
-.whatsapp{
-  position:fixed;bottom:20px;right:20px;z-index:999;
-  width:48px;height:48px;border-radius:50%;
-  background:#25D366;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-  box-shadow:0 4px 18px rgba(37,211,102,.25);
-  transition:all .2s;
-}
-.whatsapp:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(37,211,102,.35)}
-.whatsapp svg{width:22px;height:22px;fill:white}
-
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(22px);transition:all .55s ease}
-.reveal.v{opacity:1;transform:translateY(0)}
-
-/* ── RESPONSIVE ── */
 @media(max-width:900px){
-  .services-grid{grid-template-columns:1fr;gap:12px}
-  .gift-grid{grid-template-columns:1fr 1fr}
-  .shop-grid{grid-template-columns:1fr 1fr}
+  .serv-home{grid-template-columns:1fr;gap:12px}
+  .preview-grid{grid-template-columns:1fr 1fr}
   .cert-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-  nav{padding:0 16px}
-  .nav-links{display:none}
-  .menu-toggle{display:block}
-  .nav-links.open{
-    display:flex;flex-direction:column;gap:4px;
-    position:absolute;top:56px;left:0;right:0;
-    background:rgba(10,10,10,.95);backdrop-filter:blur(24px);
-    padding:16px 20px;border-bottom:1px solid var(--border);
-  }
-  .nav-links.open a{padding:10px 12px}
-  .hero{padding:72px 16px 36px;min-height:90vh}
+  .hero-home{padding:72px 16px 36px;min-height:90vh}
   .hero-logo{width:80px;height:80px}
   .hero-pages{gap:6px}
-  .hero-page-link{min-width:80px;padding:10px 6px}
-  .hero-page-link .pl-label{font-size:10px}
-  .historia-grid{grid-template-columns:1fr;gap:24px}
-  .aloj-grid{grid-template-columns:1fr;gap:24px}
-  .gallery-strip{grid-template-columns:repeat(2,1fr)}
-  .gallery-strip img{height:130px}
-  .contact-grid{grid-template-columns:1fr;gap:24px}
+  .hero-plink{min-width:80px;padding:10px 6px}
+  .about-home{grid-template-columns:1fr;gap:24px}
+  .gal-home{grid-template-columns:repeat(2,1fr)}
+  .gal-home img{height:120px}
+  .contact-home{grid-template-columns:1fr;gap:24px}
   .nl-form{flex-direction:column}
-  .section-wrap{padding:48px 16px}
-  .section-title{margin-bottom:24px}
-  .services-grid .service-card{min-height:200px}
-  .aloj-features{grid-template-columns:1fr}
+  .team-section .team-img-wrap img{max-height:60vh}
 }
 @media(max-width:480px){
-  .hero h1{font-size:28px}
-  .hero-page-link{min-width:70px;padding:8px 4px}
-  .hero-page-link .pl-label{font-size:9px;letter-spacing:1px}
-  .gift-grid{grid-template-columns:1fr}
-  .shop-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .gallery-strip img{height:100px}
-  .cert-grid{grid-template-columns:repeat(2,1fr);gap:6px}
-  .cert-item{padding:10px}
-  .cert-item img{max-width:50px;max-height:50px}
-  .contact-sched{grid-template-columns:1fr 1fr;max-width:100%}
-  .aloj-ft{font-size:12px}
+  .hero-home h1{font-size:28px}
+  .hero-plink{min-width:70px;padding:8px 4px}
+  .preview-grid{grid-template-columns:1fr;gap:10px}
+  .serv-home .serv-card{min-height:180px}
+  .gal-home img{height:100px}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">
+  <a href="/" class="nav-logo">
     <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/logo-prueba-home-1024x1024.png" alt="Casa Montaña">
     <span>Casa Montaña</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#historia">Historia</a></li>
-    <li><a href="#carta">Carta</a></li>
-    <li><a href="#alojamiento">Alojamiento</a></li>
-    <li><a href="#regala">Regala</a></li>
-    <li><a href="#tienda">Tienda</a></li>
-    <li><a href="#galeria">Galería</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="historia.html">Historia</a></li>
+    <li><a href="#carta-online">Carta</a></li>
+    <li><a href="alojamiento.html">Alojamiento</a></li>
+    <li><a href="regala.html">Regala</a></li>
+    <li><a href="tienda.html">Tienda</a></li>
+    <li><a href="galeria.html">Galer&iacute;a</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px">
     <a href="/reservar" class="nav-btn">Reservar</a>
-    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menú">☰</button>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Men&uacute;">☰</button>
   </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="hero-bg"></div>
+<section class="hero-home">
+  <div class="hero-home-bg"></div>
   <div class="hero-glow"></div>
-  <div class="hero-content">
+  <div class="hc">
     <img class="hero-logo reveal" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/logo-prueba-home-1024x1024.png" alt="Casa Montaña">
-    <h1 class="reveal"><span>Casa Montaña</span><br>Vino, historia y hospitalidad</h1>
-    <p class="hero-desc reveal">La casa del buen vino y del buen producto. Un hogar para nuestros clientes y nuestros amigos. Una parte del relato y la historia de Valencia.</p>
-    <p class="hero-quote reveal">&ldquo;Las personas olvidar&aacute;n lo que dijiste, olvidar&aacute;n lo que hiciste, pero nunca olvidar&aacute;n c&oacute;mo las hiciste sentir.&rdquo;<br>&mdash; Maya Angelou</p>
-    <div class="hero-btns reveal">
+    <h1 class="reveal"><span>Casa Monta&ntilde;a</span><br>Vino, historia y hospitalidad</h1>
+    <p class="hd reveal">La casa del buen vino y del buen producto. Un hogar para nuestros clientes y nuestros amigos. Una parte del relato y la historia de Valencia.</p>
+    <p class="hq reveal">&ldquo;Las personas olvidar&aacute;n lo que dijiste, olvidar&aacute;n lo que hiciste, pero nunca olvidar&aacute;n c&oacute;mo las hiciste sentir.&rdquo;<br>&mdash; Maya Angelou</p>
+    <div class="hb reveal">
       <a href="/reservar" class="btn-red">Reservar mesa</a>
-      <a href="https://app.scanmimenu.com/local/casa-montana/" class="btn-ghost">Ver carta</a>
+      <a href="https://app.scanmimenu.com/local/casa-montana/" class="btn-ghost" target="_blank">Ver carta</a>
     </div>
     <div class="hero-pages reveal">
-      <a href="#carta" class="hero-page-link">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="position:relative;z-index:1;opacity:.6"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-        <span class="pl-label">Carta</span>
+      <a href="https://app.scanmimenu.com/local/casa-montana/" class="hero-plink" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <span class="pl-lbl">Carta</span>
         <span class="pl-sub">Men&uacute; digital</span>
       </a>
-      <a href="#tienda" class="hero-page-link">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="position:relative;z-index:1;opacity:.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <span class="pl-label">Tienda</span>
+      <a href="tienda.html" class="hero-plink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="pl-lbl">Tienda</span>
         <span class="pl-sub">Vinos y productos</span>
       </a>
-      <a href="#regala" class="hero-page-link">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="position:relative;z-index:1;opacity:.6"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 010-5 4 4 0 014.5 5 4 4 0 014.5-5 2.5 2.5 0 010 5"/></svg>
-        <span class="pl-label">Regala</span>
+      <a href="regala.html" class="hero-plink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 010-5 4 4 0 014.5 5 4 4 0 014.5-5 2.5 2.5 0 010 5"/></svg>
+        <span class="pl-lbl">Regala</span>
         <span class="pl-sub">Bonos regalo</span>
+      </a>
+      <a href="alojamiento.html" class="hero-plink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="pl-lbl">Alojamiento</span>
+        <span class="pl-sub">Barracart</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══ HISTORIA ═══ -->
-<section class="section-wrap" id="historia">
+<!-- ═══ EQUIPO — TEAM PHOTO (fully visible) ═══ -->
+<section class="team-section">
+  <div class="team-img-wrap">
+    <img src="https://www.emilianobodega.com/wp-content/uploads/2026/07/FYT_9744_resultado-scaled.webp" alt="Equipo de Casa Montaña" loading="lazy">
+  </div>
+  <div class="team-caption reveal">
+    <div class="tc-title">Nuestro equipo</div>
+    <p>Detr&aacute;s de Casa Monta&ntilde;a hay un equipo apasionado por el vino, la gastronom&iacute;a y la hospitalidad. Personas que hacen de cada visita una experiencia &uacute;nica.</p>
+  </div>
+</section>
+
+<!-- ═══ SOBRE NOSOTROS ═══ -->
+<section class="section-wrap" id="sobre">
   <div class="section-inner">
-    <div class="historia-grid">
-      <div class="historia-text reveal">
-        <div class="section-label">Historia</div>
-        <h2 class="section-title">M&aacute;s de un siglo de tradici&oacute;n vin&iacute;cola en Valencia</h2>
-        <p>Casa Monta&ntilde;a nace del amor por el vino y la tierra valenciana. Desde nuestros or&iacute;genes en el Cabanyal, hemos construido una bodega que es referente en la ciudad, combinando la tradici&oacute;n heredada con una visi&oacute;n contempor&aacute;nea de la hospitalidad.</p>
-        <p>Nuestra bodega alberga una de las selecciones de vinos m&aacute;s completas de Valencia, con especial atenci&oacute;n a los productores locales y las denominaciones de origen de la Comunitat. Cada botella cuenta una historia, y cada visita a Casa Monta&ntilde;a es una oportunidad para descubrirla.</p>
-        <p>Hoy, adem&aacute;s de nuestra bodega y restaurante, ofrecemos alojamiento con encanto, tienda especializada y la posibilidad de regalar experiencias &uacute;nicas a trav&eacute;s de nuestros bonos regalo.</p>
-        <div class="historia-meta">
+    <div class="about-home">
+      <div class="about-home-text reveal">
+        <div class="section-label">Sobre nosotros</div>
+        <h2 class="section-title">Una bodega con historia en el coraz&oacute;n del Cabanyal</h2>
+        <p>Casa Monta&ntilde;a es mucho m&aacute;s que una bodega. Desde 1836, somos un espacio donde el buen vino, la gastronom&iacute;a y la historia se encuentran para crear momentos &uacute;nicos en el emblem&aacute;tico barrio del Cabanyal de Valencia.</p>
+        <p>Nuestra bodega alberga una de las selecciones de vinos m&aacute;s completas de Valencia, con especial atenci&oacute;n a los productores locales y las denominaciones de origen de la Comunitat Valenciana. Cada botella cuenta una historia, y cada visita es una oportunidad para descubrirla.</p>
+        <p>Hoy, adem&aacute;s de nuestra bodega y restaurante, ofrecemos alojamiento con encanto en Barracart, tienda especializada con productos exclusivos y la posibilidad de regalar experiencias &uacute;nicas a trav&eacute;s de nuestros bonos regalo.</p>
+        <div class="about-home-meta">
           <div><div class="num">1836</div><div class="lbl">Fundaci&oacute;n</div></div>
           <div><div class="num">300+</div><div class="lbl">Vinos seleccionados</div></div>
-          <div><div class="num">4</div><div class="lbl">Idiomas</div></div>
+          <div><div class="num">ES/CA/EN</div><div class="lbl">Idiomas</div></div>
         </div>
+        <a href="historia.html" class="btn-ghost" style="margin-top:16px">Conocer nuestra historia</a>
       </div>
-      <div class="historia-img reveal">
-        <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0156-1_resultado.webp" alt="Interior de Casa Montaña" loading="lazy">
+      <div class="about-home-img reveal">
+        <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0077_resultado.webp" alt="Interior de Casa Montaña" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CARTA / SERVICIOS ═══ -->
-<section class="section-wrap alt" id="carta">
+<!-- ═══ CARTA Y SERVICIOS ═══ -->
+<section class="section-wrap alt" id="carta-online">
   <div class="section-inner">
     <div class="section-label st-centered">Carta y servicios</div>
     <h2 class="section-title st-centered">Descubre nuestra oferta gastron&oacute;mica</h2>
-    <div class="services-grid">
-      <a href="https://app.scanmimenu.com/local/casa-montana/" class="service-card reveal">
+    <div class="serv-home">
+      <a href="https://app.scanmimenu.com/local/casa-montana/" class="serv-card reveal" target="_blank">
         <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/carta-casamon_resultado.webp" alt="Carta" loading="lazy">
         <div class="ov"></div>
         <div class="ct">
@@ -359,7 +267,7 @@ footer a:hover{color:var(--red)}
         </div>
         <span class="arr">&rarr;</span>
       </a>
-      <a href="https://app.scanmimenu.com/local/casa-montana/" class="service-card reveal">
+      <a href="https://app.scanmimenu.com/local/casa-montana/" class="serv-card reveal" target="_blank">
         <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9987_resultado.webp" alt="Carta de vinos" loading="lazy">
         <div class="ov"></div>
         <div class="ct">
@@ -368,7 +276,7 @@ footer a:hover{color:var(--red)}
         </div>
         <span class="arr">&rarr;</span>
       </a>
-      <a href="/alojamiento" class="service-card reveal">
+      <a href="contacto.html" class="serv-card reveal">
         <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9864_resultado.webp" alt="Eventos" loading="lazy">
         <div class="ov"></div>
         <div class="ct">
@@ -381,152 +289,103 @@ footer a:hover{color:var(--red)}
   </div>
 </section>
 
-<!-- ═══ ALOJAMIENTO ═══ -->
-<section class="section-wrap" id="alojamiento">
+<!-- ═══ ALOJAMIENTO PREVIEW ═══ -->
+<section class="section-wrap" id="aloja-preview">
   <div class="section-inner">
-    <div class="section-label" style="text-align:center">Alojamiento</div>
-    <h2 class="section-title st-centered">Barracart &mdash; Duerme en el coraz&oacute;n del Cabanyal</h2>
-    <div class="aloj-grid">
-      <div class="aloj-text reveal">
-        <p>Barracart es nuestro espacio de alojamiento, ubicado en el emblem&aacute;tico barrio del Cabanyal de Valencia. Un lugar donde la tradici&oacute;n marinera se encuentra con el confort moderno.</p>
-        <p>Disfruta de una estancia &uacute;nica a pasos del mar, rodeado de la cultura y la gastronom&iacute;a que hacen del Cabanyal uno de los barrios con m&aacute;s personalidad de Valencia.</p>
-        <div class="aloj-features">
-          <div class="aloj-ft"><span class="ft-dot"></span>Ubicaci&oacute;n en el Cabanyal</div>
-          <div class="aloj-ft"><span class="ft-dot"></span>A pasos de la playa</div>
-          <div class="aloj-ft"><span class="ft-dot"></span>Wifi gratuito</div>
-          <div class="aloj-ft"><span class="ft-dot"></span>Ambiente &uacute;nico</div>
-        </div>
-        <a href="/alojamiento" class="btn-ghost" style="display:inline-block;margin-top:18px">M&aacute;s informaci&oacute;n</a>
-      </div>
-      <div class="aloj-img reveal">
-        <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0056_resultado.webp" alt="Barracart alojamiento" loading="lazy">
-      </div>
+    <div class="section-label st-centered">Alojamiento</div>
+    <h2 class="section-title st-centered">Barracart &mdash; Descansa en el Cabanyal</h2>
+    <div style="text-align:center;max-width:600px;margin:0 auto 28px">
+      <p style="font-size:15px;color:var(--text-dim);line-height:1.65">Un espacio &uacute;nico a pasos del mar, donde la tradici&oacute;n marinera del Cabanyal se encuentra con el confort moderno. La estancia perfecta para los amantes del vino y la cultura valenciana.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:500px;margin:0 auto">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--text-dim);text-align:center">Ubicaci&oacute;n en el Cabanyal</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--text-dim);text-align:center">A pasos de la playa</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--text-dim);text-align:center">Wifi gratuito</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--text-dim);text-align:center">Ambiente &uacute;nico</div>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="alojamiento.html" class="btn-red">M&aacute;s informaci&oacute;n</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ REGALA ═══ -->
-<section class="section-wrap alt" id="regala">
+<!-- ═══ REGALA PREVIEW ═══ -->
+<section class="section-wrap alt" id="regala-preview">
   <div class="section-inner">
     <div class="section-label st-centered">Regala</div>
     <h2 class="section-title st-centered">Bonos regalo Casa Monta&ntilde;a</h2>
-    <p style="text-align:center;color:var(--text-dim);font-size:15px;margin-top:-24px;margin-bottom:32px">El regalo perfecto para los amantes del vino y la gastronom&iacute;a</p>
-    <div class="gift-grid">
-      <a href="/regala" class="gift-card reveal">
-        <div class="gc-tag">Bono regalo</div>
-        <div class="gc-title">Bono 1836+</div>
-        <div class="gc-desc">Selecci&oacute;n especial Tempos Vega Sicilia</div>
-        <div class="gc-price">Consultar</div>
+    <p style="text-align:center;color:var(--text-dim);font-size:14px;margin-top:-20px;margin-bottom:28px">El regalo perfecto para los amantes del vino y la gastronom&iacute;a</p>
+    <div class="preview-grid" style="grid-template-columns:repeat(3,1fr);max-width:800px;margin:0 auto">
+      <a href="regala.html" class="preview-card reveal" style="padding:24px;text-align:center">
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:4px">Bono regalo</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:4px">Bono 1836+</div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.4;margin-bottom:8px">Selecci&oacute;n Tempos Vega Sicilia</div>
+        <div style="font-size:18px;font-weight:700;color:var(--red)">Consultar</div>
       </a>
-      <a href="/regala" class="gift-card reveal">
-        <div class="gc-tag">Bono regalo</div>
-        <div class="gc-title">Importe a elegir</div>
-        <div class="gc-desc">Elige el importe que quieras regalar</div>
-        <div class="gc-price">Desde 30&euro;</div>
+      <a href="regala.html" class="preview-card reveal" style="padding:24px;text-align:center">
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:4px">Bono regalo</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:4px">Importe a elegir</div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.4;margin-bottom:8px">Elige el importe que quieras regalar</div>
+        <div style="font-size:18px;font-weight:700;color:var(--red)">Desde 30&euro;</div>
       </a>
-      <a href="/regala" class="gift-card reveal">
-        <div class="gc-tag">Bono regalo</div>
-        <div class="gc-title">1836+ con Vinos</div>
-        <div class="gc-desc">Selecci&oacute;n de vinos premium</div>
-        <div class="gc-price">Consultar</div>
+      <a href="regala.html" class="preview-card reveal" style="padding:24px;text-align:center">
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:4px">Bono regalo</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:4px">1836+ con Vinos</div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.4;margin-bottom:8px">Selecci&oacute;n de vinos premium</div>
+        <div style="font-size:18px;font-weight:700;color:var(--red)">Consultar</div>
       </a>
-      <a href="/regala" class="gift-card reveal">
-        <div class="gc-tag">Bono regalo</div>
-        <div class="gc-title">100&euro;</div>
-        <div class="gc-desc">Para disfrutar en nuestra bodega</div>
-        <div class="gc-price">100&euro;</div>
-      </a>
-      <a href="/regala" class="gift-card reveal">
-        <div class="gc-tag">Bono regalo</div>
-        <div class="gc-title">120&euro;</div>
-        <div class="gc-desc">Experiencia gastron&oacute;mica completa</div>
-        <div class="gc-price">120&euro;</div>
-      </a>
-      <a href="/regala" class="gift-card reveal">
-        <div class="gc-tag">Bono regalo</div>
-        <div class="gc-title">150&euro;</div>
-        <div class="gc-desc">Cena y vinos seleccionados</div>
-        <div class="gc-price">150&euro;</div>
-      </a>
+    </div>
+    <div style="text-align:center;margin-top:20px">
+      <a href="regala.html" class="btn-red">Ver todos los bonos</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ TIENDA ═══ -->
-<section class="section-wrap" id="tienda">
+<!-- ═══ TIENDA PREVIEW ═══ -->
+<section class="section-wrap" id="tienda-preview">
   <div class="section-inner">
     <div class="section-label st-centered">Tienda</div>
-    <h2 class="section-title st-centered">Nuestros productos</h2>
-    <p style="text-align:center;color:var(--text-dim);font-size:14px;margin-top:-24px;margin-bottom:32px">Vinos, licores y productos exclusivos Casa Monta&ntilde;a</p>
-    <div class="shop-grid">
-      <a href="/tienda" class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9686_resultado.webp" alt="Vermut Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-cat">Licor</div>
-          <div class="sc-name">Vermut Casa Monta&ntilde;a</div>
-          <div class="sc-price">18,50&euro;</div>
+    <h2 class="section-title st-centered">Productos Casa Monta&ntilde;a</h2>
+    <p style="text-align:center;color:var(--text-dim);font-size:14px;margin-top:-20px;margin-bottom:28px">Vinos, licores y productos exclusivos</p>
+    <div class="preview-grid" style="max-width:700px;margin:0 auto">
+      <a href="tienda.html" class="preview-card reveal">
+        <img class="pc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9686_resultado.webp" alt="Vermut Casa Montaña" loading="lazy">
+        <div class="pc-body">
+          <div class="pc-tag">Licor</div>
+          <div class="pc-name">Vermut Casa Monta&ntilde;a</div>
+          <div class="pc-price">18,50&euro;</div>
         </div>
       </a>
-      <a href="/tienda" class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9504_resultado.webp" alt="AOVE Grossal" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-cat">Aceite</div>
-          <div class="sc-name">AOVE Virgulilla N&ordm;1 Grossal</div>
-          <div class="sc-price">22,00&euro;</div>
-        </div>
-      </a>
-      <a href="/tienda" class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9915-1_resultado.webp" alt="Brandy Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-cat">Licor</div>
-          <div class="sc-name">Brandy Reserva Casa Monta&ntilde;a</div>
-          <div class="sc-price">32,00&euro;</div>
-        </div>
-      </a>
-      <a href="/tienda" class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9743_resultado.webp" alt="Mistela Casa Montaña" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-cat">Vino</div>
-          <div class="sc-name">Mistela Casa Monta&ntilde;a</div>
-          <div class="sc-price">15,00&euro;</div>
-        </div>
-      </a>
-      <a href="/tienda" class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9542_resultado.webp" alt="Vino Virgulilla" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-cat">Vino</div>
-          <div class="sc-name">Virgulilla Blanco</div>
-          <div class="sc-price">14,50&euro;</div>
-        </div>
-      </a>
-      <a href="/tienda" class="shop-card reveal">
-        <img class="sc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9686_resultado.webp" alt="Montaña Selección" loading="lazy">
-        <div class="sc-body">
-          <div class="sc-cat">Vino</div>
-          <div class="sc-name">Monta&ntilde;a Selecci&oacute;n</div>
-          <div class="sc-price">19,00&euro;</div>
+      <a href="tienda.html" class="preview-card reveal">
+        <img class="pc-img" src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9504_resultado.webp" alt="AOVE Virgulilla" loading="lazy">
+        <div class="pc-body">
+          <div class="pc-tag">Aceite</div>
+          <div class="pc-name">AOVE Virgulilla N&ordm;1</div>
+          <div class="pc-price">22,00&euro;</div>
         </div>
       </a>
     </div>
-    <div style="text-align:center;margin-top:28px"><a href="/tienda" class="btn-red">Ver todos los productos</a></div>
+    <div style="text-align:center;margin-top:20px">
+      <a href="tienda.html" class="btn-red">Ver todos los productos</a>
+    </div>
   </div>
 </section>
 
 <!-- ═══ GALERÍA ═══ -->
-<section class="section-wrap alt" id="galeria">
+<section class="section-wrap alt" id="galeria-preview">
   <div class="section-inner">
     <div class="section-label st-centered">Galer&iacute;a</div>
-    <h2 class="section-title st-centered">Momentos de Casa Monta&ntilde;a</h2>
-    <div class="gallery-strip reveal">
+    <h2 class="section-title st-centered" style="margin-bottom:24px">Momentos de Casa Monta&ntilde;a</h2>
+    <div class="gal-home reveal">
       <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0077_resultado.webp" alt="" loading="lazy">
       <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0056_resultado.webp" alt="" loading="lazy">
       <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A0156-1_resultado.webp" alt="" loading="lazy">
       <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9987_resultado.webp" alt="" loading="lazy">
       <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9504_resultado.webp" alt="" loading="lazy">
       <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9743_resultado.webp" alt="" loading="lazy">
-      <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9686_resultado.webp" alt="" loading="lazy">
-      <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/7P8A9915-1_resultado.webp" alt="" loading="lazy">
-      <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/SI7P8A9864_resultado.webp" alt="" loading="lazy">
+    </div>
+    <div style="text-align:center;margin-top:20px">
+      <a href="galeria.html" class="btn-ghost">Ver galer&iacute;a completa</a>
     </div>
   </div>
 </section>
@@ -535,7 +394,7 @@ footer a:hover{color:var(--red)}
 <section class="section-wrap" style="padding-top:40px;padding-bottom:40px">
   <div class="section-inner">
     <div class="section-label st-centered">Reconocimientos</div>
-    <p style="text-align:center;color:var(--text-muted);font-size:13px;margin-top:-20px">Compromiso con la excelencia y la sostenibilidad</p>
+    <p style="text-align:center;color:var(--text-muted);font-size:13px;margin-top:-18px;margin-bottom:8px">Compromiso con la excelencia y la sostenibilidad</p>
     <div class="cert-grid reveal">
       <div class="cert-item"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/compromiso_calidad_turistica.png" alt="Compromiso Calidad Turística" loading="lazy"></div>
       <div class="cert-item"><img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/calidad_turistica.png" alt="Calidad Turística" loading="lazy"></div>
@@ -555,15 +414,15 @@ footer a:hover{color:var(--red)}
 </section>
 
 <!-- ═══ CONTACTO ═══ -->
-<section class="section-wrap alt" id="contacto">
+<section class="section-wrap" id="contacto-home">
   <div class="section-inner">
     <div class="section-label st-centered">Contacto</div>
-    <h2 class="section-title st-centered">Ven a conocernos</h2>
-    <div class="contact-grid" style="margin-top:28px">
-      <div class="contact-info reveal">
+    <h2 class="section-title st-centered" style="margin-bottom:24px">Ven a conocernos</h2>
+    <div class="contact-home">
+      <div class="ci reveal">
         <p><strong>Direcci&oacute;n:</strong><br>Calle Jos&eacute; Benlliure, 69<br>46011 Valencia</p>
-        <p style="margin-top:14px"><strong>Tel&eacute;fono:</strong><br><a href="tel:+34963672314">+34 963 672 314</a></p>
-        <div style="margin-top:14px">
+        <p style="margin-top:12px"><strong>Tel&eacute;fono:</strong><br><a href="tel:+34963672314">+34 963 672 314</a></p>
+        <div style="margin-top:12px">
           <strong>Horario:</strong>
           <div class="contact-sched">
             <span class="day">Lunes</span><span class="hour">Cerrado</span>
@@ -598,12 +457,18 @@ footer a:hover{color:var(--red)}
     <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-5.png" alt="" loading="lazy">
     <img src="https://www.emilianobodega.com/wp-content/uploads/2026/06/emiliano-logofooter-6.png" alt="" loading="lazy">
   </div>
-  <p>
-    <a href="/aviso-legal">Aviso Legal</a> &middot;
-    <a href="/politica-de-privacidad">Privacidad</a> &middot;
-    <a href="/politica-de-cookies">Cookies</a>
-  </p>
-  <p style="margin-top:10px">&copy; 2026 Casa Monta&ntilde;a &mdash; Proyecto acogido a NextGeneration EU</p>
+  <div class="f-links">
+    <a href="historia.html">Historia</a>
+    <a href="alojamiento.html">Alojamiento</a>
+    <a href="regala.html">Regala</a>
+    <a href="tienda.html">Tienda</a>
+    <a href="galeria.html">Galer&iacute;a</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="aviso-legal.html">Aviso Legal</a>
+    <a href="politica-de-privacidad.html">Privacidad</a>
+    <a href="politica-de-cookies.html">Cookies</a>
+  </div>
+  <p>&copy; 2026 Casa Monta&ntilde;a &mdash; Proyecto acogido a NextGeneration EU</p>
   <p style="margin-top:6px;font-size:10px;color:rgba(245,240,235,.18)">Dise&ntilde;ado por <a href="https://neolabs.me" style="color:var(--red)">NEO Labs</a></p>
 </footer>
 
@@ -612,15 +477,10 @@ footer a:hover{color:var(--red)}
 </a>
 
 <script>
-// Scroll reveal
 const ro = new IntersectionObserver((e) => {e.forEach(en => {if(en.isIntersecting) en.target.classList.add('v')})}, {threshold:.1, rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-
-// Nav hide on scroll
 let ls = 0; const nv = document.querySelector('nav');
 window.addEventListener('scroll', () => {const c = window.scrollY; nv.style.transform = c > ls && c > 80 ? 'translateY(-100%)' : 'translateY(0)'; ls = c;});
-
-// Close mobile nav
 document.querySelectorAll('.nav-links a').forEach(a => {a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));});
 </script>
 </body>
