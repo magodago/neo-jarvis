@@ -1,49 +1,56 @@
 {
-  "timestamp": "2026-07-07 10:02 UTC",
+  "timestamp": "2026-07-08 10:03 UTC",
   "stats": {
-    "total": 1949,
-    "con_email": 1034,
-    "con_telefono": 1822,
-    "con_web": 1742,
-    "sent": 670,
+    "total": 2049,
+    "con_email": 1092,
+    "con_telefono": 1923,
+    "con_web": 1834,
+    "sent": 721,
     "bounce": 1,
-    "reply": 11,
-    "pending": 364,
-    "tasa_respuesta": 1.6
+    "reply": 12,
+    "pending": 371,
+    "tasa_respuesta": 1.7
   },
   "sectors": [
     {
       "sector": "restaurantes",
-      "total": 665,
-      "sent": 254,
+      "total": 671,
+      "sent": 255,
       "bounces": 0,
-      "replies": 3
+      "replies": 4
     },
     {
       "sector": "abogados",
-      "total": 367,
+      "total": 371,
       "sent": 125,
       "bounces": 0,
       "replies": 1
     },
     {
       "sector": "clínicas dentales",
-      "total": 243,
-      "sent": 78,
+      "total": 253,
+      "sent": 84,
       "bounces": 0,
       "replies": 2
     },
     {
+      "sector": "inmobiliarias",
+      "total": 155,
+      "sent": 95,
+      "bounces": 0,
+      "replies": 1
+    },
+    {
       "sector": "peluquerías",
-      "total": 136,
-      "sent": 9,
+      "total": 148,
+      "sent": 12,
       "bounces": 0,
       "replies": 0
     },
     {
-      "sector": "inmobiliarias",
-      "total": 127,
-      "sent": 78,
+      "sector": "clínicas estética",
+      "total": 81,
+      "sent": 48,
       "bounces": 0,
       "replies": 1
     },
@@ -51,6 +58,13 @@
       "sector": "talleres",
       "total": 73,
       "sent": 25,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "talleres mecánicos",
+      "total": 70,
+      "sent": 8,
       "bounces": 0,
       "replies": 0
     },
@@ -69,23 +83,9 @@
       "replies": 0
     },
     {
-      "sector": "talleres mecánicos",
-      "total": 67,
-      "sent": 7,
-      "bounces": 0,
-      "replies": 0
-    },
-    {
-      "sector": "clínicas estética",
-      "total": 63,
-      "sent": 39,
-      "bounces": 0,
-      "replies": 1
-    },
-    {
       "sector": "odontólogos",
-      "total": 40,
-      "sent": 22,
+      "total": 59,
+      "sent": 36,
       "bounces": 0,
       "replies": 2
     },
@@ -123,7 +123,7 @@
     },
     {
       "dia": "2026-07-07",
-      "nuevos": 23
+      "nuevos": 123
     }
   ],
   "timeline_envio": [
@@ -141,7 +141,7 @@
     },
     {
       "dia": "2026-07-07",
-      "enviados": 6
+      "enviados": 57
     }
   ]
 }
