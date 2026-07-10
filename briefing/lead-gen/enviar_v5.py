@@ -114,7 +114,6 @@ def get_pendientes(limit):
             continue
         pendientes.append(r)
 
-    print(f"   Pendientes: {len(pendientes)} | Excluidos: {excluidos} | Blacklist: {blacklisted}")
     return pendientes
 
 
@@ -137,31 +136,24 @@ def parse_retry_after(err_str):
 
 
 def main():
-    print("=" * 55)
-    print("  NEO EMAIL v5 — Límite diario 100/día")
-    print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 55)
-
     from google.oauth2.credentials import Credentials
     from googleapiclient.discovery import build
     from google.auth.transport.requests import Request
 
-    print("\n📧 Gmail...", end=" ", flush=True)
     creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
     if not creds.valid and creds.expired and creds.refresh_token:
         creds.refresh(Request())
+        # Guardar token refrescado a disco
+        with open(TOKEN_FILE, 'w') as f:
+            f.write(creds.to_json())
     service = build("gmail", "v1", credentials=creds)
     profile = service.users().getProfile(userId="me").execute()
-    print(f"✅ {profile['emailAddress']}")
 
     # ── Calcular cuántos podemos enviar hoy ──
     enviados_hoy = contar_enviados_hoy()
     disponibles = max(0, DAILY_LIMIT - enviados_hoy)
 
-    print(f"\n📊 Hoy: {enviados_hoy}/{DAILY_LIMIT} enviados | Disponibles: {disponibles}")
-
     if disponibles <= 0:
-        print("\n✅ Límite diario alcanzado. Nos vemos mañana.")
         return
 
     # ── Intentos con reintentos por 429 ──
@@ -173,17 +165,11 @@ def main():
         enviados_hoy = contar_enviados_hoy()
         disponibles_hoy = max(0, DAILY_LIMIT - enviados_hoy)
         if disponibles_hoy <= 0:
-            print("\n✅ Límite diario alcanzado durante esta ejecución.")
             break
 
         pendientes = get_pendientes(disponibles_hoy)
         if not pendientes:
-            print("\n✅ Todos los leads enviados!")
             break
-
-        print(f"\n{'─'*55}")
-        print(f"  🔄 Intento {intento}/{max_intentos} — Enviando {len(pendientes)}/{disponibles_hoy} disponibles")
-        print(f"{'─'*55}\n")
 
         sent_log = []
         ok = 0
@@ -209,26 +195,23 @@ def main():
                 sent_log.append({"email_destino": email, "nombre": nombre, "asunto": subj,
                                  "message_id": result["id"], "status": "sent"})
                 ok += 1
-                print(f"  [{i+1}/{len(pendientes)}] ✅ {nombre[:28]:28s}")
                 time.sleep(DELAY_BETWEEN)
             except Exception as e:
                 err_str = str(e)
                 sent_log.append({"email_destino": email, "nombre": nombre, "asunto": subj,
                                  "message_id": "", "status": f"error: {err_str}"})
-                print(f"  [{i+1}/{len(pendientes)}] ❌ {nombre[:28]:28s}: 429")
-
-                retry_ts = parse_retry_after(err_str)
-                if retry_ts:
-                    now = datetime.now(timezone.utc)
-                    wait = (retry_ts - now).total_seconds() + 5
-                    wait = max(wait, 10)
-                    if wait > 7200:
-                        print(f"  ⛔ Espera >2h ({wait/60:.0f} min). Límite diario probable. Deteniendo.")
-                        break
-                    print(f"  ⏳ Esperando {wait:.0f}s hasta {retry_ts.strftime('%H:%M:%S')}Z...")
-                    time.sleep(min(wait, 7200))
+                if "429" in err_str or "rate" in err_str.lower():
+                    retry_ts = parse_retry_after(err_str)
+                    if retry_ts:
+                        now = datetime.now(timezone.utc)
+                        wait = (retry_ts - now).total_seconds() + 5
+                        wait = max(wait, 10)
+                        if wait > 7200:
+                            break
+                        time.sleep(min(wait, 7200))
+                    else:
+                        time.sleep(10)
                 else:
-                    print(f"  ❌ Error sin 429: {err_str[:80]}")
                     time.sleep(10)
                 break  # stop this batch, will retry next iteration
 
@@ -254,8 +237,6 @@ def main():
                 c.execute("UPDATE leads SET email_enviado=1, estado='enviado', fecha_envio=? WHERE email=?", (now, e))
             conn.commit()
             conn.close()
-
-        print(f"\n  📊 Ronda {intento}: {ok} enviados | Total ejecución: {total_ok}")
 
     # ── Resumen final ──
     conn = sqlite3.connect(os.path.join(DATA_DIR, "leads.db"))
