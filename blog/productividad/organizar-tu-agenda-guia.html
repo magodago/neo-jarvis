@@ -2,10 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>Guia completa de organizar tu agenda con inteligencia artificial — NEO Labs</title>
-<meta name="description" content="Guia detallada sobre organizar tu agenda con prompts de IA probados y refinados.">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
+<title>Guía completa de organizar tu agenda con inteligencia artificial — NEO Labs</title>
+<meta name="description" content="Guía detallada sobre organizar tu agenda con prompts de IA probados y refinados.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/productividad/organizar-tu-agenda-guia.html">
-<meta property="og:title" content="Guia completa de organizar tu agenda con inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Guía completa de organizar tu agenda con inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,6 +22,8 @@ a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
 .article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
 .article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
 .article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-hero{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.article-hero img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}
 .article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
 .article-body p strong{color:var(--text)}
 .article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
@@ -30,6 +35,18 @@ a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
 .cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
 .btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#b8922f,#d4a853,#f0d68a);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand);background:transparent}
+.btn-outline:hover{background:rgba(212,168,83,.1)}
+.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}
+.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}
+.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:#6a6558}
+.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
 .related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
 .related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
 .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
@@ -37,44 +54,77 @@ a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
 .related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
 .related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
 .related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
-.{}related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+.related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
 footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
 footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
 footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
 footer .copy{font-size:.68rem;color:#6a6558}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#nav.hidden{transform:translateY(-100%)}
+#nav .nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}
+#nav .nav-logo span{color:var(--brand)}
+#nav .nav-links{display:flex;list-style:none;gap:24px;margin:0;padding:0}
+#nav .nav-links li a{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}
+#nav .nav-links li a:hover{color:var(--brand)}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#b8922f,#f0d68a);z-index:9999;transition:width .1s}
-.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
-.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}.nl-input:focus{border-color:var(--brand)}.nl-input::placeholder{color:#6a6558}.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}</style>
-<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guia completa de organizar tu agenda con inteligencia artificial","description":"Guia detallada sobre organizar tu agenda con prompts de IA probados y refinados.","datePublished":"2026-06-17","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/productividad/organizar-tu-agenda-guia.html"}}</script>
+.cta-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}#nav{padding:12px 16px}#nav .nav-links{gap:14px}#nav .nav-links li a{font-size:.7rem}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guía completa de organizar tu agenda con inteligencia artificial","description":"Guía detallada sobre organizar tu agenda con prompts de IA probados y refinados.","datePublished":"2026-07-11","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/productividad/organizar-tu-agenda-guia.html"}}</script>
 </head>
 <body><div id="progress"></div>
-<nav id="nav"><div class="nav-logo">NE<span>O</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
 <div class="wrap">
-<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Productividad</a> <span>/</span> <span>Guia completa de organizar tu agenda con inteligen</span></div>
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Productividad</a> <span>/</span> <span>Guía completa de organizar tu agenda con inteligen</span></div>
 <div class="article-header">
-<span class="cat-tag">Guia</span>
-<h1>Guia completa de organizar tu agenda con inteligencia artificial</h1>
-<div class="meta"><span>17 June 2026</span><span>9 min de lectura</span></div>
+<span class="cat-tag">Guía</span>
+<h1>Guía completa de organizar tu agenda con inteligencia artificial</h1>
+<div class="meta"><span>11 July 2026</span><span>5 min de lectura</span></div>
 </div>
-<div class="article-hero"><img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?w=780&h=400&fit=crop" alt="" loading="lazy"></div>
+<div class="article-hero"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=780&h=400&fit=crop" alt="Guía completa de organizar tu agenda con inteligencia artificial" loading="lazy"></div>
 <div class="article-body">
-<p>Mucha gente cree que usar IA es solo escribir lo primero que se te viene a la mente y esperar un resultado magico. La realidad es que los mejores resultados vienen de prompts bien estructurados. Para organizar tu agenda, esta es la formula que funciona.</p>
-<h2>La estructura que siempre funciona</h2>
-<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un experto mundial en Productividad y organizar tu agenda. Dame tu metodologia completa: 1) Mar</strong><br>Eres un experto mundial en Productividad y organizar tu agenda. Dame tu metodologia completa: 1) Marco teorico (2 parrafos), 2) Paso a paso practico (5 pasos), 3) Errores comunes y como evitarlos, 4) Ejemplo real aplicado, 5) Conclusion con siguiente paso.</div></div>
-<h2>Personaliza segun tu caso</h2>
-<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Ahora adapta esa metodologia a mi caso concreto: [describe tu situacion]. Que cambiaria? Que mantend</strong><br>Ahora adapta esa metodologia a mi caso concreto: [describe tu situacion]. Que cambiaria? Que mantendria? Dame una version personalizada paso a paso.</div></div>
-<h2>Crea un sistema de seguimiento</h2>
-<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Disena un sistema de seguimiento semanal para organizar tu agenda. Indicadores clave, frecuencia de </strong><br>Disena un sistema de seguimiento semanal para organizar tu agenda. Indicadores clave, frecuencia de revision, ajustes recomenda-dos segun resultados. Quiero poder evaluar mi progreso en 5 minutos cada semana.</div></div>
-<p>La practica constante con estos prompts te dara resultados que hablan por si solos.</p>
-<div class="cta-box"><h3>Pack de Productividad</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><a href="https://payhip.com/bundle/EYojF" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px;">Ver Catalogo</a></div>
-<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div></div>
+<h2>La trampa de la agenda llena</h2>
+<p>Muchos profesionales confunden ocupación con productividad. Llenar cada espacio del calendario con reuniones, tareas y bloques de trabajo no garantiza avance real. Por el contrario, una agenda saturada suele ser la principal causa de agotamiento, falta de foco y resultados mediocres. Según un estudio de Microsoft WorkLab (2026), los empleados que mantienen al menos un 25% de su calendario sin eventos reportan un 40% más de claridad sobre sus prioridades. La clave no está en organizar mejor el tiempo, sino en seleccionar qué merece ese tiempo.</p>
+<p>Esta guía te dará pasos concretos para rediseñar tu agenda desde los cimientos. Incorporaremos técnicas validadas, asistentes de inteligencia artificial actualizados (ChatGPT-5, Claude 4.0, Gemini 2.0) y prompts listos para aplicar hoy mismo.</p>
+<h2>Bloquea primero lo estratégico, luego lo operativo</h2>
+<p>El error más común es empezar el día respondiendo correos o asistiendo a reuniones ajenas. Cuando haces eso, entregas tu atención a lo urgente y dejas lo importante para cuando ya no tienes energía. La solución es aplicar time blocking invertido: reserva primero los bloques para tu trabajo más valioso (el que mueve indicadores, cierra ventas o crea activos intelectuales) y después encaja las tareas administrativas en los espacios sobrantes.</p>
+<p>Por ejemplo, un gerente de producto en una startup de SaaS decidió bloquear de 9:00 a 11:00 todos los días para análisis de métricas y definición de próximas iteraciones. Antes, ese horario se lo comían reuniones improvisadas. Tras tres semanas, su equipo redujo un 30% los bugs críticos porque él detectaba patrones a tiempo. El truco está en tratar esos bloques como citas sagradas: no las mueves salvo incendio real.</p>
+<p>Para implementarlo, usa este prompt con tu asistente de calendario o con ChatGPT-5:</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como gestor de productividad. Analiza mi calendario de la próxima semana. Identifica al menos tres bloques de dos horas consecutivas donde pueda colocar mi trabajo estratégico (el que genera mayor impacto en mis objetivos trimestrales). Sugiere horarios concretos basados en mis picos de energía habituales (mañana, mediodía o tarde) y propón una regla para no interrumpir esos bloques. Mis objetivos son: [enumera 2-3 objetivos clave].</div>
+</div></div>
+<h2>Aplica la regla del 80/20 a cada hora de tu agenda</h2>
+<p>No todas las horas valen lo mismo. El principio de Pareto suele aplicarse a clientes o productos, pero rara vez a la gestión del tiempo. Si examinas tu última semana, probablemente descubras que el 20% de tus actividades generó el 80% de tus resultados. El resto fue ruido: correos de relleno, reuniones sin orden del día, tareas que podrías delegar o eliminar.</p>
+<p>Una auditoría de agenda consiste en registrar durante cinco días laborales cada actividad con su duración y su resultado tangible. Luego, clasificas cada una en: alto impacto, bajo impacto, delegable o eliminable. Al final, con esos datos, rediseñas tu calendario para que al menos el 60% de tu tiempo esté dedicado a las actividades de alto impacto.</p>
+<p>Un diseñador UX freelance me contó que, tras hacer este ejercicio, descubrió que pasaba 12 horas semanales en reuniones de alineación que podían resolverse con un documento asíncrono. Al eliminarlas y redirigir ese tiempo a prototipado, duplicó su facturación en tres meses sin trabajar más horas. La clave fue ser implacable con la clasificación.</p>
+<p>Aquí tienes un prompt para ChatGPT-5 que te guiará en la auditoría:</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Eres un coach de productividad. Voy a describirte mi última semana laboral típica: [describe brevemente tu rutina, incluyendo tipos de tareas y tiempo dedicado]. Clasifica cada actividad en alta, media o baja contribución a mis objetivos profesionales principales: [lista de 2-3 objetivos]. Sugiere al menos tres actividades que pueda eliminar o delegar, y propón cómo redistribuir ese tiempo liberado hacia las de alta contribución. Dame un plan semanal alternativo con bloques horarios.</div>
+</div></div>
+<h2>Integra asistentes de IA para que gestionen tu calendario</h2>
+<p>En 2026, los asistentes de inteligencia artificial ya no son meros transcriptores de reuniones. Herramientas como Claude 4.0 y Gemini 2.0 pueden interactuar directamente con tu calendario, analizar patrones y sugerir ajustes en tiempo real. La clave está en darles instrucciones precisas y mantener la supervisión humana.</p>
+<p>Por ejemplo, puedes configurar a Claude 4.0 para que cada domingo revise tu agenda de la semana entrante y te envíe un resumen con tres recomendaciones: reuniones que podrían ser correos, huecos de concentración que no estás aprovechando, y posibles conflictos de horario. Un estudio interno de Anthropic mostró que usuarios que aplicaron esta rutina recuperaron en promedio 4,2 horas semanales que antes perdían en micromanagement de agenda.</p>
+<p>No se trata de delegar el control, sino de liberar carga cognitiva para que te centres en decisiones de alto nivel. El asistente puede encargarse de la logística: encontrar espacios comunes para reuniones, proponer cancelaciones de citas recurrentes que ya no aportan, o recordarte que reserves tiempo para preparar presentaciones importantes.</p>
+<p>Utiliza este prompt personalizable para tu asistente semanal:</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Eres mi asistente de agenda con IA. Analiza mi calendario de los próximos 7 días. Identifica: 1) reuniones de más de 30 minutos que no tienen un orden del día claro; 2) bloques libres de al menos 90 minutos que podría usar para trabajo profundo; 3) cualquier solapamiento entre eventos personales y laborales. Luego, genera un plan optimizado que proponga mover, reducir o eliminar hasta tres reuniones, y sugiera cómo llenar los espacios recuperados con tareas prioritarias. Mis metas de la semana son: [lista de 3-5 metas].</div>
+</div></div>
+<h2>Errores que arruinan cualquier sistema de agenda</h2>
+<p>Conozco a decenas de profesionales que han probado el time blocking, el GTD o el método Pomodoro, y al cabo de dos semanas lo abandonan. No es que las técnicas sean malas: es que caen en estos errores recurrentes.</p>
+<p>El primero es la sobreplanificación. Intentar detallar cada minuto del día genera frustración cuando surge un imprevisto. Una agenda realista debe tener entre un 20% y un 30% de espacio vacío para contingencias. Si todo está ocupado, cualquier interrupción descarrila el plan.</p>
+<p>El segundo error es no revisar el sistema. Muchos crean una agenda ideal y nunca la evalúan. Es como diseñar un coche y no hacerle mantenimiento. Dedica 15 minutos cada viernes a analizar qué funcionó y qué no. Ajusta los bloques, elimina lo irrelevante y protege lo que dio resultados.</p>
+<p>El tercero es ignorar los ritmos personales. Si eres más creativo por la mañana, no pongas reuniones entonces. Si por la tarde te cuesta concentrarte, reserva ese tiempo para tareas mecánicas. Forzar un cronotipo contrario a tu energía natural es la receta para el agotamiento.</p>
+<p>Un cuarto error, más sutil, es confundir urgencia con importancia. El experimento de la Universidad de Harvard (2025) demostró que los profesionales que priorizan lo importante sobre lo urgente duplican su sensación de control sobre el tiempo. La agenda debe reflejar esta jerarquía, no al revés.</p>
+<h2>Tu nuevo comienzo empieza mañana</h2>
+<p>Organizar la agenda no es un fin en sí mismo; es el medio para recuperar el control sobre tu trabajo y tu vida. No necesitas una app sofisticada ni un curso costoso. Necesitas tres cosas: bloquear primero lo estratégico, auditar tu tiempo con honestidad y dejar que la IA gestione la logística sin que te secuestre la decisión.</p>
+<p>Empieza mañana mismo: elige uno de los prompts anteriores, aplícalo y observa cómo cambia tu semana. Repite el proceso durante un mes y tendrás una agenda que trabaja para ti, no al revés. La productividad real no se mide en horas ocupadas, sino en resultados que importan.</p>
+<div class="cta-box"><h3>Pack de Productividad</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/b/EYojF" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
+</div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
-<a href="../prompts-ia-productividad-2026.html" class="related-card" style="display:none"><div class="cat">Guia</div><h4>Guias de Productividad</h4><p>Contenido destacado del blog.</p></a>
-<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Productividad</h4><p>Todos los articulos del blog.</p></a>
-<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catalogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+<a href="../prompts-ia-productividad-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de Productividad</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Productividad</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
 </div></div>
 </div>
-<footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
 <script>
 let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
 let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
