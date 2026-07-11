@@ -10,7 +10,7 @@ echo "[$(date '+%H:%M:%S')] 🚀 Pipeline NEO Leads iniciado"
 
 # 1. Enviar emails pendientes (exporta DB -> personaliza -> envia -> actualiza DB)
 echo "[1] Enviando emails pendientes..."
-$HERMES_VENV enviar_masivo.py 2>&1
+python3 enviar_v5.py 2>&1
 
 # 2. Generar dashboard data.json
 echo "[2] Generando dashboard..."

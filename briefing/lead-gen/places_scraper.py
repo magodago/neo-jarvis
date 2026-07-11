@@ -14,18 +14,21 @@ DB = os.path.join(BASE, 'data', 'leads.db')
 PAGE_SIZE = 20  # max por llamada
 
 SECTORS_CITIES = [
-    # 15 combinaciones ciudad/sector
+    # 20 combinaciones ciudad/sector — SIN abogados (se excluyen al enviar)
     ("restaurantes", "Madrid"), ("restaurantes", "Barcelona"), ("restaurantes", "Valencia"),
     ("restaurantes", "Sevilla"), ("restaurantes", "Málaga"), ("restaurantes", "Bilbao"),
-    ("abogados", "Madrid"), ("abogados", "Barcelona"), ("abogados", "Valencia"),
+    ("restaurantes", "Zaragoza"), ("restaurantes", "Murcia"),
     ("clínicas dentales", "Madrid"), ("clínicas dentales", "Barcelona"),
+    ("clínicas dentales", "Valencia"),
     ("peluquerías", "Madrid"), ("peluquerías", "Barcelona"),
-    ("talleres mecánicos", "Madrid"), ("clínicas estética", "Madrid"),
+    ("talleres mecánicos", "Madrid"), ("talleres mecánicos", "Barcelona"),
+    ("clínicas estética", "Madrid"), ("clínicas estética", "Barcelona"),
     ("inmobiliarias", "Madrid"), ("inmobiliarias", "Barcelona"),
     ("odontólogos", "Madrid"), ("odontólogos", "Barcelona"),
-    ("centros de estética", "Valencia"), ("talleres", "Barcelona"),
-    ("restaurantes", "Zaragoza"), ("restaurantes", "Murcia"),
-    ("abogados", "Sevilla"), ("clínicas dentales", "Valencia"),
+    ("centros de estética", "Valencia"), ("centros de estética", "Madrid"),
+    ("talleres", "Barcelona"),
+    ("peluquerías", "Valencia"), ("restaurantes", "Alicante"),
+    ("clínicas dentales", "Sevilla"), ("inmobiliarias", "Valencia"),
 ]
 
 ctx = ssl.create_default_context()
