@@ -19,7 +19,10 @@ DAILY_LIMIT = 100
 DELAY_BETWEEN = 3  # segundos entre emails
 
 # ── Sectores EXCLUIDOS ──
-EXCLUIR = ["abogado", "bufete", "legal", "extranjeria"]
+EXCLUIR = ["abogado", "bufete", "legal", "extranjeria", "procurador", "notaria",
+           "notario", "juridico", "tribunal", "juzgado", "litigio", 
+           "corporativo", "fiscal", "laboralista", "penalista",
+           "mercantil", "concursal", "arbitraje", "abogacia"]
 
 # ── BLACKLIST ──
 BLACKLIST = [
@@ -65,9 +68,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </table></td></tr></table></body></html>"""
 
 
-def es_sector_excluido(sector):
-    if not sector: return False
-    return any(e in sector.lower() for e in EXCLUIR)
+def es_excluido(sector, nombre=None):
+    """Comprueba si un lead debe excluirse por sector o nombre."""
+    if sector:
+        if any(e in sector.lower() for e in EXCLUIR):
+            return True
+    if nombre:
+        if any(e in nombre.lower() for e in EXCLUIR):
+            return True
+    return False
 
 
 def contar_enviados_hoy():
