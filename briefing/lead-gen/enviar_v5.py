@@ -113,7 +113,7 @@ def get_pendientes(limit):
     for r in todos:
         if len(pendientes) >= limit:
             break
-        if es_sector_excluido(r[3]):
+        if es_excluido(r[3], r[0]):
             excluidos += 1
             continue
         if r[1] in sent:
