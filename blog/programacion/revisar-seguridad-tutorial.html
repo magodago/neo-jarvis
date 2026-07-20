@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
+<title>Guía práctica para revisar seguridad usando inteligencia artificial — NEO Labs</title>
+<meta name="description" content="Aprende paso a paso cómo revisar seguridad con la ayuda de la inteligencia artificial.">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/programacion/revisar-seguridad-tutorial.html">
+<meta property="og:title" content="Guía práctica para revisar seguridad usando inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--brand:#ab47bc;--brand-dark:#7b1fa2;--brand-light:#ce93d8;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8;touch-action:pan-y}
+a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;padding-top:100px;margin-bottom:8px}.breadcrumb a{color:#6a6558}.breadcrumb a:hover{color:var(--brand)}
+.article-header{margin-bottom:32px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-hero{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.article-hero img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}
+.article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
+.article-body p strong{color:var(--text)}
+.article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--brand);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0 22px}
+.prompt-box .prompt-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:4px}
+.prompt-box .prompt-text{font-size:.85rem;color:#d0c8bc;line-height:1.7;font-style:italic}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:32px 24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--brand);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
+.btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#7b1fa2,#ab47bc,#ce93d8);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand);background:transparent}
+.btn-outline:hover{background:rgba(212,168,83,.1)}
+.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}
+.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}
+.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:#6a6558}
+.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
+.related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
+.related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
+.related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
+.related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
+.related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
+footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
+footer .copy{font-size:.68rem;color:#6a6558}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#nav.hidden{transform:translateY(-100%)}
+#nav .nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}
+#nav .nav-logo span{color:var(--brand)}
+#nav .nav-links{display:flex;list-style:none;gap:24px;margin:0;padding:0}
+#nav .nav-links li a{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}
+#nav .nav-links li a:hover{color:var(--brand)}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#7b1fa2,#ce93d8);z-index:9999;transition:width .1s}
+.cta-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}#nav{padding:12px 16px}#nav .nav-links{gap:14px}#nav .nav-links li a{font-size:.7rem}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guía práctica para revisar seguridad usando inteligencia artificial","description":"Aprende paso a paso cómo revisar seguridad con la ayuda de la inteligencia artificial.","datePublished":"2026-07-20","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/programacion/revisar-seguridad-tutorial.html"}}</script>
+</head>
+<body><div id="progress"></div>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<div class="wrap">
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Programación</a> <span>/</span> <span>Guía práctica para revisar seguridad usando inteli</span></div>
+<div class="article-header">
+<span class="cat-tag">Tutorial</span>
+<h1>Guía práctica para revisar seguridad usando inteligencia artificial</h1>
+<div class="meta"><span>20 July 2026</span><span>7 min de lectura</span></div>
+</div>
+<div class="article-hero"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=780&h=400&fit=crop" alt="Guía práctica para revisar seguridad usando inteligencia artificial" loading="lazy"></div>
+<div class="article-body">
+<h2>Introducción</h2>
+<p>Revisar la seguridad del código dejó de ser un lujo que solo practican los equipos maduros. Con el incremento de ataques dirigidos a la cadena de suministro, las brechas por dependencias vulnerables y el auge de la inteligencia artificial generativa que produce código inseguro a gran escala, integrar revisiones de seguridad en el flujo diario se ha convertido en una habilidad crítica. No hablo de auditorías anuales ni de informes que acumulan polvo. Hablo de pasos concretos que cualquier desarrollador puede aplicar hoy mismo para detectar vulnerabilidades antes de que lleguen a producción. En este artículo comparto herramientas actualizadas a 2026, prompts prácticos para tus asistentes IA y errores que he visto repetirse incluso en equipos con años de experiencia.</p>
+<h2>Análisis estático de seguridad (SAST): automatiza la detección temprana</h2>
+<p>El análisis estático escanea el código fuente sin ejecutarlo, buscando patrones peligrosos, malas prácticas y vulnerabilidades conocidas. Herramientas como SonarQube 2026, Semgrep 1.80 y Snyk Code integran reglas basadas en OWASP Top 10 y CWEs específicas. La clave está en configurarlas con precisión: demasiadas reglas generan ruido, muy pocas dejan pasar fallos graves.</p>
+<p>Imaginemos un endpoint en Flask que recibe un parámetro `user_id` y lo concatena directamente en una consulta SQL. Un escaneo SAST bien afinado marcaría esa línea como CWE-89 (Inyección SQL). Pero no basta con recibir una alerta; hay que enseñar al equipo a interpretarla y corregirla.</p>
+<p>Para equipos que usan asistentes IA como ChatGPT-5 o Claude 4, un prompt bien estructurado convierte la revisión en un proceso reproducible.</p>
+<p>**PROMPT:**</p>
+<p>```</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como un experto en seguridad de código. Revisa el siguiente fragmento de [lenguaje] en busca de vulnerabilidades OWASP Top 10. Proporciona las líneas problemáticas, su clasificación CWE y una corrección segura. Código:</div>
+<br>[pegar código]
+<br>```
+</div></div>
+<p>**Ejemplo concreto:** Un desarrollador pega un bloque de Python que procesa subidas de archivos sin validar extensión ni tamaño. El prompt devuelve: Línea 12: `file.save()` sin control de extensión → CWE-434 (Subida sin restricciones). Sugiere usar `werkzeug.utils.secure_filename` y validar contra una lista blanca. Si usas Gemini Advanced, el mismo prompt puede incluir un parámetro adicional `--framework [Django/Flask]` para obtener recomendaciones específicas del framework.</p>
+<p>Un error común es confiar ciegamente en la herramienta SAST sin verificar falsos positivos. Herramientas como Semgrep permiten escribir reglas personalizadas para tu dominio, lo que reduce el ruido drásticamente.</p>
+<h2>Análisis dinámico y revisión manual: cuando lo automatizado no basta</h2>
+<p>El SAST no captura vulnerabilidades que solo aparecen en ejecución, como problemas de autorización, lógica de negocio o exposición accidental de datos sensibles en respuestas. Aquí entra el análisis dinámico (DAST) y la revisión manual. Herramientas como OWASP ZAP 2026 o Burp Suite Professional se integran en pipelines para escanear endpoints en staging.</p>
+<p>Sin embargo, ninguna herramienta reemplaza la mirada humana para detectar fallos de diseño. Por ejemplo, un endpoint que devuelve el `password_hash` en el JSON de perfil de usuario. DAST lo marcaría como información sensible expuesta, pero una revisión manual también detectaría que el hash no debería estar ni siquiera en la base de datos del endpoint público.</p>
+<p>**PROMPT:**</p>
+<p>```</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Eres un auditor de seguridad senior. Genera una checklist de revisión manual para un endpoint REST que maneja [tipo de datos, ej: autenticación]. Incluye verificación de autenticación, autorización, validación de entrada, manejo de errores y logging. El endpoint está en [framework].</div>
+<br>```
+</div></div>
+<p>**Ejemplo concreto:** Un equipo desarrolla un microservicio en FastAPI para gestionar pedidos. El prompt genera una checklist de 12 puntos: verificar que el token JWT se valida con firma, confirmar que el usuario solo puede ver sus propios pedidos (no `order_id` incrementable), comprobar que los errores devuelven mensajes genéricos sin stack traces, y asegurar que el logging no registra datos personales. Con esa lista, la revisión manual pasa de ser subjetiva a sistemática.</p>
+<p>Un detalle que muchos pasan por alto: la revisión manual debe incluir la revisión de logs y métricas. Si un endpoint empieza a recibir peticiones con parámetros maliciosos, el sistema de detección temprana depende de que los logs capturen suficiente información sin exponer datos sensibles.</p>
+<h2>Integración continua de seguridad: pipelines que no fallan</h2>
+<p>La revisión de seguridad no puede ser un paso manual que ocurre al final del ciclo. Debe integrarse en CI/CD para detectar problemas en cada commit. En 2026, GitHub Advanced Security, GitLab Ultimate y Jenkins con plugins ofrecen capacidades nativas de SAST, SCA (escaneo de dependencias) y DAST.</p>
+<p>La métrica clave es el Mean Time to Remediation (MTTR). Equipos que integran la seguridad en el pipeline temprano reducen el MTTR de semanas a horas. Otro indicador es la cobertura de seguridad: cuántos cambios pasan por al menos una revisión automatizada.</p>
+<p>Un error frecuente es configurar el pipeline para que bloquee el merge ante cualquier hallazgo. Eso genera frustración y fomenta que los desarrolladores busquen formas de saltarse la validación. Lo correcto es segmentar: vulnerabilidades críticas o altas bloquean, medias y bajas generan notificaciones sin bloquear, pero con un plazo para resolverlas.</p>
+<p>**PROMPT:**</p>
+<p>```</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Diseña un pipeline de CI/CD con seguridad integrada usando [plataforma: GitHub Actions / GitLab CI / Jenkins]. Incluye etapas de análisis estático (SAST), escaneo de dependencias (SCA) y pruebas dinámicas (DAST) en un entorno de staging. Define variables de entorno necesarias y pasos de notificación si se detecta una vulnerabilidad crítica.</div>
+<br>```
+</div></div>
+<p>**Ejemplo concreto:** Un equipo que usa GitLab CI copia el prompt ajustado a su stack. El resultado incluye un archivo `.gitlab-ci.yml` con tres jobs: `sast` (usando Semgrep con reglas personalizadas), `sca` (con Trivy para escanear `requirements.txt` y `package-lock.json`), y `dast` (con ZAP contra el entorno de staging desplegado tras los tests unitarios). Las variables de entorno como `SAST_EXCLUDES` permiten excluir directorios de tests o vendor. Si una vulnerabilidad crítica aparece, el pipeline falla y envía un mensaje a Slack con el enlace al reporte.</p>
+<h2>Errores comunes al revisar seguridad y cómo evitarlos</h2>
+<p>1. **Depender solo de herramientas automatizadas.** Las herramientas generan falsos positivos y también falsos negativos. En 2026, benchmarks independientes muestran que ningún SAST detecta más del 70% de las vulnerabilidades reales en aplicaciones web complejas. Solución: complementar con revisión manual y pair programming de seguridad.</p>
+<p>2. **No revisar dependencias de terceros.** El ataque a SolarWinds demostró que una vulnerabilidad en una librería popular puede comprometer a miles de organizaciones. Herramientas como Snyk o Dependabot escanean el árbol de dependencias y alertan sobre versiones con CVEs. Muchos equipos solo miran dependencias directas, ignoran las transitivas. Solución: configurar SCA para que revise todo el árbol y actualice automáticamente cuando haya parches.</p>
+<p>3. **Revisar seguridad solo al final del sprint.** Cuando la revisión ocurre justo antes del despliegue, la presión por entregar lleva a ignorar hallazgos o a aplicar parches rápidos sin entender la raíz del problema. Solución: incluir un paso de seguridad en la definición de &quot;done&quot; de cada historia de usuario, con una checklist ligera (inyección, autenticación, exposición de datos).</p>
+<p>4. **Ignorar el factor humano.** La seguridad no es solo técnica; también es cultural. Equipos donde el desarrollador que reporta una vulnerabilidad es visto como &quot;el que retrasa el proyecto&quot; generan silencio y riesgos. Solución: celebrar los hallazgos y recompensar la mejora continua. Herramientas como defect-dojo permiten llevar un tablero de vulnerabilidades resueltas y su impacto evitado.</p>
+<p>5. **Usar asistentes IA sin supervisión.** ChatGPT y Gemini pueden generar prompts de revisión, pero también pueden alucinar vulnerabilidades o sugerir parches incorrectos. Por ejemplo, recomendar usar `strip_tags()` para sanitizar HTML cuando la solución robusta es una librería como Bleach. Solución: tratar las sugerencias de la IA como un primer borrador que debe ser revisado por un humano con criterio.</p>
+<h2>Conclusión</h2>
+<p>Revisar la seguridad del código no es un proceso externo que se delega a un equipo de seguridad. Es una práctica que cada desarrollador puede incorporar en su día a día con herramientas como SAST, DAST, SCA y revisión manual, apoyándose en asistentes IA con prompts bien diseñados. La clave está en la constancia: empezar con un proyecto pequeño, integrar un pipeline básico con métricas medibles y escalar gradualmente.</p>
+<p>Mi recomendación concreta: elige un repositorio activo, aplica el primer prompt de SAST al archivo más crítico (por ejemplo, el que maneja autenticación), corrige las vulnerabilidades encontradas y mide cuánto tiempo te tomó. Luego repite el proceso una vez por sprint. En tres meses, la cultura de seguridad habrá permeado al equipo sin necesidad de grandes inversiones.</p>
+<p>¿Cuándo vas a realizar tu primera revisión de seguridad?</p>
+<div class="cta-box"><h3>Pack de Programación</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/b/XTEG5" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
+</div>
+<div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
+<a href="../prompts-ia-programacion-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de Programación</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Programación</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+</div></div>
+</div>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<script>
+let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
+</body>
+</html>
