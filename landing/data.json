@@ -1,56 +1,77 @@
 {
-  "timestamp": "2026-07-10 10:02 UTC",
+  "timestamp": "2026-07-23 22:30 UTC",
   "stats": {
-    "total": 2574,
-    "con_email": 1122,
-    "con_telefono": 2051,
-    "con_web": 1941,
+    "total": 5593,
+    "con_email": 1460,
+    "con_telefono": 2744,
+    "con_web": 2430,
     "sent": 1043,
     "bounce": 1,
-    "reply": 12,
-    "pending": 79,
+    "reply": 13,
+    "pending": 417,
     "tasa_respuesta": 1.2
   },
   "sectors": [
     {
       "sector": "restaurantes",
-      "total": 1153,
+      "total": 1205,
       "sent": 325,
       "bounces": 0,
       "replies": 4
     },
     {
-      "sector": "abogados",
-      "total": 371,
-      "sent": 166,
-      "bounces": 0,
-      "replies": 1
-    },
-    {
       "sector": "clínicas dentales",
-      "total": 296,
+      "total": 660,
       "sent": 168,
       "bounces": 0,
       "replies": 2
     },
     {
-      "sector": "inmobiliarias",
-      "total": 155,
-      "sent": 103,
-      "bounces": 0,
-      "replies": 1
-    },
-    {
       "sector": "peluquerías",
-      "total": 148,
+      "total": 639,
       "sent": 52,
       "bounces": 0,
       "replies": 0
     },
     {
+      "sector": "inmobiliarias",
+      "total": 610,
+      "sent": 103,
+      "bounces": 0,
+      "replies": 1
+    },
+    {
       "sector": "clínicas estética",
-      "total": 81,
+      "total": 567,
       "sent": 50,
+      "bounces": 0,
+      "replies": 2
+    },
+    {
+      "sector": "talleres mecánicos",
+      "total": 536,
+      "sent": 27,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "centros de estética",
+      "total": 425,
+      "sent": 31,
+      "bounces": 0,
+      "replies": 0
+    },
+    {
+      "sector": "odontólogos",
+      "total": 407,
+      "sent": 38,
+      "bounces": 0,
+      "replies": 2
+    },
+    {
+      "sector": "abogados",
+      "total": 371,
+      "sent": 166,
       "bounces": 0,
       "replies": 1
     },
@@ -62,32 +83,11 @@
       "replies": 0
     },
     {
-      "sector": "talleres mecánicos",
-      "total": 70,
-      "sent": 27,
-      "bounces": 0,
-      "replies": 0
-    },
-    {
       "sector": "clinicas",
       "total": 70,
       "sent": 28,
       "bounces": 1,
       "replies": 1
-    },
-    {
-      "sector": "centros de estética",
-      "total": 68,
-      "sent": 31,
-      "bounces": 0,
-      "replies": 0
-    },
-    {
-      "sector": "odontólogos",
-      "total": 59,
-      "sent": 38,
-      "bounces": 0,
-      "replies": 2
     },
     {
       "sector": "peluquerias",
@@ -128,6 +128,38 @@
     {
       "dia": "2026-07-10",
       "nuevos": 525
+    },
+    {
+      "dia": "2026-07-11",
+      "nuevos": 1208
+    },
+    {
+      "dia": "2026-07-12",
+      "nuevos": 974
+    },
+    {
+      "dia": "2026-07-13",
+      "nuevos": 641
+    },
+    {
+      "dia": "2026-07-14",
+      "nuevos": 82
+    },
+    {
+      "dia": "2026-07-15",
+      "nuevos": 34
+    },
+    {
+      "dia": "2026-07-17",
+      "nuevos": 40
+    },
+    {
+      "dia": "2026-07-20",
+      "nuevos": 28
+    },
+    {
+      "dia": "2026-07-21",
+      "nuevos": 12
     }
   ],
   "timeline_envio": [
