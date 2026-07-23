@@ -27,30 +27,7 @@ CHANNELS = [
 ]
 
 # ─── SPANISH COUNTRY NAMES ───────────────────────────────────
-PAIS_ES = {
-    "Mexico":"México","South Africa":"Sudáfrica","South Korea":"Corea del Sur",
-    "Czech Republic":"República Checa","Switzerland":"Suiza","Canada":"Canadá",
-    "Bosnia and Herzegovina":"Bosnia","Qatar":"Catar","Brazil":"Brasil",
-    "Morocco":"Marruecos","Scotland":"Escocia","Haiti":"Haití",
-    "United States":"EE.UU.","Australia":"Australia","Paraguay":"Paraguay",
-    "Turkey":"Turquía","Germany":"Alemania","Ivory Coast":"Costa de Marfil",
-    "Ecuador":"Ecuador","Curaçao":"Curazao","Netherlands":"Países Bajos",
-    "Japan":"Japón","Sweden":"Suecia","Tunisia":"Túnez","Belgium":"Bélgica",
-    "Egypt":"Egipto","Iran":"Irán","New Zealand":"Nueva Zelanda",
-    "Spain":"España","Cape Verde":"Cabo Verde","Uruguay":"Uruguay",
-    "Saudi Arabia":"Arabia Saudí","France":"Francia","Norway":"Noruega",
-    "Senegal":"Senegal","Iraq":"Irak","Argentina":"Argentina","Austria":"Austria",
-    "Algeria":"Argelia","Jordan":"Jordania","Colombia":"Colombia",
-    "Portugal":"Portugal","Democratic Republic of the Congo":"R.D. Congo",
-    "Uzbekistan":"Uzbekistán","England":"Inglaterra","Croatia":"Croacia",
-    "Ghana":"Ghana","Panama":"Panamá","Italy":"Italia","Poland":"Polonia",
-    "Denmark":"Dinamarca","Ukraine":"Ucrania","Wales":"Gales",
-    "Serbia":"Serbia","Switzerland":"Suiza","Cameroon":"Camerún",
-    "Nigeria":"Nigeria","Mali":"Mali","Togo":"Togo",
-}
-
-def es(name):
-    return PAIS_ES.get(name, name)
+# No more PAIS_ES or es() needed (World Cup removed)
 
 def log(m):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {m}")
@@ -70,40 +47,10 @@ def fetch(url, timeout=15):
             else: log(f"  fail: {url[:40]}.. {e}")
     return ""
 
-def fetch_json(url):
-    data = fetch(url)
-    if not data: return []
-    raw = json.loads(data)
-    if isinstance(raw, dict):
-        for v in raw.values():
-            if isinstance(v, list): return v
-    return raw if isinstance(raw, list) else []
-
-def to_es_time(local_date_str):
-    """Convert venue local time (US/Mexico) to Spanish time (CEST UTC+2) by adding 6h."""
-    if not local_date_str: return ""
-    try:
-        dt = datetime.strptime(local_date_str, "%m/%d/%Y %H:%M")
-        from datetime import timedelta
-        dt_es = dt + timedelta(hours=6)
-        wd = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"][dt_es.weekday()]
-        return f"{wd} {dt_es.day}/{dt_es.month} · {dt_es.strftime('%H:%M')}"
-    except:
-        return local_date_str
-
 def strip_html(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     text = unescape(text)
     return ' '.join(text.split())[:300]
-
-def parse_scorers(s):
-    """Parse scorer strings like {\"Player 27'\",\"Player 75'\"}"""
-    if not s or s == 'null': return []
-    s = s.strip()
-    if s.startswith('{') and s.endswith('}'):
-        s = s[1:-1]
-    parts = re.findall(r'"([^"]*)"', s)
-    return parts if parts else [s.strip().strip('"')]
 
 # ─── 1. WEATHER ──────────────────────────────────────────────
 def get_weather():
@@ -130,148 +77,8 @@ def get_weather():
     except: pass
     return "—"
 
-# ─── 2. WORLD CUP (KNOCKOUT STAGE) ──────────────────────────
-ROUND_ES = {"r32":"1/32","r16":"1/16","qf":"Cuartos","sf":"Semifinal","final":"Final","third":"3er Puesto"}
 
-def get_world_cup():
-    today = date.today()
-    yesterday = today - timedelta(days=1)
-    today_str = today.strftime("%m/%d/%Y")
-    yesterday_str = yesterday.strftime("%m/%d/%Y")
-    current_round = ""
-
-    matches = fetch_json("https://worldcup26.ir/get/games")
-    if not matches: return fallback_wc()
-    
-    # Filter to knockout matches only (skip group stage)
-    ko_matches = [m for m in matches if m.get('type') != 'group']
-    if not ko_matches: return fallback_wc()
-    
-    html = ""
-    from random import randint as _ri
-    _ci = 0
-    
-    # ── A. YESTERDAY'S RESULTS ──
-    ayer = [m for m in ko_matches if m.get('local_date','').startswith(yesterday_str) and m.get('finished','FALSE').upper()=='TRUE']
-    # Also include earlier knockout matches that weren't shown yet (completed in last 3 days)
-    earlier = [m for m in ko_matches if m.get('finished','FALSE').upper()=='TRUE' and not m.get('local_date','').startswith(yesterday_str) and not m.get('local_date','').startswith(today_str)]
-    earlier.sort(key=lambda m: m.get('local_date',''), reverse=True)
-    
-    if ayer or earlier:
-        html += '<div class="section-sub" style="margin-bottom:10px">Resultados</div>'
-        
-        # Show all recent knockout results (up to 8)
-        all_res = sorted(ayer + earlier, key=lambda m: m.get('local_date',''), reverse=True)[:6]
-        
-        for m in all_res:
-            home = es(m.get("home_team_name_en","?"))
-            away = es(m.get("away_team_name_en","?"))
-            hs = m.get("home_score","0")
-            as_ = m.get("away_score","0")
-            typ = ROUND_ES.get(m.get("type",""), m.get("type",""))
-            h_sc = parse_scorers(m.get("home_scorers",""))
-            a_sc = parse_scorers(m.get("away_scorers",""))
-            ldate = m.get("local_date","")
-            
-            # Format date in Spanish time
-            dstr = to_es_time(ldate) if ldate else ""
-            dstr_short = dstr.split("·")[0].strip() if "·" in dstr else dstr
-            
-            scorers_html = ""
-            if h_sc:
-                scorers_html += f'<div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ {home}: {", ".join(h_sc[:3])}</div>'
-            if a_sc:
-                scorers_html += f'<div style="font-size:.62rem;color:#f97316">⚽ {away}: {", ".join(a_sc[:3])}</div>'
-            
-            # Determine winner for bold
-            home_won = int(hs) > int(as_) if hs.isdigit() and as_.isdigit() else False
-            
-            html += f"""
-<div class="wc-card" style="--i:{_ci};--float-dur:{_ri(35,55)/10}s">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:#f97316">{typ} · {dstr_short}</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">{home}</span></div>
-    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">{hs}–{as_}</div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">{away}</span></div>
-  </div>
-  {scorers_html}
-</div>"""
-            _ci += 1
-    
-    # ── B. TODAY'S MATCHES ──
-    hoy = [m for m in ko_matches if m.get('local_date','').startswith(today_str)]
-    if hoy:
-        html += f'<div class="section-sub" style="margin-top:14px;margin-bottom:10px">Partidos de hoy</div>'
-        for m in hoy:
-            home = es(m.get("home_team_name_en","?"))
-            away = es(m.get("away_team_name_en","?"))
-            typ = ROUND_ES.get(m.get("type",""), m.get("type",""))
-            ldate = m.get("local_date","")
-            hs = m.get("home_score","0")
-            as_ = m.get("away_score","0")
-            elapsed = m.get("time_elapsed","").lower()
-            is_live = bool(re.match(r"^\d+", elapsed))
-            
-            # Time in Spanish time
-            time_str = to_es_time(ldate) if ldate else ""
-            time_short = time_str.split("·")[-1].strip() if "·" in time_str else time_str
-            
-            if is_live:
-                status = f'<div class="wc-status live">EN VIVO · {elapsed}</div>'
-                score = f'<div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px"><span class="live-dot"></span>{hs}–{as_}</div>'
-            else:
-                status = f'<div class="wc-status pending">{time_short}</div>'
-                score = f'<div style="font-family:Syne;font-size:.8rem;font-weight:600;color:var(--muted);margin:0 12px">{typ}</div>'
-            
-            html += f"""
-<div class="wc-card" style="--i:{_ci};--float-dur:{_ri(35,55)/10}s">
-  <div class="wc-match">
-    <div class="wc-team home"><span class="wc-team-name">{home}</span></div>
-    {score}
-    <div class="wc-team away"><span class="wc-team-name">{away}</span></div>
-  </div>
-  {status}
-</div>"""
-            _ci += 1
-    
-    # ── C. UPCOMING (next 4, not today) ──
-    prox = [m for m in ko_matches if not m.get('local_date','').startswith(today_str) and not m.get('local_date','').startswith(yesterday_str) and m.get('finished','FALSE').upper()!='TRUE' and m.get('home_team_name_en') and m.get('away_team_name_en')]
-    prox.sort(key=lambda m: m.get('local_date',''))
-    
-    if prox:
-        html += f'<div class="section-sub" style="margin-top:14px;margin-bottom:10px">Próximos partidos</div>'
-        for m in prox[:4]:
-            home = es(m.get("home_team_name_en","?"))
-            away = es(m.get("away_team_name_en","?"))
-            typ = ROUND_ES.get(m.get("type",""), m.get("type",""))
-            ldate = m.get("local_date","")
-            
-            # Date in Spanish time
-            dstr = to_es_time(ldate) if ldate else ""
-            
-            html += f"""
-<div class="wc-card" style="--i:{_ci};--float-dur:{_ri(35,55)/10}s">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:500">{home}</span></div>
-    <div style="text-align:center;margin:0 10px">
-      <div style="font-family:Syne;font-size:.65rem;font-weight:600;color:#f97316">{typ}</div>
-      <div style="font-size:.6rem;color:#f97316">{dstr}</div>
-    </div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:500">{away}</span></div>
-  </div>
-</div>"""
-            _ci += 1
-    
-    html += f'<a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a>'
-    return html, current_round
-
-def fallback_wc():
-    return '<div class="wc-card" style="--i:0;--float-dur:4s"><p style="color:#f97316;font-size:.8rem">Mundial 2026 · 48 equipos · 16 sedes</p></div>'
-
-# ─── 3. NEWS ES (solo IA, solo ayer/hoy) ────────────────────
+# ─── 2. NEWS ES (solo IA, solo ayer/hoy) ────────────────────
 AI_KEYWORDS = ["inteligencia artificial","ia","chatgpt","openai","deepseek","claude","anthropic",
                "gemini","google ai","meta ai","machine learning","aprendizaje automático",
                "neural","red neuronal","llm","modelo de lenguaje","gpt","ai agent",
@@ -389,6 +196,10 @@ def get_world_news():
                             break
                         except: pass
                 if pub_date and (today - pub_date).days > 2: continue
+                # EXCLUDE sports/world-cup content (tournament ended)
+                txt = (title + " " + desc).lower()
+                if any(w in txt for w in ["mundial", "world cup", "fútbol", "selección española", "partido", "gol de", "liga de", "champions", "real madrid", "fc barcelona", "baloncesto", "tenis", "deporte", "atlético de madrid", "athletic"]):
+                    continue
                 items.append({"source":source,"title":title,"link":link,"desc":desc[:200]})
                 if len(items)>=4: break
             if len(items)>=4: break
@@ -425,6 +236,8 @@ def get_entertainment():
                             break
                         except: pass
                 if pub_date and (today - pub_date).days > 3: continue
+                txt = title.lower()
+                if any(w in txt for w in ["mundial", "fútbol", "liga de", "champions", "real madrid", "fc barcelona"]): continue
                 items.append({"source":source,"title":title,"link":link})
                 if len(items)>=3: break
             if len(items)>=3: break
@@ -480,19 +293,6 @@ def generate_podcast(news_items, date_str, weather="", world_news=None):
                     ds_key = line.split("=", 1)[1].strip().strip('"').strip("'")
                     break
     
-    # Collect yesterday's WC results for the script
-    results_text = ""
-    try:
-        matches = fetch_json("https://worldcup26.ir/get/games")
-        ko = [m for m in matches if m.get('type') != 'group' and m.get('finished','FALSE').upper()=='TRUE' and m.get('home_team_name_en')]
-        ko.sort(key=lambda m: m.get('local_date',''), reverse=True)
-        lines = []
-        for m in ko[:4]:
-            h, a = es(m["home_team_name_en"]), es(m["away_team_name_en"])
-            lines.append(f"{h} {m.get('home_score','?')}–{m.get('away_score','?')} {a}")
-        if lines: results_text = "Mundial: " + ". ".join(lines) + "."
-    except: pass
-    
     # Incluir título + descripción de cada noticia IA
     news_text = ""
     for i in news_items[:3]:
@@ -527,16 +327,12 @@ Explica las noticias de IA con un breve resumen, no solo el titular. Qué ha pas
 Noticias y datos:
 {news_text if news_text else "últimas novedades en IA"}
 
-SECCIÓN 2 - ACTUALIDAD (2-3 frases):
+|SECCIÓN 2 - ACTUALIDAD (2-3 frases):
 Noticias internacionales y de España. Explica cada una con contexto breve.
 Datos:
 {world_text if world_text else "actualidad internacional"}
 
-SECCIÓN 3 - MUNDIAL (2 frases):
-Resultados de ayer y partidos de hoy.
-{results_text if results_text else "El Mundial 2026 sigue con los octavos de final."}
-
-DESPEDIDA (obligatorio, 1 frase): Termina siempre con algo como "Que tengas un gran día, David", "A darle duro hoy, David", "Nos escuchamos mañana, David".
+|DESPEDIDA (obligatorio, 1 frase): Termina siempre con algo como "Que tengas un gran día, David", "A darle duro hoy, David", "Nos escuchamos mañana, David".
 
 REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo de la tecnología". Habla como si le contaras esto a David tomando un café. Explica el contexto de cada noticia, no te limites a leer titulares."""
 
@@ -582,7 +378,7 @@ REGLAS: No uses asteriscos, negritas, guiones ni markdown. No digas "en el mundo
     if not script:
         news_fb = ". ".join(i['title'][:50] for i in news_items[:5]) if news_items else "últimas noticias de IA"
         w = f"El clima hoy: {weather}. " if weather else ""
-        script = f"Buenos días. {w}{news_fb}. {results_text if results_text else 'El Mundial 2026 sigue con los octavos de final.'} Tip del día: usa un asistente IA para resumir tus correos cada mañana y empieza sin saturación. Nos escuchamos mañana."
+        script = f"Buenos días. {w}{news_fb}. Tip del día: usa un asistente IA para resumir tus correos cada mañana y empieza sin saturación. Nos escuchamos mañana."
     
     os.makedirs(AUDIO_DIR, exist_ok=True)
     with open(SCRIPT_FILE, "w", encoding="utf-8") as f: f.write(script)
@@ -651,8 +447,7 @@ def main():
     week_num = today.isocalendar()[1]
     
     log("1. Weather..."); weather = get_weather()
-    log("2. World Cup..."); wc_html, wc_round = get_world_cup()
-    log("3. News..."); news_items = get_ai_news(); log(f"   {len(news_items)} items, wc round: {wc_round}")
+    log("2. News..."); news_items = get_ai_news()
     news_html, news_data = news_to_html(news_items)
     log("4. YouTube..."); yt = get_youtube_yesterday()
     log("5. Prompt/Quote..."); prompt = get_prompt(); quote = get_quote()
@@ -669,8 +464,6 @@ def main():
         "HERO_IMG": "https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=1400&q=80",
         "QUOTE": quote,
         "PODCAST_DURATION": duration,
-        "WC_ROUND": wc_round or "Eliminatorias",
-        "WC_CONTENT": wc_html,
         "NEWS_CONTENT": news_html,
         "NEWS_DATA": json.dumps(news_data, ensure_ascii=False),
         "VIDEOS_CONTENT": yt,

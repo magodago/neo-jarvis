@@ -494,103 +494,8 @@ a{color:inherit;text-decoration:none}
   font-size:.78rem;font-weight:600;
   text-decoration:none;transition:all .2s;
 }
-/* ===== WC ===== */
-.wc-grid{
-  display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;
+/* ===== END of news-card ===== */
 }
-/* Staggered entrance + breathing float */
-.wc-card{
-  padding:16px;
-  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-  border:none;
-  border-radius:var(--radius-sm);
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 0 30px rgba(249,115,22,.06);
-  animation:wcEnter .6s ease-out backwards, wcFloat var(--float-dur,4.2s) ease-in-out infinite;
-  animation-delay:calc(var(--i,0) * .1s), 0s;
-}
-/* Light-emitting border — animated gradient siempre visible */
-.wc-card::before{
-  content:'';position:absolute;inset:-1px;border-radius:calc(var(--radius-sm) + 1px);
-  padding:1.5px;
-  background:conic-gradient(
-    from var(--a,0deg), transparent 0deg,
-    rgba(249,115,22,.35) 60deg,
-    rgba(6,182,212,.25) 120deg,
-    transparent 210deg,
-    rgba(249,115,22,.15) 300deg,
-    transparent 360deg
-  );
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-  animation:borderSpin 6s linear infinite;
-}
-/* Internal glow — pulsa como si respirara luz */
-.wc-card::after{
-  content:'';position:absolute;top:50%;left:50%;
-  width:200px;height:200px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(249,115,22,.08),transparent 70%);
-  transform:translate(-50%,-50%);
-  pointer-events:none;
-  animation:cardGlow 3s ease-in-out infinite;
-}
-@keyframes wcEnter{
-  0%{opacity:0;transform:translateY(24px) scale(.96)}
-  100%{opacity:1;transform:translateY(0) scale(1)}
-}
-@keyframes wcFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-5px)}
-}
-@keyframes borderSpin{
-  to{--a:360deg}
-}
-@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
-@keyframes cardGlow{
-  0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.9)}
-  50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}
-}
-@keyframes scorePulse{
-  0%,100%{text-shadow:0 0 15px rgba(255,255,255,.08),0 0 30px rgba(249,115,22,.06);transform:scale(1)}
-  50%{text-shadow:0 0 25px rgba(255,255,255,.18),0 0 60px rgba(249,115,22,.15);transform:scale(1.06)}
-}
-@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.95)}}
-.wc-status{
-  font-size:.58rem;text-transform:uppercase;
-  letter-spacing:1.5px;font-weight:600;margin-bottom:6px;
-}
-.wc-status.live{color:#10b981;text-shadow:0 0 12px rgba(16,185,129,.4);animation:livePulse 1.5s ease-in-out infinite}
-.wc-status.finished{color:#f97316;letter-spacing:1.5px;text-shadow:0 0 8px rgba(249,115,22,.15)}
-.wc-status.pending{color:#f97316;text-shadow:0 0 12px rgba(249,115,22,.25)}
-.wc-match{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.wc-team{flex:1}
-.wc-team.away{text-align:right}
-.wc-team-name{font-size:.88rem;font-weight:600;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.05);transition:all .2s}
-.wc-score{
-  font-size:1.5rem;font-weight:900;
-  color:#fff;letter-spacing:-.5px;min-width:60px;text-align:center;
-  animation:scorePulse 3s ease-in-out infinite;
-  display:flex;align-items:center;justify-content:center;gap:6px;
-}
-.wc-score .vs{font-size:.65rem;color:#f97316;text-shadow:0 0 6px rgba(249,115,22,.1)}
-.wc-score .live-dot{
-  display:inline-block;width:8px;height:8px;
-  border-radius:50%;background:#10b981;
-  margin-right:4px;animation:pulse 1.2s infinite;
-  box-shadow:0 0 12px rgba(16,185,129,.5);
-}
-.wc-more{
-  display:block;text-align:center;
-  padding:12px;font-size:.72rem;
-  color:#f97316;text-shadow:0 0 8px rgba(249,115,22,.15);
-  border:1px dashed rgba(249,115,22,.2);border-radius:var(--radius-sm);
-  margin-top:8px;transition:all .2s;
-}
-.wc-more:active{background:rgba(249,115,22,.08);color:#f97316}
 /* ===== VIDEOS ===== */
 .video-grid{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
 .video-card{
@@ -766,19 +671,6 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
-<!-- WORLD CUP -->
-<div class="section-wrap alt" id="section-worldcup">
-  <div class="section-bg-img">
-    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1400&q=80" alt="" loading="lazy">
-    <div class="overlay"></div>
-  </div>
-  <div class="section-header">
-    <div class="section-icon">⚽</div>
-    <span class="section-title">Mundial 2026</span>
-  </div>
-  <div class="section-sub">{{WC_ROUND}} · horario español (CEST)</div>
-  <div class="wc-grid">{{WC_CONTENT}}</div>
-</div>
 
 <!-- NEWS -->
 <div class="section-wrap" id="section-news">
