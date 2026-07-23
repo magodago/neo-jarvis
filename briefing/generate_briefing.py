@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NEO Daily Briefing Generator v3
-Briefing diario premium con mundial completo (resultados, goleadores, clasificación, próximos).
+Briefing diario premium.
 Ejecutar: python3 generate_briefing.py
 """
 
