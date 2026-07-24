@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<title>Daily Briefing · 23 de July de 2026</title>
+<title>Daily Briefing · 24 de July de 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -494,103 +494,8 @@ a{color:inherit;text-decoration:none}
   font-size:.78rem;font-weight:600;
   text-decoration:none;transition:all .2s;
 }
-/* ===== WC ===== */
-.wc-grid{
-  display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;
+/* ===== END of news-card ===== */
 }
-/* Staggered entrance + breathing float */
-.wc-card{
-  padding:16px;
-  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-  border:none;
-  border-radius:var(--radius-sm);
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 0 30px rgba(249,115,22,.06);
-  animation:wcEnter .6s ease-out backwards, wcFloat var(--float-dur,4.2s) ease-in-out infinite;
-  animation-delay:calc(var(--i,0) * .1s), 0s;
-}
-/* Light-emitting border — animated gradient siempre visible */
-.wc-card::before{
-  content:'';position:absolute;inset:-1px;border-radius:calc(var(--radius-sm) + 1px);
-  padding:1.5px;
-  background:conic-gradient(
-    from var(--a,0deg), transparent 0deg,
-    rgba(249,115,22,.35) 60deg,
-    rgba(6,182,212,.25) 120deg,
-    transparent 210deg,
-    rgba(249,115,22,.15) 300deg,
-    transparent 360deg
-  );
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-  animation:borderSpin 6s linear infinite;
-}
-/* Internal glow — pulsa como si respirara luz */
-.wc-card::after{
-  content:'';position:absolute;top:50%;left:50%;
-  width:200px;height:200px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(249,115,22,.08),transparent 70%);
-  transform:translate(-50%,-50%);
-  pointer-events:none;
-  animation:cardGlow 3s ease-in-out infinite;
-}
-@keyframes wcEnter{
-  0%{opacity:0;transform:translateY(24px) scale(.96)}
-  100%{opacity:1;transform:translateY(0) scale(1)}
-}
-@keyframes wcFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-5px)}
-}
-@keyframes borderSpin{
-  to{--a:360deg}
-}
-@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
-@keyframes cardGlow{
-  0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.9)}
-  50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}
-}
-@keyframes scorePulse{
-  0%,100%{text-shadow:0 0 15px rgba(255,255,255,.08),0 0 30px rgba(249,115,22,.06);transform:scale(1)}
-  50%{text-shadow:0 0 25px rgba(255,255,255,.18),0 0 60px rgba(249,115,22,.15);transform:scale(1.06)}
-}
-@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.95)}}
-.wc-status{
-  font-size:.58rem;text-transform:uppercase;
-  letter-spacing:1.5px;font-weight:600;margin-bottom:6px;
-}
-.wc-status.live{color:#10b981;text-shadow:0 0 12px rgba(16,185,129,.4);animation:livePulse 1.5s ease-in-out infinite}
-.wc-status.finished{color:#f97316;letter-spacing:1.5px;text-shadow:0 0 8px rgba(249,115,22,.15)}
-.wc-status.pending{color:#f97316;text-shadow:0 0 12px rgba(249,115,22,.25)}
-.wc-match{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.wc-team{flex:1}
-.wc-team.away{text-align:right}
-.wc-team-name{font-size:.88rem;font-weight:600;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.05);transition:all .2s}
-.wc-score{
-  font-size:1.5rem;font-weight:900;
-  color:#fff;letter-spacing:-.5px;min-width:60px;text-align:center;
-  animation:scorePulse 3s ease-in-out infinite;
-  display:flex;align-items:center;justify-content:center;gap:6px;
-}
-.wc-score .vs{font-size:.65rem;color:#f97316;text-shadow:0 0 6px rgba(249,115,22,.1)}
-.wc-score .live-dot{
-  display:inline-block;width:8px;height:8px;
-  border-radius:50%;background:#10b981;
-  margin-right:4px;animation:pulse 1.2s infinite;
-  box-shadow:0 0 12px rgba(16,185,129,.5);
-}
-.wc-more{
-  display:block;text-align:center;
-  padding:12px;font-size:.72rem;
-  color:#f97316;text-shadow:0 0 8px rgba(249,115,22,.15);
-  border:1px dashed rgba(249,115,22,.2);border-radius:var(--radius-sm);
-  margin-top:8px;transition:all .2s;
-}
-.wc-more:active{background:rgba(249,115,22,.08);color:#f97316}
 /* ===== VIDEOS ===== */
 .video-grid{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
 .video-card{
@@ -696,7 +601,7 @@ a{color:inherit;text-decoration:none}
 <div style="position:fixed;top:0;left:0;right:0;height:3px;z-index:999;background:linear-gradient(90deg,#06b6d4,#22d3ee,#06b6d4);animation:testPulse 2s ease-in-out infinite;pointer-events:none;"></div>
 <div class="top-bar">
   <div class="top-bar-brand">daily <strong>briefing</strong></div>
-  <div class="top-bar-weather">24°C · Soleado · Hum 29%</div>
+  <div class="top-bar-weather">23°C · Soleado · Hum 41%</div>
 </div>
 
 <!-- HERO -->
@@ -706,9 +611,9 @@ a{color:inherit;text-decoration:none}
   <div class="hero-grid"></div>
   <div class="hero-label">Daily Briefing</div>
   <h1 class="hero-title">Buenos días, <span>David</span></h1>
-  <p class="hero-subdate">23.07.2026 · Semana 30 del año</p>
+  <p class="hero-subdate">24.07.2026 · Semana 30 del año</p>
 
-  <p class="hero-greeting">La automatización no es perder el control, es ganar libertad.</p>
+  <p class="hero-greeting">La mejor manera de predecir el futuro es crearlo.</p>
   <div class="hero-scroll"></div>
 </div>
 
@@ -722,14 +627,14 @@ a{color:inherit;text-decoration:none}
     <div class="section-icon">♪</div>
     <span class="section-title">Daily Pulse</span>
   </div>
-  <div class="section-sub">01:45 · IA · Mundo · Arranque</div>
+  <div class="section-sub">01:49 · IA · Mundo · Arranque</div>
   <div class="podcast-card">
     <div class="podcast-top">
       <div class="podcast-vinyl" id="vinyl-record">
         <div class="podcast-vinyl-inner"></div>
       </div>
       <div class="podcast-info">
-        <div class="podcast-title">Daily Pulse · 23.07.2026</div>
+        <div class="podcast-title">Daily Pulse · 24.07.2026</div>
         <div class="podcast-desc">Tu resumen diario en 3 minutos</div>
       </div>
     </div>
@@ -766,91 +671,6 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
-<!-- WORLD CUP -->
-<div class="section-wrap alt" id="section-worldcup">
-  <div class="section-bg-img">
-    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1400&q=80" alt="" loading="lazy">
-    <div class="overlay"></div>
-  </div>
-  <div class="section-header">
-    <div class="section-icon">⚽</div>
-    <span class="section-title">Mundial 2026</span>
-  </div>
-  <div class="section-sub">Eliminatorias · horario español (CEST)</div>
-  <div class="wc-grid"><div class="section-sub" style="margin-bottom:10px">Resultados</div>
-<div class="wc-card" style="--i:0;--float-dur:4.0s">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:#f97316">Final · Sáb 19/7</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">España</span></div>
-    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">1–0</div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Argentina</span></div>
-  </div>
-  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ España: Ferran Torres 106'</div>
-</div>
-<div class="wc-card" style="--i:1;--float-dur:3.6s">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:#f97316">3er Puesto · Vie 18/7</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Francia</span></div>
-    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">4–6</div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Inglaterra</span></div>
-  </div>
-  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Francia: Kylian Mbappé 48', Bradley Barcola 54', Kylian Mbappé 66'</div><div style="font-size:.62rem;color:#f97316">⚽ Inglaterra: Dklan Rais 3', Azri Knsa 18', Bvkaiv Saka 37'</div>
-</div>
-<div class="wc-card" style="--i:2;--float-dur:3.6s">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:#f97316">Semifinal · Mar 15/7</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Inglaterra</span></div>
-    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">1–2</div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Argentina</span></div>
-  </div>
-  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Inglaterra: Antvni Gvrdvn 55'</div><div style="font-size:.62rem;color:#f97316">⚽ Argentina: Enzo Fernández 85', Lautaro Martínez 90+2'</div>
-</div>
-<div class="wc-card" style="--i:3;--float-dur:5.3s">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:#f97316">Semifinal · Lun 14/7</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Francia</span></div>
-    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">0–2</div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">España</span></div>
-  </div>
-  <div style="font-size:.62rem;color:#f97316">⚽ España: Pedro Porro 58'</div>
-</div>
-<div class="wc-card" style="--i:4;--float-dur:4.8s">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:#f97316">Cuartos · Sáb 12/7</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Argentina</span></div>
-    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">3–1</div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Suiza</span></div>
-  </div>
-  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Argentina: Alexis Mac Allister 10', Khvlin Alvarz 112', Lautaro Martínez 120+1'</div><div style="font-size:.62rem;color:#f97316">⚽ Suiza: Dn Andvi 67'</div>
-</div>
-<div class="wc-card" style="--i:5;--float-dur:4.2s">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-    <div class="wc-status finished">FINAL</div>
-    <span style="font-size:.6rem;color:#f97316">Cuartos · Vie 11/7</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <div style="flex:1"><span style="font-size:.78rem;color:#fff;font-weight:600">Noruega</span></div>
-    <div style="font-family:Syne;font-size:1.2rem;font-weight:700;color:#fff;margin:0 12px">1–2</div>
-    <div style="flex:1;text-align:right"><span style="font-size:.78rem;color:#fff;font-weight:600">Inglaterra</span></div>
-  </div>
-  <div style="font-size:.62rem;color:#f97316;margin-top:3px">⚽ Noruega: Andrias Shldrvp 36'</div><div style="font-size:.62rem;color:#f97316">⚽ Inglaterra: Jvd Blingham 45+2', Jvd Blingham 93'</div>
-</div><a href="https://www.fifa.com/tournaments/mens/worldcup/usa-canada-mexico2026/" class="wc-more" target="_blank" rel="noopener">Ver todos los partidos →</a></div>
-</div>
 
 <!-- NEWS -->
 <div class="section-wrap" id="section-news">
@@ -867,43 +687,43 @@ a{color:inherit;text-decoration:none}
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">WhatsApp cambia por completo e incluye una de las funciones más pedidas por sus usuarios</div>
-    <div class="news-card-time">Wed, 22 Jul 2026</div>
+    <div class="news-card-title">Estados Unidos propone un botón para apagar la IA antes de que se descontrole</div>
+    <div class="news-card-time">Thu, 23 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(1)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Xbox por fin permite jugar tus juegos de consola en PC</div>
-    <div class="news-card-time">Wed, 22 Jul 2026</div>
+    <div class="news-card-title">‘Avatar: La Leyenda de Aang’ se expande con una nueva serie, ‘Avatar: Seven Havens’, que y</div>
+    <div class="news-card-time">Thu, 23 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(2)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Estados Unidos dispara contra Kimi K3, la nueva IA china que es furor: habría copiado a Cl</div>
-    <div class="news-card-time">Wed, 22 Jul 2026</div>
+    <div class="news-card-title">‘EA Sports FC 27’ vuelve a probar suerte con el fútbol callejero y estrena la edición más </div>
+    <div class="news-card-time">Thu, 23 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(3)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Samsung regala 6 meses de Google AI Pro con sus nuevos Galaxy Z Fold 8 y Z Flip 8</div>
-    <div class="news-card-time">Wed, 22 Jul 2026</div>
+    <div class="news-card-title">Grabar a extraños con las Ray-Ban Meta ya te puede costar la cuenta de Instagram</div>
+    <div class="news-card-time">Thu, 23 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(4)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Samsung y Google revelan más sobre sus gafas inteligentes, con nuevos modelos y la IA de G</div>
-    <div class="news-card-time">Wed, 22 Jul 2026</div>
+    <div class="news-card-title">Google filtra las características del Pixel Watch 5, con decepción en un apartado clave</div>
+    <div class="news-card-time">Thu, 23 Jul 2026</div>
   </div>
 </div><div class="news-card" onclick="openNewsModal(5)">
   <div class="news-card-img">📰</div>
   <div class="news-card-body">
     <div class="news-card-source">Hipertextual</div>
-    <div class="news-card-title">Samsung presenta sus nuevos Galaxy Watch Ultra 2 y Galaxy Watch 9 con IA para cuidar tu sa</div>
-    <div class="news-card-time">Wed, 22 Jul 2026</div>
+    <div class="news-card-title">Nueva multa millonaria a Google en Europa, esta vez por dos infracciones a la Ley de Merca</div>
+    <div class="news-card-time">Thu, 23 Jul 2026</div>
   </div>
 </div></div>
 </div>
@@ -921,46 +741,25 @@ a{color:inherit;text-decoration:none}
     <span class="section-title">Videos de ayer</span>
   </div>
   <div class="section-sub">De los mejores divulgadores de IA en español</div>
-  <div class="video-grid"><a class="video-card" href="https://youtube.com/watch?v=rNfxC5-zxPA" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/rNfxC5-zxPA/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="video-grid"><a class="video-card" href="https://youtube.com/watch?v=pocuA_rifKQ" target="_blank" rel="noopener">
+  <div class="video-thumb"><img src="https://img.youtube.com/vi/pocuA_rifKQ/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="video-info">
     <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
     <div class="video-channel">Jon Hernández</div>
     <div class="video-date">Ayer</div>
   </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=ek2-a4gU82M" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/ek2-a4gU82M/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+</a><a class="video-card" href="https://youtube.com/watch?v=OHimlwWK-c8" target="_blank" rel="noopener">
+  <div class="video-thumb"><img src="https://img.youtube.com/vi/OHimlwWK-c8/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="video-info">
-    <div class="video-title">🤖 El control del futuro tecnológico no debería estar en manos de pocas personas </div>
+    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
     <div class="video-channel">Jon Hernández</div>
     <div class="video-date">Ayer</div>
   </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=YEfQjJGRYUs" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/YEfQjJGRYUs/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+</a><a class="video-card" href="https://youtube.com/watch?v=qBaQSvn3BII" target="_blank" rel="noopener">
+  <div class="video-thumb"><img src="https://img.youtube.com/vi/qBaQSvn3BII/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="video-info">
-    <div class="video-title">🤖 El margen de beneficio en IA es muy corto 🤖 #ia #chatgpt #educación</div>
+    <div class="video-title">👉🏻 Te dejo la Guía Pro de ChatGPT fijada en los comentarios de este video.</div>
     <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Ayer</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=snSsDokuwfw" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/snSsDokuwfw/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">🤖 La IA frente al gran legado de Internet 🤖 #ia #internet #educacion</div>
-    <div class="video-channel">Jon Hernández</div>
-    <div class="video-date">Ayer</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=5Hi5P2J3chY" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/5Hi5P2J3chY/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">¿Sabes lo que es el DOM en JavaScript? #programacion #javascript #codigo</div>
-    <div class="video-channel">Victor Robles</div>
-    <div class="video-date">Ayer</div>
-  </div>
-</a><a class="video-card" href="https://youtube.com/watch?v=JI4Ak6goUWA" target="_blank" rel="noopener">
-  <div class="video-thumb"><img src="https://img.youtube.com/vi/JI4Ak6goUWA/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-  <div class="video-info">
-    <div class="video-title">Como ser un Ingeniero de IA (sin humo)</div>
-    <div class="video-channel">Victor Robles</div>
     <div class="video-date">Ayer</div>
   </div>
 </a></div>
@@ -974,18 +773,18 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="prompt-card">
     <div class="prompt-label">✦ PROMPT ✦</div>
-    <p class="prompt-text">Imagina un asistente que conoce tu calendario, correos y proyectos. Cada mañana te da 3 decisiones que debes tomar. Nada más.</p>
+    <p class="prompt-text">Diseña un pipeline donde una idea en voz se convierte en tweet, hilo, artículo y video. Todo automático, todo con IA.</p>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-brand">daily briefing</div>
-  <div class="footer-sub">Generado con IA · 23 de July de 2026 · 09:01</div>
+  <div class="footer-sub">Generado con IA · 24 de July de 2026 · 09:01</div>
 </div>
 
 <script>
-var NEWS_DATA = [{"source": "Hipertextual", "title": "WhatsApp cambia por completo e incluye una de las funciones más pedidas por sus usuarios", "desc": "WhatsApp ha lanzado una actualización que suma varias funciones pensadas para acompañarte en distintos momentos del día. Meta ya no quiere que solo sea una aplicación exclusiva de mensajería, por lo que integró un cúmulo características para que pases más tiempo dentro del ecosistema. Entre las nuev", "link": "https://hipertextual.com/mobile/whatsapp-nuevas-funciones-pdf-android-auto-musica/"}, {"source": "Hipertextual", "title": "Xbox por fin permite jugar tus juegos de consola en PC", "desc": "Xbox ha anunciado una de las funciones más pedidas por los usuarios desde hace años. La compañía anunció un programa de retrocompatibilidad que permitirá jugar títulos de consola en PC. La función estará disponible tanto en ordenadores como en consolas portátiles como la ROG Ally X, siempre y cuando", "link": "https://hipertextual.com/videojuegos/xbox-retrocompatibilidad-pc-juegos-clasicos/"}, {"source": "Hipertextual", "title": "Estados Unidos dispara contra Kimi K3, la nueva IA china que es furor: habría copiado a Claude Fable", "desc": "Kimi K3, la nueva y potente IA de la empresa china Moonshot AI, ha quedado en el punto de mira de la Casa Blanca. Michael Kratsios, director de la Oficina de Política de Ciencia y Tecnología de Estados Unidos (OSTP), acusó a la firma asiática de pergeñar un plan para destilar Claude Fable, uno de […", "link": "https://hipertextual.com/inteligencia-artificial/acusan-kimi-k3-destilar-datos-claude-fable/"}, {"source": "Hipertextual", "title": "Samsung regala 6 meses de Google AI Pro con sus nuevos Galaxy Z Fold 8 y Z Flip 8", "desc": "Samsung ha presentado su nueva familia de plegables Galaxy Z. Tras meses de rumores y filtraciones, el fabricante reveló los nuevos Galaxy Z Fold 8, Galaxy Z Fold 8 Ultra y Galaxy Z Flip 8, cada uno enfocado a un público particular. Aunque sus funciones han acaparado los reflectores, los móviles inc", "link": "https://hipertextual.com/mobile/galaxy-z-fold8-flip8-google-ai-pro-gratis/"}, {"source": "Hipertextual", "title": "Samsung y Google revelan más sobre sus gafas inteligentes, con nuevos modelos y la IA de Gemini como estrella", "desc": "Las gafas inteligentes también tuvieron su espacio en el Samsung Unpacked de este miércoles. Además de sus nuevos móviles plegables y relojes, la firma coreana aprovechó la oportunidad para entregar un nuevo vistazo a sus gafas inteligentes con Android XR y Gemini como estrella. Las mismas son parte", "link": "https://hipertextual.com/tecnologia/gafas-inteligentes-samsung-unpacked-julio-2026/"}, {"source": "Hipertextual", "title": "Samsung presenta sus nuevos Galaxy Watch Ultra 2 y Galaxy Watch 9 con IA para cuidar tu salud", "desc": "Tras meses de rumores y especulaciones, el día esperado por los fanáticos de Samsung llegó. La compañía surcoreana renovó su gama de relojes inteligentes con los Galaxy Watch Ultra 2 y Galaxy Watch 9. Ambos llegan con mejoras de hardware, pantallas más luminosas y la idea de convertir tus datos biom", "link": "https://hipertextual.com/mobile/galaxy-watch-ultra-2-watch9-caracteristicas-precio/"}];
+var NEWS_DATA = [{"source": "Hipertextual", "title": "Estados Unidos propone un botón para apagar la IA antes de que se descontrole", "desc": "Estados Unidos podría tener una forma de apagar la inteligencia artificial que se salga de control. Un proyecto de ley busca dar al gobierno la capacidad de intervenir directamente sobre los modelos más potentes del mercado. El \"botón\" para apagar la IA llega a unos días de que OpenAI confirmara que", "link": "https://hipertextual.com/inteligencia-artificial/boton-apagado-ia-estados-unidos/"}, {"source": "Hipertextual", "title": "‘Avatar: La Leyenda de Aang’ se expande con una nueva serie, ‘Avatar: Seven Havens’, que ya tiene tráiler y fecha de estreno", "desc": "La franquicia de Avatar: La Leyenda de Aang estrenará este mismo 2026 una nueva serie, Avatar: Seven Havens. Será el tercer proyecto televisivo de la saga (el cuarto si sumamos el remake live-action de Netflix). Y durante el panel de la San Diego Comic Con dedicado a la inminente película Avatar Aan", "link": "https://hipertextual.com/cine-television/avatar-la-leyenda-de-aang-nueva-serie-avatar-seven-havens-trailer-fecha-de-estreno/"}, {"source": "Hipertextual", "title": "‘EA Sports FC 27’ vuelve a probar suerte con el fútbol callejero y estrena la edición más cara de la historia de la saga", "desc": "Tal y como se esperaba, Electronic Arts ha presentado oficialmente EA Sports FC 27, la nueva entrega de su saga de juegos de fútbol. El nuevo título mantiene mucho de lo ya conocido de entregas previas, pero incorpora mejoras de jugabilidad y estrena una nueva modalidad vinculada con el fútbol calle", "link": "https://hipertextual.com/videojuegos/ea-sports-fc-27-caracteristicas-precios-y-fecha-de-lanzamiento/"}, {"source": "Hipertextual", "title": "Grabar a extraños con las Ray-Ban Meta ya te puede costar la cuenta de Instagram", "desc": "Meta se ha cansado de las bromas pesadas que hacen los dueños de las Ray-Ban Meta y ha anunciado una solución. A partir de hoy, Instagram prohibirá los vídeos que muestren acoso a extraños o comportamientos indebidos en la vía pública. La medida llega tras meses de polémica por el uso de estos dispo", "link": "https://hipertextual.com/tecnologia/instagram-prohibe-videos-acoso-gafas-ray-ban-meta/"}, {"source": "Hipertextual", "title": "Google filtra las características del Pixel Watch 5, con decepción en un apartado clave", "desc": "El Pixel Watch 5 se presentará en unas pocas semanas junto con los Pixel 11, pero Google lo ha filtrado con anticipación. El nuevo reloj inteligente de la firma californiana, que ya había protagonizado leaks previos, apareció en la Google Play Console y reveló sus principales características de hard", "link": "https://hipertextual.com/tecnologia/pixel-watch-5-mismo-chip-mas-ram/"}, {"source": "Hipertextual", "title": "Nueva multa millonaria a Google en Europa, esta vez por dos infracciones a la Ley de Mercados Digitales", "desc": "Una vez más, la Comisión Europea ha aplicado una multa millonaria a Google por infringir las normativas de la UE con sus productos. En esta oportunidad, se trata de una sanción de 890 millones de euros por dos infracciones a la Ley de Mercados Digitales (DMA), una con su buscador y la otra con la […", "link": "https://hipertextual.com/legal/europa-multa-google-890-millones-euros-julio-2026/"}];
 
 function openNewsModal(i){
   var d = NEWS_DATA[i]; if(!d) return;
