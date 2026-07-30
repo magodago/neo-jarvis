@@ -3,3 +3,5 @@
 *.db-wal
 **/__pycache__/
 *.json
+.env
+briefing/lead-gen/.env
