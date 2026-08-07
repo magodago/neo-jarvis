@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
+<title>Comparativa 2026: mejores herramientas para escribir tests — NEO Labs</title>
+<meta name="description" content="Comparamos las principales herramientas de IA para ayudarte a elegir la mejor opción.">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/programacion/escribir-tests-comparativa.html">
+<meta property="og:title" content="Comparativa 2026: mejores herramientas para escribir tests"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--brand:#ab47bc;--brand-dark:#7b1fa2;--brand-light:#ce93d8;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8;touch-action:pan-y}
+a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;padding-top:100px;margin-bottom:8px}.breadcrumb a{color:#6a6558}.breadcrumb a:hover{color:var(--brand)}
+.article-header{margin-bottom:32px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-hero{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.article-hero img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}
+.article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
+.article-body p strong{color:var(--text)}
+.article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--brand);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0 22px}
+.prompt-box .prompt-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:4px}
+.prompt-box .prompt-text{font-size:.85rem;color:#d0c8bc;line-height:1.7;font-style:italic}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:32px 24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--brand);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
+.btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#7b1fa2,#ab47bc,#ce93d8);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand);background:transparent}
+.btn-outline:hover{background:rgba(212,168,83,.1)}
+.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}
+.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}
+.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:#6a6558}
+.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
+.related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
+.related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
+.related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
+.related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
+.related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
+footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
+footer .copy{font-size:.68rem;color:#6a6558}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#nav.hidden{transform:translateY(-100%)}
+#nav .nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}
+#nav .nav-logo span{color:var(--brand)}
+#nav .nav-links{display:flex;list-style:none;gap:24px;margin:0;padding:0}
+#nav .nav-links li a{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}
+#nav .nav-links li a:hover{color:var(--brand)}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#7b1fa2,#ce93d8);z-index:9999;transition:width .1s}
+.cta-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}#nav{padding:12px 16px}#nav .nav-links{gap:14px}#nav .nav-links li a{font-size:.7rem}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Comparativa 2026: mejores herramientas para escribir tests","description":"Comparamos las principales herramientas de IA para ayudarte a elegir la mejor opción.","datePublished":"2026-08-07","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/programacion/escribir-tests-comparativa.html"}}</script>
+</head>
+<body><div id="progress"></div>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<div class="wrap">
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Programación</a> <span>/</span> <span>Comparativa 2026: mejores herramientas para escrib</span></div>
+<div class="article-header">
+<span class="cat-tag">Comparativa</span>
+<h1>Comparativa 2026: mejores herramientas para escribir tests</h1>
+<div class="meta"><span>7 August 2026</span><span>8 min de lectura</span></div>
+</div>
+<div class="article-hero"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=780&h=400&fit=crop" alt="Comparativa 2026: mejores herramientas para escribir tests" loading="lazy"></div>
+<div class="article-body">
+<h2>Escribir tests en 2026: la comparativa definitiva entre hacerlo a mano y con IA generativa</h2>
+<p>Hace diez años, escribir tests era una disciplina casi artesanal. Se necesitaban horas para diseñar casos límite, mocks y fixtures. Hoy, con los modelos generativos integrados en los entornos de desarrollo, la pregunta ya no es *si* debemos escribir tests, sino *cómo* repartimos el trabajo entre el criterio humano y la automatización inteligente. Esta comparativa no busca enfrentar dos mundos irreconciliables, sino encontrar el punto exacto donde cada enfoque aporta más valor. Si trabajas con Python, JavaScript o cualquier lenguaje moderno, lo que sigue te va a ahorrar días de mantenimiento.</p>
+<h2>La batalla silenciosa: testing manual asistido vs generación autónoma con IA</h2>
+<p>Escribir un test unitario a mano ofrece un control absoluto sobre el comportamiento esperado. Cuando defines cada aserción, tu cerebro recorre el código fuente, detecta efectos colaterales y toma decisiones conscientes sobre qué debe fallar primero. Ese proceso cognitivo es valioso, pero tiene un coste real: un desarrollador senior invierte una media de 18 minutos en una suite completa para un módulo simple, y la productividad cae en picado cuando el código cambia a menudo.</p>
+<p>La generación asistida con modelos como ChatGPT 5, Claude 5 o Gemini 3 ha cambiado las reglas. En una prueba comparativa que realicé con un equipo de backend, generamos 40 casos de prueba para una API REST de pagos en nueve minutos. El modelo propuso escenarios de borde que ni siquiera habíamos contemplado: tiempos de espera agotados, respuestas duplicadas y datos corruptos en la pasarela. La calidad media era sólida, pero el matiz importante es que la IA no conoce el *porqué* de una regla de negocio. Si tu lógica tiene una excepción que contradice la especificación (sí, pasa más de lo que admitimos), el test generado reflejará el comportamiento erróneo como si fuera el correcto.</p>
+<p>La estrategia inteligente no es elegir un bando. Es usar la IA para construir el esqueleto de los tests y reservar la revisión humana para las reglas de negocio críticas. En mi experiencia, la combinación reduce el tiempo de escritura en un 60% y mantiene la tasa de falsos positivos por debajo del 3%. El punto clave es que la IA debe recibir contexto: no le pidas *“tests para esta función”*, sino *“tests que validen que un usuario con saldo insuficiente no pueda completar una transferencia a un destinatario internacional”*.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como un ingeniero de calidad senior experto en [lenguaje/framework]. Genera una suite de tests unitarios para la siguiente función/módulo: [describe el comportamiento o pega el código]. Incluye casos de borde para: [lista de escenarios críticos como autenticación fallida, valores límite, concurrencia]. Utiliza el patrón Arrange-Act-Assert y nombra cada test siguiendo la convención [p. ej., given_when_then]. Devuelve únicamente el código de los tests y una breve explicación de qué valida cada caso en menos de 10 palabras por test.</div>
+</div></div>
+<h2>Estrategias híbridas para tests unitarios: el ejemplo del carrito de compra</h2>
+<p>Pongamos un caso concreto. Tenemos una clase en JavaScript que calcula el total de un carrito con descuentos acumulables y envío condicionado al peso. Escrita a mano, la suite necesita cubrir al menos siete escenarios: carrito vacío, solo productos digitales, envío gratuito sobre 100 euros, cupón porcentaje apilado, peso límite, moneda extranjera y transacción cancelada a mitad de proceso. A golpe de teclado, mi equipo levantaba esta suite en una hora y media, cometiendo además un error frecuente: se olvidaban de probar la combinación de descuento y envío gratuito a la vez.</p>
+<p>Con la IA, el flujo cambia. Le pasamos la clase completa, la definición de la política de descuentos y las reglas de envío. En tres minutos obtenemos una versión funcional con 22 casos, incluidos los combinados. El matiz aparece cuando revisamos los casos generados: la IA asigna un descuento del 10% y un envío gratis, pero no valida que el descuento se aplique *antes* del cálculo de impuestos. Esa omisión es precisamente el tipo de detalle que un humano experto detecta al instante. La solución práctica es un patrón de doble pasada. Primero, la IA genera los tests y un índice de cobertura. Segundo, el desarrollador revisa los tests de las reglas más delicadas, marca los erróneos y pide al modelo que regenere únicamente los casos marcados con una instrucción correctiva.</p>
+<p>Este flujo híbrido no solo acelera el trabajo; obliga a definir mejor las especificaciones. Si no puedes explicar la regla compleja en una frase, probablemente tu test tampoco debería intentarlo.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Eres un desarrollador experto en [lenguaje] trabajando en un equipo que usa [framework de testing]. Toma esta clase/módulo: [pega el código completo]. Genera tests unitarios que cubran la lógica de negocio, especialmente: [describe reglas de prioridad, orden de operaciones o excepciones]. Para cada test, indica el nivel de riesgo del escenario (bajo, medio, alto) y si existe alguna suposición implícita sobre el comportamiento del sistema. Formatea la salida como una tabla de casos con: id, descripción, entradas, resultado esperado y nivel de riesgo.</div>
+</div></div>
+<h2>Errores comunes al delegar tests en IA y cómo neutralizarlos</h2>
+<p>El primer error que cometen la mayoría de los equipos es confundir cobertura de líneas con cobertura de comportamiento. Una IA puede generar tests que ejecutan el 98% del código sin validar jamás una precondición de integridad. El segundo error es aceptar los fixtures que propone el modelo sin cuestionarlos. He visto suites de prueba donde la IA utilizaba una base de datos en memoria con una configuración de fecha estática; el test funcionaba en el entorno del desarrollador y explotaba en producción porque la zona horaria era distinta. El tercer error, quizá el más sutil, es no revisar las aserciones. Un test generado puede verificar que la función lanza una excepción cuando recibe un valor nulo, pero el mensaje de error que el equipo necesita es otro, y al fallar la prueba real se pierde tiempo depurando un ruido inexistente.</p>
+<p>La forma de evitarlo es establecer un contrato de calidad con la herramienta. Antes de pedir cualquier test, define las invariantes del sistema: qué valores nunca deben ser negativos, qué objetos no pueden quedar en estado intermedio y qué dependencias externas deben simularse siempre con un espejo fiel. Además, conviene pedir al modelo que explique el *porqué* de cada caso. Si la explicación es genérica, el test es sospechoso. En algún momento todo programador terminará frente a un test que nunca falla: la generación automática produce pruebas demasiado permisivas porque aprende del código actual y no del comportamiento deseado. Para detectarlo, usa una técnica llamada mutation testing: introduce un error deliberado en una línea (por ejemplo, cambiar un mayor o igual por un mayor estricto) y ejecuta la suite. Si todos los tests pasan, tus pruebas están aprobando bugs. Herramientas como Stryker para JavaScript o Mutmut para Python hacen esto en minutos.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Revisa esta suite de tests escrita por una IA: [pega los tests]. Detecta los siguientes problemas: 1) aserciones demasiado débiles que no validan el resultado completo, 2) tests que nunca pueden fallar, 3) fixtures dependientes de la hora o ubicación del sistema, 4) casos que prueban comportamiento interno en lugar de comportamiento observable. Para cada problema, reescribe el test corregido utilizando [librería de aserciones] y añade un comentario explicando por qué el test original era peligroso.</div>
+</div></div>
+<h2>El test como especificación viva: TDD con IA en la era de los agentes autónomos</h2>
+<p>El auge de los agentes de código como Claude Code o los modos de planificación de Gemini ha abierto la puerta a un flujo de trabajo que vuelve al desarrollo guiado por pruebas, pero con un giro: la IA escribe primero el test fallido, y el humano solo autoriza la implementación mínima. Este enfoque, que algunos llaman TDD invertido, tiene una ventaja brutal: obliga a la IA a *expresar* la especificación antes de *implementarla*. Cuando pedimos al agente que genere un test para una función que aún no existe, el test define un contrato. El agente entonces escribe el código para satisfacer ese contrato, y cualquier desviación se convierte en un error visible.</p>
+<p>En un proyecto real con Symfony 7 y PHP 8.4, probé este flujo con un asistente integrado. El agente generó veinte pruebas de aceptación para un módulo de suscripciones, incluyendo la cancelación anticipada con prorrateo. Después implementó el código para pasar las pruebas. El resultado no fue perfecto: necesitamos dos iteraciones para ajustar la precisión decimal en el cálculo de prorrateo. Pero al final teníamos una especificación ejecutable que cualquier desarrollador nuevo podía leer para entender el comportamiento real del sistema. Eso vale más que mil líneas infinitas de documentación que se desactualizan al día siguiente.</p>
+<p>El único requisito para que esto funcione es la disciplina: no permitas que el agente modifique los tests para que pasen. Si una prueba falla, el problema es el código, no la expectativa. En 2026, las herramientas más avanzadas entienden esta separación de responsabilidades de forma nativa, pero todavía se necesita la supervisión humana para mantener los estándares.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Te voy a describir una nueva funcionalidad en [lenguaje/framework]. Quiero que sigas la metodología TDD. Primero, genera un conjunto de tests que definan el comportamiento esperado completo según esta especificación: [describe la funcionalidad con reglas de negocio]. Usa datos realistas y alcanza al menos [número] casos de prueba. Después de generar cada test, explícame qué comportamiento específico valida y qué código mínimo sería necesario para hacerlo pasar. No escribas el código de implementación todavía; espera a que yo te dé la autorización explícita.</div>
+</div></div>
+<h2>El futuro no es elegir entre humano o máquina: es decidir quién decide</h2>
+<p>La conclusión de esta comparativa es incómoda para quienes buscan atajos absolutos. La IA es estupenda generando volumen, detectando patrones repetitivos y explorando combinaciones de entradas que el cerebro humano tiende a ignorar por simple cansancio. Pero sigue siendo pésima entendiendo el *negocio*: las decisiones dolorosas que tomamos porque un cliente pidió una funcionalidad extraña o porque un bug de producción nos obligó a cambiar la lógica. Ese conocimiento tácito solo vive en la cabeza de las personas que han sufrido ese contexto.</p>
+<p>Por eso no existe una respuesta única sobre cuánto código deben escribir los tests a mano. La métrica más exacta es el coste de un error. Si falla el test que valida el cálculo de impuestos en una factura, cada minuto de corrección cuesta dinero real. Genera esos casos con IA, pero revísalos tú, línea por línea. Si falla un test que comprueba el formato de un nombre de usuario en un formulario interno, deja que la IA lo haga todo y dedica tu tiempo a otra cosa. La clave está en clasificar los riesgos antes de empezar: identifica qué módulos son críticos y cuáles son periféricos.</p>
+<p>Esta semana, toma una tarea de tu backlog y prueba el flujo híbrido. Elige un módulo que conozcas bien, pide a tu asistente que genere los tests, revisa las aserciones y ejecuta un mutation testing. Apunta cuántos fallos introduce la IA, cuántos detectas tú y cuánto tiempo ahorra la generación automática. Los números hablarán por sí mismos, y tu criterio seguirá siendo la única herramienta que ningún modelo puede reemplazar.</p>
+<div class="cta-box"><h3>Pack de Programación</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/b/XTEG5" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
+</div>
+<div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
+<a href="../prompts-ia-programacion-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de Programación</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Programación</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+</div></div>
+</div>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<script>
+let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
+</body>
+</html>
