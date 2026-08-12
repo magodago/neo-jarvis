@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
+<title>Guía completa de crear contenido SEO con inteligencia artificial — NEO Labs</title>
+<meta name="description" content="Guía detallada sobre crear contenido SEO con prompts de IA probados y refinados.">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/marketing/crear-contenido-seo-guia.html">
+<meta property="og:title" content="Guía completa de crear contenido SEO con inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--brand:#42a5f5;--brand-dark:#1976d2;--brand-light:#90caf9;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8;touch-action:pan-y}
+a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;padding-top:100px;margin-bottom:8px}.breadcrumb a{color:#6a6558}.breadcrumb a:hover{color:var(--brand)}
+.article-header{margin-bottom:32px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-hero{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.article-hero img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}
+.article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
+.article-body p strong{color:var(--text)}
+.article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--brand);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0 22px}
+.prompt-box .prompt-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:4px}
+.prompt-box .prompt-text{font-size:.85rem;color:#d0c8bc;line-height:1.7;font-style:italic}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:32px 24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--brand);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
+.btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#1976d2,#42a5f5,#90caf9);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand);background:transparent}
+.btn-outline:hover{background:rgba(212,168,83,.1)}
+.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}
+.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}
+.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:#6a6558}
+.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
+.related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
+.related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
+.related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
+.related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
+.related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
+footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
+footer .copy{font-size:.68rem;color:#6a6558}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#nav.hidden{transform:translateY(-100%)}
+#nav .nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}
+#nav .nav-logo span{color:var(--brand)}
+#nav .nav-links{display:flex;list-style:none;gap:24px;margin:0;padding:0}
+#nav .nav-links li a{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}
+#nav .nav-links li a:hover{color:var(--brand)}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#1976d2,#90caf9);z-index:9999;transition:width .1s}
+.cta-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}#nav{padding:12px 16px}#nav .nav-links{gap:14px}#nav .nav-links li a{font-size:.7rem}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guía completa de crear contenido SEO con inteligencia artificial","description":"Guía detallada sobre crear contenido SEO con prompts de IA probados y refinados.","datePublished":"2026-08-12","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/marketing/crear-contenido-seo-guia.html"}}</script>
+</head>
+<body><div id="progress"></div>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<div class="wrap">
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Marketing</a> <span>/</span> <span>Guía completa de crear contenido SEO con inteligen</span></div>
+<div class="article-header">
+<span class="cat-tag">Guía</span>
+<h1>Guía completa de crear contenido SEO con inteligencia artificial</h1>
+<div class="meta"><span>12 August 2026</span><span>8 min de lectura</span></div>
+</div>
+<div class="article-hero"><img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=780&h=400&fit=crop" alt="Guía completa de crear contenido SEO con inteligencia artificial" loading="lazy"></div>
+<div class="article-body">
+<h2>Por qué el SEO de 2026 exige repensar tu proceso de creación</h2>
+<p>La vieja fórmula de escribir 2.000 palabras repletas de palabras clave ya no produce resultados. Google procesa consultas con modelos semánticos avanzados, los AI Overviews se ubican en la parte superior de la página y los usuarios interactúan más con interfaces conversacionales que con listados azules. En este escenario, tu contenido debe construirse alrededor de tres ejes: intencionalidad, estructura semántica y verificación factual. No se trata de abandonar la optimización clásica, sino de elevarla con herramientas que en 2026 permiten hacer en horas lo que antes tomaba semanas. Este artículo te muestra el flujo completo, con indicaciones listas para usar en asistentes como ChatGPT 5, Claude 5 y Gemini 3.0, para que lo apliques desde mañana mismo.</p>
+<h2>Investiga la intención de búsqueda antes de redactar una sola línea</h2>
+<p>El primer error que cometen los equipos de marketing es abrir el editor y comenzar a escribir desde el conocimiento interno. La intención de búsqueda se ha convertido en el factor de clasificación más determinante. Cuando alguien busca &quot;cómo limpiar una cafetera expreso&quot;, no quiere un artículo académico sobre la historia del café; busca pasos concretos, rápidos y con resultados visibles. Si no identificas la intención antes de producir contenido, toda la estructura posterior se resquebraja.</p>
+<p>El proceso práctico comienza con un análisis manual del SERP. Introduce tu consulta objetivo y estudia los diez primeros resultados. Pregúntate: ¿qué formato predomina, listas, tutoriales, vídeos o comparativas? ¿Qué preguntas responde cada página? ¿Qué extensión tienen los textos? Anota también qué características enriquecidas aparecen: fragmentos destacados, paneles de conocimiento, preguntas frecuentes. Ese análisis te dice exactamente qué tipo de pieza debes construir.</p>
+<p>Un dato relevante de 2026: Google prioriza la experiencia demostrable del autor sobre el conocimiento genérico. Su sistema de entidades puede verificar si quien firma tiene trayectoria real en el tema. Si escribes sobre marketing para clínicas dentales y jamás trabajaste en el sector, tu contenido partirá en desventaja. Necesitas incorporar datos, citas y experiencia verificable.</p>
+<p>Una herramienta complementaria es la API de comprensión de entidades de Google, aunque muchos marketeros prefieren soluciones como Surfer SEO o Clearscope en su versión actualizada, que ya integran análisis de intención en tiempo real. Puedes usarlas para validar tu hipótesis inicial, pero nada sustituye la inspección manual.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como un consultor SEO senior con 15 años de experiencia. Analiza la consulta de búsqueda [INSERTA AQUÍ TU KEYWORD PRINCIPAL]. Identifica la intención dominante (informativa, comercial, transaccional o navegacional), propón tres formatos de contenido que podrían posicionar para esa consulta y haz una predicción del tipo de fragmento destacado que Google mostraría. Elabora una lista de 15 preguntas secundarias que los usuarios suelen hacer sobre este tema, ordenadas por volumen de búsqueda probable. Ten en cuenta que estamos en 2026 y Google da prioridad al contenido que demuestra experiencia de autor.</div>
+</div></div>
+<h2>Construye arquitecturas semánticas que respondan a entidades, no solo a palabras</h2>
+<p>Después de comprender la intención, llega el momento de diseñar la estructura. La estrategia de palabras clave aisladas quedó obsoleta desde que Google implementó su modelo MUM y su posterior evolución, el sistema de IA conocido como RankBrain 2.0. En 2026, los motores comprenden el significado completo de los conceptos y las relaciones entre entidades. Para posicionar, tu contenido debe cubrir un ecosistema semántico, no una frase aislada.</p>
+<p>El flujo recomendado es crear un mapa de entidades principal (la keyword), sus entidades relacionadas, sinónimos y variantes de lenguaje natural. Por ejemplo, para el tema &quot;contenido SEO&quot;, las entidades relacionadas incluyen: intención de búsqueda, autoridad de dominio, indexación, enlazado interno, Core Web Vitals, entidades de marca y fragmentos destacados. Google no solo evalúa si mencionas estas palabras, sino cómo las relacionas conceptualmente dentro del texto.</p>
+<p>La estructura efectiva de un artículo en 2026 incluye, además de las secciones, un bloque de preguntas frecuentes con formato de datos estructurados mediante JSON-LD. Los asistentes de inteligencia artificial generativa extraen respuestas directas de estos bloques, lo que aumenta la probabilidad de aparecer en las respuestas de Gemini o ChatGPT cuando un usuario pregunta sobre el tema. Un estudio sectorial reciente muestra que las piezas con esquema FAQ tienen 38% más de visibilidad en los paneles de IA integrados en los navegadores.</p>
+<p>¿Cómo lograr esto en una hora? Los flujos avanzados de Claude 5 en su modo de investigación profunda permiten recibir un esquema jerárquico basado en la interconexión de entidades. Puedes solicitar un índice detallado donde cada sección aborde una entidad relacionada de forma natural, no forzada. Luego ajustas el tono y la dirección editorial.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como un redactor jefe experto en SEO semántico y optimización para modelos de IA generativa. Crea la arquitectura completa de un artículo sobre [TEMA PRINCIPAL]. El resultado debe incluir: un título principal optimizado, una meta descripción inferior a 155 caracteres, una estructura de [CANTIDAD DE SECCIONES] secciones H2 y al menos 20 subsecciones H3 distribuidas lógicamente. Además, agrega un bloque de preguntas frecuentes de [NÚMERO] ítems con respuestas breves de 40 a 60 palabras. Cada sección debe incluir una indicación de las entidades semánticas relacionadas que se deben mencionar, así como sugerencias para el enlazado interno hacia páginas de [CATEGORÍA O WEB RELEVANTE]. Considera que la lectura debe fluir como un texto humano escrito por un especialista con experiencia, no como un documento automatizado.</div>
+</div></div>
+<h2>Procesos de escritura apoyados por IA que conservan el estilo humano</h2>
+<p>La redacción propiamente dicha es donde más se nota la intervención de las herramientas. Las versiones más recientes de los modelos generativos ya muestran dificultades para reproducir inflexiones coloquiales, anécdotas inusuales y expresiones propias del español latinoamericano. En 2026, los motores de búsqueda aplican clasificadores de actividad sintética capaces de detectar textos sin variabilidad de longitud en las frases, con transiciones excesivamente lógicas o con vocabulario predecible en cada párrafo. La solución no es evitar la inteligencia artificial, sino utilizarla como apoyo sin delegar la voz editorial.</p>
+<p>El flujo eficiente parte de un borrador generado con los insumos del paso anterior. Después, se ejecuta una fase de transformación estilística: se solicita al asistente que reescriba párrafos concretos en tono conversacional, con anécdotas profesionales o ejemplos numéricos. Es crucial dedicar tiempo a revisar citas, estadísticas y afirmaciones factuales. Los modelos 2026 son notablemente más precisos, pero siguen generando datos inventados en contextos específicos. La verificación manual se vuelve indispensable.</p>
+<p>Un método probado que funciona con Claude 5: pide que tu borrador sea evaluado con una rúbrica de puntuaciones para factores como naturalidad del lenguaje en español neutro, densidad de información útil por párrafo y diversidad de estructuras sintácticas. Después, solicita una reescritura que corrija los puntos débiles. Para no caer en un estilo corporativo aburrido, incorpora preguntas retóricas, cambios de ritmo y frases breves que aporten contundencia a tus argumentos.</p>
+<p>Las herramientas de pos-escritura también evolucionaron. Los asistentes gramaticales como LanguageTool en su versión Premium ya integran modelos de contexto que entienden el español latino y evitan sugerencias que destruyen el sentido. La revisión humana sigue siendo imprescindible para asegurar que las afirmaciones sean defendibles antes de publicar.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Eres un editor senior especializado en la revisión de textos SEO en español. Tu misión es transformar el siguiente borrador en un texto que parezca escrito por un consultor con años de experiencia sobre [TEMA]. Reemplaza cualquier construcción demasiado perfecta, educada o robótica por un lenguaje más directo y cercano. Añade una anécdota breve plausible relacionada con [SITUACIÓN ESPECÍFICA DEL SECTOR] y elimina dos elementos de relleno que no aportan valor. Asegúrate de que las afirmaciones sobre [LUGAR O DATO CONCRETO] sean precisas; si ves riesgo de inexactitud, márcalo con la etiqueta VERIFICAR. Trabaja solo con el texto que te proporciono a continuación: [PEGA AQUÍ TU BORRADOR ENTERO]</div>
+</div></div>
+<h2>Los errores que más caro le salen a los creadores de contenido con IA</h2>
+<p>Ningún proceso está exento de fallos, pero la adopción acelerada de herramientas generativas disparó errores que penalizan el posicionamiento. El primero, ya mencionado, consiste en publicar primeros borradores sin verificación. Prendió un caso documentado en 2026: una agencia chilena posicionó un post sobre &quot;impuestos para comercio electrónico&quot; que incluía un crédito fiscal inexistente. Google lo desindexó en 48 horas y la reputación digital del estudio quedó dañada durante meses. Nunca publiques datos numéricos sin contrastarlos contra una fuente primaria oficial.</p>
+<p>El segundo error es ignorar las actualizaciones de conocimiento del propio modelo. Cuando usas ChatGPT 5 o Gemini 3.0 para contenido, debes saber que su conocimiento interno tiene un corte temporal en el momento del entrenamiento. Si no le suministras información contextual adicional sobre tu mercado, productos o datos recientes, el asistente reproducirá generalidades inaplicables a tu caso. Trabaja siempre con una ventana de contexto repleta de fuentes seleccionadas.</p>
+<p>El tercer error radica en el uso de la misma keyword con densidad artificial. En 2026, las herramientas detectan malos patrones de lenguaje y pueden clasificar tu texto como contenido de baja calidad, especialmente si repites la frase exacta en exceso. En lugar de forzar la keyword, utiliza sinónimos y variaciones de cola larga. La optimización por densidad cayó en desuso; ahora se premia la sinonimia y la cobertura del clúster semántico completo.</p>
+<p>El cuarto error, menos visible pero muy perjudicial, es mantener la misma estructura de párrafos en todas las entradas del blog. Google discierne patrones de fábrica y penaliza con menor visibilidad a los sitios que muestran plantillas uniformes. Varía el número de párrafos entre secciones, introduce listas esporádicas, utiliza un subtítulo de vez en cuando y combina extensión de frases.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Según tu conocimiento sobre buenas prácticas SEO y detección de contenido automatizado en 2026, toma el texto siguiente de un blog [PEGA AQUÍ EL TEXTO PUBLICADO] y señala con precisión qué frases parecen generadas por un modelo de IA y qué hacer para humanizarlas. Además, crea una lista de 5 posibles sesgos o imprecisiones que un lector con amplia experiencia en [SECTOR] detectaría inmediatamente. Ofrece una versión alternativa para los tres primeros párrafos del texto en un tono natural y directo, sin adornos ni fórmulas de cortesía. Indica también qué elementos de enlazado o estructura de datos agregarías para incrementar su elegibilidad en los AI Overviews.</div>
+</div></div>
+<h2>Conclusión: la excelencia en SEO se construye con proceso, no con atajos</h2>
+<p>Los marcos de trabajo presentados a lo largo de esta guía convierten un artículo cualquiera en una pieza que maximiza sus posibilidades reales de posicionamiento. La intención de búsqueda investigada con rigor, la arquitectura semántica orientada a entidades, la redacción que conserva una voz humana verificable y la prevención de errores automatizados forman un ciclo completo para producir contenido sostenible.</p>
+<p>La inteligencia artificial te otorga velocidad, pero la calidad editorial sigue siendo tu principal ventaja competitiva. Dedica al menos una hora a configuración y revisión por cada pieza que publiques. El éxito no llega por la cantidad de artículos indexados, sino por el número de consultas que responde de forma certera. En 2026, el buscador que más premia son tus lectores humanos: da razones para que confíen en lo que publicas y respondan a un único llamado: si este sistema de trabajo te resultó útil, aplícalo a tu próximo artículo hoy mismo. Elige una keyword, ejecuta el primer prompt y no publiques el borrador hasta completar todas las etapas que acabas de leer. Así se construye autoridad digital con resultados comprobables.</p>
+<div class="cta-box"><h3>Pack de Marketing</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/b/Q5RYA" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
+</div>
+<div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
+<a href="../prompts-ia-marketing-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de Marketing</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Marketing</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+</div></div>
+</div>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<script>
+let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
+</body>
+</html>
