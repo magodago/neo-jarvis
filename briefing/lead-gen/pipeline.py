@@ -35,8 +35,9 @@ Ademas, podemos hacerte una web profesional en 48h con estos planes:
 --- PLANES NEO WEBS ---
 
 > BASICA · 299€ — Web responsive, SEO local, formulario de contacto, hosting 1 año
-> PREMIUM · 599€ (EL MAS ELEGIDO) — Diseno premium, SEO completo, blog, panel admin, WhatsApp integrado
+> PREMIUM · 499€ (EL MAS ELEGIDO, antes 599€) — Diseno premium, SEO completo, blog, panel admin, WhatsApp integrado
 > PREMIUM + CURSO · 699€ — Todo lo anterior + curso IA Operativa (valorado en 297€)
+> Promoción de lanzamiento: precios rebajados solo hasta el 31 de agosto
 
 ✅ Sin cuotas mensuales
 ✅ Hosting incluido 1 año

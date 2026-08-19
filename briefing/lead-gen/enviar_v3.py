@@ -33,9 +33,9 @@ Soy David, de NEO Labs. Trabajo con pequeños negocios como el tuyo en [CIUDAD].
 
 Os podemos hacer una web profesional desde 299€ (con SEO, formulario, blog si queréis). Y si contratáis cualquier pack, os regalamos nuestro mini-curso IA Operativa, valorado en 297€.
 
-Los packs:
+Los packs (promoción de lanzamiento hasta el 31 de agosto):
 ▸ Básica 299€ — Web responsive + SEO + formulario + hosting 1 año
-▸ Premium 599€ — Diseño premium + SEO completo + blog + panel (el más popular)
+▸ Premium 499€ (antes 599€) — Diseño premium + SEO completo + blog + panel (el más popular)
 ▸ Premium+Curso 699€ — Todo + curso IA Operativa incluido
 
 He hecho proyectos para negocios como el tuyo en [CIUDAD] y funcionan. Si os interesa, responded a este mail y os paso ejemplos concretos.
