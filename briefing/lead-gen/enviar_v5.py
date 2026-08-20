@@ -33,14 +33,15 @@ EMAIL_TEXTO = """Hola,
 
 Soy David, de NEO Labs. Trabajo con pequeños negocios como el tuyo en [CIUDAD].
 
-Os podemos hacer una web profesional desde 299€ (con SEO, formulario, blog si queréis). Y si contratáis cualquier pack, os regalamos nuestro mini-curso IA Operativa, valorado en 297€.
+Os podemos hacer una web profesional desde 299€ (con formulario de contacto y blog si queréis). Y si contratáis cualquier pack, os regalamos nuestro mini-curso IA Operativa, valorado en 297€.
 
 PROMOCIÓN DE LANZAMIENTO — precio rebajado solo hasta el 31 de agosto:
-▸ Básica 299€ — Web responsive + SEO + formulario + hosting 1 año
-▸ Premium 499€ (antes 599€) — Diseño premium + SEO completo + blog + panel (el más popular)
+▸ Básica 299€ — Web responsive + formulario de contacto + alojamiento web 1 año
+▸ Premium 499€ (antes 599€) — Diseño premium + blog + gestión de cambios 3 meses (el más popular)
 ▸ Premium+Curso 699€ — Todo + curso IA Operativa incluido
 
-He hecho proyectos para negocios como el tuyo en [CIUDAD] y funcionan. Si os interesa, responded a este mail y os paso ejemplos concretos.
+Si os interesa, escribidnos por WhatsApp y os contamos cómo lo haríamos para vuestro negocio:
+https://wa.me/34658237988?text=Hola%20NEO%20Labs%2C%20me%20interesa%20vuestra%20web
 
 Un saludo,
 David
@@ -60,7 +61,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 [CUERPO_HTML]
 </td></tr>
 <tr><td style="background-color:#111;padding:0 30px 30px;text-align:center">
-<a href="[LANDING]" style="display:inline-block;background:linear-gradient(135deg,#ff00ff,#cc00cc);color:#fff;text-decoration:none;padding:12px 32px;border-radius:8px;font-weight:bold;font-size:14px">VER EJEMPLOS</a></td></tr>
+<a href="https://wa.me/34658237988?text=Hola%20NEO%20Labs%2C%20me%20interesa%20vuestra%20web" style="display:inline-block;background:linear-gradient(135deg,#ff00ff,#cc00cc);color:#fff;text-decoration:none;padding:12px 32px;border-radius:8px;font-weight:bold;font-size:14px">HABLAR POR WHATSAPP</a></td></tr>
 <tr><td style="background:#080808;padding:16px 30px;border-radius:0 0 12px 12px;text-align:center;color:#555;font-size:11px">
 <div>NEO Labs &mdash; Soluciones Digitales</div>
 <div><a href="[LANDING]" style="color:#ff00ff;text-decoration:none">neolabs.es</a></div>
