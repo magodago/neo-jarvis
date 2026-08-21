@@ -1,13 +1,7 @@
-Muy buenos días David, ¿qué tal estás? Hoy amanece soleado y con 19 grados, perfecto para arrancar el día con energía.
+Muy buenos días David, viernes por fin, y con una mañana nublada pero fresca para arrancar el día con energía.
 
-SECCIÓN 1 - IA
+Mira, en el tema de la inteligencia artificial, lo más llamativo no viene de una startup, sino de Slack. Han lanzado una función llamada Slack Code que te permite programar software codo con codo con Claude, el asistente de Anthropic, sin salir de la propia plataforma. La idea es que no tengas que estar saltando de ventana en ventana, sino que el agente trabaje directamente en tu flujo de equipo. Y ojo, porque esto no es solo una herramienta más, es un paso grande para que la IA se integre de verdad en el día a día de los desarrolladores, cambiando cómo se colabora en los proyectos.
 
-Mira, hay una noticia que te va a interesar si usas Gemini: Google está regalando un año completo de Google AI Plus, pero solo si cumples un requisito que aún no han detallado del todo, aunque dicen que será para usuarios elegibles en todo el mundo. Es una jugada clara para fidelizar y que más gente se enganche a su asistente. Por otro lado, Meta ha lanzado su app de Meta AI para Mac, y esto es un movimiento directo contra ChatGPT y Claude; Zuckerberg quiere que tengas todas sus funciones a un clic, sin tener que abrir el navegador. Y ojo, porque OpenAI ha parado el entrenamiento de sus modelos más avanzados, justo después de pausar el proyecto Astra. Dicen que detectaron señales preocupantes en su capacidad ofensiva, así que han decidido frenar por precaución, lo cual dice mucho de los riesgos que manejan internamente.
+Cambiando de tercio, hay una historia que te va a remover por dentro. La BBC ha hablado con soldados nacidos en Ucrania que luchan en el bando ruso y que ahora están presos. Ellos aseguran que no se ven como traidores, sino que defendían su tierra, aunque sea la otra. Es un lío de lealtades muy complejo que muestra las grietas profundas de esta guerra. Y en Colombia, sigue resonando la imagen de los médicos del Hospital Universitario del Valle sacando niños tras el terremoto; uno de ellos dijo que su única prioridad era sacar a esos pequeños, y esa vocación heroica es de las pocas cosas buenas que deja la tragedia.
 
-SECCIÓN 2 - ACTUALIDAD
-
-Pasando a lo que ocurre en el mundo, la situación en Gaza es desgarradora: la Cruz Roja ha recibido más de 5.000 solicitudes de familias que no saben si sus seres queridos están vivos o muertos, sepultados entre los escombros o detenidos por Israel. En Venezuela, Nayarit Colmenares, la mujer que perdió su brazo tras los terremotos, cuenta que el dolor emocional por la muerte de su esposo supera al físico, y ahora busca fondos para una prótesis biónica que le permita volver a pintar. Y para terminar, fíjate que ha muerto a los 101 años el preso más anciano de Estados Unidos, un hombre que esquivó la ejecución en ocho ocasiones.
-
-DESPEDIDA
-
-Que tengas un gran día, David, y recuerda que la vida es más simple de lo que parece, solo hay que saber mirar. Nos escuchamos mañana.
+Nada más por hoy, David. Que tengas un gran día y disfruta del finde. Nos escuchamos mañana.
