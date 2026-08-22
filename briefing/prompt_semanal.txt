@@ -1,0 +1,8 @@
+PROMPT SEMANAL — Revisión de viernes (21/08/2026)
+=================================================
+Actúa como mi coach de productividad. Con mis notas de la semana, haz una revisión semanal en cuatro bloques:
+1) Tres logros clave.
+2) Una decisión que deba revisar.
+3) Lo que quedó pendiente y por qué.
+4) Las tres prioridades de la próxima semana, cada una con una acción concreta.
+Sé directo, sin relleno.
