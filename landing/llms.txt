@@ -1,0 +1,18 @@
+# NEO Labs
+
+> NEO Labs es un estudio de tecnología para empresas con base en Illescas (Toledo, España). Ofrece cinco servicios: SEO para IA (AEO), auditoría web y seguridad, webs premium, automatización con IA y captación de clientes B2B. Su sello es la evidencia: cada servicio entrega informes con datos reales (capturas de respuestas de IA, puntuaciones de seguridad, antes/después). Contacto: WhatsApp +34 658 237 988.
+
+## Servicios
+
+- [SEO para IA (AEO)](aeo.html): El SEO era para Google; el nuevo SEO es para las IA. Optimiza un negocio para que ChatGPT, Perplexity y Gemini lo citen cuando alguien pregunta por su sector o ciudad. Auditoría 400€, paquete completo 700€, mantenimiento 150€/mes. Incluye: prueba real en 3 motores de IA, schema.org, archivo llms.txt, preguntas frecuentes y bloques citables.
+- [Auditoría web y seguridad](auditoria-web.html): Auditoría no destructiva de seguridad, rendimiento y SEO técnico de una web, con informe con evidencia y priorización. Desde 350€; con parcheo 650€.
+- [Webs premium](webs-premium.html): Diseño y desarrollo de webs a medida, rápidas, adaptadas a móvil y preparadas para ser citadas por las IA.
+- [Automatización con IA](automatizacion-ia.html): Agentes de IA para automatizar procesos repetitivos de empresa: correo, informes, prospección, seguimiento de clientes.
+- [Captación de clientes B2B](captacion-leads.html): Generación de leads B2B cualificados con datos reales, mensajes personalizados y seguimiento automático.
+
+## Datos clave
+
+- Nombre: NEO Labs
+- Ciudad: Illescas, Toledo, España
+- Contacto: WhatsApp +34 658 237 988
+- Servicio estrella en 2026: SEO para IA (AEO) — "el SEO era para Google; el nuevo SEO es para las IA"
