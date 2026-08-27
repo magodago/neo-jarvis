@@ -292,5 +292,41 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
+<script>(function(){
+  document.documentElement.classList.add('js');
+  // Menu hamburguesa
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.burger');
+    if(b){
+      var l=document.querySelector('.nav-links');
+      var open=l?l.classList.toggle('open'):false;
+      b.classList.toggle('open',open);
+      b.setAttribute('aria-expanded',open?'true':'false');
+    } else if(!e.target.closest('nav')){
+      var l=document.querySelector('.nav-links');
+      if(l&&l.classList.contains('open'))l.classList.remove('open');
+      var b=document.querySelector('.burger');
+      if(b)b.classList.remove('open');
+    }
+  });
+  // Reveal escalonado al hacer scroll
+  var re=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12});
+    re.forEach(function(el){io.observe(el);});
+  } else { re.forEach(function(el){el.classList.add('in');}); }
+  // Cursor glow (solo desktop con ratón)
+  var c=document.querySelector('.cglow');
+  if(c&&window.matchMedia('(hover:hover)').matches){
+    window.addEventListener('pointermove',function(e){
+      c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
+    });
+  }
+})();
+</script>
 </body>
 </html>
