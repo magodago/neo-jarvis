@@ -184,22 +184,24 @@ html.js .reveal.in{opacity:1;transform:none}
  .aurora,.hero-fx{display:none}
  .reveal{opacity:1;transform:none}
 }
+
+canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45}
 </style>
 </head>
-<body>
+<body><div class="aurora" aria-hidden="true"></div>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Automatización con IA", "description": "Agentes de IA y automatizaciones para empresas: procesos repetitivos que se hacen solos, sin errores y sin horarios.", "provider": {"@type": "LocalBusiness", "name": "NEO Labs", "telephone": "+34658237988", "address": {"@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué puede automatizar una IA en mi empresa?", "acceptedAnswer": {"@type": "Answer", "text": "Casi cualquier tarea repetitiva y reglada: clasificar correos, responder consultas frecuentes, generar informes, hacer seguimiento de clientes, actualizar precios o catálogos, vigilar la web o la competencia."}}, {"@type": "Question", "name": "¿Es caro?", "acceptedAnswer": {"@type": "Answer", "text": "Menos que una contratación. Una automatización bien elegida suele pagarse sola en semanas, porque libera horas de trabajo manual. El precio depende del proceso; pide presupuesto y te lo decimos claro."}}, {"@type": "Question", "name": "¿Necesito saber programar?", "acceptedAnswer": {"@type": "Answer", "text": "No. Tú describes el proceso en cristiano; nosotros lo convertimos en robot. Tú solo supervisas los resultados."}}, {"@type": "Question", "name": "¿Qué pasa si la automatización falla?", "acceptedAnswer": {"@type": "Answer", "text": "Si contratas el mantenimiento, la vigilamos y la arreglamos antes de que te enteres. Si no, te entregamos todo documentado para que cualquier técnico la pueda retomar."}}]}</script>
 <canvas id="fx"></canvas>
-<div class="glow b"></div><div class="glow p"></div><div class="glow o"></div>
+
 <nav><div class="wrap">
   <a class="logo" href="servicios.html">NEO<b>LABS</b><em>·SERVICIOS</em></a>
-  <div class="nav-links">
+  <button class="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links">
     <a href="servicios.html">Servicios</a>
     <a href="aeo.html">SEO para IA</a>
     <a class="nav-cta" href="https://wa.me/34658237988?text=Hola%2C%20vengo%20de%20la%20web%20de%20servicios">Hablar con NEO</a>
   </div>
 </div></nav>
-<header class="hero"><div class="wrap">
+<header class="hero"><div class="hero-fx" aria-hidden="true"><div class="halo"></div></div><div class="wrap">
   <span class="badge">⚙️ Automatización con IA</span>
   <h1>Tu empresa tiene un empleado<br><span class="grad">que no duerme y no falla.</span></h1>
   <p class="sub">Los agentes de IA hacen el trabajo repetitivo mientras tú haces lo importante. Lo diseñamos, lo montamos y te lo entregamos funcionando, con tu equipo sin enterarse del cableado.</p>
