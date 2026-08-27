@@ -17,7 +17,8 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%}
 
 /* ===== AURORA FONDO ===== */
-.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+main,.wrap{position:relative;z-index:1}
 .aurora::before,.aurora::after{content:'';position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(90px);opacity:.16;animation:drift 26s ease-in-out infinite alternate}
 .aurora::before{background:radial-gradient(circle,#3d9bff,transparent 60%);top:-20vmax;left:-15vmax}
 .aurora::after{background:radial-gradient(circle,#ff4fd8,transparent 60%);bottom:-25vmax;right:-15vmax;animation-delay:-13s}
@@ -37,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .burger{display:none}
 
 /* ===== HERO ===== */
-.hero{min-height:74vh;display:flex;flex-direction:column;justify-content:center;padding:130px clamp(18px,5vw,44px) 70px;position:relative;text-align:center}
+.hero{display:flex;flex-direction:column;justify-content:flex-start;padding:128px clamp(18px,5vw,44px) 96px;position:relative;text-align:center;min-height:0}
 .badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:rgba(61,155,255,.09);border:1px solid rgba(61,155,255,.3);padding:8px 16px;border-radius:99px;margin-bottom:26px}
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
@@ -54,7 +55,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .btn-o:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
 .hints{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--dim)}
 .hints b{color:var(--text);font-weight:600}
-.hero-fx{position:absolute;inset:0;pointer-events:none;z-index:-1}
+.hero-fx{position:absolute;inset:0;pointer-events:none;z-index:0}
 .hero-fx .halo{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(61,155,255,.16),transparent 65%);top:12%;left:50%;transform:translateX(-50%);filter:blur(20px);animation:halo 9s ease-in-out infinite alternate}
 @keyframes halo{0%{opacity:.7;transform:translateX(-50%) scale(1)}100%{opacity:1;transform:translateX(-50%) scale(1.14)}}
 
@@ -120,8 +121,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:40px;back
 @media(hover:hover){.cglow{opacity:1}}
 
 /* ===== ENTRADAS ESCALONADAS ===== */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
-.reveal.in{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+html.js .reveal.in{opacity:1;transform:none}
 .grid .reveal:nth-child(2){transition-delay:.07s}
 .grid .reveal:nth-child(3){transition-delay:.14s}
 .grid .reveal:nth-child(4){transition-delay:.21s}
@@ -289,40 +290,6 @@ loop();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
-<script>(function(){
-  // Menu hamburguesa
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('.burger');
-    if(b){
-      var l=document.querySelector('.nav-links');
-      var open=l?l.classList.toggle('open'):false;
-      b.classList.toggle('open',open);
-      b.setAttribute('aria-expanded',open?'true':'false');
-    } else if(!e.target.closest('nav')){
-      var l=document.querySelector('.nav-links');
-      if(l&&l.classList.contains('open'))l.classList.remove('open');
-      var b=document.querySelector('.burger');
-      if(b)b.classList.remove('open');
-    }
-  });
-  // Reveal escalonado al hacer scroll
-  var re=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(en){
-        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
-      });
-    },{threshold:.12});
-    re.forEach(function(el){io.observe(el);});
-  } else { re.forEach(function(el){el.classList.add('in');}); }
-  // Cursor glow (solo desktop con ratón)
-  var c=document.querySelector('.cglow');
-  if(c&&window.matchMedia('(hover:hover)').matches){
-    window.addEventListener('pointermove',function(e){
-      c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
-    });
-  }
-})();
-</script>
+
 </body>
 </html>
