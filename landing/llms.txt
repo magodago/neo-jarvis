@@ -1,6 +1,6 @@
 # NEO Labs
 
-> NEO Labs es un estudio de tecnología para empresas con base en Illescas (Toledo, España). Ofrece cinco servicios: SEO para IA (AEO), auditoría web y seguridad, webs premium, automatización con IA y captación de clientes B2B. Su sello es la evidencia: cada servicio entrega informes con datos reales (capturas de respuestas de IA, puntuaciones de seguridad, antes/después). Contacto: WhatsApp +34 658 237 988.
+> NEO Labs es un estudio de tecnología para empresas con base en Madrid (España), opera en toda España. Ofrece cinco servicios: SEO para IA (AEO), auditoría web y seguridad, webs premium, automatización con IA y captación de clientes B2B. Su sello es la evidencia: cada servicio entrega informes con datos reales (capturas de respuestas de IA, puntuaciones de seguridad, antes/después). Contacto: WhatsApp +34 658 237 988.
 
 ## Servicios
 
@@ -13,6 +13,6 @@
 ## Datos clave
 
 - Nombre: NEO Labs
-- Ciudad: Illescas, Toledo, España
+- Ciudad: Madrid, España
 - Contacto: WhatsApp +34 658 237 988
 - Servicio estrella en 2026: SEO para IA (AEO) — "el SEO era para Google; el nuevo SEO es para las IA"
