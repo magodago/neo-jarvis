@@ -184,22 +184,24 @@ html.js .reveal.in{opacity:1;transform:none}
  .aurora,.hero-fx{display:none}
  .reveal{opacity:1;transform:none}
 }
+
+canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45}
 </style>
 </head>
-<body>
+<body><div class="aurora" aria-hidden="true"></div>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Captación de clientes B2B", "description": "Generación de leads B2B cualificados para empresas: prospección automática, personalización de mensajes y seguimiento. Tu equipo comercial con cientos de contactos cada semana.", "provider": {"@type": "LocalBusiness", "name": "NEO Labs", "telephone": "+34658237988", "address": {"@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Es legal esto? ¿No es spam?", "acceptedAnswer": {"@type": "Answer", "text": "Trabajamos con datos públicos y contactos comerciales B2B, que es un ámbito legal en España (LOPD/LSSI para comunicaciones comerciales a empresas). Siempre con opción de baja y respetando las listas de exclusión."}}, {"@type": "Question", "name": "¿Cuántos leads me conseguís?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de tu sector y tu zona: desde decenas hasta cientos por semana. Primero definimos tu cliente ideal y calculamos el potencial real de tu zona."}}, {"@type": "Question", "name": "¿Y si mi sector es muy nicho?", "acceptedAnswer": {"@type": "Answer", "text": "Mejor. Cuanto más específico, más fácil encontrar a los pocos que te interesan y menos competencia por su atención."}}, {"@type": "Question", "name": "¿Necesito equipo comercial?", "acceptedAnswer": {"@type": "Answer", "text": "Para convertir, sí: alguien que llame o responda. Nosotros te damos los contactos y el mensaje; la venta final es tuya."}}]}</script>
 <canvas id="fx"></canvas>
-<div class="glow b"></div><div class="glow p"></div><div class="glow o"></div>
+
 <nav><div class="wrap">
   <a class="logo" href="servicios.html">NEO<b>LABS</b><em>·SERVICIOS</em></a>
-  <div class="nav-links">
+  <button class="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links">
     <a href="servicios.html">Servicios</a>
     <a href="aeo.html">SEO para IA</a>
     <a class="nav-cta" href="https://wa.me/34658237988?text=Hola%2C%20vengo%20de%20la%20web%20de%20servicios">Hablar con NEO</a>
   </div>
 </div></nav>
-<header class="hero"><div class="wrap">
+<header class="hero"><div class="hero-fx" aria-hidden="true"><div class="halo"></div></div><div class="wrap">
   <span class="badge">🎯 Captación de clientes B2B</span>
   <h1>Deja de buscar clientes.<br><span class="grad">Que los clientes lleguen a ti.</span></h1>
   <p class="sub">Leads B2B reales y cualificados para tu negocio, con mensajes personalizados y seguimiento automático. Tu equipo comercial solo tiene que vender.</p>

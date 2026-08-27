@@ -184,22 +184,24 @@ html.js .reveal.in{opacity:1;transform:none}
  .aurora,.hero-fx{display:none}
  .reveal{opacity:1;transform:none}
 }
+
+canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45}
 </style>
 </head>
-<body>
+<body><div class="aurora" aria-hidden="true"></div>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Webs premium", "description": "Diseño y desarrollo de webs premium para negocios: diseño cuidado, carga rápida, adaptadas a móvil y optimizadas para ser citadas por las IA.", "provider": {"@type": "LocalBusiness", "name": "NEO Labs", "telephone": "+34658237988", "address": {"@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta una web premium?", "acceptedAnswer": {"@type": "Answer", "text": "Cada web es a medida, así que el precio depende del número de páginas y secciones. Pídenos presupuesto por WhatsApp y te lo decimos en 24h, sin compromiso."}}, {"@type": "Question", "name": "¿Cuánto tarda?", "acceptedAnswer": {"@type": "Answer", "text": "Entre 2 y 4 semanas según el tamaño. Tú ves la web en construcción y apruebas antes de publicar."}}, {"@type": "Question", "name": "¿Incluye el dominio y el hosting?", "acceptedAnswer": {"@type": "Answer", "text": "Te ayudamos a tenerlos o gestionamos la conexión con los que ya tengas. La web queda publicada en tu dominio."}}, {"@type": "Question", "name": "¿La web sirve para aparecer en Google y en las IA?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Cada web sale con la base técnica lista: datos estructurados, velocidad y contenido claro. El siguiente paso natural es el servicio de SEO para IA (AEO), que muchos clientes contratan justo después."}}]}</script>
 <canvas id="fx"></canvas>
-<div class="glow b"></div><div class="glow p"></div><div class="glow o"></div>
+
 <nav><div class="wrap">
   <a class="logo" href="servicios.html">NEO<b>LABS</b><em>·SERVICIOS</em></a>
-  <div class="nav-links">
+  <button class="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links">
     <a href="servicios.html">Servicios</a>
     <a href="aeo.html">SEO para IA</a>
     <a class="nav-cta" href="https://wa.me/34658237988?text=Hola%2C%20vengo%20de%20la%20web%20de%20servicios">Hablar con NEO</a>
   </div>
 </div></nav>
-<header class="hero"><div class="wrap">
+<header class="hero"><div class="hero-fx" aria-hidden="true"><div class="halo"></div></div><div class="wrap">
   <span class="badge">✨ Webs premium</span>
   <h1>Una web que parece de agencia grande.<br><span class="grad">Sin el precio de agencia grande.</span></h1>
   <p class="sub">Webs a medida con diseño cuidado, carga rápida y preparadas desde el día uno para que las IA te entiendan y te citen. Tú pones el negocio; nosotros, la vitrina.</p>
