@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>:root{--bg:#07070f;--blue:#3d9bff;--pink:#ff4fd8;--orange:#ff9f43;--text:#eef0f8;--dim:#9aa0b8;--card:rgba(255,255,255,.04);--card2:rgba(255,255,255,.055);--line:rgba(255,255,255,.09)}
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}html,body{overflow-x:hidden}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.logo,.price .amt{font-family:'Space Grotesk','Inter',sans-serif}
@@ -56,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .hints{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--dim)}
 .hints b{color:var(--text);font-weight:600}
 .hero-fx{position:absolute;inset:0;pointer-events:none;z-index:0}
-.hero-fx .halo{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(61,155,255,.16),transparent 65%);top:12%;left:50%;transform:translateX(-50%);filter:blur(20px);animation:halo 9s ease-in-out infinite alternate}
+.hero-fx .halo{position:absolute;width:min(520px,92vw);height:min(520px,92vw);border-radius:50%;background:radial-gradient(circle,rgba(61,155,255,.16),transparent 65%);top:12%;left:50%;transform:translateX(-50%);filter:blur(20px);animation:halo 9s ease-in-out infinite alternate}
 @keyframes halo{0%{opacity:.7;transform:translateX(-50%) scale(1)}100%{opacity:1;transform:translateX(-50%) scale(1.14)}}
 
 /* ===== SECCIONES ===== */
