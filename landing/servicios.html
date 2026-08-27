@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Servicios de NEO Labs — Web, seguridad, SEO para IA y automatización</title>
+<meta name="description" content="Todos los servicios de NEO Labs: SEO para IA (AEO), auditoría web y seguridad, webs premium, automatización con IA y captación de clientes B2B. Con base en Illescas, Toledo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>:root{--bg:#0a0a14;--blue:#3d9bff;--pink:#ff4fd8;--orange:#ff9f43;--text:#e8eaf2;--dim:#9aa0b5;--card:#12121f;--line:rgba(255,255,255,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;line-height:1.6}
+h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+.glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.22;z-index:0;pointer-events:none;animation:drift 18s ease-in-out infinite alternate}
+.glow.b{background:var(--blue);width:520px;height:520px;top:-140px;left:-120px}
+.glow.p{background:var(--pink);width:460px;height:460px;bottom:-160px;right:-100px;animation-delay:-6s}
+.glow.o{background:var(--orange);width:360px;height:360px;top:40%;left:60%;opacity:.10;animation-delay:-12s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(60px,40px) scale(1.15)}}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 22px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,10,20,.72);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:19px;letter-spacing:.3px;text-decoration:none;color:var(--text)}
+.logo b{color:var(--blue)}.logo em{color:var(--pink);font-style:normal}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{color:var(--dim);text-decoration:none;font-size:14px;font-weight:600}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(90deg,var(--blue),var(--pink));color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.hero{min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding-top:110px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,155,255,.12);border:1px solid rgba(61,155,255,.35);color:var(--blue);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;letter-spacing:.4px;text-transform:uppercase;width:fit-content}
+.hero h1{font-size:clamp(34px,6vw,64px);font-weight:700;margin:24px 0 20px}
+.hero h1 .grad{background:linear-gradient(92deg,var(--blue),var(--pink) 55%,var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:clamp(16px,2.2vw,20px);color:var(--dim);max-width:660px}
+.cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .15s,box-shadow .2s;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(90deg,var(--blue),var(--pink));color:#fff;box-shadow:0 8px 30px rgba(61,155,255,.35)}
+.btn.ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--line)}
+section{padding:84px 0;border-top:1px solid var(--line)}
+.sec-tag{font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:700}
+h2{font-size:clamp(26px,4vw,40px);margin:14px 0 16px;font-weight:700}
+.lead{color:var(--dim);font-size:17px;max-width:680px;margin-bottom:40px}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s;text-decoration:none;color:var(--text)}
+.card:hover{transform:translateY(-4px);border-color:rgba(61,155,255,.4)}
+.card .ico{font-size:26px;margin-bottom:14px}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{color:var(--dim);font-size:14.5px}
+.card .go{color:var(--blue);font-weight:700;font-size:13.5px;margin-top:14px;display:block}
+.card.hot{border-color:rgba(255,79,216,.5);background:linear-gradient(180deg,rgba(255,79,216,.07),var(--card))}
+.steps{display:grid;gap:16px}
+.step{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.step .num{flex-shrink:0;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:19px;background:linear-gradient(135deg,var(--blue),var(--pink));color:#fff}
+.step h3{font-size:17px;margin-bottom:6px}
+.step p{color:var(--dim);font-size:14.5px}
+.price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.price-row{grid-template-columns:1fr}}
+.price{border-radius:18px;padding:30px 26px;background:var(--card);border:1px solid var(--line);position:relative;display:flex;flex-direction:column}
+.price.hot{border-color:var(--pink);background:linear-gradient(180deg,rgba(255,79,216,.10),var(--card));box-shadow:0 18px 50px rgba(255,79,216,.15)}
+.price .tag2{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue),var(--pink));color:#fff;font-size:11.5px;font-weight:700;padding:5px 14px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.price h3{font-size:14.5px;text-transform:uppercase;letter-spacing:1.2px;color:var(--dim);font-weight:600}
+.price .amt{font-family:'Space Grotesk';font-size:42px;font-weight:700;margin:12px 0 4px}
+.price .amt span{font-size:17px;color:var(--dim);font-weight:500}
+.price ul{list-style:none;margin:18px 0 24px;flex-grow:1}
+.price li{font-size:14px;padding:7px 0;color:var(--dim);border-bottom:1px dashed rgba(255,255,255,.07)}
+.price li::before{content:"✓ ";color:var(--blue);font-weight:700}
+.price .btn{justify-content:center}
+.faq-q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+.faq-q h3{font-size:15.5px;margin-bottom:4px}
+.faq-q p{color:var(--dim);font-size:14px}
+.final{text-align:center;padding:100px 0}
+.final h2{max-width:720px;margin-left:auto;margin-right:auto}
+.final .btn{font-size:18px;padding:18px 38px}
+footer{padding:36px 0;border-top:1px solid var(--line);color:var(--dim);font-size:13px;text-align:center}
+footer a{color:var(--dim)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}</style>
+</head>
+<body>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "NEO Labs", "description": "Estudio de tecnología para empresas: SEO para IA (AEO), auditoría web y seguridad, webs premium, automatización con IA y captación de clientes B2B.", "telephone": "+34658237988", "address": {"@type": "PostalAddress", "addressLocality": "Illescas", "addressRegion": "Toledo", "addressCountry": "ES"}, "areaServed": {"@type": "City", "name": "Illescas"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿NEO Labs tiene oficina o trabaja online?", "acceptedAnswer": {"@type": "Answer", "text": "Trabajamos online en toda España, con base en Illescas (Toledo). Las webs, auditorías y automatizaciones se gestionan a distancia; si estás cerca, podemos vernos en persona."}}, {"@type": "Question", "name": "¿Hacéis webs para cualquier tipo de negocio?", "acceptedAnswer": {"@type": "Answer", "text": "Sí: tiendas, restaurantes, clínicas, talleres, despachos, servicios. Cada web se adapta al sector del cliente, con su tono, su paleta y su público."}}, {"@type": "Question", "name": "¿Qué diferencia a NEO Labs de una agencia normal?", "acceptedAnswer": {"@type": "Answer", "text": "La evidencia. Cada servicio entrega un informe con datos reales: puntuación de seguridad, respuestas de las IA, informes técnicos. Sabes exactamente qué pagas y qué has conseguido."}}, {"@type": "Question", "name": "¿Puedo contratar varios servicios?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, y es lo habitual: la auditoría descubre fallos que se arreglan con el parcheo, y el AEO funciona mejor sobre una web que ya carga rápido y está bien estructurada."}}]}</script>
+<canvas id="fx"></canvas>
+<div class="glow b"></div><div class="glow p"></div><div class="glow o"></div>
+<nav><div class="wrap">
+  <a class="logo" href="servicios.html">NEO<b>LABS</b><em>·SERVICIOS</em></a>
+  <div class="nav-links">
+    <a href="servicios.html">Servicios</a>
+    <a href="aeo.html">SEO para IA</a>
+    <a class="nav-cta" href="https://wa.me/34658237988?text=Hola%2C%20vengo%20de%20la%20web%20de%20servicios">Hablar con NEO</a>
+  </div>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <span class="badge">✦ NEO Labs — Estudio de tecnología para empresas</span>
+  <h1>Tu negocio debe aparecer,<br><span class="grad">aguantar y vender en 2026.</span></h1>
+  <p class="sub">Cinco servicios, un solo proveedor. Cada uno con diagnóstico previo y entrega con evidencia: capturas, informes y datos reales. Sin humo, sin permanencias, sin letra pequeña.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="https://wa.me/34658237988?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios">Contar qué necesito →</a>
+    <a class="btn ghost" href="#como">Cómo funciona</a>
+  </div>
+</div></header>
+<section id="como"><div class="wrap"><div class="sec-tag">Todo lo que NEO Labs hace</div>
+<h2>Un solo proveedor para que tu negocio aparezca, aguante y venda en 2026</h2>
+<p class="lead">NEO Labs es un estudio de tecnología en Illescas (Toledo) que trabaja con negocios locales y digitales. No vendemos humo: cada servicio termina con evidencia — capturas, informes y datos antes/después.</p>
+<div class="grid g2"><a class="card reveal hot" href="aeo.html"><div class="ico">🤖</div><h3>SEO para IA (AEO)</h3><p>El SEO era para Google. El nuevo SEO es para las IA. Haz que ChatGPT, Perplexity y Gemini citen tu negocio.</p><span class="go">Desde 400€ →</span></a><a class="card reveal " href="auditoria-web.html"><div class="ico">🛡️</div><h3>Auditoría web y seguridad</h3><p>Encontramos los fallos de tu web antes que los atacantes: informe con evidencia y parcheo.</p><span class="go">Desde 350€ →</span></a><a class="card reveal " href="webs-premium.html"><div class="ico">✨</div><h3>Webs premium</h3><p>Una web que parece de agencia grande: diseño premium, rápida y que convierte visitas en mensajes.</p><span class="go">A medida →</span></a><a class="card reveal " href="automatizacion-ia.html"><div class="ico">⚙️</div><h3>Automatización con IA</h3><p>Agentes y robots que hacen el trabajo repetitivo de tu empresa mientras duermes.</p><span class="go">A medida →</span></a><a class="card reveal " href="captacion-leads.html"><div class="ico">🎯</div><h3>Captación de clientes B2B</h3><p>Tu equipo comercial con cientos de leads cualificados cada semana, sin tocar un teléfono.</p><span class="go">A medida →</span></a></div>
+<div style="margin-top:44px" class="steps">
+<div class="step reveal"><div class="num">1</div><div><h3>¿Qué necesitas?</h3><p>Cuéntanos tu situación por WhatsApp. Sin formularios, sin esperas: respondemos en horas.</p></div></div>
+<div class="step reveal"><div class="num">2</div><div><h3>Diagnóstico gratis</h3><p>Si es un problema de web, te decimos qué falla. Si es de visibilidad, comprobamos qué dicen las IA de ti. Siempre antes de cobrar nada.</p></div></div>
+<div class="step reveal"><div class="num">3</div><div><h3>Ejecución con evidencia</h3><p>Hacemos el trabajo y te entregamos el antes/después con datos reales: puntuaciones, capturas de IA, informes técnicos.</p></div></div>
+</div></div></section>
+<section><div class="wrap"><div class="sec-tag">Preguntas frecuentes</div><h2>Lo que todo el mundo pregunta</h2><div class="faq-q"><h3>¿NEO Labs tiene oficina o trabaja online?</h3><p>Trabajamos online en toda España, con base en Illescas (Toledo). Las webs, auditorías y automatizaciones se gestionan a distancia; si estás cerca, podemos vernos en persona.</p></div><div class="faq-q"><h3>¿Hacéis webs para cualquier tipo de negocio?</h3><p>Sí: tiendas, restaurantes, clínicas, talleres, despachos, servicios. Cada web se adapta al sector del cliente, con su tono, su paleta y su público.</p></div><div class="faq-q"><h3>¿Qué diferencia a NEO Labs de una agencia normal?</h3><p>La evidencia. Cada servicio entrega un informe con datos reales: puntuación de seguridad, respuestas de las IA, informes técnicos. Sabes exactamente qué pagas y qué has conseguido.</p></div><div class="faq-q"><h3>¿Puedo contratar varios servicios?</h3><p>Sí, y es lo habitual: la auditoría descubre fallos que se arreglan con el parcheo, y el AEO funciona mejor sobre una web que ya carga rápido y está bien estructurada.</p></div></div></section>
+<section class="final"><div class="wrap">
+  <h2>Hablemos de tu caso.<br><span class="grad" style="background:linear-gradient(92deg,var(--blue),var(--pink) 55%,var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent">Sin compromiso.</span></h2>
+  <p class="lead" style="margin:22px auto 36px">Cuéntanos qué necesitas y te decimos en 24h si podemos ayudarte y cuánto costaría.</p>
+  <a class="btn primary" href="https://wa.me/34658237988?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios">Escribir a NEO →</a>
+</div></section>
+<footer><div class="wrap">NEO Labs — Auditoría web, seguridad, SEO para IA, webs premium y automatización. Illescas, Toledo. <a href="servicios.html">Todos los servicios</a></div></footer>
+<script>
+const c=document.getElementById('fx'),x=c.getContext('2d');let P=[],W,H;
+function sz(){W=c.width=innerWidth;H=c.height=innerHeight}
+sz();addEventListener('resize',sz);
+const N=innerWidth<700?28:55;
+for(let i=0;i<N;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+.4,sx:(Math.random()-.5)*.35,sy:(Math.random()-.5)*.35,a:Math.random()*.5+.15,c:['61,155,255','255,79,216','255,159,67'][i%3]});
+function loop(){x.clearRect(0,0,W,H);for(const p of P){p.x+=p.sx;p.y+=p.sy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle=`rgba(${p.c},${p.a})`;x.fill()}requestAnimationFrame(loop)}
+loop();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
