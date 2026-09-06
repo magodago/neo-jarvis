@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
+<title>Guía práctica para refactorizar código usando inteligencia artificial — NEO Labs</title>
+<meta name="description" content="Aprende paso a paso cómo refactorizar código con la ayuda de la inteligencia artificial.">
+<link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/programacion/refactorizar-cdigo-tutorial.html">
+<meta property="og:title" content="Guía práctica para refactorizar código usando inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--brand:#ab47bc;--brand-dark:#7b1fa2;--brand-light:#ce93d8;--bg:#050508;--bg2:#0c0c14;--bg3:#11111a;--text:#ede8e0;--text-muted:#a09888;--font-display:'Syne',sans-serif;--font-body:'Sora',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.8;touch-action:pan-y}
+a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.breadcrumb{font-size:.75rem;color:#6a6558;padding-top:100px;margin-bottom:8px}.breadcrumb a{color:#6a6558}.breadcrumb a:hover{color:var(--brand)}
+.article-header{margin-bottom:32px}
+.article-header .cat-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(212,168,83,.15);color:var(--brand);margin-bottom:14px}
+.article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
+.article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-hero{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.article-hero img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}
+.article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
+.article-body p strong{color:var(--text)}
+.article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
+.prompt-box{background:var(--bg3);border-left:3px solid var(--brand);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0 22px}
+.prompt-box .prompt-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--brand);font-weight:600;margin-bottom:4px}
+.prompt-box .prompt-text{font-size:.85rem;color:#d0c8bc;line-height:1.7;font-style:italic}
+.cta-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.9));border:1px solid rgba(212,168,83,.2);border-radius:14px;padding:32px 24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--brand);margin-bottom:6px}
+.cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
+.btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#7b1fa2,#ab47bc,#ce93d8);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand);background:transparent}
+.btn-outline:hover{background:rgba(212,168,83,.1)}
+.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}
+.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}
+.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:#6a6558}
+.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
+.related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
+.related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;transition:all .3s;text-decoration:none;display:block}
+.related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
+.related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
+.related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
+.related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
+footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
+footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
+footer .copy{font-size:.68rem;color:#6a6558}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#nav.hidden{transform:translateY(-100%)}
+#nav .nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}
+#nav .nav-logo span{color:var(--brand)}
+#nav .nav-links{display:flex;list-style:none;gap:24px;margin:0;padding:0}
+#nav .nav-links li a{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}
+#nav .nav-links li a:hover{color:var(--brand)}
+#progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#7b1fa2,#ce93d8);z-index:9999;transition:width .1s}
+.cta-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}#nav{padding:12px 16px}#nav .nav-links{gap:14px}#nav .nav-links li a{font-size:.7rem}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guía práctica para refactorizar código usando inteligencia artificial","description":"Aprende paso a paso cómo refactorizar código con la ayuda de la inteligencia artificial.","datePublished":"2026-09-06","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/programacion/refactorizar-cdigo-tutorial.html"}}</script>
+</head>
+<body><div id="progress"></div>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<div class="wrap">
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Programación</a> <span>/</span> <span>Guía práctica para refactorizar código usando inte</span></div>
+<div class="article-header">
+<span class="cat-tag">Tutorial</span>
+<h1>Guía práctica para refactorizar código usando inteligencia artificial</h1>
+<div class="meta"><span>6 September 2026</span><span>9 min de lectura</span></div>
+</div>
+<div class="article-hero"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=780&h=400&fit=crop" alt="Guía práctica para refactorizar código usando inteligencia artificial" loading="lazy"></div>
+<div class="article-body">
+<p>Refactorizar no es un lujo ni un capricho de puristas del código limpio. Es una disciplina financiera: cada mes que pasa sin limpiar la maraña, el equipo multiplica el tiempo de entrega de cada nueva funcionalidad y duplica el riesgo de introducir regresiones. He visto equipos enteros convencidos de que su prioridad era escribir código nuevo cuando, en realidad, su velocidad de entrega estaba secuestrada por una clase de 3000 líneas con dependencias ocultas. La solución correcta no pasa por reescribir el sistema desde cero —eso casi siempre termina en otra pesadilla—, sino por una estrategia metódica de refactorización quirúrgica.</p>
+<p>Este tutorial parte de una premisa: refactorizas para reducir el coste de la siguiente entrega, no para dejar un repositorio bonito. A continuación tienes un método práctico, con indicadores objetivos, herramientas concretas y las salvaguardas que funcionan incluso cuando el equipo no tiene cultura de testing.</p>
+<h2>Qué refactorizar: evidencia en lugar de corazonadas</h2>
+<p>El error más caro es refactorizar el archivo que odias en lugar del archivo que perjudica la facturación del producto. Para decidir con datos, combina métricas cuantitativas y señales cualitativas. Una complejidad ciclomática superior a diez en una función, una profundidad de anidamiento mayor de tres niveles o una clase que supera las quinientas líneas son síntomas evidentes. Pero la señal más valiosa es la frecuencia de cambios: si un módulo pequeño recibe parches constantes para corregir efectos secundarios, ahí se concentra la deuda.</p>
+<p>Recomiendo generar un mapa de hotspots a partir del historial de git. Identifica qué archivos acumulan más commits de corrección y qué funciones aparecen vinculadas a más incidencias en un período reciente. Un buen candidato tiene dos propiedades: abundan los defectos y cada corrección provoca otro fallo.</p>
+<p>El ejemplo clásico es una pasarela de pagos con varias promociones. Imagina una función `calcularTotal` de ciento veinte líneas con ocho `if` encadenados que aplican descuentos, cupones y tarjetas regalo. En producción aparece un fallo donde un cupón caducado se restaba después del descuento corporativo. Lo arreglas, y dos semanas después detectas el caso inverso. Ese archivo te está cobrando peaje cada vez que cambia un filtro; ahí debes intervenir, no en el módulo de facturación que apenas se toca.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como un consultor senior de refactorización. Analiza el repositorio [URL o ruta local] y prioriza los candidatos a refactorizar. Usa como criterio la frecuencia de commits de corrección, el recuento de incidentes asociados y la complejidad ciclomática de los archivos. Devuélveme una tabla priorizada con estos campos: archivo, severidad, riesgo estimado de la intervención y tipo de refactorización recomendada (extracción de función, division de clase, eliminación de condicionales anidados, etc.). No sugieras reescrituras completas.</div>
+</div></div>
+<h2>La malla de seguridad: pruebas de caracterización</h2>
+<p>El obstáculo número uno para refactorizar con garantías es que el código legado no tiene tests. Cuando heredas un sistema con varias reglas de negocio acopladas, escribe pruebas de caracterización antes de tocar una sola línea. Consisten en ejecutar el sistema con entradas conocidas y registrar la salida actual como comportamiento de referencia: primero capturas la realidad, luego determinas si esa realidad es un bug o la regla correcta.</p>
+<p>Después de fijar el comportamiento, aplica micro-pasos: cada extracción de código debe durar menos de quince minutos e ir seguida de una ejecución completa de la suite. En una arquitectura con dependencias externas, aísla con interfaces en memoria para evitar llamadas reales a la pasarela de pago; por ejemplo, sustituye el cliente HTTP por un doble que devuelva escenarios fijos.</p>
+<p>Un segundo ejemplo, esta vez en el frontend: un componente React de carrito muestra descuentos acumulables mediante un `useEffect` que muta un estado derivado. El equipo lo ha tocado seis veces y cada cambio altera el cálculo entre envíos e impuestos. Antes de refactorizar el componente, escribes una prueba que renderice el carrito con combinaciones de productos y verifique que el total no cambie después de cada refactor. Esa prueba no garantiza que el cálculo sea correcto, sino que tu intervención no altera la conducta anterior. Con ese blindaje, puedes extraer la lógica de cálculo a un `reducer` puro fuera de la interfaz.</p>
+<p>La disciplina correcta consiste en cambiar la estructura sin alterar el comportamiento en el mismo commit. Si detectas que una prueba exige modificar la regla porque el comportamiento actual es erróneo, hazlo en un commit posterior, con una prueba nueva que documente la intención. Mezclar ambas tareas produce diffs enormes e imposibles de auditar.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Genera una suite de pruebas de caracterización para el archivo [ruta del archivo] del lenguaje [lenguaje]. Utiliza el framework [Jest/Pytest/JUnit]. Cada prueba debe capturar el comportamiento actual sin modificar ninguna dependencia externa. Para ello, introduce dobles de las funciones señaladas en la siguiente lista [lista de dependencias externas]. La suite debe tener un nivel de precisión del [porcentaje] por ciento de cobertura sobre las ramas condicionales del archivo. Escribe las pruebas listas para ejecutar e indica los comandos necesarios.</div>
+</div></div>
+<h2>Las herramientas y la inteligencia artificial en 2026</h2>
+<p>El arsenal técnico actual permite automatizar mucho más que el estilo. En 2026, herramientas como SonarQube y ESLint con sus reglas de complejidad cognitiva detectan automáticamente fragmentos con demasiadas decisiones. Pero el cambio más significativo está en los asistentes entrenados con contextos amplios: las modificaciones de ChatGPT en su versión GPT-5.1, Claude Opus 4.6 con su ventana de dos millones de tokens y Gemini 3.5 Pro pueden procesar archivos completos y proponer refactorizaciones con una consciencia contextual que hace dos años era ciencia ficción.</p>
+<p>Mi consejo es delegar la parte mecánica, pero conservar el criterio. Un asistente puede reducir el ruido de un condicional con veinte ramas extrayendo una tabla de decisión, o puede eliminar variables intermedias que no aportan nada. Lo que no debes hacer es aceptar una sugerencia estructural sin comprenderla. Los modelos de 2026 siguen siendo brillantes para proponer el patrón que han visto millones de veces, pero no entienden tus restricciones empresariales. Cada sugerencia de impacto alto debe venir acompañada de una prueba que la valide.</p>
+<p>Aquí es donde entra una práctica que yo llamo refactorización asistida en dos turnos: primero le pides a una IA que identifique duplicación en una función específica y genere una propuesta de extracción; luego ejecutas tu suite de caracterización. Si las pruebas pasan y la lectura del nuevo código es más simple, haces el merge. Si las pruebas fallan, descartas el cambio sin debate emocional. El asistente no debe escalar su propuesta a todo el módulo por su cuenta.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Eres un experto en refactorización de [lenguaje] con acceso al siguiente bloque de código: [pega aquí el código completo]. Identifica los tres peores code smells según la complejidad cognitiva y la duplicación. Para cada uno, propón una transformación de refactorización concreta (no un patrón decorativo) que preserve el comportamiento externo. Entrega un plan en este formato: 1) fragmento original censurado, 2) fragmento transformado, 3) prueba mínima que demuestre equivalencia. Si hay más de tres candidatos, elige los de mayor relación impacto sobre riesgo. No expliques conceptos genéricos.</div>
+</div></div>
+<h2>Errores comunes que convierten la mejora en tragedia</h2>
+<p>La primera equivocación es la protagonista de miles de incidentes: mezclar la refactorización con la incorporación de una característica nueva. La presión comercial tiende a premiar el &quot;de paso&quot;, aunque las estadísticas demuestran que el código que cambia de estructura y de comportamiento a la vez triplica la probabilidad de defectos graves. Separa ambos cambios o asegúrate de que la funcionalidad se incorpora en una rama independiente y con sus propias pruebas.</p>
+<p>El segundo error recurrente es la fiebre por modernizar sin motivo de rendimiento o mantenimiento. Migrar de una librería a otra, cambiar la arquitectura o introducir un patrón sofisticado para un problema sencillo suela ser un ejercicio de vanidad técnica. Refactoriza con una razón económica: se acabó el mantenimiento, hay demasiadas incidencias o el coste de una entrega es inviable. Si ninguna de las tres se cumple, es mejor invertir en documentación y pruebas que en cirugía estética.</p>
+<p>Otro tropiezo habitual es ignorar los efectos secundarios a nivel de flujo de datos: una función que &quot;solo calcula&quot; una promoción puede estar llamando a un sistema de auditoría o actualizando la sesión del usuario. Antes de extraer cualquier fragmento, revisa las variables externas que toca: estado global, almacenamiento, configuración mutable. Esos acoplamientos invisibles son la causa principal de que una extracción aparentemente inocente rompa producción en un escenario no contemplado.</p>
+<p>Por último, el error que más estragos hará con las nuevas capacidades de la IA: confiar en la corrección automática. Los modelos de 2026 son fluidos y contundentes, pero su conf</p>
+<div class="cta-box"><h3>Pack de Programación</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/b/XTEG5" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
+</div>
+<div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
+<a href="../prompts-ia-programacion-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de Programación</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Programación</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+</div></div>
+</div>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<script>
+let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
+let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
+</script>
+</body>
+</html>
