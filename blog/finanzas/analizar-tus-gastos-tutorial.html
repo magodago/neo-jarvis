@@ -2,10 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>Guia practica para analizar tus gastos usando inteligencia artificial — NEO Labs</title>
-<meta name="description" content="Aprende paso a paso como analizar tus gastos con la ayuda de la inteligencia artificial.">
+<meta name="google-site-verification" content="w3_O1vE9YvSH3fIDDeRzIhIQ63TuAPOz5GZxS0E2Kgo" />
+<title>Guía práctica para analizar tus gastos usando inteligencia artificial — NEO Labs</title>
+<meta name="description" content="Aprende paso a paso cómo analizar tus gastos con la ayuda de la inteligencia artificial.">
 <link rel="canonical" href="https://magodago.github.io/neo-jarvis/blog/finanzas/analizar-tus-gastos-tutorial.html">
-<meta property="og:title" content="Guia practica para analizar tus gastos usando inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Guía práctica para analizar tus gastos usando inteligencia artificial"><meta property="og:type" content="article"><meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://davidformulas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://davidformulas.goatcounter.com/count?p=/test"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,6 +22,8 @@ a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
 .article-header h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
 .article-header .meta{display:flex;gap:16px;font-size:.8rem;color:#6a6558;flex-wrap:wrap}
 .article-body h2{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin:32px 0 10px;letter-spacing:-.3px}
+.article-hero{margin-bottom:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.article-hero img{width:100%;height:auto;display:block;border-radius:14px;aspect-ratio:1200/630;object-fit:cover}
 .article-body p{font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:14px}
 .article-body p strong{color:var(--text)}
 .article-body ul, .article-body ol{padding-left:24px;margin-bottom:14px;color:var(--text-muted);font-size:.92rem;line-height:1.8}
@@ -30,6 +35,18 @@ a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
 .cta-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:16px}
 .btn{padding:11px 28px;border-radius:8px;font-family:var(--font-display);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .35s;border:none;cursor:pointer;display:inline-block;background:linear-gradient(135deg,#388e3c,#66bb6a,#a5d6a7);color:var(--bg);box-shadow:0 4px 30px rgba(212,168,83,.18)}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,168,83,.3)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand);background:transparent}
+.btn-outline:hover{background:rgba(212,168,83,.1)}
+.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}
+.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}
+.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}
+.nl-input:focus{border-color:var(--brand)}
+.nl-input::placeholder{color:#6a6558}
+.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}
 .related-section{padding:32px 0;border-top:1px solid rgba(255,255,255,.05);margin-top:32px}
 .related-section h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--brand);margin-bottom:12px}
 .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
@@ -37,44 +54,78 @@ a{color:var(--brand);text-decoration:none}a:hover{filter:brightness(1.2)}
 .related-card:hover{background:rgba(212,168,83,.05);border-color:rgba(212,168,83,.2);transform:translateY(-2px)}
 .related-card .cat{font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--brand)}
 .related-card h4{font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#fff}
-.{}related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+.related-card p{font-size:.7rem;color:var(--text-muted);margin-top:2px}
 footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);padding:36px 24px 20px;text-align:center}
 footer .logo{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;color:#fff}footer .logo span{color:#d4a853}
 footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}footer .links a{color:var(--text-muted);font-size:.78rem}footer .links a:hover{color:var(--brand)}
 footer .copy{font-size:.68rem;color:#6a6558}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;padding:12px 28px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#nav.hidden{transform:translateY(-100%)}
+#nav .nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-1px;color:#fff}
+#nav .nav-logo span{color:var(--brand)}
+#nav .nav-links{display:flex;list-style:none;gap:24px;margin:0;padding:0}
+#nav .nav-links li a{color:var(--text-muted);font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-decoration:none}
+#nav .nav-links li a:hover{color:var(--brand)}
 #progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#388e3c,#a5d6a7);z-index:9999;transition:width .1s}
-.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}}
-.nl-box{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(5,5,8,.95));border:1px solid rgba(212,168,83,.2);border-radius:16px;padding:28px 24px;text-align:center;margin:32px 0}.nl-box .nl-icon{font-size:1.8rem;color:var(--brand);margin-bottom:4px}.nl-box .nl-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}.nl-box .nl-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}.nl-form{display:flex;gap:8px;max-width:380px;margin:0 auto;flex-wrap:wrap}.nl-input{flex:1;min-width:180px;padding:10px 16px;border-radius:8px;border:1px solid rgba(212,168,83,.2);background:rgba(5,5,8,.6);color:#fff;font-size:.82rem;outline:none;transition:border-color .3s;font-family:var(--font-body)}.nl-input:focus{border-color:var(--brand)}.nl-input::placeholder{color:#6a6558}.nl-btn{padding:10px 20px;border-radius:8px;border:none;background:var(--brand);color:var(--bg);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}.nl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(212,168,83,.25)}</style>
-<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guia practica para analizar tus gastos usando inteligencia artificial","description":"Aprende paso a paso como analizar tus gastos con la ayuda de la inteligencia artificial.","datePublished":"2026-06-18","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/finanzas/analizar-tus-gastos-tutorial.html"}}</script>
+.cta-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.s-hidden{display:none}@media(max-width:768px){.breadcrumb{padding-top:80px}.related-grid{grid-template-columns:1fr}#nav{padding:12px 16px}#nav .nav-links{gap:14px}#nav .nav-links li a{font-size:.7rem}}
+</style>
+<script type="application/ld+json" class="s-hidden">{"@context":"https://schema.org","@type":"Article","headline":"Guía práctica para analizar tus gastos usando inteligencia artificial","description":"Aprende paso a paso cómo analizar tus gastos con la ayuda de la inteligencia artificial.","datePublished":"2026-09-10","author":{"@type":"Person","name":"NEO Labs"},"publisher":{"@type":"Organization","name":"NEO Labs"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://magodago.github.io/neo-jarvis/blog/finanzas/analizar-tus-gastos-tutorial.html"}}</script>
 </head>
 <body><div id="progress"></div>
-<nav id="nav"><div class="nav-logo">NE<span>O</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catalogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
+<nav id="nav"><div class="nav-logo">Ne<span>o</span></div><ul class="nav-links"><li><a href="../../neo-labs.html">Inicio</a></li><li><a href="../../catalogo.html">Catálogo</a></li><li><a href="../index.html">Blog</a></li></ul></nav>
 <div class="wrap">
-<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Finanzas</a> <span>/</span> <span>Guia practica para analizar tus gastos usando inte</span></div>
+<div class="breadcrumb"><a href="../../neo-labs.html">Inicio</a> <span>/</span> <a href="../index.html">Blog</a> <span>/</span> <a href="index.html">Finanzas</a> <span>/</span> <span>Guía práctica para analizar tus gastos usando inte</span></div>
 <div class="article-header">
 <span class="cat-tag">Tutorial</span>
-<h1>Guia practica para analizar tus gastos usando inteligencia artificial</h1>
-<div class="meta"><span>18 June 2026</span><span>8 min de lectura</span></div>
+<h1>Guía práctica para analizar tus gastos usando inteligencia artificial</h1>
+<div class="meta"><span>10 September 2026</span><span>9 min de lectura</span></div>
 </div>
-<div class="article-hero"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=780&h=400&fit=crop" alt="" loading="lazy"></div>
+<div class="article-hero"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=780&h=400&fit=crop" alt="Guía práctica para analizar tus gastos usando inteligencia artificial" loading="lazy"></div>
 <div class="article-body">
-<p>Si hay un area donde la IA realmente marca la diferencia es en analizar tus gastos. Lo que antes te llevaba horas, ahora puedes hacerlo en minutos con el prompt adecuado.</p>
-<h2>Empieza con un prompt basico</h2>
-<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un experto en Finanzas. Necesito ayuda con analizar tus gastos. Dame 3 enfoques diferentes, eva</strong><br>Eres un experto en Finanzas. Necesito ayuda con analizar tus gastos. Dame 3 enfoques diferentes, evalua pros y contras de cada uno, y recomiendame el mejor con un plan de accion concreto de 5 pasos.</div></div>
-<h2>Lleva tus resultados al siguiente nivel</h2>
-<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Eres un consultor senior en Finanzas con 20 anos de experiencia. Analiza mi situacion actual: [descr</strong><br>Eres un consultor senior en Finanzas con 20 anos de experiencia. Analiza mi situacion actual: [describe]. Identifica los 3 factores criticos, propone soluciones accionables, y establece metricas de exito para cada una.</div></div>
-<h2>Automatiza el proceso completo</h2>
-<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text"><strong>Crea un sistema automatico para analizar tus gastos en Finanzas. Dame: 1) Los pasos que puedo delega</strong><br>Crea un sistema automatico para analizar tus gastos en Finanzas. Dame: 1) Los pasos que puedo delegar completamente a la IA, 2) Los puntos donde necesito supervisar, 3) Un prompt que lo unifique todo en una sola ejecucion.</div></div>
-<p>Comienza hoy y repite el proceso cada semana para resultados consistentes.</p>
-<div class="cta-box"><h3>Pack de Finanzas</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><a href="https://payhip.com/b/uP62G" target="_blank" class="btn">Comprar 9.99</a><a href="../../catalogo.html" class="btn btn-outline" style="margin-left:8px;">Ver Catalogo</a></div>
-<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div></div>
+<h2>Analizar tus gastos: el tutorial que convierte números en decisiones</h2>
+<p>La mayoría de las personas cree que analizar sus finanzas se reduce a revisar el saldo bancario a fin de mes. Sin embargo, cuando preguntas cuánto gastaron realmente en comida a domicilio el año pasado, cuánto representa su suscripción a plataformas de streaming frente a su ingreso neto, o qué porcentaje se les escapa en gastos hormiga, el silencio aparece. Ese vacío es la razón principal por la que muchos profesionales con buenos ingresos siguen sintiendo que el dinero se les escurre entre los dedos.</p>
+<p>Analizar tus gastos no es un ejercicio de culpa ni una auditoría punitiva. Es un diagnóstico financiero: te muestra dónde está tu dinero, qué patrones repites sin darte cuenta y qué decisiones puedes tomar con datos en lugar de intuiciones. En este tutorial vamos a recorrer un proceso concreto, replicable y aplicable en menos de dos horas al mes, con pasos, métricas y herramientas actuales para 2026.</p>
+<h2>Paso 1: Recolectar todos los movimientos sin filtrar</h2>
+<p>Antes de categorizar o juzgar, necesitas materia prima. El error más frecuente en esta fase es trabajar solo con la cuenta principal y olvidar efectivo, tarjetas de crédito, billeteras digitales, suscripciones con débito automático y apps de pago entre personas. Un estudio reciente del sector bancario estima que entre el 18% y el 25% de los movimientos mensuales de un profesional promedio quedan fuera del primer barrido por olvido.</p>
+<p>Descarga los extractos de los últimos tres meses, no solo del actual. Tres meses te permiten detectar patrones estacionales (seguros trimestrales, pagos anuales prorrateados, vacaciones) que un solo mes oculta. Exporta todo a formato CSV y unifícalo en una hoja de cálculo o en una herramienta como Fintonic, Money Manager o la plantilla de gastos de Notion. Si tu banco no permite exportar en CSV, toma capturas y transcribe: el esfuerzo de una tarde te ahorra meses de incertidumbre.</p>
+<p>Asegúrate de que cada fila tenga, como mínimo, cuatro columnas: fecha, descripción, monto y medio de pago. Añade una quinta columna vacía llamada &quot;categoría&quot; que llenarás en el siguiente paso.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como un analista financiero personal. Te voy a pegar una lista de [número] movimientos bancarios del período [fecha inicio] a [fecha fin] correspondientes a mis cuentas de [bancos y billeteras]. Necesito que: 1) identifiques movimientos duplicados o posibles cargos recurrentes que se repiten mensualmente, 2) señales cualquier transacción que aparezca más de dos veces con el mismo comercio y monto similar, 3) marques los gastos que parezcan suscripciones automáticas para que pueda revisarlos. Devuélveme la información en una tabla con columnas: fecha, descripción, monto, posible categoría y observación. No omitas ningún dato.</div>
+</div></div>
+<h2>Paso 2: Categorizar con criterio, no con prisa</h2>
+<p>Categorizar bien es el corazón del análisis. La tentación es crear veinte categorías que luego nadie usa. Mi recomendación: ocho macro-categorías y no más. Vivienda (alquiler o hipoteca, suministros, comunidad), Alimentación (supermercado y restaurantes por separado), Transporte (combustible, transporte público, taxi, mantenimiento del auto), Salud, Ocio y suscripciones, Educación, Deudas e impuestos, y Ahorro/inversión.</p>
+<p>Un detalle que casi nadie aplica y que cambia el resultado: separa dentro de &quot;Alimentación&quot; lo que es supermercado de lo que es comer fuera o delivery. Muchas parejas descubren que el gasto en restaurantes supera al del supermercado, y ese hallazgo suele ser el que dispara la acción.</p>
+<p>Ejemplo concreto 1: Marta, abogada con ingresos netos de 3.800 € al mes, agrupaba todo bajo &quot;casa&quot;. Al separar supermercado (420 €) de delivery y cafeterías (530 €), descubrió que gastaba más en comer fuera que en alimentar su hogar. Recortó 200 € sin renunciar a nada esencial, solo cocinando tres noches más a la semana.</p>
+<p>Ejemplo concreto 2: Javier, desarrollador freelance, categorizaba &quot;software&quot; como gasto único. Al reclasificar cada herramienta como &quot;suscripción recurrente&quot;, detectó 14 servicios activos por 187 € al mes, de los cuales solo usaba 5 de forma regular. Canceló el resto y liberó 96 € mensuales: 1.152 € al año que ahora van a un fondo indexado.</p>
+<p>Una vez tengas los movimientos clasificados, calcula tres métricas clave: el porcentaje que cada categoría representa sobre el ingreso neto, la variación respecto al mes anterior y la media de los últimos tres meses. Esa media, no el dato aislado, es tu brújula.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Eres un consultor financiero especializado en presupuestos personales. Tengo una tabla con [número] transacciones que ya clasifiqué en estas categorías: [lista de categorías]. Ayúdame a: 1) revisar si alguna transacción está mal asignada y proponer la categoría correcta, 2) calcular el porcentaje que cada categoría representa sobre mi ingreso neto mensual de [monto y moneda], 3) señalar las tres categorías con mayor desviación frente a una distribución ideal tipo 50/30/20, y 4) escribirme un párrafo de diagnóstico en tono directo y profesional. Mis datos son los siguientes: [pegar tabla].</div>
+</div></div>
+<h2>Paso 3: Detectar patrones y gastos hormiga con IA</h2>
+<p>El análisis no termina en saber cuánto gastas, sino en entender por qué. Aquí es donde herramientas como ChatGPT (modelo GPT-5.2), Claude (Sonnet 4.5) o Gemini (2.5 Pro) aportan un valor real si les das contexto suficiente. Estas plataformas, actualizadas a 2026, permiten subir archivos CSV directamente y pedir análisis que antes requerían un asesor.</p>
+<p>Busca tres patrones específicos: gastos que aumentan cada mes sin justificación clara (streaming acumulado, apps olvidadas), gastos concentrados en días concretos (viernes y sábados suelen disparar la categoría ocio) y microtransacciones por debajo de 5 € que sumadas superan los 100 € mensuales. Ese último grupo, conocido como gastos hormiga, puede llegar a representar hasta un 12% del presupuesto mensual según varios estudios de finanzas personales.</p>
+<p>Un truco práctico: filtra tu tabla por montos inferiores a 10 € y suma. Si el resultado supera el 3% de tu ingreso neto, tienes un problema de fondo que no requiere recortes drásticos sino conciencia.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Analiza el archivo CSV adjunto con mis gastos de los últimos [número] meses. Quiero que: 1) identifiques los cinco gastos hormiga más repetidos (montos menores a [monto] en [moneda]), 2) detectes aumentos progresivos mes a mes en cualquier categoría y me digas cuál es la tendencia porcentual, 3) señales los días de la semana con mayor gasto agregado, y 4) me propongas tres ajustes concretos y cuantificados, indicando el ahorro mensual estimado de cada uno. Preséntalo como informe ejecutivo de máximo 500 palabras.</div>
+</div></div>
+<h2>Errores comunes que arruinan tu análisis</h2>
+<p>El primer error es analizar sin contexto de ingresos. Un gasto de 300 € en ocio puede ser razonable con un sueldo de 5.000 € y catastrófico con uno de 1.800 €. Siempre compara contra tu ingreso neto, no contra lo que gastan otros.</p>
+<p>El segundo error es analizar una sola vez. Un análisis anual no sirve para corregir nada; necesitas revisión mensual y comparación trimestral. Dedica el primer domingo de cada mes a esta tarea y se convierte en hábito.</p>
+<p>El tercer error, y el más caro, es confundir gasto con inversión. Pagar un curso de inglés es gasto si no lo terminas e inversión si lo concluyes y te genera ingresos. La categoría importa menos que el retorno que le das.</p>
+<p>El cuarto error es eliminar categorías enteras en lugar de optimizarlas. Quien borra &quot;ocio&quot; de su presupuesto suele abandonar el sistema en seis semanas. Reducir del 10% al 7% es sostenible; llevarlo a cero, no.</p>
+<div class="prompt-box"><div class="prompt-label">Prompt</div><div class="prompt-text">Actúa como un coach financiero crítico pero constructivo. Te comparto mi análisis de gastos del mes: [pegar resumen por categorías]. Revisa si estoy cometiendo alguno de estos errores: 1) analizar sin comparar contra mi ingreso neto de [monto], 2) olvidar gastos estacionales, 3) tratar suscripciones como gastos únicos, 4) recortar categorías a cero en lugar de optimizarlas. Señala en qué fallo, qué impacto tiene en mi salud financiera y dame una corrección específica para el próximo mes.</div>
+</div></div>
+<h2>Conclusión: del dato a la decisión</h2>
+<p>Analizar tus gastos es un músculo, no una tarea puntual. La primera vez te llevará dos o tres horas; a partir del tercer mes, menos de cuarenta minutos. Empieza hoy con una acción mínima: descarga los extractos de los últimos tres meses y agrupa los movimientos en las ocho categorías que hemos visto. Mañana, antes de tomar cualquier decisión de recorte, calcula los porcentajes sobre tu ingreso neto. Y el próximo domingo, usa uno de los prompts de este tutorial con tu herramienta de IA preferida para obtener un diagnóstico externo sin sesgos.</p>
+<p>Tu objetivo no es gastar menos por gastar menos, sino dirigir cada euro hacia lo que realmente valoras. Ese cambio de enfoque es lo que separa a quien sobrevive el mes de quien construye patrimonio.</p>
+<div class="cta-box"><h3>Pack de Finanzas</h3><p>10 prompts premium listos para copiar y pegar con ChatGPT, Claude y Gemini. Resultados inmediatos desde el primer uso.</p><p style="font-size:.75rem;color:#d4a853;margin-bottom:8px">Código <strong>NEO10</strong> = 10% desc</p><div class="cta-buttons"><a href="https://payhip.com/b/uP62G" target="_blank" class="btn">Comprar 9.99€</a><a href="../../catalogo.html" class="btn btn-outline">Ver Catálogo</a></div></div>
+<div class="nl-box"><div class="nl-icon">&#10026;</div><div class="nl-title">Recibe contenido como este cada semana</div><div class="nl-desc">Prompts exclusivos, tutoriales y tendencias de IA directo a tu correo. Sin spam, solo valor.</div><form class="nl-form" action="https://formsubmit.co/formulasia76@gmail.com" method="POST" onsubmit="fetch('https://909f85f8c7219d8f-95-63-166-157.serveousercontent.com/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:this.email.value})}).catch(()=>{});"><input type="hidden" name="_subject" value="Nuevo suscriptor NEO Labs"><input type="hidden" name="_next" value="https://magodago.github.io/neo-jarvis/neo-labs.html"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none"><input type="email" name="email" placeholder="tu@email.com" required class="nl-input"><button type="submit" class="nl-btn">Suscribirme</button></form></div>
+</div>
 <div class="related-section"><h3>Sigue leyendo</h3><div class="related-grid">
-<a href="../prompts-ia-finanzas-2026.html" class="related-card" style="display:none"><div class="cat">Guia</div><h4>Guias de Finanzas</h4><p>Contenido destacado del blog.</p></a>
-<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Finanzas</h4><p>Todos los articulos del blog.</p></a>
-<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catalogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
+<a href="../prompts-ia-finanzas-2026.html" class="related-card" style="display:none"><div class="cat">Guía</div><h4>Guías de Finanzas</h4><p>Contenido destacado del blog.</p></a>
+<a href="index.html" class="related-card"><div class="cat">Blog</div><h4>Blog de Finanzas</h4><p>Todos los artículos del blog.</p></a>
+<a href="../../catalogo.html" class="related-card"><div class="cat">Productos</div><h4>Catálogo NEO Labs</h4><p>Packs de prompts y planners.</p></a>
 </div></div>
 </div>
-<footer><div class="logo">NE<span>O</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catalogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/b/98ens">Guia Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
+<footer><div class="logo">Ne<span>o</span></div><div class="links"><a href="../../neo-labs.html">Inicio</a><a href="../../catalogo.html">Catálogo</a><a href="../index.html">Blog</a><a href="https://payhip.com/bundle/98ens">Guía Gratuita</a></div><p class="copy">&copy; 2026 NEO Labs</p></footer>
 <script>
 let p=document.getElementById('progress');document.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(window.scrollY/h*100)+'%'})
 let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>{let t=window.scrollY;if(t>s&&t>70)n.classList.add('hidden');else n.classList.remove('hidden');s=t})
