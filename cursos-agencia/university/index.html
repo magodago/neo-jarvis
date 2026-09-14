@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Neo University — Escuela de IA y Automatización | NEO Labs</title>
+<meta name="description" content="Neo University: escuela de formación en IA y automatización aplicada a negocio. Cursos online: Automatiza tu negocio con IA, IA Operativa y Monta tu agencia de automatización con IA. Método directo, 20 lecciones por curso, plantillas descargables. 149€ por curso.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://university.neolabs.me/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080d;--bg2:#0c0c14;--card:#10101a;--card2:#141422;--line:#1f1f30;--gold:#c9a35c;--gold2:#e6c887;--blue:#3d9bff;--pink:#ff4fd8;--text:#f4f2ec;--text2:#9a97a8;--serif:'Cormorant Garamond',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+::selection{background:rgba(201,163,92,.3)}
+nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(8,8,13,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(201,163,92,.14)}
+.nav-in{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.crest{display:flex;align-items:center;gap:12px}
+.crest-badge{width:40px;height:40px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:17px;color:var(--gold2);background:radial-gradient(circle at 30% 30%,#1a1a2a,#0b0b14)}
+.crest-name{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:1.2px;color:var(--text)}
+.crest-name em{font-style:italic;color:var(--gold2)}
+.nav-links{display:flex;gap:30px;font-size:13.5px;letter-spacing:1px;text-transform:uppercase}
+.nav-links a{color:var(--text2);text-decoration:none;transition:.25s;position:relative;padding-bottom:3px}
+.nav-links a:hover{color:var(--gold2)}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:.3s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0b0b14;font-weight:600;text-decoration:none;padding:14px 30px;border-radius:4px;font-size:14px;letter-spacing:1px;transition:.3s;cursor:pointer;border:none;font-family:'Inter',sans-serif;text-transform:uppercase}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(201,163,92,.28)}
+.btn.ghost{background:transparent;color:var(--gold2);border:1px solid rgba(201,163,92,.45)}
+.btn.ghost:hover{background:rgba(201,163,92,.08);border-color:var(--gold2)}
+.hero{padding:170px 0 110px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:
+ radial-gradient(ellipse 900px 500px at 75% 10%,rgba(201,163,92,.08),transparent 60%),
+ radial-gradient(ellipse 700px 500px at 15% 85%,rgba(61,155,255,.06),transparent 60%),
+ linear-gradient(180deg,#0b0b15,#08080d);z-index:-2}
+.hero::after{content:'NE';position:absolute;top:40px;right:-60px;font-family:var(--serif);font-size:340px;font-weight:600;color:rgba(201,163,92,.04);z-index:-1;line-height:1}
+.kicker{font-size:11.5px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.kicker::before{content:'';width:44px;height:1px;background:var(--gold);opacity:.7}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6vw,72px);line-height:1.08;letter-spacing:-.5px}
+h1 em{font-style:italic;background:linear-gradient(120deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p.sub{max-width:620px;margin:26px 0 38px;color:var(--text2);font-size:17px;font-weight:300;line-height:1.75}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:0;margin-top:56px;border-top:1px solid rgba(201,163,92,.16);padding-top:28px;flex-wrap:wrap}
+.hero-meta .hm{flex:1;min-width:150px;padding:0 24px;border-left:1px solid rgba(201,163,92,.16)}
+.hero-meta .hm:first-child{border-left:none;padding-left:0}
+.hero-meta b{font-family:var(--serif);font-weight:600;font-size:34px;color:var(--gold2);display:block;line-height:1.1}
+.hero-meta span{color:var(--text2);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase}
+section{padding:96px 0}
+.sec-head{text-align:center;margin-bottom:60px}
+.sec-head .kicker{justify-content:center}
+.sec-head .kicker::after{content:'';width:44px;height:1px;background:var(--gold);opacity:.7}
+h2.sec{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.15;letter-spacing:-.3px}
+h2.sec em{font-style:italic;color:var(--gold2)}
+.sec-sub{color:var(--text2);font-size:15.5px;max-width:620px;margin:14px auto 0;font-weight:300}
+.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px}
+.course-card{background:linear-gradient(165deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:8px;padding:38px 34px;display:flex;flex-direction:column;gap:16px;transition:.35s;position:relative;overflow:hidden}
+.course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:.4s}
+.course-card:hover{transform:translateY(-6px);border-color:rgba(201,163,92,.4);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.course-card:hover::before{opacity:1}
+.course-card .tag{position:absolute;top:22px;right:22px;font-size:10px;font-weight:600;letter-spacing:2px;padding:6px 12px;border:1px solid rgba(201,163,92,.5);color:var(--gold2);border-radius:20px;text-transform:uppercase}
+.course-card .num{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold);letter-spacing:2px}
+.course-card h3{font-family:var(--serif);font-weight:600;font-size:27px;line-height:1.25}
+.course-card .desc{color:var(--text2);font-size:14.5px;font-weight:300;flex:1;line-height:1.7}
+.course-card .facts{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0}
+.course-card .fact{font-size:11.5px;color:var(--text2);border:1px solid var(--line);padding:5px 12px;border-radius:2px;letter-spacing:.5px}
+.course-card .price{display:flex;align-items:baseline;gap:10px;margin-top:4px}
+.course-card .price b{font-family:var(--serif);font-weight:600;font-size:36px;color:var(--gold2)}
+.course-card .price span{color:var(--text2);font-size:13px;text-decoration:line-through}
+.course-card .btn{text-align:center;margin-top:8px}
+.course-card .soon{text-align:center;padding:14px;border:1px dashed rgba(201,163,92,.35);border-radius:4px;color:var(--text2);font-size:13.5px;margin-top:8px;letter-spacing:.5px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.why-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:30px;transition:.3s;position:relative}
+.why-card:hover{border-color:rgba(201,163,92,.35);transform:translateY(-3px)}
+.why-card .num{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold);letter-spacing:1px}
+.why-card b{display:block;margin:10px 0 8px;font-family:var(--serif);font-size:20px;font-weight:600}
+.why-card p{color:var(--text2);font-size:14px;font-weight:300;line-height:1.7}
+.instructor{background:linear-gradient(150deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:10px;padding:44px;display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap;position:relative;overflow:hidden}
+.instructor::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),transparent)}
+.avatar{width:74px;height:74px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:26px;color:var(--gold2);background:radial-gradient(circle at 30% 30%,#1a1a2a,#0b0b14);flex-shrink:0}
+.instructor h3{font-family:var(--serif);font-size:26px;font-weight:600;margin-bottom:4px}
+.instructor .rol{color:var(--gold);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.instructor p{color:var(--text2);font-size:14.5px;font-weight:300;max-width:780px;line-height:1.75}
+.faq{max-width:800px;margin:0 auto}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px 26px;margin-bottom:14px;transition:.3s}
+.faq details:hover{border-color:rgba(201,163,92,.3)}
+.faq details[open]{border-color:rgba(201,163,92,.45)}
+.faq summary{font-family:var(--serif);font-weight:600;font-size:19px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::after{content:'+';font-size:22px;color:var(--gold);font-family:'Inter',sans-serif;font-weight:300}
+.faq details[open] summary::after{content:'−'}
+.faq p{color:var(--text2);font-size:14.5px;font-weight:300;margin-top:14px;line-height:1.75}
+.final{padding:110px 0;text-align:center;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 800px 400px at 50% 100%,rgba(201,163,92,.1),transparent 65%),linear-gradient(180deg,#0b0b15,#08080d);z-index:-1}
+.final h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.5vw,52px);margin-bottom:18px;line-height:1.15}
+.final h2 em{font-style:italic;color:var(--gold2)}
+.final p{color:var(--text2);max-width:540px;margin:0 auto 34px;font-weight:300;font-size:15.5px}
+footer{border-top:1px solid rgba(201,163,92,.14);padding:32px 0;color:var(--text2);font-size:13px}
+.foot-in{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+.foot-in a{color:var(--text2);text-decoration:none;transition:.25s}
+.foot-in a:hover{color:var(--gold2)}
+.foot-crest{display:flex;align-items:center;gap:10px}
+.foot-crest .crest-badge{width:30px;height:30px;font-size:13px}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,4,9,.85);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{background:var(--bg2);border:1px solid rgba(201,163,92,.35);border-radius:10px;padding:40px;width:min(460px,100%);position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.modal-box h3{font-family:var(--serif);font-size:28px;font-weight:600;margin-bottom:8px}
+.modal-box p{color:var(--text2);font-size:14px;font-weight:300;margin-bottom:24px}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--text2);font-size:26px;cursor:pointer;transition:.2s}
+.modal-close:hover{color:var(--gold2)}
+.modal-box label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--text2);margin-bottom:7px}
+.modal-box input,.modal-box textarea{width:100%;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:13px 15px;color:var(--text);font-size:14.5px;margin-bottom:18px;font-family:'Inter',sans-serif;transition:.25s}
+.modal-box input:focus,.modal-box textarea:focus{outline:none;border-color:var(--gold)}
+.modal-box .btn{width:100%}
+.ok{display:none;text-align:center;padding:26px 0}
+.ok b{display:block;font-size:40px;margin-bottom:12px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.fade{animation:fadeUp .9s cubic-bezier(.2,.7,.3,1) both}
+.d1{animation-delay:.15s}.d2{animation-delay:.3s}.d3{animation-delay:.45s}
+@media(max-width:680px){.nav-links{display:none}.hero{padding:130px 0 70px}.hero-meta .hm{border-left:none;border-top:1px solid rgba(201,163,92,.16);padding:18px 0}.instructor{padding:30px}.section{padding:70px 0}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <div class="crest">
+    <div class="crest-badge">NU</div>
+    <div class="crest-name">Neo <em>University</em></div>
+  </div>
+  <div class="nav-links"><a href="#cursos">Cursos</a><a href="#porque">El método</a><a href="#instructor">Facultad</a><a href="#faq">Preguntas</a></div>
+  <a href="#" onclick="openModal();return false" class="btn ghost" style="padding:10px 20px;font-size:12px">Contacto</a>
+</div></nav>
+
+<div class="hero"><div class="wrap">
+  <div class="kicker fade">NEO Labs · Escuela de formación</div>
+  <h1 class="fade d1">El arte de convertir la IA en <em>resultados de negocio</em>.</h1>
+  <p class="sub fade d2">Una escuela con un solo criterio: nada de humo. Cursos que te enseñan a automatizar, a vender y a cobrar por ello. Lecciones cortas, ejercicios reales, plantillas listas para usar. Método directo de David Ortiz, experto en IA aplicada.</p>
+  <div class="hero-actions fade d3">
+    <a href="#cursos" class="btn">Explorar los cursos</a>
+    <a href="#" onclick="openModal();return false" class="btn ghost">Hablar antes de comprar</a>
+  </div>
+  <div class="hero-meta fade d3">
+    <div class="hm"><b>2</b><span>Cursos publicados</span></div>
+    <div class="hm"><b>40</b><span>Lecciones en vídeo</span></div>
+    <div class="hm"><b>149€</b><span>Por curso</span></div>
+    <div class="hm"><b>∞</b><span>Acceso de por vida</span></div>
+  </div>
+</div></div>
+
+<section id="cursos"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">Catálogo</div>
+    <h2 class="sec">Una oferta clara. <em>Tres caminos.</em></h2>
+    <p class="sec-sub">Cada curso comparte el mismo estándar: 4 módulos, 20 lecciones, plantillas descargables y acceso inmediato. Elige por tu objetivo, no por el precio — todos a 149€.</p>
+  </div>
+  <div class="courses">
+
+    <div class="course-card">
+      <span class="tag">Nuevo</span>
+      <div class="num">Curso 02</div>
+      <h3>Monta tu agencia de automatización con IA</h3>
+      <p class="desc">Convierte la automatización en un negocio de servicios: detecta oportunidades, arma tu oferta, consigue clientes y cobra 500–800€ por proyecto. Con 5 plantillas n8n listas para vender y un plan de 30 días hasta tu primer cliente.</p>
+      <div class="facts"><span class="fact">4 módulos</span><span class="fact">20 lecciones</span><span class="fact">5 plantillas n8n</span><span class="fact">Guiones de venta</span><span class="fact">Plan 30 días</span></div>
+      <div class="price"><b>149€</b><span>199€</span></div>
+      <a href="https://agencia.neolabs.me" class="btn">Conocer el curso</a>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">Publicado</span>
+      <div class="num">Curso 01</div>
+      <h3>IA Operativa</h3>
+      <p class="desc">Automatiza el trabajo de tu negocio con IA desde cero: identifica tareas repetitivas, construye automatizaciones reales y recupera horas cada semana. Auditoría independiente: 8.3 sobre 10.</p>
+      <div class="facts"><span class="fact">4 módulos</span><span class="fact">20 lecciones</span><span class="fact">Auditado 8.3/10</span><span class="fact">Ejercicios guiados</span></div>
+      <div class="price"><b>149€</b><span>199€</span></div>
+      <a href="https://curso.neolabs.me" class="btn">Conocer el curso</a>
+    </div>
+
+    <div class="course-card">
+      <span class="tag">Nuevo</span>
+      <div class="num">Curso 03</div>
+      <h3>Automatiza tu negocio con IA</h3>
+      <p class="desc">Para autónomos y pymes que quieren que su negocio trabaje solo: citas que se agendan, clientes respondidos 24/7, facturas que se cobran y un tablero de control. Sin saber programar — n8n + IA.</p>
+      <div class="facts"><span class="fact">4 módulos</span><span class="fact">20 lecciones</span><span class="fact">5 plantillas n8n</span><span class="fact">Asistente IA</span><span class="fact">Plan 30 días</span></div>
+      <div class="price"><b>149€</b><span>199€</span></div>
+      <a href="https://pymes.neolabs.me" class="btn">Conocer el curso</a>
+    </div>
+
+  </div>
+</div></section>
+
+<section id="porque" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">El método</div>
+    <h2 class="sec">No es teoría. <em>Es oficio.</em></h2>
+    <p class="sec-sub">Todo lo que se enseña aquí se aplica a diario en empresas reales. Ese es el filtro: si no funciona en el mundo real, no entra en la escuela.</p>
+  </div>
+  <div class="why">
+    <div class="why-card"><div class="num">01</div><b>Enfocado a resultados</b><p>Cada lección termina con ejercicio y checklist. Sabes exactamente qué hacer cuando acabas de verla.</p></div>
+    <div class="why-card"><div class="num">02</div><b>Plantillas reales</b><p>Workflows, guiones y documentos listos. No reinventas nada: adaptas y usas.</p></div>
+    <div class="why-card"><div class="num">03</div><b>Acceso de por vida</b><p>Compras una vez, entras hoy, y las actualizaciones futuras son tuyas.</p></div>
+    <div class="why-card"><div class="num">04</div><b>IA aplicada, no humo</b><p>Aprende de quien lleva años aplicando IA y automatización en empresas reales.</p></div>
+  </div>
+</div></section>
+
+<section id="instructor"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">Facultad</div>
+    <h2 class="sec">Aprende de quien <em>lo hace a diario</em>.</h2>
+  </div>
+  <div class="instructor">
+    <div class="avatar">DO</div>
+    <div>
+      <h3>David Ortiz</h3>
+      <div class="rol">Experto en IA Aplicada · Project Manager IT</div>
+      <p>Más de 15 años en tecnología, los últimos liderando proyectos de inteligencia artificial y automatización para una consultora tecnológica internacional. Ha visto de primera mano qué automatizaciones devuelven horas a los equipos — y cuáles son humo. Todos los cursos de Neo University siguen su método: directo, práctico, sin relleno.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq" style="background:var(--bg2);border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">Preguntas frecuentes</div>
+    <h2 class="sec">Antes de comprar, <em>lo que quieras saber</em>.</h2>
+  </div>
+  <div class="faq">
+    <details><summary>¿Qué incluye cada curso?</summary><p>Cada curso incluye 20 lecciones en vídeo con slides animadas, guías PDF de cada lección, plantillas descargables y ejercicios guiados. Acceso inmediato y de por vida, incluyendo actualizaciones futuras.</p></details>
+    <details><summary>¿Cuánto dura el acceso?</summary><p>De por vida. Compras hoy, entras hoy, y todas las actualizaciones futuras del curso son tuyas sin coste extra.</p></details>
+    <details><summary>¿Puedo pagar con tarjeta o solo PayPal?</summary><p>El pago es por PayPal, y acepta tarjeta (Visa, Mastercard, Amex), PayPal y Apple Pay. No necesitas cuenta de PayPal para pagar con tarjeta.</p></details>
+    <details><summary>¿Necesito conocimientos previos?</summary><p>No. Los cursos empiezan desde cero y avanzan paso a paso, con ejercicios guiados. Si sabes usar un ordenador, puedes hacerlo.</p></details>
+    <details><summary>¿Los cursos son para empresas o para particulares?</summary><p>Para ambos. IA Operativa te ayuda a automatizar el trabajo de tu equipo; el curso de agencia te enseña a vender automatización como servicio a otras empresas; y el curso de negocio está pensado para autónomos y pymes que quieren automatizar su propio negocio sin saber programar.</p></details>
+    <details><summary>¿Puedo comprar varios cursos?</summary><p>Sí, y es la combinación más potente: aprende a usar la IA en tu negocio, automatízalo con el curso de negocio y, si quieres, monta la agencia que vende eso mismo a otras empresas. Todos a 149€, con el mismo método.</p></details>
+  </div>
+</div></section>
+
+<div class="final"><div class="wrap">
+  <h2>Menos tareas repetitivas.<br>Más <em>horas de negocio</em>.</h2>
+  <p>Elige tu curso, entra hoy mismo y aplica lo aprendido desde la primera lección.</p>
+  <a href="#cursos" class="btn" style="padding:16px 38px;font-size:14px">Ver los cursos</a>
+</div></div>
+
+<footer><div class="foot-in">
+  <div class="foot-crest"><div class="crest-badge">NU</div><div>© 2026 Neo University · NEO Labs · David Ortiz</div></div>
+  <div><a href="https://pymes.neolabs.me">Negocio con IA</a> &nbsp;·&nbsp; <a href="https://agencia.neolabs.me">Agencia con IA</a> &nbsp;·&nbsp; <a href="https://curso.neolabs.me">IA Operativa</a> &nbsp;·&nbsp; <a href="https://neolabs.me">NEO Labs</a></div>
+</div></footer>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="formWrap">
+      <h3>Hablamos antes de comprar</h3>
+      <p>Cuéntanos qué necesitas y te respondemos hoy. Sin compromiso.</p>
+      <form id="leadForm">
+        <input type="hidden" name="_subject" value="Nuevo lead Neo University">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <label>Nombre</label>
+        <input type="text" name="Nombre" required>
+        <label>Email</label>
+        <input type="email" name="Email" required>
+        <label>Tu mensaje</label>
+        <textarea name="Mensaje" rows="4" required placeholder="¿Qué curso te interesa y qué necesitas?"></textarea>
+        <button type="submit" class="btn">Enviar mensaje</button>
+      </form>
+    </div>
+    <div class="ok" id="formOk"><b>✓</b>Mensaje enviado. Te respondemos hoy.</div>
+  </div>
+</div>
+
+<script>
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+document.getElementById('leadForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const fd=new FormData(this);
+  try{
+    await fetch('https://formsubmit.co/ajax/dortizs76@gmail.com',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('formOk').style.display='block';
+    this.reset();
+    setTimeout(closeModal,2600);
+  }catch(err){alert('Error al enviar. Escríbenos a david@neolabs.me')}
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "name": "Neo University",
+  "alternateName": "Neo University · NEO Labs",
+  "url": "https://university.neolabs.me/",
+  "description": "Escuela de formación en IA y automatización aplicada a negocio. Cursos online: Automatiza tu negocio con IA, IA Operativa y Monta tu agencia de automatización con IA. Método directo, 20 lecciones por curso, plantillas descargables, acceso de por vida, 149€.",
+  "founder": {"@type":"Person","name":"David Ortiz"},
+  "brand": {"@type":"Brand","name":"NEO Labs"},
+  "hasCourse": [
+    {"@type":"Course","name":"Automatiza tu negocio con IA","url":"https://pymes.neolabs.me/","provider":{"@type":"Organization","name":"Neo University"},"offers":{"@type":"Offer","price":"149","priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/WW6E56BAJLD7N"}},
+    {"@type":"Course","name":"IA Operativa","url":"https://curso.neolabs.me/","provider":{"@type":"Organization","name":"Neo University"},"offers":{"@type":"Offer","price":"149","priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/WW6E56BAJLD7N"}},
+    {"@type":"Course","name":"Monta tu agencia de automatización con IA","url":"https://agencia.neolabs.me/","provider":{"@type":"Organization","name":"Neo University"},"offers":{"@type":"Offer","price":"149","priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/WW6E56BAJLD7N"}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"¿Qué incluye cada curso?","acceptedAnswer":{"@type":"Answer","text":"Cada curso incluye 20 lecciones en vídeo con slides animadas, guías PDF de cada lección, plantillas descargables y ejercicios guiados. Acceso inmediato y de por vida, incluyendo actualizaciones futuras."}},
+    {"@type":"Question","name":"¿Cuánto dura el acceso?","acceptedAnswer":{"@type":"Answer","text":"De por vida. Compras hoy, entras hoy, y todas las actualizaciones futuras del curso son tuyas sin coste extra."}},
+    {"@type":"Question","name":"¿Puedo pagar con tarjeta o solo PayPal?","acceptedAnswer":{"@type":"Answer","text":"El pago es por PayPal, y acepta tarjeta (Visa, Mastercard, Amex), PayPal y Apple Pay. No necesitas cuenta de PayPal para pagar con tarjeta."}},
+    {"@type":"Question","name":"¿Necesito conocimientos previos?","acceptedAnswer":{"@type":"Answer","text":"No. Los cursos empiezan desde cero y avanzan paso a paso, con ejercicios guiados. Si sabes usar un ordenador, puedes hacerlo."}},
+    {"@type":"Question","name":"¿Los cursos son para empresas o para particulares?","acceptedAnswer":{"@type":"Answer","text":"Para ambos. IA Operativa te ayuda a automatizar el trabajo de tu equipo; el curso de agencia te enseña a vender automatización como servicio a otras empresas; y el curso de negocio está pensado para autónomos y pymes que quieren automatizar su propio negocio sin saber programar."}},
+    {"@type":"Question","name":"¿Puedo comprar varios cursos?","acceptedAnswer":{"@type":"Answer","text":"Sí, y es la combinación más potente: aprende a usar la IA en tu negocio, automatízalo con el curso de negocio y, si quieres, monta la agencia que vende eso mismo a otras empresas. Todos a 149€, con el mismo método."}}
+  ]
+}
+</script>
+
+</body>
+</html>

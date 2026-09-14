@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Cómo automatizar un negocio sin saber programar (guía para autónomos y pymes)</title>
+<meta name="description" content="Guía para autónomos y pymes: qué se puede automatizar en un negocio sin saber programar, con qué herramientas (n8n + IA), cuánto cuesta y por dónde empezar. Con casos reales de citas, pedidos, facturas y WhatsApp.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://university.neolabs.me/blog/automatizar-negocio-sin-programar.html">
+<style>
+  :root{--bg:#0a0a14;--bg2:#10101e;--line:#23233a;--t1:#f2f2f7;--t2:#a0a0b8;--gold:#d4af37;--accent:#3d9bff}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.75}
+  .wrap{max-width:780px;margin:0 auto;padding:24px}
+  header{border-bottom:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;align-items:center}
+  .brand{font-weight:700;letter-spacing:.12em;font-size:14px;color:var(--gold)}
+  .brand span{color:var(--t1)}
+  nav a{color:var(--t2);text-decoration:none;font-size:13px;margin-left:16px}
+  nav a:hover{color:var(--t1)}
+  .kicker{color:var(--accent);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:32px 0 10px}
+  h1{font-size:32px;line-height:1.25;margin-bottom:14px;color:var(--t1)}
+  h2{font-size:22px;margin:36px 0 12px;color:var(--gold)}
+  h3{font-size:17px;margin:24px 0 8px}
+  p{margin-bottom:16px;color:var(--t2)}
+  strong{color:var(--t1)}
+  ul{margin:0 0 18px 22px;color:var(--t2)}
+  li{margin-bottom:8px}
+  .box{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:18px 20px;margin:24px 0}
+  .box p:last-child{margin-bottom:0}
+  .cta{background:linear-gradient(135deg,var(--accent),#ff4fd8);border:none;color:#fff;font-weight:600;padding:14px 28px;border-radius:8px;font-size:15px;cursor:pointer;text-decoration:none;display:inline-block;margin-top:8px}
+  .tag{display:inline-block;background:var(--bg2);border:1px solid var(--line);color:var(--t2);font-size:12px;padding:3px 10px;border-radius:20px;margin:0 6px 6px 0}
+  .author{border-top:1px solid var(--line);margin-top:48px;padding-top:24px;font-size:13px;color:var(--t2)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:20px 0;font-size:12px;color:var(--t2);display:flex;justify-content:space-between}
+  footer a{color:var(--t2);text-decoration:none}
+  footer a:hover{color:var(--gold)}
+  @media(max-width:600px){h1{font-size:24px}.wrap{padding:16px}nav a{margin-left:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">NEO <span>UNIVERSITY</span></div>
+  <nav><a href="https://university.neolabs.me">Inicio</a><a href="https://university.neolabs.me/#cursos">Cursos</a></nav>
+</header>
+
+<div class="kicker">Guía práctica · Automatización para pymes</div>
+<h1>Cómo automatizar un negocio sin saber programar: guía para autónomos y pymes</h1>
+<p><em>Publicado por David Ortiz · NEO Labs</em></p>
+
+<p>Si tienes un negocio —una clínica, un taller, una tienda, un despacho, una consultora— y sientes que pasas el día contestando las mismas preguntas, persiguiendo facturas y agendando citas a mano, esta guía es para ti. La buena noticia: <strong>no necesitas saber programar para automatizar tu negocio</strong>. Ni siquiera necesitas contratar a nadie.</p>
+
+<h2>¿Qué se puede automatizar en un negocio hoy?</h2>
+<p>La regla es simple: <strong>todo lo que se repite se puede automatizar</strong>. Si haces algo tres veces por semana de la misma manera, hay una herramienta que lo hace por ti. Los casos más rentables en pymes son cinco:</p>
+
+<h3>1. Citas que se agendan solas</h3>
+<p>Un cliente pide hora por WhatsApp a las 22:00. Hoy pierdes la venta o respondes a las 8:00. Con un asistente automatizado, el cliente elige hueco, se agenda en tu calendario y recibe confirmación al instante. Resultado: <strong>más citas, cero trabajo</strong>.</p>
+
+<h3>2. Pedidos y consultas respondidas 24/7</h3>
+<p>Las preguntas se repiten: horario, precio, disponibilidad, dirección. Una inteligencia artificial entrenada con la información de tu negocio responde al momento, todos los días, en WhatsApp, web o email. Y cuando la pregunta es compleja, te avisa a ti.</p>
+
+<h3>3. Facturas y recordatorios de pago</h3>
+<p>Generar la factura, enviarla, recordar el pago a los 7 días, a los 15, y escalar a una llamada. Todo automático. <strong>Adiós a perseguir el dinero</strong>.</p>
+
+<h3>4. Informes y números del negocio</h3>
+<p>Ventas de la semana, clientes nuevos, pedidos pendientes: un resumen que te llega cada lunes a tu correo sin que nadie lo prepare.</p>
+
+<h3>5. Recuperación de clientes que no vuelven</h3>
+<p>Un cliente que no viene desde hace 60 días recibe un mensaje automático con un descuento personalizado. Sin hacer nada, tu cartera vuelve a moverse.</p>
+
+<h2>¿Con qué herramientas se hace?</h2>
+<p>El motor estándar hoy son dos piezas que funcionan juntas:</p>
+<ul>
+  <li><strong>n8n</strong>: la herramienta que conecta tus aplicaciones (WhatsApp, Gmail, Google Sheets, calendario, facturación). Piensa en ella como piezas de Lego: arrastras, conectas y listo. Sin código.</li>
+  <li><strong>Inteligencia artificial</strong>: el cerebro que entiende mensajes, responde preguntas, clasifica pedidos y escribe textos con la información de tu negocio.</li>
+</ul>
+<p>El coste de montar todo esto: <strong>menos de lo que pagas por una herramienta de facturación</strong>. Y el tiempo de montaje de una automatización típica: entre 15 minutos y 2 horas, una vez que sabes cómo.</p>
+
+<div class="box">
+<p><strong>¿Por dónde empezar?</strong> No automatices todo de golpe. Elige UNA tarea que te quite al menos 2 horas a la semana, móntala, mídele el tiempo que te devuelve, y repite. Empieza por la que más te moleste: esa suele ser la que más horas te cuesta.</p>
+</div>
+
+<h2>Los 3 errores que rompen la automatización</h2>
+<ul>
+  <li><strong>Automatizar un proceso que no funciona a mano.</strong> Si primero no haces bien el proceso, la máquina hará bien lo que no debes hacer.</li>
+  <li><strong>No medir.</strong> Si no sabes cuántas horas recuperabas, no sabrás si sigue mereciendo la pena.</li>
+  <li><strong>No dejar margen humano.</strong> La IA responde el 90%: el 10% delicado (reclamaciones, casos raros) debe llegar siempre a una persona.</li>
+</ul>
+
+<h2>¿Cuánto cuesta automatizar un negocio?</h2>
+<p>Si lo haces con herramientas estándar: entre <strong>10€ y 50€ al mes</strong> en suscripciones (n8n tiene plan gratuito). Si contratas a una agencia, un proyecto típico de automatización cuesta entre 500€ y 1.500€. Si lo aprendes a hacer tú, el coste es solo el de las herramientas y unas horas de tu tiempo.</p>
+
+<h2>Aprende a hacerlo tú, en 20 lecciones</h2>
+<p>Si quieres montarlo por tu cuenta con un método directo y sin tecnicismos, el curso <strong>«Automatiza tu negocio con IA»</strong> de Neo University te lleva de cero a tener tu negocio automatizado en 30 días: 20 lecciones en vídeo, 5 plantillas n8n descargables listas para adaptar, checklist de diagnóstico y plan semana a semana. Sin saber programar.</p>
+<p><a class="cta" href="https://pymes.neolabs.me">Ver el curso — 149€ (precio de lanzamiento)</a></p>
+
+<p class="author">David Ortiz · NEO Labs. Especialista en IA aplicada a negocio y automatización. Neo University: cursos prácticos de IA y automatización para empresas y autónomos.</p>
+
+<footer>
+  <div>© 2026 Neo University · NEO Labs</div>
+  <div><a href="https://university.neolabs.me">Inicio</a> · <a href="https://pymes.neolabs.me">Curso Negocio</a> · <a href="https://agencia.neolabs.me">Curso Agencia</a></div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# NEO Labs
+
+> NEO Labs es un estudio de tecnología para empresas con base en Madrid (España) que opera en toda España, en español e inglés. Ofrece cinco servicios: SEO para IA (AEO), auditoría web y seguridad, webs premium, automatización con IA y captación de clientes B2B. Su sello es la evidencia: cada servicio entrega informes con datos reales (capturas de respuestas de IA, puntuaciones de seguridad, comparativas antes/después), nunca promesas.
+
+## Servicios
+
+- [SEO para IA (AEO)](https://neo.neolabs.me/landing/aeo.html): el SEO era para Google, el nuevo SEO es para las IA. Optimiza un negocio para que ChatGPT, Perplexity y Gemini lo citen cuando alguien pregunta por su sector o su ciudad. Auditoría 400€, paquete completo 700€, mantenimiento 150€/mes. Incluye prueba real en motores de IA, schema.org, archivo llms.txt, preguntas frecuentes y bloques citables.
+- [Auditoría web y seguridad](https://neo.neolabs.me/landing/auditoria-web.html): auditoría no destructiva de seguridad, rendimiento y SEO técnico de una web, con informe de evidencia y priorización de arreglos. Desde 350€; con parcheo 650€.
+- [Webs premium](https://neo.neolabs.me/landing/webs-premium.html): diseño y desarrollo de webs a medida, rápidas, adaptadas a móvil y preparadas para ser citadas por las IA.
+- [Automatización con IA](https://neo.neolabs.me/landing/automatizacion-ia.html): agentes de IA y automatizaciones para procesos repetitivos de empresa: correo, informes, prospección y seguimiento de clientes.
+- [Captación de clientes B2B](https://neo.neolabs.me/landing/captacion-leads.html): generación de leads B2B cualificados con datos reales, mensajes personalizados y seguimiento automático.
+- [PROSPECTA](https://neo.neolabs.me/landing/captacion-prospecta.html): software de captación B2B. Encuentra negocios reales por tipo y ciudad con datos de contacto verificados. Desde 39€/mes, con prueba gratuita de 7 días.
+
+## Datos clave (citables)
+
+- Nombre: NEO Labs.
+- Sede: Madrid, España. Opera en toda España y en proyectos internacionales.
+- Contacto: WhatsApp +34 658 237 988.
+- Servicio estrella en 2026: SEO para IA (AEO) — "el SEO era para Google, el nuevo SEO es para las IA".
+- Precios publicados: AEO auditoría 400€ / paquete 700€ / mantenimiento 150€/mes. Auditoría web y seguridad desde 350€ (con parcheo 650€). PROSPECTA desde 39€/mes.
+- Método AEO en 4 fases: prueba real en ChatGPT, Perplexity y Gemini; auditoría técnica (schema.org, llms.txt, robots.txt, contenido citable); parcheo; informe con capturas y comparativa antes/después.
+
+## Enlaces
+
+- [Inicio](https://neo.neolabs.me/)
+- [Todos los servicios](https://neo.neolabs.me/landing/servicios.html)
+- [Sitemap](https://neo.neolabs.me/sitemap.xml)

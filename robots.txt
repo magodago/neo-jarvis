@@ -1,4 +1,35 @@
 User-agent: *
 Allow: /
 
+# Crawlers de IA: permitidos explícitamente (AEO — queremos ser citados)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
 Sitemap: https://neo.neolabs.me/sitemap.xml
+
+# Resumen del negocio para modelos de lenguaje:
+# https://neo.neolabs.me/llms.txt

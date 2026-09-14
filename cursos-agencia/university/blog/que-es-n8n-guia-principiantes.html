@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qué es n8n y para qué sirve: guía para principiantes en 2026</title>
+<meta name="description" content="Qué es n8n, cómo funciona y para qué sirve en 2026: automatización de tareas sin código, con ejemplos reales de negocios y precio. Guía para empezar desde cero.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://university.neolabs.me/blog/que-es-n8n-guia-principiantes.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080d;--bg2:#0c0c14;--card:#10101a;--line:#1f1f30;--gold:#c9a35c;--gold2:#e6c887;--blue:#3d9bff;--text:#f4f2ec;--text2:#9a97a8;--serif:'Cormorant Garamond',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(8,8,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,163,92,.14)}
+.nav-in{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.crest{display:flex;align-items:center;gap:10px}
+.crest-badge{width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:14px;color:var(--gold2);background:radial-gradient(circle at 30% 30%,#1a1a2a,#0b0b14)}
+.crest-name{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:1px}
+.crest-name em{font-style:italic;color:var(--gold2)}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;margin-left:24px;transition:.25s}
+.nav-links a:hover{color:var(--gold2)}
+.article-hero{padding:130px 0 50px;position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 800px 400px at 80% 0%,rgba(61,155,255,.08),transparent 60%),linear-gradient(180deg,#0b0b15,#08080d);z-index:-1}
+.crumb{font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.5vw,46px);line-height:1.15;letter-spacing:-.3px}
+h1 em{font-style:italic;color:var(--gold2)}
+.meta{display:flex;gap:18px;margin-top:18px;color:var(--text2);font-size:13px;flex-wrap:wrap}
+article{padding:30px 0 60px}
+article h2{font-family:var(--serif);font-weight:600;font-size:28px;margin:44px 0 14px;line-height:1.25}
+article h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:30px 0 10px}
+article p{color:#c9c6d4;font-size:16px;margin-bottom:16px;font-weight:300}
+article ul,article ol{color:#c9c6d4;font-size:16px;font-weight:300;margin:0 0 20px 22px}
+article li{margin-bottom:8px}
+article strong{color:var(--text);font-weight:600}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 26px;margin:24px 0}
+.box.gold{border-color:rgba(201,163,92,.4);background:linear-gradient(150deg,var(--card),var(--bg2))}
+.box h4{font-family:var(--serif);font-size:19px;color:var(--gold2);margin-bottom:8px}
+.box p,.box li{font-size:15px}
+.cta{background:linear-gradient(150deg,var(--card),var(--bg2));border:1px solid rgba(201,163,92,.45);border-radius:10px;padding:34px;text-align:center;margin:46px 0}
+.cta h3{font-family:var(--serif);font-size:26px;font-weight:600;margin-bottom:8px}
+.cta p{color:var(--text2);font-size:14.5px;margin-bottom:20px}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0b0b14;font-weight:600;text-decoration:none;padding:13px 28px;border-radius:4px;font-size:13px;letter-spacing:1px;transition:.3s;text-transform:uppercase}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(201,163,92,.28)}
+footer{border-top:1px solid rgba(201,163,92,.14);padding:28px 0;color:var(--text2);font-size:13px}
+.foot-in{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-in a{color:var(--text2);text-decoration:none}
+.foot-in a:hover{color:var(--gold2)}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <div class="crest"><div class="crest-badge">NU</div><div class="crest-name">Neo <em>University</em></div></div>
+  <div class="nav-links"><a href="https://university.neolabs.me/#cursos">Cursos</a><a href="https://university.neolabs.me/">Inicio</a></div>
+</div></nav>
+
+<div class="article-hero"><div class="wrap">
+  <div class="crumb">Blog · Herramientas</div>
+  <h1>Qué es n8n y para qué sirve: <em>guía para empezar desde cero</em></h1>
+  <div class="meta"><span>📅 29 agosto 2026</span><span>⏱ 5 min</span><span>✍️ David Ortiz</span></div>
+</div></div>
+
+<article class="wrap">
+  <p>Si has oído hablar de automatización sin código, casi seguro has oído el nombre de n8n. Es la herramienta que está detrás de la mayoría de las automatizaciones que las agencias venden a empresas en 2026. Esta guía te explica qué es, cómo funciona y por qué se ha convertido en el estándar de facto — sin tecnicismos.</p>
+
+  <h2>n8n en una frase</h2>
+  <p><strong>n8n es una herramienta visual que conecta aplicaciones entre sí para que trabajen solas.</strong> Imagina un tablero donde arrastras bloques: uno lee un correo, otro busca en una hoja de cálculo, otro envía un mensaje. Los conectas, le das a ejecutar, y esa secuencia se repite sola cada vez que ocurre el evento que la dispara.</p>
+  <p>En términos técnicos es una plataforma de automatización de workflows (flujos de trabajo) de código abierto, pensada para funcionar sin escribir código, aunque lo permite cuando lo necesitas. Su nombre viene de "n-eight-n": nodos, la palabra inglesa para los bloques conectables.</p>
+
+  <h2>Qué puedes hacer con n8n (ejemplos reales)</h2>
+  <p>Los casos que más se venden en España a pymes, y que verás en cualquier agencia de automatización:</p>
+  <ul>
+    <li><strong>Informe semanal automático</strong>: cada lunes a las 9:00, recopila los pedidos de la semana de tu tienda, genera un resumen y te lo envía por email o a un grupo de WhatsApp.</li>
+    <li><strong>Gestión de pedidos</strong>: cuando llega un pedido nuevo (por web, email o formulario), se registra solo en una hoja de cálculo, se avisa al equipo y se envía confirmación al cliente.</li>
+    <li><strong>Recuperación de clientes</strong>: detecta clientes que no compran desde hace 60 días y les envía un mensaje automático con una oferta, de forma personalizada.</li>
+    <li><strong>Cualificación de leads</strong>: cada consulta que llega por la web se analiza (con IA o reglas), se clasifica y se envía al comercial adecuado, con el contexto completo.</li>
+    <li><strong>Recordatorios de citas</strong>: antes de una cita, envía avisos automáticos al cliente y al equipo, reduciendo los olvidos y las ausencias.</li>
+  </ul>
+  <p>Estos cinco ejemplos no son teóricos: son exactamente las plantillas de automatización que se entregan en el curso de agencia de Neo University, listas para adaptar a cualquier negocio.</p>
+
+  <h2>Por qué n8n y no otra herramienta</h2>
+  <p>Hay alternativas (Zapier, Make, Power Automate), pero n8n tiene ventajas que lo hacen el favorito de quien monta una agencia:</p>
+  <ul>
+    <li><strong>Es de código abierto</strong>: sin coste de licencia por cliente. Puedes instalarlo en tu propio servidor o en la nube, y no pagas por nodo ni por ejecución.</li>
+    <li><strong>Se autoalojar</strong>: los datos de tus clientes no pasan por un tercero, algo que tranquiliza a muchas empresas.</li>
+    <li><strong>Conecta con casi todo</strong>: cientos de integraciones nativas (Gmail, Google Sheets, WhatsApp Business, Telegram, Shopify, Stripe...) más API genéricas.</li>
+    <li><strong>Escala contigo</strong>: empiezas simple y añades complejidad sin cambiar de herramienta ni rehacer el trabajo.</li>
+  </ul>
+  <p>Para una agencia, la diferencia clave es económica: con Zapier, cada automatización de un cliente es una suscripción recurrente que pagas o le pasas al cliente. Con n8n, el coste por cliente adicional es prácticamente cero — y eso se nota en el margen.</p>
+
+  <div class="box gold">
+    <h4>¿Cuánto cuesta n8n?</h4>
+    <p>La versión de código abierto es gratuita (tú la instalas). El plan en la nube parte de unos 20-30€/mes, y vale la pena cuando no quieres gestionar servidores. Para empezar a aprender, la versión gratuita local o el plan de prueba son más que suficientes.</p>
+  </div>
+
+  <h2>Primeros pasos (esta tarde, no la próxima semana)</h2>
+  <ol>
+    <li>Instala n8n en tu ordenador (docker o la versión de escritorio) o crea una cuenta en n8n.cloud.</li>
+    <li>Conecta dos aplicaciones que uses a diario — por ejemplo, Google Sheets y Gmail.</li>
+    <li>Monta un flujo de prueba: cuando añadas una fila en la hoja, que te llegue un email. Eso ya es una automatización real.</li>
+    <li>Explora la plantilla de "informe semanal" y adáptala a tu negocio.</li>
+  </ol>
+  <p>El error típico del principiante es intentar montar un flujo enorme el primer día. Empieza pequeño: una automatización útil y funcionando vale más que diez a medias.</p>
+
+  <h2>Y cuando lo domines</h2>
+  <p>Saber usar n8n es una habilidad demandada por sí sola: las empresas lo buscan, y las agencias lo cobran. Si además aprendes a venderlo —a detectar qué empresas lo necesitan, a proponer el proyecto y a cobrarlo bien— tienes un negocio completo.</p>
+
+  <div class="cta">
+    <h3>Aprende n8n y vende automatizaciones</h3>
+    <p>El curso «Monta tu agencia de automatización con IA» incluye las 5 plantillas n8n listas para vender, paso a paso, con su guion de venta y presupuesto. De cero a tu primer proyecto cobrado.</p>
+    <a href="https://agencia.neolabs.me" class="btn">Ver el curso · 149€</a>
+  </div>
+</article>
+
+<footer><div class="foot-in">
+  <div>© 2026 Neo University · NEO Labs</div>
+  <div><a href="https://university.neolabs.me">Inicio</a> · <a href="https://agencia.neolabs.me">Curso Agencia</a> · <a href="https://curso.neolabs.me">IA Operativa</a></div>
+</div></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Qué es n8n y para qué sirve: guía para principiantes en 2026","description":"Qué es n8n, cómo funciona y para qué sirve: automatización de tareas sin código, con ejemplos reales de negocio y precios.","author":{"@type":"Person","name":"David Ortiz"},"publisher":{"@type":"Organization","name":"Neo University"},"datePublished":"2026-08-29","dateModified":"2026-08-29","mainEntityOfPage":"https://university.neolabs.me/blog/que-es-n8n-guia-principiantes.html"}
+</script>
+
+</body>
+</html>

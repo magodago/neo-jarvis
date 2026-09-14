@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Aula — Monta tu agencia de automatización con IA</title>
+<style>
+:root{--bg:#0a0a14;--card:#111120;--line:rgba(255,255,255,.08);--txt:#e8ecf4;--txt2:#9aa3b5;--txt3:#5c6577;--blue:#3d9bff;--pink:#ff4fd8;--orange:#ff9f43;--ok:#2ee6a8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',-apple-system,Segoe UI,sans-serif;min-height:100vh}
+a{color:var(--blue);text-decoration:none}
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.login-box{width:100%;max-width:400px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:40px 32px;text-align:center}
+.login-box .logo{font-weight:700;letter-spacing:2px;font-size:13px;color:var(--txt2);margin-bottom:6px}
+.login-box .logo i{display:inline-block;width:8px;height:8px;background:var(--blue);border-radius:50%;margin-right:6px;box-shadow:0 0 12px var(--blue)}
+.login-box h1{font-size:21px;margin-bottom:8px}
+.login-box p{color:var(--txt3);font-size:13.5px;margin-bottom:24px}
+.login-box input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#0d0d1a;color:var(--txt);font-size:15px;margin-bottom:12px;outline:none}
+.login-box input:focus{border-color:var(--blue)}
+.login-box button{width:100%;padding:15px;border:none;border-radius:12px;background:linear-gradient(90deg,var(--blue),var(--pink));color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.login-box .err{color:#ff5470;font-size:13px;margin-top:10px;min-height:18px}
+.login-box .hint{color:var(--txt3);font-size:12px;margin-top:16px}
+#app{display:none}
+header{position:sticky;top:0;background:rgba(10,10,20,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10}
+.hd{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.hd .logo{font-weight:700;font-size:13px;letter-spacing:2px;color:var(--txt2)}
+.hd .logo i{display:inline-block;width:8px;height:8px;background:var(--blue);border-radius:50%;margin-right:6px;box-shadow:0 0 10px var(--blue)}
+.hd .user{font-size:13px;color:var(--txt3)}
+.hd .out{cursor:pointer;color:var(--txt3);font-size:12px;margin-left:14px}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+.hero-aula{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:26px}
+.hero-aula h1{font-size:26px}
+.hero-aula .pct{color:var(--ok);font-weight:700;font-size:18px}
+.progress-bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:10px}
+.progress-bar div{height:100%;background:linear-gradient(90deg,var(--blue),var(--pink));border-radius:99px;transition:width .4s}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px}
+.mod h2{font-size:17px;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.mod .n{font-size:11px;background:rgba(61,155,255,.15);color:var(--blue);padding:3px 9px;border-radius:99px;font-weight:600}
+.mod .desc{color:var(--txt3);font-size:13px;margin-bottom:14px}
+.lec{display:flex;align-items:center;gap:14px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;cursor:pointer;background:#0d0d1a;transition:border .2s}
+.lec:hover{border-color:rgba(61,155,255,.5)}
+.lec .play{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--pink));display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.lec.done .play{background:linear-gradient(135deg,var(--ok),#1fa87e)}
+.lec .ttl{flex:1;font-size:14.5px}
+.lec .dur{color:var(--txt3);font-size:12px}
+.lec .st{color:var(--ok);font-size:13px}
+.lec .pdf{margin-left:auto;flex-shrink:0;font-size:12px;color:var(--txt3);cursor:pointer;padding:5px 10px;border:1px solid var(--line);border-radius:8px;background:#111120}
+.lec .pdf:hover{color:var(--blue);border-color:rgba(61,155,255,.5)}
+.recs{margin-top:26px;padding:22px;background:var(--card);border:1px solid var(--line);border-radius:18px}
+.recs h2{font-size:17px;margin-bottom:14px}
+.recs .r{display:flex;align-items:center;gap:12px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:#0d0d1a;font-size:13.5px}
+.recs .r:hover{border-color:rgba(61,155,255,.5)}
+.recs .r .ic{font-size:16px}
+.recs .r .nm{flex:1}
+.recs .r .go{color:var(--blue);font-size:12px}
+.player{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,26,.97);border-top:1px solid var(--line);padding:12px 20px;z-index:20}
+.player .pl{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.player .pt{flex:1;font-size:13.5px;color:var(--txt2);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player video{width:min(560px,100%);height:auto;border-radius:12px;background:#000;max-height:70vh}
+.dl{color:var(--txt3);font-size:12px;cursor:pointer;white-space:nowrap}
+.dl:hover{color:var(--blue)}
+.foot{color:var(--txt3);font-size:12px;text-align:center;padding:20px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div id="login">
+  <div class="login-box">
+    <div class="logo"><i></i>NEO LABS</div>
+    <h1>Monta tu agencia de automatización con IA</h1>
+    <p>Accede con el email con el que compraste el curso y la contraseña que recibiste por correo.</p>
+    <input id="em" type="email" placeholder="tu email" autocomplete="email">
+    <input id="pw" type="password" placeholder="contraseña del curso" autocomplete="current-password">
+    <button onclick="entrar()">Entrar al curso</button>
+    <div class="err" id="err"></div>
+    <div class="hint">¿Problemas de acceso? <a href="mailto:david@neolabs.me">Escríbenos</a></div>
+  </div>
+</div>
+
+<div id="app">
+<header><div class="hd">
+  <div class="logo"><i></i>AGENCIA IA</div>
+  <div><span class="out" onclick="salir()">salir del curso</span></div>
+</div></header>
+
+<div class="wrap">
+  <div class="hero-aula">
+    <div><h1>Tu curso</h1>
+      <div class="progress-bar"><div id="bar" style="width:0%"></div></div>
+    </div>
+    <div class="pct" id="pct">0%</div>
+  </div>
+  <div id="mods"></div>
+</div>
+</div>
+
+<div class="player" id="player" style="display:none">
+  <div class="pl">
+    <span class="pt" id="pt">Lección</span>
+    <video id="aud" controls preload="none" playsinline></video>
+    <span class="dl" onclick="descargar()">⬇ descargar MP4</span>
+  </div>
+</div>
+
+<div class="foot">Monta tu agencia de automatización con IA · NEO Labs · <a href="mailto:david@neolabs.me">david@neolabs.me</a></div>
+
+<script>
+var MODS=[
+ {t:"Módulo 1 · El negocio",d:"La agencia que cobra 500-800€ por proyecto",ls:[
+   {n:1,t:"Introducción — el mejor negocio hoy"},
+   {n:2,t:"Los 3 servicios que se venden solos"},
+   {n:3,t:"Cómo detectar empresas que necesitan automatización"},
+   {n:4,t:"Cuánto cobrar: proyecto vs retainer"},
+   {n:5,t:"El pitch de 60 segundos que abre puertas"}]},
+ {t:"Módulo 2 · Las herramientas",d:"n8n + IA + Google — el motor del negocio",ls:[
+   {n:6,t:"n8n: el motor de tu agencia"},
+   {n:7,t:"Conectores que venden: Gmail, Sheets y WhatsApp"},
+   {n:8,t:"IA dentro de las automatizaciones"},
+   {n:9,t:"Las 5 plantillas listas para vender"},
+   {n:10,t:"Errores técnicos comunes y cómo evitarlos"}]},
+ {t:"Módulo 3 · Conseguir clientes",d:"Prospección y venta B2B",ls:[
+   {n:11,t:"Cómo encontrar tu primer cliente esta semana"},
+   {n:12,t:"El mensaje de venta que funciona"},
+   {n:13,t:"La demo de 10 minutos que cierra"},
+   {n:14,t:"Cómo cobrar sin miedo: presupuesto y anticipo"},
+   {n:15,t:"Seguimiento a no-respondedores"}]},
+ {t:"Módulo 4 · Entregar y crecer",d:"De proyecto a agencia",ls:[
+   {n:16,t:"Entregar sin dramas: plan, prueba, formación"},
+   {n:17,t:"Pasar a retainer: ingresos recurrentes"},
+   {n:18,t:"Contratar tu primera ayuda (o subcontratar)"},
+   {n:19,t:"Escalar a 5-10 clientes sin volverte loco"},
+   {n:20,t:"El plan de 30 días completo"}]}
+];
+var PASS="AGENCIA2026";
+var KEY="agencia_prog_";
+function pn(n){return n<10?"0"+n:n}
+function entrar(){
+  var e=document.getElementById('em').value.trim().toLowerCase();
+  var p=document.getElementById('pw').value;
+  var err=document.getElementById('err');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){err.textContent='Escribe un email válido';return}
+  if(p!==PASS){err.textContent='Contraseña incorrecta. Revísala en tu email de bienvenida.';return}
+  localStorage.setItem(KEY+"email",e);
+  render();
+}
+function salir(){
+  var e=localStorage.getItem(KEY+"email");
+  localStorage.removeItem(KEY+"email");
+  if(e)localStorage.removeItem(KEY+"prog");
+  document.getElementById('app').style.display='none';
+  document.getElementById('login').style.display='flex';
+  document.getElementById('em').value='';
+  document.getElementById('pw').value='';
+  document.getElementById('err').textContent='';
+  document.getElementById('player').style.display='none';
+  var a=document.getElementById('aud');if(a)a.pause();
+}
+function estado(){var s={};try{s=JSON.parse(localStorage.getItem(KEY+"prog")||"{}")}catch(x){}return s}
+function done(n){var s=estado();s[n]=1;localStorage.setItem(KEY+"prog",JSON.stringify(s));render()}
+function isdone(n){return !!estado()[n]}
+function render(){
+  document.getElementById('login').style.display='none';
+  document.getElementById('app').style.display='block';
+  var tot=0,dn=0;
+  MODS.forEach(function(m){
+    m.ls.forEach(function(l){tot++;if(isdone(l.n))dn++});
+  });
+  var p=Math.round(100*dn/tot);
+  document.getElementById('pct').textContent=p+'%';
+  document.getElementById('bar').style.width=p+'%';
+  var h='';
+  MODS.forEach(function(m,i){
+    h+='<div class="mod"><h2><span class="n">M'+(i+1)+'</span>'+m.t+'</h2><div class="desc">'+m.d+'</div>';
+    m.ls.forEach(function(l){
+      h+='<div class="lec'+(isdone(l.n)?' done':'')+'"><div class="play" onclick="play('+l.n+')">'+(isdone(l.n)?'✓':'▶')+'</div><div class="ttl" onclick="play('+l.n+')">'+pn(l.n)+' · '+l.t+'</div><div class="dur">~4 min</div>'+(isdone(l.n)?'<div class="st">vista</div>':'')+'<div class="pdf" onclick="descargarPdf('+l.n+')">📄 PDF</div></div>';
+    });
+    h+='</div>';
+  });
+  document.getElementById('mods').innerHTML=h+recs();
+}
+function play(n){
+  var a=document.getElementById('aud');
+  a.src='mp4/leccion'+pn(n)+'.mp4';
+  document.getElementById('player').style.display='block';
+  document.getElementById('pt').textContent='Lección '+pn(n);
+  a.play();a.onended=function(){done(n)};
+  if(isdone(n))done(n);
+}
+function descargar(){
+  var a=document.getElementById('aud');
+  if(a.src){var x=document.createElement('a');x.href=a.src;x.download=a.src.split('/').pop();x.click()}
+}
+function descargarPdf(n){
+  var x=document.createElement('a');
+  x.href='pdfs/leccion'+pn(n)+'.pdf';
+  x.download='Agencia-IA-L'+pn(n)+'.pdf';
+  x.click();
+}
+var RECS=[
+ {f:'plantilla1_informe_semanal.json',n:'Plantilla n8n 1 — Informe semanal',d:'Datos de Sheets → resumen IA → correo. Véndela por 500-600€ (L09)'},
+ {f:'plantilla2_gestion_pedidos.json',n:'Plantilla n8n 2 — Gestión de pedidos',d:'Formulario → registro → confirmación IA → aviso equipo (L09)'},
+ {f:'plantilla3_recuperacion_clientes.json',n:'Plantilla n8n 3 — Recuperación de clientes',d:'Detecta inactivos 60 días → mensaje personalizado → aviso (L09)'},
+ {f:'plantilla4_cualificacion_leads.json',n:'Plantilla n8n 4 — Cualificación de leads',d:'Consulta web → IA clasifica y responde al momento (L09)'},
+ {f:'plantilla5_recordatorios_citas.json',n:'Plantilla n8n 5 — Recordatorios de citas',d:'Agenda → aviso WhatsApp 2 días antes → gestiona cambios (L09)'},
+ {f:'plantilla_presupuesto.pdf',n:'Plantilla de presupuesto',d:'Alcance, precio, condiciones y anticipo 50% (L14)'},
+ {f:'plantilla_documentacion.pdf',n:'Plantilla de documentación de entrega',d:'Qué hace el sistema, cómo reiniciar, cómo contactarte (L16)'}
+];
+function recs(){
+  var h='<div class="recs"><h2>📦 Recursos del curso — plantillas</h2>';
+  RECS.forEach(function(r){
+    h+='<div class="r" onclick="descargarRec(\''+r.f+'\')"><span class="ic">📄</span><span class="nm"><b>'+r.n+'</b><br><span style="color:var(--txt3);font-size:12px">'+r.d+'</span></span><span class="go">descargar ↓</span></div>';
+  });
+  h+='</div>';
+  return h;
+}
+function descargarRec(f){
+  var x=document.createElement('a');
+  x.href='plantillas/'+f;
+  x.download=f;
+  x.click();
+}
+if(localStorage.getItem(KEY+"email"))render();
+</script>
+</body>

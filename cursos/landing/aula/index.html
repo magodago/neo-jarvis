@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Aula IA Operativa — Acceso alumnos</title>
+<style>
+:root{--bg:#0a0a14;--card:#111120;--line:rgba(255,255,255,.08);--txt:#e8ecf4;--txt2:#9aa3b5;--txt3:#5c6577;--blue:#3d9bff;--pink:#ff4fd8;--orange:#ff9f43;--ok:#2ee6a8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',-apple-system,Segoe UI,sans-serif;min-height:100vh}
+a{color:var(--blue);text-decoration:none}
+/* login */
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.login-box{width:100%;max-width:400px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:40px 32px;text-align:center}
+.login-box .logo{font-weight:700;letter-spacing:2px;font-size:13px;color:var(--txt2);margin-bottom:6px}
+.login-box .logo i{display:inline-block;width:8px;height:8px;background:var(--blue);border-radius:50%;margin-right:6px;box-shadow:0 0 12px var(--blue)}
+.login-box h1{font-size:22px;margin-bottom:8px}
+.login-box p{color:var(--txt3);font-size:13.5px;margin-bottom:24px}
+.login-box input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#0d0d1a;color:var(--txt);font-size:15px;margin-bottom:12px;outline:none}
+.login-box input:focus{border-color:var(--blue)}
+.login-box button{width:100%;padding:15px;border:none;border-radius:12px;background:linear-gradient(90deg,var(--blue),var(--pink));color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.login-box .err{color:#ff5470;font-size:13px;margin-top:10px;min-height:18px}
+.login-box .hint{color:var(--txt3);font-size:12px;margin-top:16px}
+/* app */
+#app{display:none}
+header{position:sticky;top:0;background:rgba(10,10,20,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10}
+.hd{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.hd .logo{font-weight:700;font-size:13px;letter-spacing:2px;color:var(--txt2)}
+.hd .logo i{display:inline-block;width:8px;height:8px;background:var(--blue);border-radius:50%;margin-right:6px;box-shadow:0 0 10px var(--blue)}
+.hd .user{font-size:13px;color:var(--txt3)}
+.hd .out{cursor:pointer;color:var(--txt3);font-size:12px;margin-left:14px}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+.hero-aula{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:26px}
+.hero-aula h1{font-size:26px}
+.hero-aula .pct{color:var(--ok);font-weight:700;font-size:18px}
+.progress-bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:10px}
+.progress-bar div{height:100%;background:linear-gradient(90deg,var(--blue),var(--pink));border-radius:99px;transition:width .4s}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px}
+.mod h2{font-size:17px;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.mod .n{font-size:11px;background:rgba(61,155,255,.15);color:var(--blue);padding:3px 9px;border-radius:99px;font-weight:600}
+.mod .desc{color:var(--txt3);font-size:13px;margin-bottom:14px}
+.lec{display:flex;align-items:center;gap:14px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;cursor:pointer;background:#0d0d1a;transition:border .2s}
+.lec:hover{border-color:rgba(61,155,255,.5)}
+.lec .play{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--pink));display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.lec.done .play{background:linear-gradient(135deg,var(--ok),#1fa87e)}
+.lec .ttl{flex:1;font-size:14.5px}
+.lec .dur{color:var(--txt3);font-size:12px}
+.lec .st{color:var(--ok);font-size:13px}
+.player{position:fixed;bottom:0;left:0;right:0;background:rgba(13,13,26,.97);border-top:1px solid var(--line);padding:12px 20px;z-index:20}
+.player .pl{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.player .pt{flex:1;font-size:13.5px;color:var(--txt2);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player video{width:min(560px,100%);height:auto;border-radius:12px;background:#000;max-height:70vh}
+.dl{color:var(--txt3);font-size:12px;cursor:pointer;white-space:nowrap}
+.dl:hover{color:var(--blue)}
+.foot{color:var(--txt3);font-size:12px;text-align:center;padding:20px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div id="login">
+  <div class="login-box">
+    <div class="logo"><i></i>NEO LABS</div>
+    <h1>Curso IA Operativa</h1>
+    <p>Accede con el email con el que compraste el curso y la contraseña que recibiste por correo.</p>
+    <input id="em" type="email" placeholder="tu email" autocomplete="email">
+    <input id="pw" type="password" placeholder="contraseña del curso" autocomplete="current-password">
+    <button onclick="entrar()">Entrar al curso</button>
+    <div class="err" id="err"></div>
+    <div class="hint">¿No tienes acceso? <a href="mailto:david@neolabs.me">Escríbenos</a></div>
+  </div>
+</div>
+
+<div id="app">
+<header><div class="hd">
+  <div class="logo"><i></i>IA OPERATIVA</div>
+  <div><span class="user" id="uemail"></span><span class="out" onclick="salir()">salir</span></div>
+</div></header>
+
+<div class="wrap">
+  <div class="hero-aula">
+    <div><h1>Tu curso</h1>
+      <div class="progress-bar"><div id="bar" style="width:0%"></div></div>
+    </div>
+    <div class="pct" id="pct">0%</div>
+  </div>
+  <div id="mods"></div>
+</div>
+</div>
+
+<div class="player" id="player" style="display:none">
+  <div class="pl">
+    <span class="pt" id="pt">Lección</span>
+    <video id="aud" controls preload="none" playsinline></video>
+    <span class="dl" onclick="descargar()">⬇ descargar MP4</span>
+  </div>
+</div>
+
+<div class="foot">IA Operativa · NEO Labs · <a href="mailto:david@neolabs.me">david@neolabs.me</a></div>
+
+<script>
+var MODS=[
+ {t:"Módulo 1 · Fundamentos",d:"El concepto clave y tu primera automatización",ls:[
+   {n:1,t:"Introducción — por qué las empresas con IA ganan"},
+   {n:2,t:"El concepto clave: la regla de las 3 veces"},
+   {n:3,t:"Monta tu primera automatización con n8n"},
+   {n:4,t:"Disparadores, reglas y acciones"},
+   {n:5,t:"Ejercicio guiado: automatiza tu primera tarea"}]},
+ {t:"Módulo 2 · Flujos de trabajo con n8n",d:"Conectores, plantillas y casos reales",ls:[
+   {n:6,t:"Conectores: Gmail, Sheets y WhatsApp"},
+   {n:7,t:"Plantillas: informes, correos y resúmenes"},
+   {n:8,t:"Errores comunes y cómo resolverlos"},
+   {n:9,t:"Caso real: el informe semanal automático"},
+   {n:10,t:"Buenas prácticas y mantenimiento"}]},
+ {t:"Módulo 3 · IA aplicada",d:"ChatGPT y herramientas en tu día a día",ls:[
+   {n:11,t:"ChatGPT y alternativas para equipos"},
+   {n:12,t:"Prompts que funcionan"},
+   {n:13,t:"De la reunión al acta automática"},
+   {n:14,t:"Crea tu biblioteca de plantillas"},
+   {n:15,t:"IA en el día a día de oficina"}]},
+ {t:"Módulo 4 · Escala",d:"Prioriza, protege y crece",ls:[
+   {n:16,t:"Prioriza qué automatizar (rentabilidad)"},
+   {n:17,t:"Seguridad y datos en automatizaciones"},
+   {n:18,t:"De la automatización al equipo aumentado"},
+   {n:19,t:"Proyecto final: tu automatización completa"},
+   {n:20,t:"Plan de 30-90 días"}]}
+];
+var PASS="IA2026NEO";
+var KEY="iao_prog_";
+function pn(n){return n<10?"0"+n:n}
+function entrar(){
+  var e=document.getElementById('em').value.trim().toLowerCase();
+  var p=document.getElementById('pw').value;
+  var err=document.getElementById('err');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){err.textContent='Escribe un email válido';return}
+  if(p!==PASS){err.textContent='Contraseña incorrecta. Revísala en tu email de bienvenida.';return}
+  localStorage.setItem(KEY+"email",e);
+  render();
+}
+function salir(){location.reload()}
+function estado(){var s={};try{s=JSON.parse(localStorage.getItem(KEY+"prog")||"{}")}catch(x){}return s}
+function done(n){var s=estado();s[n]=1;localStorage.setItem(KEY+"prog",JSON.stringify(s));render()}
+function isdone(n){return !!estado()[n]}
+function render(){
+  document.getElementById('login').style.display='none';
+  document.getElementById('app').style.display='block';
+  document.getElementById('uemail').textContent=localStorage.getItem(KEY+"email")||'';
+  var tot=0,dn=0;
+  MODS.forEach(function(m){
+    m.ls.forEach(function(l){tot++;if(isdone(l.n))dn++});
+  });
+  var p=Math.round(100*dn/tot);
+  document.getElementById('pct').textContent=p+'%';
+  document.getElementById('bar').style.width=p+'%';
+  var h='';
+  MODS.forEach(function(m,i){
+    h+='<div class="mod"><h2><span class="n">M'+(i+1)+'</span>'+m.t+'</h2><div class="desc">'+m.d+'</div>';
+    m.ls.forEach(function(l){
+      h+='<div class="lec'+(isdone(l.n)?' done':'')+'" onclick="play('+l.n+')"><div class="play">'+(isdone(l.n)?'✓':'▶')+'</div><div class="ttl">'+pn(l.n)+' · '+l.t+'</div><div class="dur">~4 min</div>'+(isdone(l.n)?'<div class="st">vista</div>':'')+'</div>';
+    });
+    h+='</div>';
+  });
+  document.getElementById('mods').innerHTML=h;
+}
+function play(n){
+  var a=document.getElementById('aud');
+  a.src='mp4/leccion'+pn(n)+'.mp4';
+  document.getElementById('player').style.display='block';
+  document.getElementById('pt').textContent='Lección '+pn(n);
+  a.play();a.onended=function(){done(n)};
+  if(isdone(n))done(n);
+}
+function descargar(){
+  var a=document.getElementById('aud');
+  if(a.src){var x=document.createElement('a');x.href=a.src;x.download=a.src.split('/').pop();x.click()}
+}
+if(localStorage.getItem(KEY+"email"))render();
+</script>
+</body>
+</html>

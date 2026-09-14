@@ -407,11 +407,10 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     try:
         sm_path = REPO / "sitemap.xml"
         urls = []
-        for f in sorted(REPO.rglob("*.html")):
-            if 'Zone.Identifier' in str(f) or '.git' in str(f):
-                continue
-            rel = f.relative_to(REPO)
-            url = f"https://magodago.github.io/neo-jarvis/{rel}"
+        tracked = subprocess.run(["git", "ls-files", "*.html"], cwd=str(REPO),
+                                 capture_output=True, text=True).stdout.split()
+        for rel in sorted(tracked):
+            url = f"https://neo.neolabs.me/{rel}"
             urls.append(f"""  <url>
     <loc>{url}</loc>
     <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>
@@ -444,7 +443,7 @@ let s=0,n=document.getElementById('nav');document.addEventListener('scroll',()=>
     
     # Ping search engines
     for url in [
-        f"https://www.google.com/ping?sitemap=https://magodago.github.io/neo-jarvis/sitemap.xml",
+        f"https://www.google.com/ping?sitemap=https://neo.neolabs.me/sitemap.xml",
         f"https://api.indexnow.org/indexnow?url={filepath.name}&key=indexnow-key"
     ]:
         try:
