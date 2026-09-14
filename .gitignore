@@ -5,3 +5,8 @@
 *.json
 .env
 briefing/lead-gen/.env
+*.sqlite
+*.sqlite3
+briefing/lead-gen/data/
+*.key
+*.pem

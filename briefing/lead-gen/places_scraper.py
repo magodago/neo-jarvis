@@ -1,3 +1,14 @@
+import os
+
+
+def _clave_maps():
+    """La clave NO vive en el repo: fichero privado o variable de entorno."""
+    v = os.environ.get("GOOGLE_MAPS_KEY")
+    if v:
+        return v.strip()
+    with open(os.path.expanduser("~/.config/neo_google_key")) as f:
+        return f.read().strip()
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -7,7 +18,7 @@ Genera cientos de leads con teléfono, web y email.
 import json, os, sqlite3, re, urllib.request, ssl, time
 from datetime import datetime
 
-API_KEY = "AIzaSyAJR3Tbj39ad_Tu39Uw_N4CubXzUvJtck4"
+API_KEY = _clave_maps()
 API_URL = "https://places.googleapis.com/v1/places:searchText"
 BASE = os.path.dirname(os.path.abspath(__file__))
 DB = os.path.join(BASE, 'data', 'leads.db')
