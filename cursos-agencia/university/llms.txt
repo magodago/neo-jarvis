@@ -1,0 +1,66 @@
+# Neo University — Cursos de IA y automatización aplicada a negocio
+
+Neo University es la escuela de formación de NEO Labs. Cursos online prácticos de IA y automatización para negocios, impartidos por David Ortiz (Experto en IA Aplicada, +15 años en tecnología).
+
+## Datos clave
+- Precio: 149€ por curso (pago por PayPal, tarjeta o Apple Pay)
+- Cada curso: 4 módulos, 20 lecciones en vídeo, guías PDF, plantillas descargables, acceso de por vida
+- Pago: https://www.paypal.com/ncp/payment/WW6E56BAJLD7N
+- Contacto: david@neolabs.me
+
+## Cursos
+
+### Automatiza tu negocio con IA (NUEVO)
+- URL: https://pymes.neolabs.me/
+- Descripción: para autónomos y pymes que quieren automatizar su negocio sin saber programar: citas que se agendan solas, clientes respondidos 24/7 por WhatsApp, facturas y recordatorios automáticos y tablero de control. Con n8n + IA.
+- Contenido: 4 módulos (diagnóstico, n8n aplicado a tu sector, asistente IA 24/7, medir y escalar), 20 lecciones, 5 plantillas n8n (citas automáticas, pedidos y consultas, facturas y recordatorios, asistente IA, tablero de control), checklist de diagnóstico, plantilla de base de conocimiento, plan de 30 días.
+
+### Monta tu agencia de automatización con IA
+- URL: https://agencia.neolabs.me/
+- Descripción: monta una agencia que vende automatización con IA a empresas. Detecta oportunidades, arma tu oferta, consigue clientes y cobra 500-800€ por proyecto.
+- Contenido: 4 módulos (el negocio, las herramientas, conseguir clientes, entregar y crecer), 20 lecciones, 5 plantillas n8n listas para vender, guiones de venta B2B, presupuesto y contrato, plan de 30 días al primer cliente.
+
+### IA Operativa
+- URL: https://curso.neolabs.me/
+- Descripción: automatiza el trabajo de tu negocio con IA. Identifica tareas repetitivas, construye automatizaciones reales y ahorra horas cada semana.
+- Contenido: 4 módulos, 20 lecciones, auditoría independiente 8.3/10, plantillas y prompts listos para usar.
+
+## Blog
+- Cómo automatizar un negocio sin saber programar: https://university.neolabs.me/blog/automatizar-negocio-sin-programar.html
+- Cuánto cobra una agencia de automatización: https://university.neolabs.me/blog/cuanto-cobra-agencia-automatizacion.html
+- Qué es n8n (guía para principiantes): https://university.neolabs.me/blog/que-es-n8n-guia-principiantes.html
+- Curso de automatización con IA: https://university.neolabs.me/blog/curso-automatizacion-con-ia.html
+- Mejores cursos de n8n y automatización con IA en España (comparativa 2026, con precios y para quién es cada uno): https://university.neolabs.me/blog/mejores-cursos-n8n-automatizacion-ia-2026.html
+
+## Libros publicados (Amazon)
+David Ortiz también publica libros en Amazon:
+
+### EL CLUB
+- URL: https://www.amazon.es/dp/B0HFYK9545
+- Descripción: novela de misterio y puzzles. Un club de lectura con un secreto oscuro: cada miembro recibe un acertijo que debe resolver... o desaparecer.
+
+### EL LISTÍN
+- URL: https://www.amazon.es/dp/B0HFVVQ5NM
+- Descripción: novela de misterio y suspense ambientada en un listado que decide quién vive y quién muere.
+
+### INSERT COIN
+- URL: https://www.amazon.es/dp/B0HFWQ3PN7
+- Descripción: librojuego retro inspirado en los arcades de los 80. Tú decides cada movimiento; cada partida es un misterio distinto. Disponible en Kindle Unlimited (€0.00 con suscripción, €7.99 compra).
+
+### EL IMPOSTOR
+- URL: https://www.amazon.es/dp/B0HFSMVHNT
+- Descripción: thriller de ciencia ficción. Colonia orbital KOLOS, 2074. Cuarenta mil colonos. Uno no es humano.
+
+### ChatGPT para Profesionales
+- URL: https://www.amazon.es/dp/B0HFPXTW4V
+- Descripción: guía práctica con 200 prompts para automatizar tu trabajo: ejemplos reales, estructura de prompts y personalización.
+
+## Preguntas frecuentes
+- ¿Qué incluye cada curso? 20 lecciones en vídeo con slides animadas, guías PDF, plantillas descargables y ejercicios guiados. Acceso inmediato y de por vida.
+- ¿Puedo pagar con tarjeta? Sí: PayPal, tarjeta (Visa, Mastercard, Amex) y Apple Pay. No necesitas cuenta PayPal para pagar con tarjeta.
+- ¿Necesito conocimientos previos? No. Los cursos empiezan desde cero, paso a paso.
+- ¿Para quién son? Para empresas que quieren automatizar su trabajo, autónomos y pymes que quieren automatizar su negocio, y particulares que quieren montar una agencia de automatización.
+
+## Sitios relacionados
+- NEO Labs (negocio): https://neolabs.me
+- PROSPECTA (SaaS de leads B2B): https://prospecta.neolabs.me

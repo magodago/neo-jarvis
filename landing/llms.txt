@@ -5,6 +5,7 @@
 ## Servicios
 
 - [SEO para IA (AEO)](aeo.html): El SEO era para Google; el nuevo SEO es para las IA. Optimiza un negocio para que ChatGPT, Perplexity y Gemini lo citen cuando alguien pregunta por su sector o ciudad. Auditoría 400€, paquete completo 700€, mantenimiento 150€/mes. Incluye: prueba real en 3 motores de IA, schema.org, archivo llms.txt, preguntas frecuentes y bloques citables.
+- [Cuánto cuesta aparecer en ChatGPT (precios AEO)](precio-aeo.html): guía de precios AEO con tramos reales. Diagnóstico 400€, paquete completo 700€, mantenimiento 150€/mes. Qué necesita una web para que las IA la citen.
 - [Auditoría web y seguridad](auditoria-web.html): Auditoría no destructiva de seguridad, rendimiento y SEO técnico de una web, con informe con evidencia y priorización. Desde 350€; con parcheo 650€.
 - [Webs premium](webs-premium.html): Diseño y desarrollo de webs a medida, rápidas, adaptadas a móvil y preparadas para ser citadas por las IA.
 - [Automatización con IA](automatizacion-ia.html): Agentes de IA para automatizar procesos repetitivos de empresa: correo, informes, prospección, seguimiento de clientes.

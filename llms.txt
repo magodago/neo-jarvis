@@ -5,6 +5,7 @@
 ## Servicios
 
 - [SEO para IA (AEO)](https://neo.neolabs.me/landing/aeo.html): el SEO era para Google, el nuevo SEO es para las IA. Optimiza un negocio para que ChatGPT, Perplexity y Gemini lo citen cuando alguien pregunta por su sector o su ciudad. Auditoría 400€, paquete completo 700€, mantenimiento 150€/mes. Incluye prueba real en motores de IA, schema.org, archivo llms.txt, preguntas frecuentes y bloques citables.
+- [Cuánto cuesta aparecer en ChatGPT (precios AEO)](https://neo.neolabs.me/landing/precio-aeo.html): guía de precios del servicio AEO, con tramos reales. Diagnóstico AEO 400€, paquete completo con implementación 700€, mantenimiento 150€/mes. Explica qué necesita una web (contenido citable, schema.org, llms.txt, señales externas) para que ChatGPT, Perplexity y Gemini la citen.
 - [Auditoría web y seguridad](https://neo.neolabs.me/landing/auditoria-web.html): auditoría no destructiva de seguridad, rendimiento y SEO técnico de una web, con informe de evidencia y priorización de arreglos. Desde 350€; con parcheo 650€.
 - [Webs premium](https://neo.neolabs.me/landing/webs-premium.html): diseño y desarrollo de webs a medida, rápidas, adaptadas a móvil y preparadas para ser citadas por las IA.
 - [Automatización con IA](https://neo.neolabs.me/landing/automatizacion-ia.html): agentes de IA y automatizaciones para procesos repetitivos de empresa: correo, informes, prospección y seguimiento de clientes.

@@ -1573,6 +1573,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://neo.neolabs.me/landing/precio-aeo.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://neo.neolabs.me/landing/auditoria-web.html</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -1724,6 +1730,12 @@
   </url>
   <url>
     <loc>https://neo.neolabs.me/scripts/star.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neo.neolabs.me/cursos-agencia/university/blog/mejores-cursos-n8n-automatizacion-ia-2026.html</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
