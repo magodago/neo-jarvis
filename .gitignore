@@ -10,3 +10,10 @@ briefing/lead-gen/.env
 briefing/lead-gen/data/
 *.key
 *.pem
+cursos/sitio/
+# Pesado: no va a GitHub (limite 100 MB por fichero)
+lead-gen/osm_local/
+**/__pycache__/
+briefing/*.mp3
+cursos-agencia/sitio/aula/mp4/
+cursos/sitio/

@@ -78,6 +78,30 @@ table.ptable tr.neo td b{color:var(--gold2)}
 a.inline{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(201,163,92,.35)}
 a.inline:hover{color:var(--text)}
 
+
+/* --- MOVIL: nada puede salirse de la pantalla --- */
+.grid>*, .steps>*, .prices>*, .vs>*, .g2>* { min-width: 0; }
+img, svg, video, iframe { max-width: 100%; height: auto; }
+p, li, td, th, h1, h2, h3, summary, a { overflow-wrap: anywhere; word-break: break-word; }
+@media (max-width: 700px) {
+  .pantalla, .wrap, .container, section > div { padding-left: 16px; padding-right: 16px; }
+  .ptable, table { display: block; width: 100%; }
+  .ptable thead, table thead { display: none; }
+  .ptable tr, table tbody tr, table tr {
+    display: block; background: var(--card, #111); border: 1px solid var(--line, #222);
+    border-radius: 14px; padding: 14px 16px; margin-bottom: 12px;
+  }
+  .ptable td, table td {
+    display: block; width: auto !important; padding: 4px 0 !important;
+    border: none !important; font-size: 15px; text-align: left !important;
+  }
+  .ptable td.p, table td.p { font-weight: 700; font-size: 17px; padding-top: 8px !important; }
+  .ptable td:first-child b, table td:first-child b { display: block; font-size: 16.5px; margin-bottom: 4px; }
+  .prices, .grid, .steps, .vs { grid-template-columns: 1fr !important; }
+  h1 { font-size: clamp(26px, 8vw, 40px) !important; }
+  h2 { font-size: clamp(21px, 6vw, 30px) !important; }
+  .btn { white-space: normal; width: 100%; }
+}
 </style>
 </head>
 <body>
